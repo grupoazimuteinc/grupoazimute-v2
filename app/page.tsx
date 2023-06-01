@@ -10,6 +10,20 @@ import azimuteSanOff from '@/src/images/azimute-san-off.png'
 import azimuteSanWhite from '@/src/images/azimute-san-white.png'
 import azimuteAriaOff from '@/src/images/aria-off.png'
 import azimuteAriaWhite from '@/src/images/aria-white.png'
+import { createClient } from '@prismicio/client'
+
+
+// export async function getStaticProps({ previewData }) {
+//   const client = createClient({ previewData });
+
+//   const page = await client.getByIDs("page", "home")
+
+//   return (
+//     props: {
+//       page
+//     },
+//   );
+// }
 
 export default function Home() {
   return (
@@ -121,7 +135,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </div>
+      </div> 
     </main>
   )
 }

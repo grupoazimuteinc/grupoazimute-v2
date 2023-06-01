@@ -63,7 +63,34 @@ interface PostsDocumentData {
    *
    */
   url: prismic.LinkField;
+  /**
+   * content field in *Posts*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  content: prismic.RichTextField;
+  /**
+   * Slice Zone field in *Posts*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<PostsDocumentDataSlicesSlice>;
 }
+/**
+ * Slice for *Posts → Slice Zone*
+ *
+ */
+type PostsDocumentDataSlicesSlice = never;
 /**
  * Posts document from Prismic
  *
@@ -76,6 +103,92 @@ interface PostsDocumentData {
 export type PostsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PostsDocumentData>, "posts", Lang>;
 export type AllDocumentTypes = PostsDocument;
+/**
+ * Default variation for Posts Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PostsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+/**
+ * Item in Posts → Items
+ *
+ */
+export interface PostsSlicePostsItem {
+  /**
+   * Image field in *Posts → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Type field in *Posts → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.items[].type
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  type: prismic.RichTextField;
+  /**
+   * Title field in *Posts → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.items[].title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.RichTextField;
+  /**
+   * Date field in *Posts → Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.items[].date
+   * - **Documentation**: https://prismic.io/docs/core-concepts/date
+   *
+   */
+  date: prismic.DateField;
+}
+/**
+ * Posts variation for Posts Slice
+ *
+ * - **API ID**: `posts`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PostsSlicePosts = prismic.SharedSliceVariation<
+  "posts",
+  Record<string, never>,
+  Simplify<PostsSlicePostsItem>
+>;
+/**
+ * Slice variation for *Posts*
+ *
+ */
+type PostsSliceVariation = PostsSliceDefault | PostsSlicePosts;
+/**
+ * Posts Shared Slice
+ *
+ * - **API ID**: `posts`
+ * - **Description**: `Posts`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PostsSlice = prismic.SharedSlice<"posts", PostsSliceVariation>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -84,6 +197,16 @@ declare module "@prismicio/client" {
     ): prismicClient.Client<AllDocumentTypes>;
   }
   namespace Content {
-    export type { PostsDocumentData, PostsDocument, AllDocumentTypes };
+    export type {
+      PostsDocumentData,
+      PostsDocumentDataSlicesSlice,
+      PostsDocument,
+      AllDocumentTypes,
+      PostsSliceDefault,
+      PostsSlicePostsItem,
+      PostsSlicePosts,
+      PostsSliceVariation,
+      PostsSlice,
+    };
   }
 }
