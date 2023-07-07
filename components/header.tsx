@@ -78,10 +78,10 @@ export function Header() {
                                     </ul>
                                 </span>
                                 <a href="#" className="header-sublink anchor" data-anchor="feed">Notícias</a>
-                                <a href="https://grupoazimute.com.br/contato" className="header-sublink">Contato</a>
-                                <a href="https://grupoazimute.com.br/solicite-orcamento" className="header-sublink">Solicite um Orçamento</a>
-                                <a href="https://grupoazimute.com.br/pesquisa-de-satisfacao" className="header-sublink">Pesquisa de Satisfação</a>
-                                <a href="https://grupoazimute.com.br/trabalhe-conosco" className="header-sublink">Trabalhe Conosco</a>
+                                <a href="/contato" className="header-sublink">Contato</a>
+                                <a href="/solicite-orcamento" className="header-sublink">Solicite um Orçamento</a>
+                                <a href="/pesquisa-de-satisfacao" className="header-sublink">Pesquisa de Satisfação</a>
+                                <a href="/trabalhe-conosco" className="header-sublink">Trabalhe Conosco</a>
                             </div>
                         </div>
                     </div>
