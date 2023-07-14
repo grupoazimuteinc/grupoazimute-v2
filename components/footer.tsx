@@ -44,10 +44,10 @@ export function Footer() {
                         </svg>
 
                         <p>
-                            "O êxito da vida não se mede pelo 
+                            O êxito da vida não se mede pelo 
                             caminho que você conquistou, 
                             mas sim pelas dificuldades 
-                            que superou no caminho."
+                            que superou no caminho.
                         </p>
 
                         <span className="author">- Abraham Lincoln</span>
