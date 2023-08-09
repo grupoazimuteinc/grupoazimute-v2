@@ -34,7 +34,7 @@ export function Footer() {
                     
                     <div className="col-12 col-md-5 shape-holder">
                         <svg width="331px" height="318px" viewBox="0 0 331 318" version="1.1">
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                 <g id="Home" transform="translate(-1217.000000, -4256.000000)">
                                     <g id="Footer" transform="translate(0.000000, 4256.000000)">
                                         <polygon id="Rectangle" fill="#F2F2F2" opacity="0.049999997" points="1331.80453 0 1548 0 1433.19547 318 1217 318"></polygon>

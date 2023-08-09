@@ -1,5 +1,5 @@
 body { background: none; }
-	.content {
+	#contato .content {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -11,7 +11,7 @@ body { background: none; }
 		margin-top: 0;
 	}
 
-    .content .content-info {
+    #contato .content .content-info {
         display: flex; 
         flex-direction: column; 
         justify-content: center; 
@@ -19,11 +19,11 @@ body { background: none; }
         padding-top: 100px;
     }
 
-    .content img {
+    #contato .content img {
         max-width: 300px;
     }
 
-	.logo-holder {
+	#contato .logo-holder {
 		position: absolute;
 		bottom: 60px;
 		left: 0;
@@ -33,7 +33,7 @@ body { background: none; }
 		text-align: center;
 	}
 
-	.infos-holder {
+	#contato .infos-holder {
 		padding: 10px 10px;
 		background: rgba(0,0,0,.4);
 		border-radius: 30px;
@@ -44,7 +44,7 @@ body { background: none; }
 		margin-top: 40px;
 	}
 
-	.infos-holder a {
+	#contato .infos-holder a {
 		color: #fff;
 		font-size: 16px;
 		font-weight: 500;
@@ -55,26 +55,26 @@ body { background: none; }
 		margin: 0 15px;
 	}
 
-	a { transition: all .3s ease-in-out; }
-	a:hover { opacity: .6; }
+	#contato a { transition: all .3s ease-in-out; }
+	#contato a:hover { opacity: .6; }
 
-	.infos-holder svg { margin-right: 10px; }
+	#contato .infos-holder svg { margin-right: 10px; }
 
-	.box-icon { 
+	#contato .box-icon { 
 		margin-bottom: 60px; 
 		text-align: center;
 		padding: 0 3px;
 	}
 
-	a .box-icon {
+	#contato a .box-icon {
 		color: #a7a7a7;
 	}
 
-	a .box-icon:hover {
+	#contato a .box-icon:hover {
 		text-decoration: underline;
 	}
 
-	.icon-holder {
+	#contato .icon-holder {
 		height: 60px;
 		display: flex;
 		flex-direction: row;
@@ -82,24 +82,24 @@ body { background: none; }
 		justify-content: center;
 		margin-bottom: 20px;
 	}
-	.box-icon span {
+	#contato .box-icon span {
 		display: block;
 		font-weight: 600;
 		/* text-transform: uppercase; */
 		margin-bottom: 15px;
 	}
 
-	.img-azimute-imoveis {
+	#contato .img-azimute-imoveis {
 		padding: 80px 0;
 		background: url(../../src/images/img-azimute-imoveis.jpg) right top no-repeat; 
 		background-size: cover;
 	}
-	.img-azimute-imoveis h2 { color: #fff; margin-top: 0; }
-	.img-azimute-imoveis ul, .img-azimute-imoveis p { color: #fff; }
-	.list-default { margin-bottom: 60px; padding: 0; padding-left: 17px; }
-	.list-default li { margin-bottom: 10px; }
+	#contato .img-azimute-imoveis h2 { color: #fff; margin-top: 0; }
+	#contato .img-azimute-imoveis ul, .img-azimute-imoveis p { color: #fff; }
+	#contato .list-default { margin-bottom: 60px; padding: 0; padding-left: 17px; }
+	#contato .list-default li { margin-bottom: 10px; }
 
-	.social-media {
+	#contato .social-media {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -108,7 +108,7 @@ body { background: none; }
 		padding: 40px 0;
 	}
 
-	.email {
+	#contato .email {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -117,20 +117,20 @@ body { background: none; }
 		position: relative;
 	}
 
-	.email i {
+	#contato .email i {
 		margin: 2px 10px 0 0;
 	}
 
-	.email a {
+	#contato .email a {
 		margin-bottom: 0;
 		color: #fff;
 	}
 
-	.social-media span {
+	#contato .social-media span {
 		margin-left: 30px;
 	}
 
-	.social-media span:after {
+	#contato .social-media span:after {
 		position: absolute;
 		content: '';
 		width: 1px;
@@ -144,35 +144,36 @@ body { background: none; }
 		text-decoration: none;
 	}
 
-	.redes-sociais a {
+	#contato .redes-sociais a {
 		margin: 0 10px;
 	}
 
-	.redes-sociais a:first-child { margin-left: 0;}
+	#contato .redes-sociais a:first-child { margin-left: 0;}
 
-	.social-media i {
+	#contato .social-media i {
 		color: #095284;
 		font-size: 20px;
 	}
+
 	@media (max-width: 968px) {
-		.infos-holder a span { display: none; }
+		#contato .infos-holder a span { display: none; }
 	}
 
 	@media (max-width: 768px) {
 
-		.social-media { flex-direction: column;}
+		#contato .social-media { flex-direction: column;}
 
-		.social-media span:after { display: none;}
+		#contato .social-media span:after { display: none;}
 
-		.email { margin-bottom: 20px;}
+		#contato .email { margin-bottom: 20px;}
 
 	}
 
-    h2.borded {
+    #contato h2.borded {
         margin: 65px 0;
     }
 
-    h2 {
+    #contato h2 {
         color: #666666;
         font-size: 56px;
         line-height: 60px;
@@ -184,11 +185,11 @@ body { background: none; }
         position: relative;
     }
 
-    .form-default label {
+    #contato .form-default label {
         display: block;
     }
 
-    .form-default input {
+    #contato .form-default input {
         width: 100%;
         background: #F1F1F2;
         height: 70px;
@@ -199,7 +200,7 @@ body { background: none; }
         border: none;
     }
 
-    .form-default .options-holder {
+    #contato .form-default .options-holder {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 15px;
@@ -207,11 +208,11 @@ body { background: none; }
         margin-bottom: 30px;
     }
 
-    .form-default .options-holder.empresas-grupo {
+    #contato .form-default .options-holder.empresas-grupo {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 
-    .form-default .option {
+    #contato .form-default .option {
         width: 100%;
         border: 1px solid #C9C9C9;
         height: 70px;
@@ -226,18 +227,18 @@ body { background: none; }
         transition: all .3s ease-in-out;
     }
 
-    .option.active {
+    #contato .option.active {
         background: #111;
         color: #fff;
     }
 
-    .option.option-engenharia.active { background: #50A275; }
-    .option.option-tech.active { background: #E2243D; }
-    .option.option-imoveis.active { background: #1E5285; }
-    .option.option-san.active { background: #0086c8; }
-    .option.option-aria.active { background: #e25b15; }
+    #contato .option.option-engenharia.active { background: #50A275; }
+    #contato .option.option-tech.active { background: #E2243D; }
+    #contato .option.option-imoveis.active { background: #1E5285; }
+    #contato .option.option-san.active { background: #0086c8; }
+    #contato .option.option-aria.active { background: #e25b15; }
 
-    .form-default .options-holder span {
+    #contato .form-default .options-holder span {
         color: #e2363d;
         font-size: 10px;
         text-transform: uppercase;
@@ -247,11 +248,11 @@ body { background: none; }
         bottom: 24px;
     }
 
-    .option-low {
+    #contato .option-low {
         left: 0;
     }
 
-    .form-default textarea {
+    #contato .form-default textarea {
         width: 100%;
         background: #F1F1F2;
         height: 170px;
@@ -261,11 +262,11 @@ body { background: none; }
         border: none;
     }
 
-    .option-high {
+    #contato .option-high {
         right: 15px;
     }
 
-    .button-default {
+    #contato .button-default {
         background: #666666;
         border: 2px solid #666666;
         height: 60px;
@@ -281,7 +282,7 @@ body { background: none; }
         cursor: pointer;
     }
 
-    .button-default:hover {
+    #contato .button-default:hover {
         color: #fff;
         padding: 0 50px;
     }

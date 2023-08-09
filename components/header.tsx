@@ -23,7 +23,7 @@ export function Header() {
                         <div className="col-3 text-right d-md-none">
                             <a href="#menu" className="menu-mobile">
                                 <svg width="26px" height="16px" viewBox="0 0 26 16" version="1.1" xmlns="https://www.w3.org/2000/svg">
-                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                         <g id="home" transform="translate(-408.000000, -56.000000)" fill="#111111">
                                             <rect id="Rectangle1" x="408" y="56" width="26" height="2"></rect>
                                             <rect id="Rectangle2" x="408" y="63" width="26" height="2"></rect>
@@ -42,7 +42,7 @@ export function Header() {
                             </div>
 
                             <div className="links">
-                                <span>
+                                {/* <span>
                                     <a href="https://grupoazimute.com.br/solucoes" className="header-sublink anchor" data-anchor="o-grupo">O Grupo</a>
 
                                     <ul className="list-dropdown">
@@ -76,12 +76,12 @@ export function Header() {
                                             </a>
                                         </li>
                                     </ul>
-                                </span>
-                                <a href="#" className="header-sublink anchor" data-anchor="feed">Notícias</a>
-                                <a href="https://grupoazimute.com.br/contato" className="header-sublink">Contato</a>
-                                <a href="https://grupoazimute.com.br/solicite-orcamento" className="header-sublink">Solicite um Orçamento</a>
-                                <a href="https://grupoazimute.com.br/pesquisa-de-satisfacao" className="header-sublink">Pesquisa de Satisfação</a>
-                                <a href="https://grupoazimute.com.br/trabalhe-conosco" className="header-sublink">Trabalhe Conosco</a>
+                                </span> */}
+                                {/* <a href="#" className="header-sublink anchor" data-anchor="feed">Notícias</a> */}
+                                <Link href="/contato" className="header-sublink">Contato</Link>
+                                <Link href="/solicite-orcamento" className="header-sublink">Solicite um Orçamento</Link>
+                                <Link href="/pesquisa-de-satisfacao" className="header-sublink">Pesquisa de Satisfação</Link>
+                                <Link href="/trabalhe-conosco" className="header-sublink">Trabalhe Conosco</Link>
                             </div>
                         </div>
                     </div>
