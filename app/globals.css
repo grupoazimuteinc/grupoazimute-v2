@@ -188,7 +188,7 @@ footer a:hover { color: #404040; text-decoration: underline !important; }
 .box-news:hover { transform: translateY(-10px); }
 
 .news-image {
-	height: 160px;
+	height: 220px;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;

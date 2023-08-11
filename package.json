@@ -10,6 +10,8 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.4",
+    "@sanity/client": "^6.2.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.12.0",
     "@types/node": "20.2.1",

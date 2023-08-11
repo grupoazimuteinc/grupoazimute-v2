@@ -1,4 +1,9 @@
 import Image from 'next/image'
+import { groq } from 'next-sanity'
+
+import { client } from '@/lib/sanity.client'
+
+import { Posts } from '@/components/posts'
 
 import azimuteEngenhariaOff from '@/src/images/azimute-engenharia-off.png'
 import azimuteEngenhariaWhite from '@/src/images/azimute-engenharia-white.png'
@@ -11,7 +16,19 @@ import azimuteSanWhite from '@/src/images/azimute-san-white.png'
 import azimuteAriaOff from '@/src/images/aria-off.png'
 import azimuteAriaWhite from '@/src/images/aria-white.png'
 
-export default function Home() {
+const query = groq`
+  *[_type=='post'] {
+    ...,
+    categories[]->,
+  } | order(publishedAt desc)
+`
+
+export const revalidate = 60
+
+export default async function Home() {
+  const posts = await client.fetch(query)
+  console.log(posts)
+
   return (
     <main>
       <div className="content o-grupo pt-52">
@@ -107,19 +124,7 @@ export default function Home() {
 
       <div className="container pb-24">
         <div className="row">
-          <div className="col-12 col-md-3 all" style={{ display: 'block' }}>
-            <a href="https://azimutesan.com.br/blog/azimute-san-realiza-estruturacao-de-solucao-sustentavel-para-abastecimento-de-agua-e-esgotamento-sanitario-do-municipio-de-maravilha-sc/" target="_blank">
-              <div className="box-news">
-                <div className="news-image">
-                  <Image src="https://grupoazimute.com.br/api/wp-content/uploads/2023/05/san-11-05-23-300x230.jpeg" width={ 228 } height={ 160 } alt="Azimute San realiza estruturação de solução sustentável para Abastecimento de Água e Esgotamento Sanitário do município de Maravilha - SC" />
-                </div>
-                
-                <div><span className="news-tag san">san</span></div>
-                <span className="news-title">Azimute San realiza estruturação de solução sustentável para Abastecimento de Água e Esgotamento Sanitário do município de Maravilha – SC</span>
-                <span className="news-date">11 de maio de 2023</span>
-              </div>
-            </a>
-          </div>
+          <Posts posts={ posts } />
         </div>
       </div> 
     </main>
