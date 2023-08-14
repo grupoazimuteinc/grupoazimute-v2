@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import { groq } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
@@ -40,29 +41,24 @@ export default async function Post({ params: { slug } }: Props) {
     const post: Post = await client.fetch(query, { slug })
     
     return (
-        <div>
-            Post: { slug }
-
-            <Image src={ urlFor(post.mainImage).url() } alt={ post.author?.name } width={ 500 } height={ 500 } />
-
-            <h1>{ post.title }</h1>
-
-            <p>{ new Date(post._createdAt).toLocaleDateString('pt-BR', {
+        <div className="max-w-[800px] w-full mx-auto pt-40">
+            <h1 className="text-5xl font-bold text-black mb-4">{ post.title }</h1>
+            <p className="font-bold">{ new Date(post._createdAt).toLocaleDateString('pt-BR', {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric'
             }) }</p>
 
-            <h2>{ post.description }</h2>
+            <Image src={ urlFor(post.mainImage).url() } alt={ post.author?.name } width={ 800 } height={ 800 } priority />
 
-            { post.categories?.map(category => ( 
-                <p key={ category._id }>{ category.title }</p> 
-            )) }
-
-            <div>
+            <div className="text-2xl mt-10">
                 {/* 
                 // @ts-ignore */}
                 <PortableText value={ post.body } components={ RichTextComponents } />
+            </div>
+
+            <div className="mb-20">
+                <Link href="/" className="bg-[#ccc] text-lg mt-10 text-gray inline-block py-3 px-14 rounded-lg hover:text-white">Voltar</Link>
             </div>
         </div>
     )

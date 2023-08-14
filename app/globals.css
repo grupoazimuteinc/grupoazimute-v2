@@ -188,7 +188,7 @@ footer a:hover { color: #404040; text-decoration: underline !important; }
 .box-news:hover { transform: translateY(-10px); }
 
 .news-image {
-	height: 220px;
+	height: 240px;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -213,15 +213,14 @@ footer a:hover { color: #404040; text-decoration: underline !important; }
 	.news-tag.san { background: #0086c8; }
 
 .news-title {
-    display: block;
     font-weight: 600;
     font-size: 16px;
     color: #595959;
     line-height: 20px;
     margin-bottom: 10px;
     margin-top: 5px;
-    flex-grow: 1;
 }
+
 .news-date {
 	font-size: 14px;
 	font-weight: 300;

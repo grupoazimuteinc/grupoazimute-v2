@@ -31,7 +31,7 @@ export function Posts({ posts }: Props) {
                                 <span key={ category._id } className={ `news-tag ${ category.title }` }>{ category.title }</span> 
                             )) }
                         </div>
-                        <span className="news-title">{ post.title }</span>
+                        <span className="news-title line-clamp-2">{ post.title }</span>
                         <span className="news-date">{ new Date(post.publishedAt).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }) }</span>
                     </div>
                 </ClientRoute>
