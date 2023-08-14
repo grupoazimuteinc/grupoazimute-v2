@@ -1,6 +1,7 @@
 import '../bootstrap.css'
 import '../globals.css'
 
+import { Toaster } from 'react-hot-toast'
 import { Roboto } from 'next/font/google'
 
 import { Header } from '@/components/header'
@@ -22,6 +23,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR">
       <body className={ roboto.className }>
+        <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
+
         <Header />
 
         { children }

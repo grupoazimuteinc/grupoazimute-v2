@@ -1,6 +1,40 @@
+'use client'
+
+import { FormEvent, useState } from 'react'
+import { toast } from 'react-hot-toast'
+
 import './globals.css'
 
 export default function Contato() {
+    const [name, setName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+
+    async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        const response = await fetch('/api/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                phone: phone,
+                email: email,
+                message: message
+            })
+        })
+
+        if(response.status === 200) {
+            setName('')
+            setPhone('')
+            setEmail('')
+            setMessage('')
+            toast.success(`Hey, mensagem enviada com sucesso!`)
+        }
+    }
     return (
         <div id="contato">
             <div className="content">
@@ -55,26 +89,26 @@ export default function Contato() {
                         </div>
 
                         <div className="col-12 col-md-8">
-                            <form action="" className="form-default" method="post" style={{ margin: 0 }} >
+                            <form onSubmit={ (e) => handleFormSubmit(e) } className="form-default" method="post" style={{ margin: 0 }} >
                                 <input type="hidden" name="token_generate" id="token_generate" />
 
                                 <div className="row">
                                     <div className="col-12 col-md-9">
                                         <label>Nome</label>
-                                        <input type="text" name="nome" id="nome" required />
+                                        <input type="text" name="nome" id="nome" onChange={ e => setName(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>Telefone</label>
-                                        <input type="text" name="telefone" id="telefone" required />
+                                        <input type="text" name="telefone" id="telefone" onChange={ e => setPhone(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>E-mail</label>
-                                        <input type="email" name="email" id="email" required />
+                                        <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required />
                                     </div>
 
-                                    <div className="col-12 col-md-12">
+                                    {/* <div className="col-12 col-md-12">
                                         <label >Com qual das nossas empresas você deseja entrar em contato?</label>
                                         <div className="options-holder options-big empresas-grupo">
                                             <input type="hidden" name="empresa" value="<?php if(isset($slug)) { echo $slug; } else { echo 'Grupo'; } ?>" required />
@@ -99,11 +133,11 @@ export default function Contato() {
                                             <div className="option" data-value="Financeiro">Financeiro</div>
                                             <div className="option" data-value="Outra">Outra</div>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     <div className="col-12 col-md-11">
                                         <label>Mensagem</label>
-                                        <textarea name="mensagem" id="mensagem" cols={30} rows={10} required></textarea>
+                                        <textarea name="mensagem" id="mensagem" cols={30} rows={10} required onChange={ e => setMessage(e.target.value) }></textarea>
                                     </div>
 
                                     <div className="col-12 col-md-12">
