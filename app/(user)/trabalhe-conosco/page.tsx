@@ -1,6 +1,46 @@
+'use client'
+
+import { FormEvent, useState } from 'react'
+import { toast } from 'react-hot-toast'
+
 import './globals.css'
 
 export default function PesquisaDeSatisfacao() {
+    const [name, setName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+    const [linkedin, setLinkedin] = useState('')
+    const [arquivo, setArquivo] = useState('')
+    const [message, setMessage] = useState('')
+
+    async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        const response = await fetch('/api/trabalheConoscoSend', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                phone: phone,
+                email: email,
+                linkedin: linkedin,
+                arquivo: arquivo,
+                message: message
+            })
+        })
+
+        if(response.status === 200) {
+            setName('')
+            setPhone('')
+            setEmail('')
+            setLinkedin('')
+            setArquivo('')
+            setMessage('')
+            toast.success(`Hey, mensagem enviada com sucesso!`)
+        }
+    }
     return (
         <>
             <div className="content">
@@ -55,31 +95,31 @@ export default function PesquisaDeSatisfacao() {
                         </div>
 
                         <div className="col-12 col-md-8">
-                            <form action="" className="form-default" method="post" style={{margin: 0}}>
+                            <form onSubmit={ (e) => handleFormSubmit(e) } className="form-default" method="post" style={{ margin: 0 }}>
                                 <input type="hidden" name="token_generate" id="token_generate" />
 
                                 <div className="row">
                                     <div className="col-12 col-md-9">
                                         <label>Nome</label>
-                                        <input type="text" name="nome" id="nome" required />
+                                        <input type="text" name="nome" id="nome" onChange={ e => setName(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-9">
-                                        <label>telefone</label>
-                                        <input type="text" name="telefone" id="telefone" required />
+                                        <label>Telefone</label>
+                                        <input type="text" name="telefone" id="telefone" onChange={ e => setPhone(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>E-mail</label>
-                                        <input type="email" name="email" id="email" required />
+                                        <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>Linkedin</label>
-                                        <input type="text" name="linkedin" id="linkedin" required />
+                                        <input type="text" name="linkedin" id="linkedin" onChange={ e => setLinkedin(e.target.value) } required />
                                     </div>
 
-                                    <div className="col-12 col-md-12">
+                                    {/* <div className="col-12 col-md-12">
                                         <label>Qual empresa você tem interesse?</label>
                                         <div className="options-holder options-big">
                                             <input type="hidden" name="empresa" value=">" required />
@@ -103,16 +143,16 @@ export default function PesquisaDeSatisfacao() {
                                             <div className="option" style={{marginBottom: 0}} data-value="Administrativo">Administrativo</div>
                                             <div className="option" style={{marginBottom: 0}} data-value="Financeiro">Financeiro</div>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     <div className="col-12 col-md-11" style={{marginTop: '30px'}}>
                                         <label>Seu currículo (formato: .pdf)</label>
-                                        <input type="file" name="arquivo" id="arquivo" required />
+                                        <input type="file" name="arquivo" id="arquivo" onChange={ e => setArquivo(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-11">
                                         <label>Mensagem adicional</label>
-                                        <textarea name="mensagem" id="mensagem" cols={30} rows={10} required />
+                                        <textarea name="mensagem" id="mensagem" cols={30} rows={10} required onChange={ e => setMessage(e.target.value) }></textarea>
                                     </div>
 
                                     <div className="col-12 col-md-12">

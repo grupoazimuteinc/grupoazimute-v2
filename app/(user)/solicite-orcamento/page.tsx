@@ -1,6 +1,40 @@
+'use client'
+
+import { FormEvent, useState } from 'react'
+import { toast } from 'react-hot-toast'
+
 import './globals.css'
 
 export default function SoliciteOrcamento() {
+    const [name, setName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+
+    async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        const response = await fetch('/api/orcamentoSend', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                phone: phone,
+                email: email,
+                message: message
+            })
+        })
+
+        if(response.status === 200) {
+            setName('')
+            setPhone('')
+            setEmail('')
+            setMessage('')
+            toast.success(`Hey, mensagem enviada com sucesso!`)
+        }
+    }
     return (
         <>
             <div className="content">
@@ -57,26 +91,26 @@ export default function SoliciteOrcamento() {
 
                         <div className="col-12 col-md-8">
                             
-                            <form action="" className="form-default" method="post" style={{margin: 0}}>
+                            <form onSubmit={ (e) => handleFormSubmit(e) } className="form-default" method="post" style={{ margin: 0 }} >
                                 <input type="hidden" name="token_generate" id="token_generate" value="03AAYGu2QDQQJayMEoG030ZUcfHgZDGBn9EhaKeynuipciO1Y2IHwA6i2LNnk5YScQo_MmPYQLeX6ebL_wQP-F4ouHiklErCOV5kxztqUXYtQMSwXJe_mEJdL3Kd9WU49nlvV_IaSq4GBLDm3Wm1nzqd287OASIRdoJ3BbXDVAoXkyTqacS6E6HYXFiGeX8qtHQXwcQQf2s9o4IAS0N5qvgGcFplSU1ycq-jhxVwVxBLgSbfsZtKRdgEkkDtxtTorQJhbDUwiEBImUTuwnB4QFzRQeNpiUTWoeKPVDD6ANsjBoR_wrlXfDAJktZTt-HBv2rcPS0l34tLb2jZxlsoZehIzRbp9qfbwUCwLOmFqVBplUFNXjFFCvumVknLP_o2wk5CFXOyx4wLL3O3D-Sh6MTdw11OB8NANRb93x7q6pSHAdiYOtTBiwoP3aIcDQPIHg5m9LnLedaMkvD6N1Ahk-u9iSyDPY0H47EjL1-YkxDT2k_KLTpIv4RckzW67vknN_2XEvnxj7ZPqEPRc1xGWQuv5Fmwz6AgFw8-bNjZZtweITrEBLVpTd122lStuXGMwjJK8g96L0HAvjtm7aN3mooNsjlkAydGL93eSIfs01EInbSaac76FzXYU" />
 
                                 <div className="row">
                                     <div className="col-12 col-md-9">
                                         <label>Nome</label>
-                                        <input type="text" name="nome" id="nome" required />
+                                        <input type="text" name="nome" id="nome" onChange={ e => setName(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>Telefone</label>
-                                        <input type="text" name="telefone" id="telefone" required />
+                                        <input type="text" name="telefone" id="telefone" onChange={ e => setPhone(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>E-mail</label>
-                                        <input type="email" name="email" id="email" required />
+                                        <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required />
                                     </div>
 
-                                    <div className="col-12 col-md-12">
+                                    {/* <div className="col-12 col-md-12">
                                         <label>Qual dos nossos serviços você precisa?</label>
                                         <div className="options-holder options-big">
                                         <input type="hidden" name="empresa" value="<?php if(isset($slug)) { echo $slug; } else { echo 'Grupo'; } ?>" required />
@@ -87,11 +121,11 @@ export default function SoliciteOrcamento() {
                                             <div className="option option-aria" data-value="Aria">Aria</div>
                                         
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     <div className="col-12 col-md-11">
                                         <label>Nos conte um pouco sobre sua necessidade?</label>
-                                        <textarea name="mensagem" id="mensagem" cols={30} rows={10} required />
+                                        <textarea name="mensagem" id="mensagem" cols={30} rows={10} required onChange={ e => setMessage(e.target.value) }></textarea>
                                     </div>
 
                                     <div className="col-12 col-md-12">

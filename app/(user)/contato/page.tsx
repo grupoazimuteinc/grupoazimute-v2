@@ -14,7 +14,7 @@ export default function Contato() {
     async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        const response = await fetch('/api/send', {
+        const response = await fetch('/api/contatoSend', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

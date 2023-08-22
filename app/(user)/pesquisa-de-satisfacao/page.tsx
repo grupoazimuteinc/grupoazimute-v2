@@ -1,6 +1,40 @@
+'use client'
+
+import { FormEvent, useState } from 'react'
+import { toast } from 'react-hot-toast'
+
 import './globals.css'
 
 export default function PesquisaDeSatisfacao() {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [cargo, setCargo] = useState('')
+    const [message, setMessage] = useState('')
+
+    async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        const response = await fetch('/api/pesquisaSend', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                cargo: cargo,
+                message: message
+            })
+        })
+
+        if(response.status === 200) {
+            setName('')
+            setEmail('')
+            setCargo('')
+            setMessage('')
+            toast.success(`Hey, mensagem enviada com sucesso!`)
+        }
+    }
     return (
         <>
             <div className="content">
@@ -55,26 +89,26 @@ export default function PesquisaDeSatisfacao() {
                         </div>
 
                         <div className="col-12 col-md-8">
-                            <form action="" className="form-default" method="post">
+                            <form onSubmit={ (e) => handleFormSubmit(e) } className="form-default" method="post" style={{ margin: 0 }}>
                                 <input type="hidden" name="token_generate" id="token_generate" />
 
                                 <div className="row">
                                     <div className="col-12 col-md-9">
                                         <label>Nome da sua empresa</label>
-                                        <input type="text" name="nome" id="nome" required />
+                                        <input type="text" name="nome" id="nome" onChange={ e => setName(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>E-mail</label>
-                                        <input type="email" name="email" id="email" required />
+                                        <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>Cargo</label>
-                                        <input type="text" name="cargo" id="cargo" required />
+                                        <input type="text" name="cargo" id="cargo" onChange={ e => setCargo(e.target.value) } required />
                                     </div>
 
-                                    <div className="col-12 col-md-12">
+                                    {/* <div className="col-12 col-md-12">
                                         <label>Qual empresa você gostaria de avaliar?</label>
                                         <div className="options-holder options-big">
                                         <input type="hidden" name="empresa" value="<?php if(isset($slug)) { echo $slug; } else { echo 'Grupo'; } ?>" required />
@@ -144,11 +178,11 @@ export default function PesquisaDeSatisfacao() {
                                             <div className="option" data-value="Sim">Sim</div>
                                             <div className="option" data-value="Não">Não</div>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     <div className="col-12 col-md-11">
                                         <label>Deixe aqui seu elogio e/ou crítica</label>
-                                        <textarea name="comentario" id="comentario" cols={30} rows={10} required></textarea>
+                                        <textarea name="mensagem" id="mensagem" cols={30} rows={10} required onChange={ e => setMessage(e.target.value) }></textarea>
                                     </div>
 
                                     <div className="col-12 col-md-12">
