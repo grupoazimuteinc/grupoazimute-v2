@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import logo from '@/src/images/logo.png'
+import selo from '@/src/images/selo.png'
 
 export function Header() {
     return (
@@ -42,7 +43,7 @@ export function Header() {
                             </div>
 
                             <div className="links">
-                                {/* <span>
+                                <span>
                                     <a href="https://grupoazimute.com.br/solucoes" className="header-sublink anchor" data-anchor="o-grupo">O Grupo</a>
 
                                     <ul className="list-dropdown">
@@ -76,7 +77,7 @@ export function Header() {
                                             </a>
                                         </li>
                                     </ul>
-                                </span> */}
+                                </span>
                                 {/* <a href="#" className="header-sublink anchor" data-anchor="feed">Notícias</a> */}
                                 <Link href="/contato" className="header-sublink">Contato</Link>
                                 <Link href="/solicite-orcamento" className="header-sublink">Solicite um Orçamento</Link>
@@ -84,6 +85,8 @@ export function Header() {
                                 <Link href="/trabalhe-conosco" className="header-sublink">Trabalhe Conosco</Link>
                             </div>
                         </div>
+
+                        <Image src={ selo } width={ 90 } height={ 90 } className="selo-header" alt="" />
                     </div>
                 </div>
             </header>

@@ -598,6 +598,48 @@ h6 {
 .load-more:hover { color: #111; }
 .button-white { color: #696969; background: #fff; font-weight: 600; margin: 0; }
 
+header .container-fluid {
+	position: relative;
+	padding-right: 130px;
+}
+
+.selo-header {
+	position: absolute;
+	top: -10px;
+	right: 0;
+}
+
+@media(max-width: 820px) {
+	.selo-header {
+		display: none;
+	}
+
+	header .container-fluid {
+		padding-right: 15px;
+	}
+
+	.grid-cols-4 {
+		grid-template-columns: 1fr;
+	}
+
+	.pt-52 {
+		padding-top: 8rem;
+	}
+
+	.box-empresa {
+		height: 150px !important;
+	}
+
+	.ga-logo {
+		margin-top: 0  !important;
+		justify-content: center;
+		height: 150px;
+	}
+
+	.pt-24 {
+		padding-top: 0rem;
+	}
+}
 
 @media (max-width: 924px) { 
 	.master-wrap { overflow: hidden; }
@@ -679,6 +721,8 @@ h6 {
 	.grid-logos { display: block; }
 }
 
-@media (min-width: 1200px) { 
-
+@media (min-width: 992px) and (max-width: 1300px) { 
+	.header-sublink {
+		margin-left: 15px;
+	}
 }
