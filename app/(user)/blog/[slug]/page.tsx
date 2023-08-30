@@ -42,7 +42,7 @@ export default async function Post({ params: { slug } }: Props) {
     
     return (
         <div className="max-w-[800px] w-full mx-auto pt-40">
-            <h1 className="text-5xl font-bold text-black mb-4">{ post.title }</h1>
+            <h1 className="text-5xl font-bold text-black mb-4">{ post?.title }</h1>
             <p className="font-bold">{ new Date(post._createdAt).toLocaleDateString('pt-BR', {
                 day: 'numeric',
                 month: 'long',
