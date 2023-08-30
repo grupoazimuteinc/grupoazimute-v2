@@ -643,7 +643,7 @@ header .container-fluid {
 
 @media (max-width: 924px) { 
 	.master-wrap { overflow: hidden; }
-	header img { max-width: 60% !important; }
+	header img { max-width: 60% !important;}
 
 	p { font-size: 14px; }
 
