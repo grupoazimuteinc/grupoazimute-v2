@@ -16,6 +16,7 @@ import azimuteSanOff from '@/src/images/azimute-san-off.png'
 import azimuteSanWhite from '@/src/images/azimute-san-white.png'
 import azimuteAriaOff from '@/src/images/aria-off.png'
 import azimuteAriaWhite from '@/src/images/aria-white.png'
+import bannerGrupo from '@/src/images/banner-grupo.jpg'
 
 const query = groq`
   *[_type=='post'] {
@@ -31,15 +32,24 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="content o-grupo pt-52">
+      <Image
+        src={ bannerGrupo } 
+        className="w-full"
+        alt="Assista agora"
+        aria-hidden="true"
+        width={ 1496 }
+        height={ 791 }
+      />
+
+      <div className="content o-grupo">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-md-8 offset-md-2 text-center">
+            {/* <div className="col-12 col-md-8 offset-md-2 text-center">
               <h2>Conheça as empresas <br />que fazem parte do Grupo Azimute</h2>
               <p>Mais de três décadas de atuação, pautadas em uma relação de responsabilidade com nossos clientes. Marca de valor, resultado de trabalho sério e de experiências com inúmeros desafios.</p>
-            </div>
+            </div> */}
 
-            <div className="col-12">
+            <div className="col-12 -mt-40">
               <div className="grid-logos gap-4 flex">
                 <div>
                   <Link href="/azimute-engenharia">

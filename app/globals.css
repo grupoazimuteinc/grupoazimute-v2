@@ -688,7 +688,7 @@ header .container-fluid {
         right: 15px;
 	}
 	
-	.header { padding: 15px 0; }
+	.header { padding: 15px; }
 	.header rect { fill: #fff; }
 	.extra-links.top { margin-bottom: 10px; }
 
