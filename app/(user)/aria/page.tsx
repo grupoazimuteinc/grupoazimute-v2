@@ -6,7 +6,7 @@ import ariaInterna from '@/src/images/aria-interna.png'
 export default function Aria() {
     return (
         <>
-            <div className="content">
+            <div className="content-interna">
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                     <Image src={ariaInterna} width={ 424 } height={ 110 } alt="" />
 

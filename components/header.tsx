@@ -47,38 +47,13 @@ export function Header() {
                                     <a href="https://grupoazimute.com.br/solucoes" className="header-sublink anchor" data-anchor="o-grupo">O Grupo</a>
 
                                     <ul className="list-dropdown">
-                                        <li>
-                                            <a href="https://grupoazimute.com.br/azimute-engenharia">
-                                                Azimute Engenharia
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="https://grupoazimute.com.br/azimute-imoveis">
-                                                Azimute Imóveis
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="https://grupoazimute.com.br/azimute-tech">
-                                                Azimute Tech
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="https://grupoazimute.com.br/azimute-san">
-                                                Azimute San
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="https://grupoazimute.com.br/aria">
-                                                Aria Imagem e Tecnologia
-                                            </a>
-                                        </li>
+                                        <li><Link href="/azimute-engenharia">Azimute Engenharia</Link></li>
+                                        <li><Link href="/azimute-imoveis">Azimute Imóveis</Link></li>
+                                        <li><Link href="/azimute-tech">Azimute Tech</Link></li>
+                                        <li><Link href="/azimute-san">Azimute San</Link></li>
+                                        <li><Link href="/aria">Aria Imagem e Tecnologia</Link></li>
                                     </ul>
                                 </span>
-                                {/* <a href="#" className="header-sublink anchor" data-anchor="feed">Notícias</a> */}
                                 <Link href="/contato" className="header-sublink">Contato</Link>
                                 <Link href="/solicite-orcamento" className="header-sublink">Solicite um Orçamento</Link>
                                 <Link href="/pesquisa-de-satisfacao" className="header-sublink">Pesquisa de Satisfação</Link>

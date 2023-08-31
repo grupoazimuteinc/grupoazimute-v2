@@ -1,6 +1,6 @@
 body { background: none; }
 
-.content {
+.content-form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +12,7 @@ body { background: none; }
     margin-top: 0;
 }
 
-.content img {
+.content-form img {
     max-width: 300px;
 }
 
@@ -161,11 +161,11 @@ a .box-icon:hover {
 
 }
 
-h2.borded {
+.content-form h2.borded {
     margin-bottom: 65px;
 }
 
-h2 {
+.content-form h2 {
     color: #666666;
     font-size: 56px;
     line-height: 60px;
@@ -281,7 +281,7 @@ h2 {
 }
 
 @media(max-width: 821px) {
-    h2 {
+    .content-form h2 {
         font-size: 25px !important;
         line-height: 35px !important;
         margin-bottom: 30px !important;
@@ -291,7 +291,7 @@ h2 {
         padding: 0 !important;
     }
 
-    h1 {
+    .content-form h1 {
         font-size: 48px !important;
         line-height: 54px !important;
         text-align: center;

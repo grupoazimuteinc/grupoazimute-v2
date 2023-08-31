@@ -6,7 +6,7 @@ import azimuteSanInterna from '@/src/images/azimute-san-interna.png'
 export default function AzimuteSan() {
     return (
         <>
-            <div className="content">
+            <div className="content-interna">
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                 <Image src={azimuteSanInterna} width={ 424 } height={ 110 } alt="" />
 

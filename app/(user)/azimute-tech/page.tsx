@@ -6,7 +6,7 @@ import azimuteTechInterna from '@/src/images/azimute-tech-interna.png'
 export default function AzimuteTech() {
     return (
         <>
-            <div className="content">
+            <div className="content-interna">
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                     <Image src={azimuteTechInterna} width={ 424 } height={ 110 } alt="" />
 

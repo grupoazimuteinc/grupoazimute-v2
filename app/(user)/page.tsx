@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import { groq } from 'next-sanity'
 
@@ -27,7 +28,6 @@ export const revalidate = 60
 
 export default async function Home() {
   const posts = await client.fetch(query)
-  console.log(posts)
 
   return (
     <main>
@@ -42,7 +42,7 @@ export default async function Home() {
             <div className="col-12">
               <div className="grid-logos gap-4 flex">
                 <div>
-                  <a href="https://azimuteengenharia.com.br" target="_blank">
+                  <Link href="/azimute-engenharia">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
@@ -51,11 +51,11 @@ export default async function Home() {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
 
                 <div>
-                  <a href="https://azimuteimoveis.com.br" target="_blank">
+                  <Link href="/azimute-imoveis">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
@@ -64,11 +64,11 @@ export default async function Home() {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
 
                 <div>
-                  <a href="https://azimutetech.com.br" target="_blank">
+                  <Link href="/azimute-tech">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
@@ -77,11 +77,11 @@ export default async function Home() {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
 
                 <div>
-                  <a href="https://azimutesan.com.br" target="_blank">
+                  <Link href="/azimute-san">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
@@ -90,11 +90,11 @@ export default async function Home() {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
 
                 <div>
-                  <a href="https://ariatecnologia.com.br" target="_blank">
+                  <Link href="/aria">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
@@ -103,7 +103,7 @@ export default async function Home() {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

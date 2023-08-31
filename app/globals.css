@@ -47,7 +47,12 @@ p {
 /* DEFAULT */
 
 body {
-	background: #fff url(/src/images/header-novo.jpg) center top no-repeat;
+	/* background: #fff url(../src/images/header-novo.jpg) center top no-repeat; */
+}
+
+.content {
+	height: auto;
+	background: white;
 }
 
 h1 {

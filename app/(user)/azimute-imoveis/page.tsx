@@ -6,7 +6,7 @@ import azimuteImoveisInterna from '@/src/images/azimute-imoveis-interna.png'
 export default function AzimuteImoveis() {
     return (
         <>
-            <div className="content">
+            <div className="content-interna">
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                     <Image src={azimuteImoveisInterna} width={ 424 } height={ 110 } alt="" />
 

@@ -43,7 +43,7 @@ export default function PesquisaDeSatisfacao() {
     }
     return (
         <>
-            <div className="content">
+            <div className="content-form">
                 <div className="content-info">
                     <h1>Trabalhe Conosco</h1>
                     <div className="infos-holder">

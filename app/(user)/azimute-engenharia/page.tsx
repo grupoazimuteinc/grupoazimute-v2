@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image'
 import './global.css'
 
 import azimuteEngenhariaInterna from '@/src/images/azimute-engenharia-interna.png'
@@ -6,7 +6,7 @@ import azimuteEngenhariaInterna from '@/src/images/azimute-engenharia-interna.pn
 export default function AzimuteEngenharia() {
     return (
         <>
-            <div className="content">
+            <div className="content-interna">
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
                     <Image src={azimuteEngenhariaInterna} width={ 424 } height={ 110 } alt="" />
 
