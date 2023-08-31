@@ -146,8 +146,11 @@ export default function PesquisaDeSatisfacao() {
                                     </div> */}
 
                                     <div className="col-12 col-md-11" style={{marginTop: '30px'}}>
-                                        <label>Seu currículo (formato: .pdf)</label>
-                                        <input type="file" name="arquivo" id="arquivo" onChange={ e => setArquivo(e.target.value) } required />
+                                        {/* <label>Seu currículo (formato: .pdf)</label>
+                                        <input type="file" name="arquivo" id="arquivo" onChange={ e => setArquivo(e.target.value) } required /> */}
+
+                                        <label>Link para o arquivo</label>
+                                        <input type="text" name="arquivo" id="arquivo" onChange={ e => setArquivo(e.target.value) } required />
                                     </div>
 
                                     <div className="col-12 col-md-11">

@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 
 import { ContactTemplate } from '@/components/email/pesquisa-template'
 
-const resend = new Resend('re_QwvSemvB_PwRSTrBrsuEGtXfs5XgeKL3j')
+const resend = new Resend('re_4odMJFyP_3182mbQ37WXa6ULKPpwgE7Eb')
 
 export async function POST(request: any) {
     const body = await request.json()
@@ -12,7 +12,7 @@ export async function POST(request: any) {
     try {
       const data = await resend.emails.send({
         from: 'Acme <onboarding@resend.dev>',
-        to: ['andre.jr91@gmail.com'],
+        to: ['grupoazimutejoinville@gmail.com'],
         subject: "Hello world",
         react: ContactTemplate({ name, email, cargo, message }) as React.ReactElement,
       });

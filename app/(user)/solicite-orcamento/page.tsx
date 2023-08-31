@@ -92,7 +92,7 @@ export default function SoliciteOrcamento() {
                         <div className="col-12 col-md-8">
                             
                             <form onSubmit={ (e) => handleFormSubmit(e) } className="form-default" method="post" style={{ margin: 0 }} >
-                                <input type="hidden" name="token_generate" id="token_generate" value="03AAYGu2QDQQJayMEoG030ZUcfHgZDGBn9EhaKeynuipciO1Y2IHwA6i2LNnk5YScQo_MmPYQLeX6ebL_wQP-F4ouHiklErCOV5kxztqUXYtQMSwXJe_mEJdL3Kd9WU49nlvV_IaSq4GBLDm3Wm1nzqd287OASIRdoJ3BbXDVAoXkyTqacS6E6HYXFiGeX8qtHQXwcQQf2s9o4IAS0N5qvgGcFplSU1ycq-jhxVwVxBLgSbfsZtKRdgEkkDtxtTorQJhbDUwiEBImUTuwnB4QFzRQeNpiUTWoeKPVDD6ANsjBoR_wrlXfDAJktZTt-HBv2rcPS0l34tLb2jZxlsoZehIzRbp9qfbwUCwLOmFqVBplUFNXjFFCvumVknLP_o2wk5CFXOyx4wLL3O3D-Sh6MTdw11OB8NANRb93x7q6pSHAdiYOtTBiwoP3aIcDQPIHg5m9LnLedaMkvD6N1Ahk-u9iSyDPY0H47EjL1-YkxDT2k_KLTpIv4RckzW67vknN_2XEvnxj7ZPqEPRc1xGWQuv5Fmwz6AgFw8-bNjZZtweITrEBLVpTd122lStuXGMwjJK8g96L0HAvjtm7aN3mooNsjlkAydGL93eSIfs01EInbSaac76FzXYU" />
+                                <input type="hidden" name="token_generate" id="token_generate"  />
 
                                 <div className="row">
                                     <div className="col-12 col-md-9">

@@ -6,6 +6,7 @@ import { Roboto } from 'next/font/google'
 
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import WhatsappButton from '@/components/whats-button'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -28,6 +29,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
 
         { children }
+
+        <WhatsappButton />
 
         <Footer />
       </body>
