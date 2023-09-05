@@ -44,7 +44,7 @@ export function Header() {
 
                             <div className="links">
                                 <span>
-                                    <a href="https://grupoazimute.com.br/solucoes" className="header-sublink anchor" data-anchor="o-grupo">O Grupo</a>
+                                    <span className="header-sublink anchor" data-anchor="o-grupo">O Grupo</span>
 
                                     <ul className="list-dropdown">
                                         <li><Link href="/azimute-engenharia">Azimute Engenharia</Link></li>

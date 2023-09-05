@@ -116,12 +116,12 @@ export default function SoliciteOrcamento() {
                                     <div className="col-12 col-md-9">
                                         <label>Empresa do Grupo</label>
                                         <select name="empresas" id="empresas" onChange={ e => setGrupo(e.target.value) }>
-                                            <option value="Empresa do Grupo">Empresa do Grupo</option>
-                                            <option value="Aria">Aria</option>
-                                            <option value="Engenharia">Engenharia</option>
-                                            <option value="tech">tech</option>
-                                            <option value="San">San</option>
-                                            <option value="Imóveis">Imóveis</option>
+                                            <option value="Selecione">Selecione</option>
+                                            <option value="Aria Imagem e Tecnologia">Aria Imagem e Tecnologia</option>
+                                            <option value="Azimute Engenharia">Azimute Engenharia</option>
+                                            <option value="Azimute Tech">Azimute Tech</option>
+                                            <option value="Azimute San">Azimute San</option>
+                                            <option value="Azimute Imóveis">Azimute Imóveis</option>
                                         </select>
                                     </div>
 
