@@ -280,6 +280,20 @@ a .box-icon:hover {
     padding: 60px 0;
 }
 
+.form-default select {
+    width: 100%;
+    height: 70px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    line-height: 70px;
+    padding: 0 30px;
+    border: none;
+    appearance: none;
+    background: #F1F1F2 url(../../../src/images/arrow-down-select.png) center center no-repeat;
+    background-position-x: 97%;
+    background-position-y: 50%;
+}
+
 @media(max-width: 821px) {
     .content-form h2 {
         font-size: 25px !important;

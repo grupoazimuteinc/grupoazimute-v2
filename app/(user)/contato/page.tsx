@@ -9,6 +9,7 @@ export default function Contato() {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
+    const [grupo, setGrupo] = useState('')
     const [message, setMessage] = useState('')
 
     async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
@@ -23,6 +24,7 @@ export default function Contato() {
                 name: name,
                 phone: phone,
                 email: email,
+                grupo: grupo,
                 message: message
             })
         })
@@ -31,6 +33,7 @@ export default function Contato() {
             setName('')
             setPhone('')
             setEmail('')
+            setGrupo('')
             setMessage('')
             toast.success(`Hey, mensagem enviada com sucesso!`)
         }
@@ -108,6 +111,18 @@ export default function Contato() {
                                         <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required />
                                     </div>
 
+                                    <div className="col-12 col-md-9">
+                                        <label>Empresa do Grupo</label>
+                                        <select name="empresas" id="empresas" onChange={ e => setGrupo(e.target.value) }>
+                                            <option value="Empresa do Grupo">Empresa do Grupo</option>
+                                            <option value="Aria">Aria</option>
+                                            <option value="Engenharia">Engenharia</option>
+                                            <option value="tech">tech</option>
+                                            <option value="San">San</option>
+                                            <option value="Imóveis">Imóveis</option>
+                                        </select>
+                                    </div>
+
                                     {/* <div className="col-12 col-md-12">
                                         <label >Com qual das nossas empresas você deseja entrar em contato?</label>
                                         <div className="options-holder options-big empresas-grupo">
@@ -135,7 +150,7 @@ export default function Contato() {
                                         </div>
                                     </div> */}
 
-                                    <div className="col-12 col-md-11">
+                                    <div className="col-12 col-md-9">
                                         <label>Mensagem</label>
                                         <textarea name="mensagem" id="mensagem" cols={30} rows={10} required onChange={ e => setMessage(e.target.value) }></textarea>
                                     </div>

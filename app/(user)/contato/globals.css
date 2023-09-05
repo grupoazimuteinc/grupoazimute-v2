@@ -212,6 +212,20 @@ body { background: none; }
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 
+	.form-default select {
+		width: 100%;
+		height: 70px;
+		margin-bottom: 30px;
+		border-radius: 6px;
+		line-height: 70px;
+		padding: 0 30px;
+		border: none;
+		appearance: none;
+		background: #F1F1F2 url(../../../src/images/arrow-down-select.png) center center no-repeat;
+		background-position-x: 97%;
+		background-position-y: 50%;
+	}
+
     #contato .form-default .option {
         width: 100%;
         border: 1px solid #C9C9C9;

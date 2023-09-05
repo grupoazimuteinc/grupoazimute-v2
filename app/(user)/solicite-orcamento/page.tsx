@@ -9,6 +9,7 @@ export default function SoliciteOrcamento() {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
+    const [grupo, setGrupo] = useState('')
     const [message, setMessage] = useState('')
 
     async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
@@ -23,6 +24,7 @@ export default function SoliciteOrcamento() {
                 name: name,
                 phone: phone,
                 email: email,
+                grupo: grupo,
                 message: message
             })
         })
@@ -31,6 +33,7 @@ export default function SoliciteOrcamento() {
             setName('')
             setPhone('')
             setEmail('')
+            setGrupo('')
             setMessage('')
             toast.success(`Hey, mensagem enviada com sucesso!`)
         }
@@ -108,6 +111,18 @@ export default function SoliciteOrcamento() {
                                     <div className="col-12 col-md-9">
                                         <label>E-mail</label>
                                         <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required />
+                                    </div>
+
+                                    <div className="col-12 col-md-9">
+                                        <label>Empresa do Grupo</label>
+                                        <select name="empresas" id="empresas" onChange={ e => setGrupo(e.target.value) }>
+                                            <option value="Empresa do Grupo">Empresa do Grupo</option>
+                                            <option value="Aria">Aria</option>
+                                            <option value="Engenharia">Engenharia</option>
+                                            <option value="tech">tech</option>
+                                            <option value="San">San</option>
+                                            <option value="Imóveis">Imóveis</option>
+                                        </select>
                                     </div>
 
                                     {/* <div className="col-12 col-md-12">

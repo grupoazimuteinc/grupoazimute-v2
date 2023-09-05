@@ -4,10 +4,11 @@ interface EmailTemplateProps {
     name: string;
     phone: string;
     email: string;
+    grupo: string;
     message: string;
 }
 
-export const ContactTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ name, phone, email, message }) => (
+export const ContactTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ name, phone, email, message, grupo }) => (
     <div>
         <h1 style={{color: '#000', fontFamily: 'Roboto, sans-serif'}}>Welcome!!!</h1>
 
@@ -15,6 +16,7 @@ export const ContactTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ name, 
             { name } <br />
             { phone } <br />
             { email } <br />
+            { grupo } <br />
             { message }
         </p>
     </div>

@@ -9,6 +9,7 @@ export default function PesquisaDeSatisfacao() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [cargo, setCargo] = useState('')
+    const [grupo, setGrupo] = useState('')
     const [message, setMessage] = useState('')
 
     async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
@@ -23,6 +24,7 @@ export default function PesquisaDeSatisfacao() {
                 name: name,
                 email: email,
                 cargo: cargo,
+                grupo: grupo,
                 message: message
             })
         })
@@ -31,6 +33,7 @@ export default function PesquisaDeSatisfacao() {
             setName('')
             setEmail('')
             setCargo('')
+            setGrupo('')
             setMessage('')
             toast.success(`Hey, mensagem enviada com sucesso!`)
         }
@@ -106,6 +109,18 @@ export default function PesquisaDeSatisfacao() {
                                     <div className="col-12 col-md-9">
                                         <label>Cargo</label>
                                         <input type="text" name="cargo" id="cargo" onChange={ e => setCargo(e.target.value) } required />
+                                    </div>
+
+                                    <div className="col-12 col-md-9">
+                                        <label>Empresa do Grupo</label>
+                                        <select name="empresas" id="empresas" onChange={ e => setGrupo(e.target.value) }>
+                                            <option value="Empresa do Grupo">Empresa do Grupo</option>
+                                            <option value="Aria">Aria</option>
+                                            <option value="Engenharia">Engenharia</option>
+                                            <option value="tech">tech</option>
+                                            <option value="San">San</option>
+                                            <option value="Imóveis">Imóveis</option>
+                                        </select>
                                     </div>
 
                                     {/* <div className="col-12 col-md-12">
