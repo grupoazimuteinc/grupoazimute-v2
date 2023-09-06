@@ -12,6 +12,10 @@ export default function Contato() {
     const [grupo, setGrupo] = useState('')
     const [message, setMessage] = useState('')
 
+    function handleTag(tag) {
+        setGrupo(tag)
+    }
+
     async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
@@ -112,7 +116,7 @@ export default function Contato() {
                                     </div>
 
                                     <div className="col-12 col-md-9">
-                                        <label>Empresa do Grupo</label>
+                                        {/* <label>Empresa do Grupo</label>
                                         <select name="empresas" id="empresas" onChange={ e => setGrupo(e.target.value) }>
                                             <option value="Selecione">Selecione</option>
                                             <option value="Aria Imagem e Tecnologia">Aria Imagem e Tecnologia</option>
@@ -120,7 +124,9 @@ export default function Contato() {
                                             <option value="Azimute Tech">Azimute Tech</option>
                                             <option value="Azimute San">Azimute San</option>
                                             <option value="Azimute Imóveis">Azimute Imóveis</option>
-                                        </select>
+                                        </select> */}
+
+                                        <button onClick={ () => handleTag('aria') }>Aria</button>
                                     </div>
 
                                     {/* <div className="col-12 col-md-12">
