@@ -56,7 +56,7 @@ body { background: none; }
 	}
 
 	#contato a { transition: all .3s ease-in-out; }
-	#contato a:hover { opacity: .6; }
+	/* #contato a:hover { opacity: .6; } */
 
 	#contato .infos-holder svg { margin-right: 10px; }
 

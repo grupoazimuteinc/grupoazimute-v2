@@ -63,7 +63,7 @@ body { background: none; }
 }
 
 a { transition: all .3s ease-in-out; }
-a:hover { opacity: .6; }
+/* a:hover { opacity: .6; } */
 
 .infos-holder svg { margin-right: 10px; }
 
