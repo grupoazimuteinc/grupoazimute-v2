@@ -87,6 +87,10 @@ body { background: none; }
 	.list-default { margin-bottom: 60px; padding: 0; padding-left: 17px; }
 	.list-default li { margin-bottom: 10px; }
 
+	.list-default {
+		list-style: disc !important;
+	}
+
 	.social-media {
 		display: flex;
 		flex-direction: row;

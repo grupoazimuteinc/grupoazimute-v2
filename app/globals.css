@@ -732,3 +732,7 @@ header .container-fluid {
 		margin-left: 15px;
 	}
 }
+
+.list-default {
+	list-style: disc !important;
+}
