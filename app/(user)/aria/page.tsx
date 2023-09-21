@@ -1,9 +1,28 @@
 import Image from "next/image";
 import './global.css'
 
+import { groq } from 'next-sanity'
+
+import { client } from '@/lib/sanity.client'
+import { Posts } from '@/components/posts'
+
 import ariaInterna from '@/src/images/aria-interna.png'
 
-export default function Aria() {
+const query = groq`
+*[
+    count((categories[]->title)[@ in ["aria"]]) > 0 &&
+    _type == 'post'
+  ][0..7] {
+    ...,
+    categories[]->,
+  } | order(publishedAt desc)
+`
+
+export const revalidate = 60
+
+export default async function Aria() {
+    const posts = await client.fetch(query)
+
     return (
         <>
             <div className="content-interna">
@@ -300,6 +319,16 @@ export default function Aria() {
                 </div>
             </div>
             <div className="clear40"></div>
+
+            <div className="col-12 col-md-8 offset-md-2 text-center">
+                <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Aria Imagem e Tecnologia.</p>
+            </div>
+
+            <div className="container pb-24">
+                <div className="row">
+                    <Posts posts={ posts } />
+                </div>
+            </div>
         </>
     )
 }

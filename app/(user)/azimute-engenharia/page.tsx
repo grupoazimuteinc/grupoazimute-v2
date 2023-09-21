@@ -1,9 +1,26 @@
 import Image from 'next/image'
 import './global.css'
+import { groq } from 'next-sanity'
+
+import { client } from '@/lib/sanity.client'
+import { Posts } from '@/components/posts'
 
 import azimuteEngenhariaInterna from '@/src/images/azimute-engenharia-interna.png'
 
-export default function AzimuteEngenharia() {
+const query = groq`
+*[
+    count((categories[]->title)[@ in ["engenharia"]]) > 0 &&
+    _type == 'post'
+  ][0..7] {
+    ...,
+    categories[]->,
+  } | order(publishedAt desc)
+`
+
+export const revalidate = 60
+
+export default async function AzimuteEngenharia() {
+    const posts = await client.fetch(query)
     return (
         <>
             <div className="content-interna">
@@ -386,6 +403,16 @@ export default function AzimuteEngenharia() {
                 </div>
             </div>
             <div className="clear40"></div>
+
+            <div className="col-12 col-md-8 offset-md-2 text-center">
+                <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Azimute Engenharia.</p>
+            </div>
+
+            <div className="container pb-24">
+                <div className="row">
+                    <Posts posts={ posts } />
+                </div>
+            </div>
         </>
     )
 }
