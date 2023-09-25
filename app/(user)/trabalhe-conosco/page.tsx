@@ -17,6 +17,10 @@ export default function PesquisaDeSatisfacao() {
     async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
+        if (!name || !phone || !email || !linkedin || !arquivo || !grupo || !message) {
+            alert('Por favor, preencha todos os campos antes de enviar o formulário.');
+        }
+
         const response = await fetch('/api/trabalheConoscoSend', {
             method: 'POST',
             headers: {

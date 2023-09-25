@@ -15,6 +15,10 @@ export default function Contato() {
     async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
+        if (!name || !phone || !email || !grupo || !message) {
+            alert('Por favor, preencha todos os campos antes de enviar o formulário.');
+        }
+
         const response = await fetch('/api/contatoSend', {
             method: 'POST',
             headers: {
@@ -38,6 +42,8 @@ export default function Contato() {
             toast.success(`Hey, mensagem enviada com sucesso!`)
         }
     }
+
+
     return (
         <div id="contato">
             <div className="content">
@@ -98,17 +104,17 @@ export default function Contato() {
                                 <div className="row">
                                     <div className="col-12 col-md-9">
                                         <label>Nome</label>
-                                        <input type="text" name="nome" id="nome" onChange={ e => setName(e.target.value) } required />
+                                        <input type="text" name="nome" id="nome" onChange={ e => setName(e.target.value) } required/>
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>Telefone</label>
-                                        <input type="text" name="telefone" id="telefone" onChange={ e => setPhone(e.target.value) } required />
+                                        <input type="text" name="telefone" id="telefone" onChange={ e => setPhone(e.target.value) } required/>
                                     </div>
 
                                     <div className="col-12 col-md-9">
                                         <label>E-mail</label>
-                                        <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required />
+                                        <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required/>
                                     </div>
 
                                     <div className="col-12 col-md-9">

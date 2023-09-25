@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 
 import { ContactTemplate } from '@/components/email/contact-template'
 
-const resend = new Resend('re_4odMJFyP_3182mbQ37WXa6ULKPpwgE7Eb')
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: any) {
     const body = await request.json()
@@ -11,9 +11,9 @@ export async function POST(request: any) {
 
     try {
       const data = await resend.emails.send({
-        from: 'Acme <onboarding@resend.dev>',
-        to: ['grupoazimutejoinville@gmail.com'],
-        subject: "Hello world",
+        from: 'Grupo Azimute <onboarding@resend.dev>',
+        to: [`${process.env.RESEND_EMAIL}`],
+        subject: "Contato",
         react: ContactTemplate({ name, email, phone, message, grupo }) as React.ReactElement,
       });
   

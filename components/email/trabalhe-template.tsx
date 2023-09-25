@@ -11,7 +11,7 @@ interface EmailTemplateProps {
 
 export const ContactTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ name, email, linkedin, arquivo, message, grupo }) => (
     <div>
-        <h1 style={{color: '#000', fontFamily: 'Roboto, sans-serif'}}>Welcome!!!</h1>
+        <h1 style={{color: '#000', fontFamily: 'Roboto, sans-serif'}}>Trabalhe Conosco</h1>
 
         <p style={{color: '#000', fontFamily: 'Roboto, sans-serif'}}>
             { name } <br />
