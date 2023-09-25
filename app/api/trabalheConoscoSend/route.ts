@@ -4,7 +4,6 @@ import { NextResponse } from 'next/server'
 import { ContactTemplate } from '@/components/email/trabalhe-template'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-console.log(process.env.RESEND_API_KEY)
 
 export async function POST(request: any) {
     const body = await request.json()

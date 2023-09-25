@@ -9,7 +9,6 @@ type Props = {
 }
 
 export function Posts({ posts }: Props) {
-    console.log(posts.length)
     
     return(
         <div className="grid grid-cols-4 gap-5">
