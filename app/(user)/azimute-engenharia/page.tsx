@@ -86,7 +86,7 @@ export default async function AzimuteEngenharia() {
                         <div className="email">
                             <i className="fas fa-laptop"></i>
 
-                            <a href="https://www.azimuteengenharia.com.br" target="_blank"><strong>https://www.azimuteengenharia.com.br</strong></a>
+                            <a href="https://www.azimuteengenharia.com.br" target="_blank"><strong>azimuteengenharia.com.br</strong></a>
 
                             <span></span>
                         </div>
