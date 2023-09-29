@@ -16,8 +16,8 @@ const roboto = Roboto({
 })
 
 export const metadata = {
-  title: 'Grupo Azimute - Soluções que unem inteligência, tecnologia e experiência',
-  description: 'Mais de três décadas de atuação, pautadas em uma relação de responsabilidade com nossos clientes. Marca de valor, resultado de trabalho sério e de experiências com inúmeros desafios.',
+  title: 'Grupo Azimute - Soluções integradas de engenharia em um único grupo de empresas',
+  description: 'Grupo formado pelas empresas Azimute Engenharia, Azimute Imóveis, Azimute Tech - Inspeção e Tecnologia, Azimute San - Saneamento e Meio Ambiente e Aria - Imagem e Tecnologia. No total, são mais de três décadas de atuação no ramo da engenharia civil, pautadas em uma relação de responsabilidade com nossos clientes. Somos marca de valor, resultado de trabalho sério e de experiências com inúmeros desafios.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
