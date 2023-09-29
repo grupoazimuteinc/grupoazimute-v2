@@ -6,6 +6,7 @@ import { Roboto } from 'next/font/google'
 
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { GoogleAnalytics } from '@/components/ga'
 import WhatsappButton from '@/components/whats-button'
 
 const roboto = Roboto({
@@ -23,6 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
+      <GoogleAnalytics GA_MEASUREMENT_ID="G-P76DHV77NQ" />
       <body className={ roboto.className }>
         <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
 
