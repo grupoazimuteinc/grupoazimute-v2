@@ -30,7 +30,7 @@ export default async function AzimuteImoveis() {
                     <Image src={azimuteImoveisInterna} width={ 424 } height={ 110 } alt="" />
 
                     <div className="infos-holder">
-                        <a href="tel:554734736777" target="_blank">
+                        <a href="tel:554730276777" target="_blank">
                             <svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1">
                                 <defs>
                                     <rect id="path-1" x="0" y="0" width="2433" height="886"></rect>
