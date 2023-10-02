@@ -49,7 +49,7 @@ export default async function AzimuteImoveis() {
                             <span>(47) 3027-6777</span>
                         </a>
 
-                        <a href="https://api.whatsapp.com/send?phone=5547999110824">
+                        <a href="https://api.whatsapp.com/send?phone=5547984114488">
                             <svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1">
                                 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                     <g id="Home-Copy" transform="translate(-1075.000000, -543.000000)">
