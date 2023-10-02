@@ -46,7 +46,7 @@ export default async function AzimuteImoveis() {
                                 </g>
                             </svg>
 
-                            <span>(47) 3473-6777</span>
+                            <span>(47) 3027-6777</span>
                         </a>
 
                         <a href="https://api.whatsapp.com/send?phone=5547999110824">
