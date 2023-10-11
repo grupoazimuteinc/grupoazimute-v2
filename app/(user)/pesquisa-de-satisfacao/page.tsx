@@ -10,12 +10,17 @@ export default function PesquisaDeSatisfacao() {
     const [email, setEmail] = useState('')
     const [cargo, setCargo] = useState('')
     const [grupo, setGrupo] = useState('')
+    const [comoChegou, setComoChegou] = useState('')
+    const [atendimento, setAtendimento] = useState('')
+    const [qualidade, setQualidade] = useState('')
+    const [expectativa, setExpectativa] = useState('')
+    const [indicacao, setIndicacao] = useState('')
     const [message, setMessage] = useState('')
 
     async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        if (!name || !cargo || !email || !grupo || !message) {
+        if (!name || !cargo || !email || !grupo || !comoChegou || !atendimento || !qualidade || !expectativa || !indicacao || !message) {
             alert('Por favor, preencha todos os campos antes de enviar o formulário.');
         }
 
@@ -29,6 +34,11 @@ export default function PesquisaDeSatisfacao() {
                 email: email,
                 cargo: cargo,
                 grupo: grupo,
+                comoChegou: comoChegou,
+                atendimento: atendimento,
+                qualidade: qualidade,
+                expectativa: expectativa,
+                indicacao: indicacao,
                 message: message
             })
         })
@@ -38,6 +48,11 @@ export default function PesquisaDeSatisfacao() {
             setEmail('')
             setCargo('')
             setGrupo('')
+            setComoChegou('')
+            setAtendimento('')
+            setQualidade('')
+            setExpectativa('')
+            setIndicacao('')
             setMessage('')
             toast.success(`Hey, mensagem enviada com sucesso!`)
         }
@@ -115,51 +130,36 @@ export default function PesquisaDeSatisfacao() {
                                         <input type="text" name="cargo" id="cargo" onChange={ e => setCargo(e.target.value) } required />
                                     </div>
 
-                                    <div className="col-12 col-md-9">
-                                        <label>Empresa do Grupo</label>
-                                        <select name="empresas" id="empresas" onChange={ e => setGrupo(e.target.value) }>
-                                            <option value="Selecione">Selecione</option>
-                                            <option value="Aria Imagem e Tecnologia">Aria Imagem e Tecnologia</option>
-                                            <option value="Azimute Engenharia">Azimute Engenharia</option>
-                                            <option value="Azimute Tech">Azimute Tech</option>
-                                            <option value="Azimute San">Azimute San</option>
-                                            <option value="Azimute Imóveis">Azimute Imóveis</option>
-                                        </select>
-                                    </div>
-
-                                    {/* <div className="col-12 col-md-12">
+                                    <div className="col-12 col-md-12">
                                         <label>Qual empresa você gostaria de avaliar?</label>
                                         <div className="options-holder options-big">
-                                        <input type="hidden" name="empresa" value="<?php if(isset($slug)) { echo $slug; } else { echo 'Grupo'; } ?>" required />
-                                            <div className="option option-engenharia <?php if($slug == 'Engenharia') { echo 'active'; }?>" data-value="Engenharia">Engenharia</div>
-                                            <div className="option option-tech <?php if($slug == 'Tech') { echo 'active'; }?>" data-value="Tech">Tech</div>
-                                            <div className="option option-imoveis <?php if($slug == 'Imóveis') { echo 'active'; }?>" data-value="Imóveis">Imóveis</div>
-                                            <div className="option option-san <?php if($slug == 'San') { echo 'active'; }?>" data-value="San">San</div>
-                                            <div className="option option-aria <?php if($slug == 'Aria') { echo 'active'; }?>" data-value="Aria">Aria</div>
+                                            <div onClick={ () => setGrupo('Engenharia') } className={ `option option-engenharia ${ grupo == 'Engenharia' && 'active' }` }>Engenharia</div>
+                                            <div onClick={ () => setGrupo('Tech') } className={ `option option-tech ${ grupo == 'Tech' && 'active' }` }>Tech</div>
+                                            <div onClick={ () => setGrupo('Imóveis') } className={ `option option-imoveis ${ grupo == 'Imóveis' && 'active' }` }>Imóveis</div>
+                                            <div onClick={ () => setGrupo('San') } className={ `option option-san ${ grupo == 'San' && 'active' }` }>San</div>
+                                            <div onClick={ () => setGrupo('Aria') } className={ `option option-aria ${ grupo == 'Aria' && 'active' }` }>Aria</div>
                                         </div>
                                     </div>
 
                                     <div className="col-12 col-md-12">
                                         <label>Como você chegou até nós?</label>
                                         <div className="options-holder options-big">
-                                            <input type="hidden" name="como_chegou" value="" required />
-                                            <div className="option" data-value="Já sou cliente">Já sou cliente</div>
-                                            <div className="option" data-value="Indicação">Indicação</div>
-                                            <div className="option" data-value="Google">Google</div>
-                                            <div className="option" data-value="Redes Sociais">Redes Sociais</div>
-                                            <div className="option" data-value="Outros">Outros</div>
+                                            <div onClick={ () => setComoChegou('Já sou cliente') } className={ `option ${ comoChegou == 'Já sou cliente' && 'active' }` }>Já sou cliente</div>
+                                            <div onClick={ () => setComoChegou('Indicação') } className={ `option ${ comoChegou == 'Indicação' && 'active' }` }>Indicação</div>
+                                            <div onClick={ () => setComoChegou('Google') } className={ `option ${ comoChegou == 'Google' && 'active' }` }>Google</div>
+                                            <div onClick={ () => setComoChegou('Redes Sociais') } className={ `option ${ comoChegou == 'Redes Sociais' && 'active' }` }>Redes Sociais</div>
+                                            <div onClick={ () => setComoChegou('Outros') } className={ `option ${ comoChegou == 'Outros' && 'active' }` }>Outros</div>
                                         </div>
                                     </div>
 
                                     <div className="col-12 col-md-8">
                                         <label>Como foi nosso atendimento?</label>
                                         <div className="options-holder">
-                                            <input type="hidden" name="atendimento" value="" required />
-                                            <div className="option" data-value="1">1</div>
-                                            <div className="option" data-value="2">2</div>
-                                            <div className="option" data-value="3">3</div>
-                                            <div className="option" data-value="4">4</div>
-                                            <div className="option" data-value="5">5</div>
+                                            <div onClick={ () => setAtendimento('1') } className={ `option ${ atendimento == '1' && 'active' }` }>1</div>
+                                            <div onClick={ () => setAtendimento('2') } className={ `option ${ atendimento == '2' && 'active' }` }>2</div>
+                                            <div onClick={ () => setAtendimento('3') } className={ `option ${ atendimento == '3' && 'active' }` }>3</div>
+                                            <div onClick={ () => setAtendimento('4') } className={ `option ${ atendimento == '4' && 'active' }` }>4</div>
+                                            <div onClick={ () => setAtendimento('5') } className={ `option ${ atendimento == '5' && 'active' }` }>5</div>
 
                                             <span className="option-low">Insatisfeito</span>
                                             <span className="option-high">Excelente</span>
@@ -169,12 +169,11 @@ export default function PesquisaDeSatisfacao() {
                                     <div className="col-12 col-md-8">
                                         <label>Avalie a qualidade dos serviços entregues</label>
                                         <div className="options-holder">
-                                            <input type="hidden" name="qualidade" value="" required />
-                                            <div className="option" data-value="1">1</div>
-                                            <div className="option" data-value="2">2</div>
-                                            <div className="option" data-value="3">3</div>
-                                            <div className="option" data-value="4">4</div>
-                                            <div className="option" data-value="5">5</div>
+                                            <div onClick={ () => setQualidade('1') } className={ `option ${ qualidade == '1' && 'active' }` }>1</div>
+                                            <div onClick={ () => setQualidade('2') } className={ `option ${ qualidade == '2' && 'active' }` }>2</div>
+                                            <div onClick={ () => setQualidade('3') } className={ `option ${ qualidade == '3' && 'active' }` }>3</div>
+                                            <div onClick={ () => setQualidade('4') } className={ `option ${ qualidade == '4' && 'active' }` }>4</div>
+                                            <div onClick={ () => setQualidade('5') } className={ `option ${ qualidade == '5' && 'active' }` }>5</div>
 
                                             <span className="option-low">Insatisfeito</span>
                                             <span className="option-high">Excelente</span>
@@ -184,20 +183,18 @@ export default function PesquisaDeSatisfacao() {
                                     <div className="col-12 col-md-7">
                                         <label>Atendemos suas expectativas?</label>
                                         <div className="options-holder">
-                                            <input type="hidden" name="expectativa" value="" required />
-                                            <div className="option" data-value="Sim">Sim</div>
-                                            <div className="option" data-value="Não">Não</div>
+                                            <div onClick={ () => setExpectativa('Sim') } className={ `option ${ expectativa == 'Sim' && 'active' }` }>Sim</div>
+                                            <div onClick={ () => setExpectativa('Não') } className={ `option ${ expectativa == 'Não' && 'active' }` }>Não</div>
                                         </div>
                                     </div>
 
                                     <div className="col-12 col-md-7">
                                         <label>Você nos indicaria para outra empresa?</label>
                                         <div className="options-holder">
-                                            <input type="hidden" name="indicacao" value="" required />
-                                            <div className="option" data-value="Sim">Sim</div>
-                                            <div className="option" data-value="Não">Não</div>
+                                            <div onClick={ () => setIndicacao('Sim') } className={ `option ${ indicacao == 'Sim' && 'active' }` }>Sim</div>
+                                            <div onClick={ () => setIndicacao('Não') } className={ `option ${ indicacao == 'Não' && 'active' }` }>Não</div>
                                         </div>
-                                    </div> */}
+                                    </div>
 
                                     <div className="col-12 col-md-11">
                                         <label>Deixe aqui seu elogio e/ou crítica</label>
