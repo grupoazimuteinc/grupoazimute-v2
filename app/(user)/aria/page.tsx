@@ -85,13 +85,15 @@ export default async function Aria() {
 
                     <div className="social-media">
                         
-                        {/* <div className="email">
+                        <div className="email">
                             <i className="fas fa-laptop"></i>
 
-                            <a href="https://www.ariatecnologia.com.br/" target="_blank"><strong>ariatecnologia.com.br</strong></a>
+                            {/* <a href="https://www.ariatecnologia.com.br/" target="_blank"><strong>ariatecnologia.com.br</strong></a> */}
+
+                            <strong>ariatecnologia.com.br</strong>
 
                             <span></span>
-                        </div> */}
+                        </div>
                         
 
                         

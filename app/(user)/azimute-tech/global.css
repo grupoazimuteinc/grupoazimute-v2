@@ -145,6 +145,13 @@ body { background: none; }
 		text-decoration: none;
 	}
 
+	.social-media strong {
+		font-size: 16px;
+		line-height: 20px;
+		color: #fff;
+		font-weight: 600;
+	}
+
 	.redes-sociais a {
 		margin: 0 10px;
 	}

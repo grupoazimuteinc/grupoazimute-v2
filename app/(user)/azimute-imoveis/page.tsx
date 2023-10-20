@@ -85,13 +85,15 @@ export default async function AzimuteImoveis() {
 
                     <div className="social-media">
                         
-                        {/* <div className="email">
+                        <div className="email">
                             <i className="fas fa-laptop"></i>
 
-                            <a href="https://www.azimuteimoveis.com.br/" target="_blank"><strong>azimuteimoveis.com.br</strong></a>
+                            {/* <a href="https://www.azimuteimoveis.com.br/" target="_blank"><strong>azimuteimoveis.com.br</strong></a> */}
+
+                            <strong>azimuteimoveis.com.br</strong>
 
                             <span></span>
-                        </div> */}
+                        </div>
                         
 
                         

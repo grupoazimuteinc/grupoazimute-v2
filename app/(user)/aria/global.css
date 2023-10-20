@@ -91,6 +91,13 @@ body { background: none; }
 		padding: 40px 0;
 	}
 
+	.social-media strong {
+		font-size: 16px;
+		line-height: 20px;
+		color: #fff;
+		font-weight: 600;
+	}
+
 
 	.email {
 		display: flex;
