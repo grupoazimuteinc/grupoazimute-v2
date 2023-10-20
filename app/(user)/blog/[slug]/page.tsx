@@ -10,7 +10,9 @@ import { RichTextComponents } from '@/components/rich-text-components'
 type Props = {
     params: {
         slug: string
-    }
+    },
+
+    
 }
 
 export const revalidate = 60
@@ -39,6 +41,9 @@ export default async function Post({ params: { slug } }: Props) {
     `
 
     const post: Post = await client.fetch(query, { slug })
+    console.log(post)
+
+    
     
     return (
         <div className="max-w-[800px] w-full mx-auto pt-40">
@@ -56,6 +61,15 @@ export default async function Post({ params: { slug } }: Props) {
                 // @ts-ignore */}
                 <PortableText value={ post?.body } components={ RichTextComponents } />
             </div>
+
+            {/* <div>
+                { post.gallery.images.map((spec: { key: string, value: string }, index) => (
+                    <tr key={ index }>
+                        <td>{ spec.key }</td>
+                        <td>{ spec.value }</td>                                    
+                    </tr> 
+                ))} 
+            </div> */}
 
             <div className="mb-20">
                 <Link href="/" className="bg-[#ccc] text-lg mt-10 text-gray inline-block py-3 px-14 rounded-lg hover:text-white">Voltar</Link>

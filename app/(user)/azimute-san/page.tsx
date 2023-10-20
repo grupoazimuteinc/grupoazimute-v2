@@ -84,13 +84,13 @@ export default async function AzimuteSan() {
 
                     <div className="social-media">
                         
-                        <div className="email">
+                        {/* <div className="email">
                             <i className="fas fa-laptop"></i>
 
                             <a href="https://www.azimutesan.com.br/" target="_blank"><strong>azimutesan.com.br</strong></a>
 
                             <span></span>
-                        </div>
+                        </div> */}
                         
 
                         

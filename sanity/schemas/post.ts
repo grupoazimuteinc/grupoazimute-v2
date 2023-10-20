@@ -50,6 +50,32 @@ export default defineType({
       title: 'Texto',
       type: 'blockContent',
     }),
+
+    defineField({
+      name: 'gallery',
+      title: 'Galeria de Imagens',
+      type: 'document',
+      fields: [
+        {
+          name: 'title',
+          title: 'Título',
+          type: 'string',
+        },
+        {
+          name: 'images',
+          title: 'Imagens',
+          type: 'array',
+          of: [
+            {
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+          ],
+        },
+      ],
+    }), 
   ],
 
   preview: {

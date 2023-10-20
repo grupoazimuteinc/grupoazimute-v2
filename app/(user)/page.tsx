@@ -52,7 +52,7 @@ export default async function Home() {
             <div className="col-12 -mt-40">
               <div className="grid-logos gap-4 flex">
                 <div>
-                  <Link href="/azimute-engenharia">
+                  <Link href="https://www.azimuteengenharia.com.br/" target="_blank">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
@@ -65,7 +65,7 @@ export default async function Home() {
                 </div>
 
                 <div>
-                  <Link href="/azimute-imoveis">
+                  <Link href="https://www.azimuteimoveis.com.br/" target="_blank">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
@@ -78,7 +78,7 @@ export default async function Home() {
                 </div>
 
                 <div>
-                  <Link href="/azimute-tech">
+                  <Link href="https://www.azimutetech.com.br/" target="_blank">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
@@ -91,7 +91,7 @@ export default async function Home() {
                 </div>
 
                 <div>
-                  <Link href="/azimute-san">
+                  <Link href="https://www.azimutesan.com.br/" target="_blank">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
@@ -104,7 +104,7 @@ export default async function Home() {
                 </div>
 
                 <div>
-                  <Link href="/aria">
+                  <Link href="https://www.ariatecnologia.com.br/" target="_blank">
                     <div className="box-empresa">
                       <div>
                         <div className="ga-logo">
