@@ -11,9 +11,9 @@ const query = groq`
 *[
     count((categories[]->title)[@ in ["tech"]]) > 0 &&
     _type == 'post'
-  ][0..7] {
+  ] {
     ...,
-    categories[]->,
+    categories[]->
   } | order(publishedAt desc)
 `
 
