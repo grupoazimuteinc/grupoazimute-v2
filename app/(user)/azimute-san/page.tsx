@@ -9,9 +9,9 @@ const query = groq`
 *[
     count((categories[]->title)[@ in ["san"]]) > 0 &&
     _type == 'post'
-  ][0..7] {
+  ] {
     ...,
-    categories[]->,
+    categories[]->
   } | order(publishedAt desc)
 `
 
