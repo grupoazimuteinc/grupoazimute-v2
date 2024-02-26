@@ -1,17 +1,10 @@
 'use client'
 
-function getPostVideoId(videoUrl:any) {
-    if (videoUrl && videoUrl.includes('youtube.com/watch?v=')) {
-        return videoUrl.split('v=')[1];
-    } else {
-        return videoUrl;
-    }
-}
-
 import Link from 'next/link'
 import Image from 'next/image'
 import { groq } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
+import YouTube from 'react-youtube';
 
 import { client } from '@/lib/sanity.client'
 import { urlFor } from '@/lib/urlFor'
@@ -75,9 +68,9 @@ export default async function Post({ params: { slug } }: Props) {
                 <PortableText value={ post?.body } components={ RichTextComponents } />
             </div>
 
-            <div className="text-base">
-                <span>Ver vídeo: <a href={`https://www.youtube.com/watch?v=${getPostVideoId(post.urlVideo)}`} target="_blank">{`${getPostVideoId(post.urlVideo)}`}</a></span>
-            </div>
+            {post?.urlVideo && 
+                <iframe width="100%" src={`https://www.youtube.com/embed/${post.urlVideo}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style={{aspectRatio: '16/9'}}></iframe>
+            }
 
             {post.gallery && post.gallery.images.map((image, index) => {
                 console.log("URL da imagem:", urlFor(image).url());
@@ -87,8 +80,6 @@ export default async function Post({ params: { slug } }: Props) {
                     </div>
                 );
             })}
-
-
 
             <div className="mb-20">
                 <Link href="/" className="bg-[#ccc] text-lg mt-10 text-gray inline-block py-3 px-14 rounded-lg hover:text-white">Voltar</Link>
