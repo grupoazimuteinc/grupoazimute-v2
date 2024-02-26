@@ -1,3 +1,5 @@
+'use client'
+
 function getPostVideoId(videoUrl:any) {
     if (videoUrl && videoUrl.includes('youtube.com/watch?v=')) {
         return videoUrl.split('v=')[1];
