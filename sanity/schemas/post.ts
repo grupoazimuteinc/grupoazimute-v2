@@ -52,6 +52,12 @@ export default defineType({
     }),
 
     defineField({
+      name: 'urlVideo',
+      title: 'URL do vídeo',
+      type: 'string'
+    }),
+
+    defineField({
       name: 'gallery',
       title: 'Galeria de Imagens',
       type: 'document',

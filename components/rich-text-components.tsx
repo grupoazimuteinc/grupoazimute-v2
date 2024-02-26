@@ -1,9 +1,27 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import ReactPlayer from 'react-player';
+
 import { urlFor } from '@/lib/urlFor'
 
+const VideoBlock = ({ node }:any) => {
+    if (!node || !node.urlVideo) {
+      return null;
+    }
+    return (
+      <div>
+        <video controls>
+          <source src={node.urlVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    );
+  };
+
+
 export const RichTextComponents = {
+    
     types: {
         image: ({ value }: any) => {
             return (
@@ -11,7 +29,8 @@ export const RichTextComponents = {
                     <Image src={ urlFor(value).url() } className="" alt="" width={ 500 } height={ 500 } />
                 </div>
             )
-        }
+        },
+        video: VideoBlock,
     },
     list: {
         bullet: ({ children }: any) => {
@@ -36,17 +55,6 @@ export const RichTextComponents = {
         },
         blockquote: ({ children }: any) => {
             <blockquote className="">{ children }</blockquote>
-        }
-    },
-    marks: {
-        link: ({ children, value }: any) => {
-            const rel = !value.href.startsWith('/')
-                ? 'noreferrer noopener'
-                : undefined
-
-            return (
-                <Link href={ value.href } rel={ rel } className="">{ children }</Link>
-            ) 
         }
     }
 }
