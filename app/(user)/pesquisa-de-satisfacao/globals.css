@@ -320,6 +320,6 @@ a .box-icon:hover {
     .content-info {
         justify-content: center !important;
         height: 100% !important;
-        margin-top: 80px !important;
+        padding-top: 100px !important;
     }
 }

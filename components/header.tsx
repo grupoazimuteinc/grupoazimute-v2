@@ -12,8 +12,8 @@ export function Header() {
                     <div className="row d-flex align-items-center">
                         <div className="col-12 d-md-none">
                             <div className="extra-links top">
-                                <a href="tel:554734736777" className="header-sublink"><span>Fone:</span> 55 47 3473.6777</a>
-                                <a href="https://api.whatsapp.com/send?phone=554799994-5165" className="header-sublink"><span>Whatsapp:</span> 55 47 99994-5165</a>
+                                <a href="tel:554734736777" className="header-sublink"><span>Fone:</span> +55 47 3473-6777</a>
+                                <a href="https://api.whatsapp.com/send?phone=5547999110824" className="header-sublink"><span>Whatsapp:</span> +55 47 99911-0824</a>
                             </div>
                         </div>
 
@@ -37,9 +37,9 @@ export function Header() {
 
                         <div className="col-12 col-md-9 text-right d-none d-md-block header-home">
                             <div className="extra-links">
-                                <a href="tel:554734736777" className="header-sublink"><span>Fone:</span> 55 47 3473.6777</a>
+                                <a href="tel:554734736777" className="header-sublink"><span>Fone:</span> +55 47 3473-6777</a>
                                 <a href="#" className="header-sublink">•</a>
-                                <a href="https://api.whatsapp.com/send?phone=554799994-5165" className="header-sublink"><span>Whatsapp:</span> 55 47 99994.5165</a>
+                                <a href="https://api.whatsapp.com/send?phone=5547999110824" className="header-sublink"><span>Whatsapp:</span> +55 47 99911-0824</a>
                             </div>
 
                             <div className="links">
@@ -51,7 +51,7 @@ export function Header() {
                                         <li><Link href="/azimute-imoveis">Azimute Imóveis</Link></li>
                                         <li><Link href="/azimute-tech">Azimute Tech</Link></li>
                                         <li><Link href="/azimute-san">Azimute San</Link></li>
-                                        <li><Link href="/aria">Aria Imagem e Tecnologia</Link></li>
+                                        <li><Link href="/aria">Aria - Imagem e Tecnologia</Link></li>
                                     </ul>
                                 </span>
                                 <Link href="/contato" className="header-sublink">Contato</Link>

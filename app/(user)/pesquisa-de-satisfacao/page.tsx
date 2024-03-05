@@ -79,7 +79,7 @@ export default function PesquisaDeSatisfacao() {
                                 </g>
                             </svg>
 
-                            <span>(47) 3473-6777</span>
+                            <span>+55 47 3473-6777</span>
                         </a>
 
                         <a href="mailto:comercial@grupoazimute.com.br">

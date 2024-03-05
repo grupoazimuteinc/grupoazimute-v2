@@ -9,7 +9,7 @@ export function Footer() {
                 <div className="row">
                     <div className="col-12 col-md-4">
                         <h6>Telefone</h6>
-                        <a href="tel:4734736777" className="footer-sublink">(47) 3473-6777</a>
+                        <a href="tel:4734736777" className="footer-sublink">+55 47 3473-6777</a>
 
                         <div className="divider"></div>
 
@@ -60,7 +60,7 @@ export function Footer() {
                     </div>
 
                     <div className="col-12 col-md-3 text-right">
-                        <small>Copyright © 2023 - Grupo Azimute</small>
+                        <small>Copyright © 2024 - Grupo Azimute</small>
                     </div>
                 </div>
             </div>
