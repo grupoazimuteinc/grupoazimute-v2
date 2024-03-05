@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import Ano from "./ano";
 
 import logos from '@/src/images/logos.png'
 
@@ -60,7 +63,7 @@ export function Footer() {
                     </div>
 
                     <div className="col-12 col-md-3 text-right">
-                        <small>Copyright © 2024 - Grupo Azimute</small>
+                        <small>Copyright © <Ano /> - Grupo Azimute</small>
                     </div>
                 </div>
             </div>

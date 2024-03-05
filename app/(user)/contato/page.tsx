@@ -46,8 +46,8 @@ export default function Contato() {
 
     return (
         <div id="contato">
-            <div className="content">
-                <div className="content-info">
+            <div className="content-form">
+                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
                     <h1>Contato</h1>
                     <div className="infos-holder">
                         <a href="tel:554734736777" target="_blank">

@@ -10,6 +10,7 @@ body { background: none; }
     background: url(../../../src/images/bg-azimute-imoveis.jpg) center center no-repeat;
     background-size: cover;
     margin-top: 0;
+    padding-top: 100px;
 }
 
 .content-form img {

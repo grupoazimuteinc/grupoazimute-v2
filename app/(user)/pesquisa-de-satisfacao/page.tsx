@@ -60,7 +60,7 @@ export default function PesquisaDeSatisfacao() {
     return (
         <>
             <div className="content-form">
-                <div className="content-info">
+                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
                     <h1>Pesquisa de Satisfação</h1>
                     <div className="infos-holder">
                         <a href="tel:554734736777" target="_blank">

@@ -45,7 +45,7 @@ export default function SoliciteOrcamento() {
     return (
         <>
             <div className="content-form">
-                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingTop: '100px'}}>
+                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
                     <h1>Solicite Orçamento</h1>
 
                     <div className="infos-holder">

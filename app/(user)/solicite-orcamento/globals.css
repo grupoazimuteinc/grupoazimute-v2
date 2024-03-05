@@ -10,6 +10,7 @@ body { background: none; }
     background: url(../../../src/images/bg-azimute-imoveis.jpg) center center no-repeat;
     background-size: cover;
     margin-top: 0;
+    padding-top: 100px;
 }
 
 .content-form img {
@@ -292,6 +293,14 @@ a .box-icon:hover {
     background: #F1F1F2 url(../../../src/images/arrow-down-select.png) center center no-repeat;
     background-position-x: 97%;
     background-position-y: 50%;
+}
+
+.content-info {
+    text-align: center;
+}
+
+.content-info h1 {
+    text-align: center;
 }
 
 @media(max-width: 821px) {

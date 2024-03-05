@@ -155,6 +155,19 @@ body { background: none; }
 		font-size: 20px;
 	}
 
+	.content-form {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		width: 100%;
+		height: 60vh;
+		background: url(../../../src/images/bg-azimute-imoveis.jpg) center center no-repeat;
+		background-size: cover;
+		margin-top: 0;
+		padding-top: 100px;
+	}
+
 	@media (max-width: 968px) {
 		#contato .infos-holder a span { display: none; }
 	}
