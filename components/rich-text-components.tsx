@@ -1,7 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
-
-import ReactPlayer from 'react-player';
 
 import { urlFor } from '@/lib/urlFor'
 

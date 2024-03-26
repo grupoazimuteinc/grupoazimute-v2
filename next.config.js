@@ -2,7 +2,10 @@
 const nextConfig = {
     images: {
         domains: ['grupoazimute.com.br', 'cdn.sanity.io']
-    }
+    },
+    experimental: {
+        serverActions: true,
+    },
 }
 
 module.exports = nextConfig
