@@ -103,7 +103,7 @@ h2 {
 
 
 .shape { position: absolute; top: 0; right: 80%; }
-
+/* 
 form {
 	position: relative;
 	z-index: 10;
@@ -131,7 +131,7 @@ form button {
 	position: absolute;
 	top: 0;
 	right: 0;
-}
+} */
 
 
 footer { padding: 180px 0 80px; }

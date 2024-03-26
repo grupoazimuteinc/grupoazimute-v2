@@ -61,3 +61,10 @@ interface Title {
     _type: 'string'
     current: string
 }
+
+interface EventFormInput {
+    name: string
+    label: string
+    type: string
+    required: boolean
+}
