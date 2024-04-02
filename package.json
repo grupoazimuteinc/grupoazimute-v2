@@ -10,7 +10,6 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
-    "@murillomfs/my-scope.hello-world": "^0.0.1",
     "@portabletext/react": "^3.0.9",
     "@sanity/client": "^6.15.9",
     "@sanity/image-url": "^1.0.2",
