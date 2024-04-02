@@ -15,7 +15,7 @@ export default function Home() {
     async function handleChange(form: FormData) {
         await handleSendForm(form)
 
-        toast.success('Cadastro realizado com sucesso!', {
+        toast.success('Cadastro realizado com sucesso.', {
             position: 'bottom-right',
             autoClose: 5000,
             hideProgressBar: false,
