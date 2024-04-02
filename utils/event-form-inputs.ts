@@ -21,6 +21,7 @@ export const eventFomInputs = [
         name: 'phone',
         label: 'Telefone',
         type: 'text',
+        mask: '(99) 99999-9999',
         required: false
     }
 ]

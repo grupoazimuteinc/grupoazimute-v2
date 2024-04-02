@@ -1,7 +1,10 @@
+'use client'
+
 import Image from 'next/image'
-import nodemailer from 'nodemailer'
+import InputMask from 'react-input-mask'
 import { ToastContainer, toast } from 'react-toastify'
 
+import { handleSendForm } from '@/actions/handleSendForm'
 import { eventFomInputs } from '@/utils/event-form-inputs'
 
 import { FormButton } from '@/components/form-button'
@@ -9,101 +12,23 @@ import { FormButton } from '@/components/form-button'
 import 'react-toastify/dist/ReactToastify.css'
 
 export default function Home() {
-    async function handleSendForm(form: FormData) {
-        'use server'
+    async function handleChange(form: FormData) {
+        await handleSendForm(form)
 
-        const name = form.get('name')
-        const email = form.get('email')
-        const organization = form.get('organization')
-        const phone = form.get('phone')
-
-        if(!name || !email || !organization) return
-
-        await new Promise(resolve => setTimeout(resolve, 3000))
-
-        const transporter = nodemailer.createTransport({
-            // @ts-ignore
-            host: process.env.EMAIL_HOST,
-            port: process.env.EMAIL_PORT,
-            secure: true,
-            auth: {
-              user: process.env.EMAIL_USER,
-              pass: process.env.EMAIL_PASSWORD,
-            }
+        toast.success('Cadastro realizado com sucesso!', {
+            position: 'bottom-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'dark'
         })
-      
-        try {
-            const info = await transporter.sendMail({
-                from: process.env.EMAIL_USER, 
-                to: 'mfs.murillo@gmail.com',
-                subject: 'Cadastro IFAT Brasil 2024',
-                html: `
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; background-color: #ffffff;">
-                        <tr>
-                            <td align="center" bgcolor="#313131" style="padding: 40px 0 30px 0;">
-                                <img src="https://www.grupoazimute.com.br/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.6d0abdee.png&w=384&q=75" alt="Logo da Empresa" width="348" height="75" style="display: block;" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
-                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                    <tr>
-                                        <td style="color: #153643; font-family: Arial, sans-serif; font-size: 24px;">
-                                            <b>Confirmação de Cadastro</b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                            Olá, <br>
-                                            Aqui estão os detalhes do cadastro:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                            <strong>Nome:</strong> ${ name }
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                            <strong>Email:</strong> ${ email }
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                            <strong>Empresa:</strong> ${ organization }
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                            <strong>Telefone:</strong> ${ phone }
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 20px 0 0 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                            Se você não realizou este cadastro, por favor, ignore este e-mail ou entre em contato conosco.
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#313131" style="padding: 30px 30px 30px 30px;">
-                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                    <tr>
-                                        <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;" align="center">
-                                            &copy; 2024 Grupo Azimute. Todos os direitos reservados.
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                `
-            })
-            
-            console.log('Message sent: %s', info.messageId)
-        } catch (error) {
-            console.error("Erro ao enviar email:", error)
+
+        const formInputs: any = document.querySelector('.event-form')
+    
+        for (let i = 0; i < formInputs.elements.length; i++) {
+            formInputs.elements[i].value = ''
         }
     }
 
@@ -157,12 +82,17 @@ export default function Home() {
                         <div className="col-12 col-lg-6">
                             <h2 className="text-2xl mb-6 text-[#343434] xl:text-4xl xl:mb-12 lg:hidden">Cadastre-se para saber como as soluções integradas do Grupo Azimute podem atuar de forma sinérgica no setor de saneamento</h2>
 
-                            <form action={ handleSendForm } method="POST" className="event-form mb-6 max-sm:p-3 md:p-10 bg-[#F2F2F2] border border-[#DDDEE2] rounded-2xl flex flex-col md:gap-6 lg:p-10">
+                            <form action={ handleChange } method="POST" encType="multipart/form-data" className="event-form mb-6 max-sm:p-3 md:p-10 bg-[#F2F2F2] border border-[#DDDEE2] rounded-2xl flex flex-col md:gap-6 lg:p-10">
                                 { eventFomInputs.map((input: EventFormInput) => {
                                     return(
                                         <div key={ input.name }>
                                             <label htmlFor="name" className="block mb-2 font-semibold">{ input.label }</label>
-                                            <input type={ input.type } name={ input.name } className="border border-[#C8C8C8] h-[50px] xl:h-[60px] px-4 rounded-md bg-white w-full" />
+                                            
+                                            { input?.mask ?
+                                                <InputMask mask={ input.mask } type={ input.type } name={ input.name } required={ input.required } className="border border-[#C8C8C8] h-[50px] xl:h-[60px] px-4 rounded-md bg-white w-full" />
+                                            :
+                                                <input type={ input.type } name={ input.name } required={ input.required } className="border border-[#C8C8C8] h-[50px] xl:h-[60px] px-4 rounded-md bg-white w-full" />
+                                            }
                                         </div>
                                     )
                                 })}
