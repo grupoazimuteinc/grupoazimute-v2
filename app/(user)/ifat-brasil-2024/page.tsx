@@ -38,7 +38,7 @@ export default function Home() {
                 <div className="container relative z-10">
                     <div className="row h-auto md:h-[350px] lg:h-[400px] xl:h-[500px] items-center">
                         <div className="col-12 col-md-6 self-end xl:self-center">
-                            <h1 className="text-3xl mb-4 mt-24 md:mt-16 md:text-3xl lg:text-4xl xl:text-5xl">Grupo Azimute: Soluções integradas de saneamento em um único grupo de empresas</h1>
+                            <h1 className="text-white font-semibold text-3xl mb-4 mt-24 md:mt-16 md:text-3xl lg:text-4xl xl:text-5xl">Grupo Azimute: Soluções integradas de saneamento em um único grupo de empresas</h1>
                         </div>
 
                         <div className="col-7 col-md-4 offset-md-1 col-lg-4 offset-lg-1 self-end">
@@ -65,7 +65,7 @@ export default function Home() {
                 <div className="container">
                     <div className="row flex-col-reverse lg:flex-row">
                         <div className="col-12 col-lg-6">
-                            <h2 className="hidden lg:block text-2xl mb-6 text-[#343434] xl:text-4xl xl:mb-12">Cadastre-se para saber como as soluções integradas do Grupo Azimute podem atuar de forma sinérgica no setor de saneamento</h2>
+                            <h2 className="hidden lg:block font-semibold text-2xl mb-6 text-[#343434] xl:text-4xl xl:mb-12">Cadastre-se para saber como as soluções integradas do Grupo Azimute podem atuar de forma sinérgica no setor de saneamento</h2>
                             
                             <p className="text-base block md:text-xl md:leading-8 text-[#605E5E] border-y-2 py-4 border-[#D9D9D9] lg:inline-block">
                                 Conheça a iniciativa <strong className="text-base md:text-xl leading-8 text-[#605E5E]">AziSin Grupo Azimute</strong>: <br />
