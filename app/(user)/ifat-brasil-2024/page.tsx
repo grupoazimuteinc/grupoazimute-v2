@@ -87,7 +87,7 @@ export default function Home() {
                                     return(
                                         <div key={ input.name }>
                                             <label htmlFor="name" className="block mb-2 font-semibold">{ input.label }</label>
-                                            
+
                                             { input?.mask ?
                                                 <InputMask mask={ input.mask } type={ input.type } name={ input.name } required={ input.required } className="border border-[#C8C8C8] h-[50px] xl:h-[60px] px-4 rounded-md bg-white w-full" />
                                             :
