@@ -22,9 +22,9 @@ export async function handleSendForm(form: FormData) {
     })
   
     try {
-        const info = await transporter.sendMail({
+        await transporter.sendMail({
             from: process.env.EMAIL_USER, 
-            to: 'thiago@lab334.com.br',
+            to: 'thiago.ppg@gmail.com',
             subject: 'Cadastro IFAT Brasil 2024',
             html: `
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; background-color: #ffffff;">
