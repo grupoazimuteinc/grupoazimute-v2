@@ -66,5 +66,6 @@ interface EventFormInput {
     name: string
     label: string
     type: string
+    mask?: string
     required: boolean
 }
