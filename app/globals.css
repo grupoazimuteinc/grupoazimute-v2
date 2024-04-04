@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '@fancyapps/fancybox/dist/jquery.fancybox.min.css';
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -735,4 +737,9 @@ header .container-fluid {
 
 .list-default {
 	list-style: disc !important;
+}
+
+.fancybox__slide.has-image>.fancybox__content {
+    width: 100% !important;
+	height: 100% !important;
 }

@@ -10,6 +10,8 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^5.0.35",
     "@portabletext/react": "^3.0.9",
     "@sanity/client": "^6.15.9",
     "@sanity/image-url": "^1.0.2",
@@ -22,6 +24,7 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
     "get-youtube-id": "^1.0.1",
+    "jquery": "^3.7.1",
     "next": "13.4.3",
     "next-sanity": "^4.3.3",
     "nodemailer": "^6.9.13",
@@ -35,11 +38,12 @@
     "react-youtube": "^10.1.0",
     "resend": "^0.17.2",
     "sanity": "^3.12.0",
-    "styled-components": "^6",
+    "styled-components": "^6.1.8",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.29",
     "@types/nodemailer": "^6.4.14",
     "@types/react-input-mask": "^3.0.5",
     "@types/react-toastify": "^4.1.0"
