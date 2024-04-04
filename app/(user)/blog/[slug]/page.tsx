@@ -99,7 +99,7 @@ export default async function Post({ params: { slug } }: Props) {
                 <Fancybox
                     options={{
                     Carousel: {
-                        infinite: false,
+                        infinite: true,
                     },
                     }}
                 >
