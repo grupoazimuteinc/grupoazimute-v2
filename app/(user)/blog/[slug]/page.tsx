@@ -84,39 +84,22 @@ export default async function Post({ params: { slug } }: Props) {
                 <iframe width="100%" src={`https://www.youtube.com/embed/${post.urlVideo}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style={{aspectRatio: '16/9'}}></iframe>
             }
 
-            
-                {/* {post.gallery && post.gallery.images.map((image, index) => {
-                    console.log("URL da imagem:", urlFor(image).url());
-                    return (
-                        <Fancybox key={index}>
-                            <a href={urlFor(image).url()} className="fancybox">
-                                <Image width={800} height={800} src={urlFor(image).url()} alt={`Imagem ${index + 1}`} className="w-full h-full object-cover" />
-                            </a>
-                        </Fancybox>
-                        
-                    );
-                })} */}
-                <Fancybox
-                    options={{
-                    Carousel: {
-                        infinite: true,
-                    },
-                    }}
-                >
-                    {/* {images.map((image) => (
-                        <a key={image.id} data-fancybox="gallery" href={image.url}>
-                        <Image alt="" src={image.thumbnailUrl} width={200} height={150} />
-                        </a>
-                    ))} */}
-                    <div className="grid grid-cols-4 gap-[30px]">
+            <Fancybox
+                options={{
+                Carousel: {
+                    infinite: true,
+                },
+                }}
+            >
+                <div className="grid grid-cols-4 gap-[30px]">
 
-                        {post.gallery?.images.map((image,index) => (
-                            <a key={index} href={urlFor(image).url()} data-fancybox="gallery">
-                                <Image width={800} height={800} src={urlFor(image).url()} alt="" />
-                            </a>
-                        ))}
-                    </div>
-                </Fancybox>
+                    {post.gallery?.images.map((image,index) => (
+                        <a key={index} href={urlFor(image).url()} data-fancybox="gallery">
+                            <Image width={800} height={800} src={urlFor(image).url()} alt="" />
+                        </a>
+                    ))}
+                </div>
+            </Fancybox>
 
             <div className="mb-20">
                 <Link href="/" className="bg-[#ccc] text-lg mt-10 text-gray inline-block py-3 px-14 rounded-lg hover:text-white">Voltar</Link>

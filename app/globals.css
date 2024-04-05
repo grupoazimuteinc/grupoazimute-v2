@@ -726,7 +726,7 @@ header .container-fluid {
 
 	.img-aria, .img-azimute-san, .img-azimute-engenharia, .img-azimute-imoveis, .img-azimute-tech { background-position: left top !important; padding: 30px 0 !important; margin-bottom: 40px; }
 
-	.grid-logos { display: block; }
+	/* .grid-logos { display: block; } */
 }
 
 @media (min-width: 992px) and (max-width: 1300px) { 
@@ -742,4 +742,45 @@ header .container-fluid {
 .fancybox__slide.has-image>.fancybox__content {
     width: 100% !important;
 	height: 100% !important;
+}
+
+@media (max-width:640px) {
+	.content img {
+		max-width: 100px;
+	}
+
+	.box-empresa {
+		padding: 20px;
+		height: 100px!important;
+		margin-bottom: 0;
+	}
+
+	.ga-logo-white {
+		right: 0;
+	}
+
+	h2 {
+		font-size: 20px;
+		line-height: 27px;
+	}
+
+	.box-news {
+		padding: 15px;
+	}
+
+	.news-image {
+		height: 300px;
+	}
+}
+
+@media(min-width: 641px) and (max-width: 992px) {
+	.box-empresa {
+		padding: 20px;
+		height: 120px!important;
+		margin-bottom: 0;
+	}
+
+	.news-image {
+		height: 300px;
+	}
 }

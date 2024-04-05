@@ -34,7 +34,7 @@ export default async function Home() {
     <main>
       <Image
         src={ bannerGrupo } 
-        className="w-full"
+        className="w-full smartphone:mt-[70px] tablet:mt-[70px]"
         alt="Assista agora"
         aria-hidden="true"
         width={ 1496 }
@@ -49,9 +49,9 @@ export default async function Home() {
               <p>Mais de três décadas de atuação, pautadas em uma relação de responsabilidade com nossos clientes. Marca de valor, resultado de trabalho sério e de experiências com inúmeros desafios.</p>
             </div> */}
 
-            <div className="col-12 -mt-40">
-              <div className="grid-logos gap-4 flex">
-                <div>
+            <div className="col-12 -mt-40 smartphone:mt-0 tablet:mt-0 monitor:mt-0">
+              <div className="grid-logos gap-4 flex area-logo-empresas smartphone:flex-col tablet:flex-col">
+                <div className="smartphone:w-[55%] tablet:w-[55%]">
                   <Link href="https://www.azimuteengenharia.com.br/" target="_blank">
                     <div className="box-empresa">
                       <div>
@@ -64,56 +64,60 @@ export default async function Home() {
                   </Link>
                 </div>
 
-                <div>
-                  <Link href="https://www.azimuteimoveis.com.br/" target="_blank">
-                    <div className="box-empresa">
-                      <div>
-                        <div className="ga-logo">
-                          <Image src={ azimuteImoveisOff } width={ 149 } height={ 54 } className="ga-logo-off" alt="" />
-                          <Image src={ azimuteImoveisWhite } width={ 149 } height={ 54 } className="ga-logo-white" alt="" />
+                <div className="flex flex-row gap-4">
+                  <div className="smartphone:w-full tablet:w-full">
+                    <Link href="https://www.azimuteimoveis.com.br/" target="_blank">
+                      <div className="box-empresa">
+                        <div>
+                          <div className="ga-logo">
+                            <Image src={ azimuteImoveisOff } width={ 149 } height={ 54 } className="ga-logo-off" alt="" />
+                            <Image src={ azimuteImoveisWhite } width={ 149 } height={ 54 } className="ga-logo-white" alt="" />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
+
+                  <div className="smartphone:w-full tablet:w-full">
+                    <Link href="https://www.azimutetech.com.br/" target="_blank">
+                      <div className="box-empresa">
+                        <div>
+                          <div className="ga-logo">
+                            <Image src={ azimuteTechOff } width={ 140 } height={ 52 } className="ga-logo-off" alt="" />
+                            <Image src={ azimuteTechWhite } width={ 140 } height={ 52 } className="ga-logo-white" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
 
-                <div>
-                  <Link href="https://www.azimutetech.com.br/" target="_blank">
-                    <div className="box-empresa">
-                      <div>
-                        <div className="ga-logo">
-                          <Image src={ azimuteTechOff } width={ 140 } height={ 52 } className="ga-logo-off" alt="" />
-                          <Image src={ azimuteTechWhite } width={ 140 } height={ 52 } className="ga-logo-white" alt="" />
+                <div className="flex flex-row gap-4">
+                  <div className="smartphone:w-full tablet:w-full">
+                    <Link href="https://www.azimutesan.com.br/" target="_blank">
+                      <div className="box-empresa">
+                        <div>
+                          <div className="ga-logo">
+                            <Image src={ azimuteSanOff } width={ 140 } height={ 53 } className="ga-logo-off" alt="" />
+                            <Image src={ azimuteSanWhite } width={ 140 } height={ 53 } className="ga-logo-white" alt="" />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                </div>
+                    </Link>
+                  </div>
 
-                <div>
-                  <Link href="https://www.azimutesan.com.br/" target="_blank">
-                    <div className="box-empresa">
-                      <div>
-                        <div className="ga-logo">
-                          <Image src={ azimuteSanOff } width={ 140 } height={ 53 } className="ga-logo-off" alt="" />
-                          <Image src={ azimuteSanWhite } width={ 140 } height={ 53 } className="ga-logo-white" alt="" />
+                  <div className="smartphone:w-full tablet:w-full">
+                    <Link href="https://www.ariatecnologia.com.br/" target="_blank">
+                      <div className="box-empresa">
+                        <div>
+                          <div className="ga-logo">
+                            <Image src={ azimuteAriaOff } width={ 142 } height={ 40 } className="ga-logo-off" alt="" />
+                            <Image src={ azimuteAriaWhite } width={ 142 } height={ 40 } className="ga-logo-white" alt="" />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                </div>
-
-                <div>
-                  <Link href="https://www.ariatecnologia.com.br/" target="_blank">
-                    <div className="box-empresa">
-                      <div>
-                        <div className="ga-logo">
-                          <Image src={ azimuteAriaOff } width={ 142 } height={ 40 } className="ga-logo-off" alt="" />
-                          <Image src={ azimuteAriaWhite } width={ 142 } height={ 40 } className="ga-logo-white" alt="" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -121,7 +125,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="content o-grupo pt-24">
+      <div className="content o-grupo pt-24 monitor:pt-10">
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-8 offset-md-2 text-center">
@@ -132,7 +136,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="container pb-24">
+      <div className="container pb-24 monitor:pb-10">
         <div className="row">
           <Posts posts={ posts } />
         </div>

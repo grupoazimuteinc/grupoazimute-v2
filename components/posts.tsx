@@ -11,7 +11,7 @@ type Props = {
 export function Posts({ posts }: Props) {
     
     return(
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-4 gap-5 smartphone:px-[15px] smartphone:grid-cols-1 tablet:grid-cols-2 tablet:px-[15px] monitor:px-[15px] header-space:grid-cols-3">
             { posts.map(post => (
                 <ClientRoute key={ post._id } route={ `/blog/${ post.slug.current }` }>
                     <div className="box-news">
