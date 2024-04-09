@@ -346,7 +346,7 @@ footer a:hover { color: #404040; text-decoration: underline !important; }
 .header-social:hover { color: #348C34; }
 
 .extra-links.top { margin: 0; display: flex; flex-direction: row; justify-content: space-between; }
-.top .header-sublink { font-size: 13px; margin: 0; }
+.top .header-sublink { font-size: 12px; margin: 0; }
 .top .header-sublink span { font-size: 10px; }
 
 .header-home { transition: all .4s ease-in-out; }
@@ -691,9 +691,9 @@ header .container-fluid {
         right: 15px;
 	}
 	
-	.header { padding: 15px; }
+	.header { padding: 15px 20px; }
 	.header rect { fill: #fff; }
-	.extra-links.top { margin-bottom: 10px; }
+	.extra-links.top { margin-bottom: 15px; }
 
 	h2 { margin-top: 0; font-size: 24px; }
 
@@ -727,6 +727,15 @@ header .container-fluid {
 	.img-aria, .img-azimute-san, .img-azimute-engenharia, .img-azimute-imoveis, .img-azimute-tech { background-position: left top !important; padding: 30px 0 !important; }
 
 	/* .grid-logos { display: block; } */
+
+	.swiper-slides-empresa-grupo .swiper-slide {
+		width: auto;
+		height: 175px;
+	}
+
+	.swiper-slides-empresa-grupo .swiper-slide:last-child {
+		margin-right: 30px;
+	}
 }
 
 @media (min-width: 992px) and (max-width: 1300px) { 
@@ -779,6 +788,7 @@ header .container-fluid {
 	h2 {
 		font-size: 20px;
 		line-height: 27px;
+		margin-bottom: 15px;
 	}
 
 	.box-news {
