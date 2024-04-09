@@ -7,6 +7,7 @@ export async function handleSendForm(form: FormData) {
     const email = form.get('email')
     const organization = form.get('organization')
     const phone = form.get('phone')
+    const message = form.get('message')
 
     if(!name || !email || !organization) return
 
@@ -24,7 +25,7 @@ export async function handleSendForm(form: FormData) {
     try {
         await transporter.sendMail({
             from: process.env.EMAIL_USER, 
-            to: 'comercial@grupoazimute.com.br',
+            to: 'mfs.murillo@gmail.com',
             subject: 'Cadastro IFAT Brasil 2024',
             html: `
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; background-color: #ffffff;">
@@ -65,6 +66,11 @@ export async function handleSendForm(form: FormData) {
                                 <tr>
                                     <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                         <strong>Telefone:</strong> ${ phone }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        <strong>Observação:</strong> ${ message }
                                     </td>
                                 </tr>
                                 <tr>

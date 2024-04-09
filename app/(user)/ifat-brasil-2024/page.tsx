@@ -42,7 +42,7 @@ export default function Home() {
                         </div>
 
                         <div className="col-7 col-md-4 offset-md-1 col-lg-4 offset-lg-1 self-end">
-                            <div className="max-sm:px-4 max-sm:py-4 gap-2 md:py-4 md:px-6 xl:py-12 xl:px-16 bg-white rounded-2xl rounded-b-none flex flex-col justify-center md:gap-6">
+                            <div className="small-screen:px-4 small-screen:py-4 gap-2 md:py-4 md:px-6 lg:py-4 lg:px-6 xl:py-12 xl:px-16 bg-white rounded-2xl rounded-b-none flex flex-col justify-center md:gap-6">
                                 <div>
                                     <Image src="/images/ifat-logo.jpg" priority width={ 324 } height={ 124 } alt="" className="max-w-full" />
                                 </div>
@@ -82,16 +82,22 @@ export default function Home() {
                         <div className="col-12 col-lg-6">
                             <h2 className="text-2xl mb-6 text-[#343434] xl:text-4xl xl:mb-12 lg:hidden">Cadastre-se para saber como as soluções integradas do Grupo Azimute podem atuar de forma sinérgica no setor de saneamento</h2>
 
-                            <form action={ handleChange } method="POST" encType="multipart/form-data" className="event-form mb-6 max-sm:p-3 md:p-10 bg-[#F2F2F2] border border-[#DDDEE2] rounded-2xl flex flex-col md:gap-6 lg:p-10">
+                            <form action={ handleChange } method="POST" encType="multipart/form-data" className="event-form mb-6 small-screen:p-3 md:p-10 bg-[#F2F2F2] border border-[#DDDEE2] rounded-2xl flex flex-col md:gap-6 lg:p-10">
                                 { eventFomInputs.map((input: EventFormInput) => {
                                     return(
                                         <div key={ input.name }>
                                             <label htmlFor="name" className="block mb-2 font-semibold">{ input.label }</label>
 
-                                            { input?.mask ?
-                                                <InputMask mask={ input.mask } type={ input.type } name={ input.name } required={ input.required } className="border border-[#C8C8C8] h-[50px] xl:h-[60px] px-4 rounded-md bg-white w-full" />
-                                            :
-                                                <input type={ input.type } name={ input.name } required={ input.required } className="border border-[#C8C8C8] h-[50px] xl:h-[60px] px-4 rounded-md bg-white w-full" />
+                                            { input.type == 'textarea' ?
+                                                <textarea name={ input.name } required={ input.required } className="border border-[#C8C8C8] h-[150px] xl:h-[160px] p-4 rounded-md bg-white w-full mb-3"></textarea>
+                                            : 
+                                                <>
+                                                    { input?.mask ?
+                                                        <InputMask mask={ input.mask } type={ input.type } name={ input.name } required={ input.required } className="border border-[#C8C8C8] h-[50px] xl:h-[60px] px-4 rounded-md bg-white w-full" />
+                                                    :
+                                                        <input type={ input.type } name={ input.name } required={ input.required } className="border border-[#C8C8C8] h-[50px] xl:h-[60px] px-4 rounded-md bg-white w-full" />
+                                                    }
+                                                </>
                                             }
                                         </div>
                                     )

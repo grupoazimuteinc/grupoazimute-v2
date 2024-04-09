@@ -23,5 +23,11 @@ export const eventFomInputs = [
         type: 'text',
         mask: '(99) 99999-9999',
         required: false
+    },
+    {
+        name: 'message',
+        label: 'Observação',
+        type: 'textarea',
+        required: false
     }
 ]
