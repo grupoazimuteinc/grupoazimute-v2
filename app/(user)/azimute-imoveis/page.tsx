@@ -119,13 +119,13 @@ export default async function AzimuteImoveis() {
                 </div>
             </div>
 
-            <div className="container" style={{paddingTop: "60px"}}>
+            <div className="container py-[60px] smartphone:py-[30px]">
                 <div className="row">
                     <div className="col-12 text-center">
-                        <h2 style={{marginBottom: '5px'}}>Nosso objetivo é transmitir aos clientes todo o suporte<br/> necessário em suas intermediações imobiliárias.</h2>
+                        <h2 className="mb-[5px] smartphone:mb-[30px]">Nosso objetivo é transmitir aos clientes todo o suporte<br/> necessário em suas intermediações imobiliárias.</h2>
 
-                        <div className="clear40"></div>
-                        <div className="clear40"></div>
+                        <div className="clear40 smartphone:hidden"></div>
+                        <div className="clear40 smartphone:hidden"></div>
                     </div>
 
                     <div className="col-6 col-md-3">
@@ -351,14 +351,14 @@ export default async function AzimuteImoveis() {
 
                             <p>Já atuávamos indiretamente há 15 anos no mercado imobiliário, e como decisão estratégica da empresa, decidimos focar nesta área de atuação, podendo assim oferecer um serviço especializado e completo aos nossos clientes.</p>
 
-                            <p>Além disso, a Azimute Imóveis possibilita aos seus clientes processos de unificação, doação, retificação de áreas, assim como regularização prediais, compra e venda de imóveis.</p>
+                            <p className="smartphone:mb-0">Além disso, a Azimute Imóveis possibilita aos seus clientes processos de unificação, doação, retificação de áreas, assim como regularização prediais, compra e venda de imóveis.</p>
 
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="container" style={{paddingTop: "60px"}}>
+            <div className="container py-[60px] smartphone:py-[30px]">
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <h2>Serviço especializado <br/>e completo</h2>
@@ -374,7 +374,7 @@ export default async function AzimuteImoveis() {
                     <div className="col-12 col-md-6">
                         <h2>Compra e venda de imóveis <br/>em Joinville e região</h2>
 
-                        <p>	- Residenciais; <br/>
+                        <p className="smartphone:mb-0">	- Residenciais; <br/>
                             - Comerciais, corporativos e industriais; <br/>
                             - Chácaras e Fazendas; <br/>
                             - Loteamentos e condomínios residenciais e industriais; <br/>
@@ -383,7 +383,7 @@ export default async function AzimuteImoveis() {
                     </div>
                 </div>
             </div>
-            <div className="clear40"></div>
+            <div className="clear40 smartphone:hidden"></div>
 
             <div className="col-12 col-md-8 offset-md-2 text-center">
                 <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Azimute Imóveis.</p>

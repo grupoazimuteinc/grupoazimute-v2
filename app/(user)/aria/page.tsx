@@ -117,16 +117,16 @@ export default async function Aria() {
                 </div>
             </div>
 
-            <div className="container" style={{paddingTop: "60px"}}>
+            <div className="container py-[60px] smartphone:py-[30px]">
                 <div className="row">
                     <div className="col-12 text-center">
-                        <h2 style={{marginBottom: '5px'}}>Inteligência visual para os <br />melhores insights de negócios.</h2>
+                        <h2 className="mb-[5px] smartphone:mb-[30px]">Inteligência visual para os <br />melhores insights de negócios.</h2>
 
-                        <div className="clear40"></div>
-                        <div className="clear40"></div>
+                        <div className="clear40 smartphone:hidden"></div>
+                        <div className="clear40 smartphone:hidden"></div>
                     </div>
 
-                    <div className="col-12 col-md-4">
+                    <div className="col-6 col-md-4">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="58px" height="58px" viewBox="0 0 58 58" version="1.1">
@@ -150,7 +150,7 @@ export default async function Aria() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-4">
+                    <div className="col-6 col-md-4">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="66px" height="57px" viewBox="0 0 66 57" version="1.1">
@@ -170,7 +170,7 @@ export default async function Aria() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-4">
+                    <div className="col-6 col-md-4">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="63px" height="62px" viewBox="0 0 63 62" version="1.1">
@@ -196,7 +196,7 @@ export default async function Aria() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-4">
+                    <div className="col-6 col-md-4">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="63px" height="60px" viewBox="0 0 63 60" version="1.1">
@@ -216,7 +216,7 @@ export default async function Aria() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-4">
+                    <div className="col-6 col-md-4">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="61px" height="61px" viewBox="0 0 61 61" version="1.1">
@@ -240,7 +240,7 @@ export default async function Aria() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-4">
+                    <div className="col-6 col-md-4">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1">
@@ -262,7 +262,7 @@ export default async function Aria() {
                     </div>
                 </div>
             </div>
-            <div className="clear40"></div>
+            <div className="clear40 smartphone:hidden"></div>
 
             <div className="img-aria">
                 <div className="container">
@@ -272,7 +272,7 @@ export default async function Aria() {
 
                             <p>Ajudamos em todas as etapas do processo, desde a captura de dados até a transformação em conhecimento para ajudar você a otimizar seus projetos</p>
 
-                            <ul className="list-default">
+                            <ul className="list-default smartphone:!mb-0">
                                 <li>Economize tempo;</li>
                                 <li>Economize recursos;</li>
                                 <li>Tenha informações precisas e atualizadas;</li>
@@ -283,7 +283,7 @@ export default async function Aria() {
                 </div>
             </div>
 
-            <div className="container" style={{paddingTop: "60px"}}>
+            <div className="container py-[60px] smartphone:py-[30px]">
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <h2>Gestão de aterro sanitário com imagens de alta resolução e informações atualizadas</h2>
@@ -311,7 +311,7 @@ export default async function Aria() {
                             <li>Previsão de entregas.</li>
                         </ul>
 
-                        <ul className="list-default">
+                        <ul className="list-default smartphone:!mb-0">
                             <li style={{listStyle: 'none', marginLeft: '-17px'}}><strong>Gestão de ciclo de vida de ativos</strong></li>
                             <li>Mapeamento para objetos de exploração;</li>
                             <li>Comparação as built versus as designed;</li>
@@ -320,7 +320,7 @@ export default async function Aria() {
                     </div>
                 </div>
             </div>
-            <div className="clear40"></div>
+            <div className="clear40 smartphone:hidden"></div>
 
             <div className="col-12 col-md-8 offset-md-2 text-center">
                 <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Aria Imagem e Tecnologia.</p>

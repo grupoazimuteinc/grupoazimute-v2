@@ -120,13 +120,13 @@ export default async function AzimuteTech() {
                 </div>
             </div>
 
-            <div className="container" style={{paddingTop: "60px"}}>
+            <div className="container py-[60px] smartphone:py-[30px]">
                 <div className="row">
                     <div className="col-12 text-center">
-                        <h2 style={{marginBottom: '5px'}}>Inspeções robotizadas e mapeamento <br/>de redes subterrâneas</h2>
+                        <h2 className="mb-[5px] smartphone:mb-[30px]">Inspeções robotizadas e mapeamento <br/>de redes subterrâneas</h2>
 
-                        <div className="clear40"></div>
-                        <div className="clear40"></div>
+                        <div className="clear40 smartphone:hidden"></div>
+                        <div className="clear40 smartphone:hidden"></div>
                     </div>
 
                     <div className="col-6 col-md-6">
@@ -203,7 +203,7 @@ export default async function AzimuteTech() {
                     </div>
                 </div>
             </div>
-            <div className="clear40"></div>
+            <div className="clear40 smartphone:hidden"></div>
 
             <div className="img-azimute-tech">
                 <div className="container">
@@ -211,13 +211,13 @@ export default async function AzimuteTech() {
                         <div className="col-12 col-md-6">
                             <h2>A Azimute Tech nasceu da necessidade do mercado em realizar inspeções em tubulações a partir de métodos não destrutivos, onde aplicamos a tecnologia robótica de inspeção visual.</h2>
 
-                            <p>Nós atuamos na prestação de serviços de inspeção visual robotizada em tubulações, aplicada a conceitos de engenharia, gerando um diagnóstico completo das condições das redes de drenagem pluvial, esgotamento sanitário e efluentes industriais</p>
+                            <p className="smartphone:mb-0">Nós atuamos na prestação de serviços de inspeção visual robotizada em tubulações, aplicada a conceitos de engenharia, gerando um diagnóstico completo das condições das redes de drenagem pluvial, esgotamento sanitário e efluentes industriais</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="container" style={{paddingTop: "60px"}}>
+            <div className="container py-[60px] smartphone:py-[30px]">
                 <div className="row">
 
                     <div className="col-12">
@@ -263,7 +263,7 @@ export default async function AzimuteTech() {
 
                 </div>
             </div>
-            <div className="clear40"></div>
+            <div className="clear40 smartphone:hidden"></div>
 
             <div className="col-12 col-md-8 offset-md-2 text-center">
                 <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Azimute Tech.</p>

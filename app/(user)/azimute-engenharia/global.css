@@ -160,8 +160,25 @@ body { background: none; }
 		color: #008036;
 		font-size: 20px;
 	}
+
+	@media(max-width: 992px) {
+		.infos-holder a span { 
+			display: none; 
+		}
+
+	}
+	
+	@media (min-width: 769px) and (max-width: 992px) {
+		.content-interna {
+			height: 70vh;
+			margin-top: 137px;
+		}
+	}
+	
 	@media (max-width: 968px) {
-		.infos-holder a span { display: none; }
+		.infos-holder a span { 
+			display: none; 
+		}
 	}
 
 	@media (max-width: 768px) {
@@ -187,6 +204,11 @@ body { background: none; }
 
 		.box-icon {
 			margin-bottom: 20px;
+		}
+
+		.box-icon span {
+			font-size: 13px;
+			line-height: 17px;
 		}
 
 	}

@@ -116,16 +116,16 @@ export default async function AzimuteSan() {
                 </div>
             </div>
 
-            <div className="container" style={{paddingTop: "60px"}}>
+            <div className="container py-[60px] smartphone:py-[30px]">
                 <div className="row">
                     <div className="col-12 text-center">
-                        <h2 style={{marginBottom: '5px'}}>Soluções sustentáveis para <br />saneamento básico e meio ambiente</h2>
+                        <h2 className="mb-[5px] smartphone:mb-[30px]">Soluções sustentáveis para <br />saneamento básico e meio ambiente</h2>
 
-                        <div className="clear40"></div>
-                        <div className="clear40"></div>
+                        <div className="clear40 smartphone:hidden"></div>
+                        <div className="clear40 smartphone:hidden"></div>
                     </div>
 
-                    <div className="col-12 col-md-3">
+                    <div className="col-6 col-md-3">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="50px" height="61px" viewBox="0 0 50 61" version="1.1">
@@ -147,7 +147,7 @@ export default async function AzimuteSan() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-3">
+                    <div className="col-6 col-md-3">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="57px" height="61px" viewBox="0 0 57 61" version="1.1">
@@ -170,7 +170,7 @@ export default async function AzimuteSan() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-3">
+                    <div className="col-6 col-md-3">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="60px" height="61px" viewBox="0 0 60 61" version="1.1">
@@ -197,7 +197,7 @@ export default async function AzimuteSan() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-3">
+                    <div className="col-6 col-md-3">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="61px" height="61px" viewBox="0 0 61 61" version="1.1">
@@ -215,7 +215,7 @@ export default async function AzimuteSan() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-3">
+                    <div className="col-6 col-md-3">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="61px" height="61px" viewBox="0 0 61 61" version="1.1">
@@ -241,7 +241,7 @@ export default async function AzimuteSan() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-3">
+                    <div className="col-6 col-md-3">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="61px" height="61px" viewBox="0 0 61 61" version="1.1">
@@ -259,7 +259,7 @@ export default async function AzimuteSan() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-3">
+                    <div className="col-6 col-md-3">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="55px" height="61px" viewBox="0 0 55 61" version="1.1">
@@ -277,7 +277,7 @@ export default async function AzimuteSan() {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-3">
+                    <div className="col-6 col-md-3">
                         <div className="box-icon">
                             <div className="icon-holder">
                                 <svg width="61px" height="61px" viewBox="0 0 61 61" version="1.1">
@@ -300,7 +300,7 @@ export default async function AzimuteSan() {
                     </div>
                 </div>
             </div>
-            <div className="clear40"></div>
+            <div className="clear40 smartphone:hidden"></div>
 
             <div className="img-azimute-san">
                 <div className="container">
@@ -319,7 +319,7 @@ export default async function AzimuteSan() {
 
                             <h2>Projetos</h2>
 
-                            <ul className="list-default">
+                            <ul className="list-default smartphone:!mb-0">
                                 <li>Estudos de concepção para sistemas de saneamento</li>
                                 <li>Projetos de Engenharia - Básicos e Executivos</li>
                                 <li>Otimização de sistemas de distribuição de água e modelagem hidráulica</li>
@@ -329,7 +329,7 @@ export default async function AzimuteSan() {
                 </div>
             </div>
 
-            <div className="container" style={{paddingTop: "60px"}}>
+            <div className="container py-[60px] smartphone:py-[30px]">
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <h2>Serviços</h2>
@@ -346,7 +346,7 @@ export default async function AzimuteSan() {
                     <div className="col-12 col-md-6">
                         <h2>Meio Ambiente</h2>
 
-                        <ul className="list-default">
+                        <ul className="list-default smartphone:!mb-0">
                             <li>Estudos ambientais</li>
                             <li>Licenciamento ambiental</li>
                             <li>Auditoria ambiental</li>
@@ -356,7 +356,7 @@ export default async function AzimuteSan() {
                     </div>
                 </div>
             </div>
-            <div className="clear40"></div>
+            <div className="clear40 smartphone:hidden"></div>
 
             <div className="col-12 col-md-8 offset-md-2 text-center">
                 <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Azimute San.</p>

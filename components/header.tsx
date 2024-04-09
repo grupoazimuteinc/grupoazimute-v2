@@ -3,6 +3,27 @@ import Link from 'next/link'
 
 import logo from '@/src/images/logo.png'
 import selo from '@/src/images/selo.png'
+import MenuMobile  from './mobile-menu'
+
+const variant = {
+    open:{
+        width: "100%",
+        height: "100%",
+        padding: "40px 25px 10px",
+        top: "0px",
+        right: "0px",
+        zIndex: 10,
+        transition: {duration: 0.5, ease: [0.76, 0, 0.24, 1]}
+    },
+    closed:{
+        width: 0,
+        height: 0,
+        top: "0px",
+        right: "0",
+        padding: "0",
+        transition: {duration: 0.5, delay: 0.35, ease: [0.76, 0, 0.24, 1]}
+    }
+}
 
 export function Header() {
     return (
@@ -10,32 +31,22 @@ export function Header() {
             <header className="header">
                 <div className="container-fluid">
                     <div className="row d-flex align-items-center">
-                        <div className="col-12 d-md-none">
+                        <div className="col-12 d-md-none smartphone:px-0">
                             <div className="extra-links top">
                                 <a href="tel:554734736777" className="header-sublink"><span>Fone:</span> +55 47 3473-6777</a>
                                 <a href="https://api.whatsapp.com/send?phone=5547999110824" className="header-sublink"><span>Whatsapp:</span> +55 47 99911-0824</a>
                             </div>
                         </div>
 
-                        <div className="col-9 col-md-3">
+                        <div className="col-9 col-md-3 smartphone:px-0">
                             <Link href="/"><Image src={ logo } width={ 280 } height={ 39 } alt="Grupo Azimute" className="logo" /></Link>
                         </div>
 
-                        <div className="col-3 text-right d-md-none">
-                            <a href="#menu" className="menu-mobile">
-                                <svg width="26px" height="16px" viewBox="0 0 26 16" version="1.1" xmlns="https://www.w3.org/2000/svg">
-                                    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                                        <g id="home" transform="translate(-408.000000, -56.000000)" fill="#111111">
-                                            <rect id="Rectangle1" x="408" y="56" width="26" height="2"></rect>
-                                            <rect id="Rectangle2" x="408" y="63" width="26" height="2"></rect>
-                                            <rect id="Rectangle3" x="408" y="70" width="26" height="2"></rect>
-                                        </g>
-                                    </g>
-                                </svg>
-                            </a>
+                        <div className="col-3 text-right d-md-none smartphone:px-0">
+                            <MenuMobile />
                         </div>
 
-                        <div className="col-12 col-md-9 text-right d-none d-md-block header-home">
+                        <div className="col-12 col-md-9 text-right d-none d-md-block header-home smartphone:px-0">
                             <div className="extra-links">
                                 <a href="tel:554734736777" className="header-sublink"><span>Fone:</span> +55 47 3473-6777</a>
                                 <a href="#" className="header-sublink">•</a>

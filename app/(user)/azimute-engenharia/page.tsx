@@ -119,11 +119,11 @@ export default async function AzimuteEngenharia() {
 
             <div className="container">
                 <div className="row">
-                    <div className="col-12 text-center smartphone:!py-[30px]" style={{paddingTop: "60px"}}>
-                        <h2 style={{marginBottom: "5px;"}}>Agregando valor aos projetos dos nossos clientes<br /> com experiência, responsabilidade e tecnologia.</h2>
+                    <div className="col-12 text-center pt-[60px] smartphone:!py-[30px]">
+                        <h2 className="mb-[5px] smartphone:mb-[30px]">Agregando valor aos projetos dos nossos clientes<br /> com experiência, responsabilidade e tecnologia.</h2>
 
                         <div className="clear40 smartphone:hidden"></div>
-                        <div className="clear40"></div>
+                        <div className="clear40 smartphone:hidden"></div>
                     </div>
 
                     <div className="col-6 col-md-3">
@@ -381,7 +381,7 @@ export default async function AzimuteEngenharia() {
                 </div>
             </div>
 
-            <div className="container smartphone:py-[30px]" style={{paddingTop: "60px"}}>
+            <div className="container py-[60px] smartphone:py-[30px]">
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <h2>Qualidade</h2>
@@ -410,7 +410,7 @@ export default async function AzimuteEngenharia() {
                 <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Azimute Engenharia.</p>
             </div>
 
-            <div className="container pb-24">
+            <div className="container pb-24 smartphone:pb-[20px]">
                 <div className="row">
                     <Posts posts={ posts } />
                 </div>

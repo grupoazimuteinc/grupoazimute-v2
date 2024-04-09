@@ -64,9 +64,9 @@ export default async function Post({ params: { slug } }: Props) {
     // ];
 
     return (
-        <div className="max-w-[800px] w-full mx-auto pt-40">
-            <h1 className="text-5xl font-bold text-black mb-4">{ post?.title }</h1>
-            <p className="font-bold">{ new Date(post?._createdAt).toLocaleDateString('pt-BR', {
+        <div className="max-w-[800px] w-full mx-auto pt-40 smartphone:px-[15px] smartphone:max-w-full smartphone:pt-32">
+            <h1 className="text-5xl font-bold text-black mb-4 smartphone:text-xl">{ post?.title }</h1>
+            <p className="font-bold smartphone:text-base">{ new Date(post?._createdAt).toLocaleDateString('pt-BR', {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric'
@@ -74,7 +74,7 @@ export default async function Post({ params: { slug } }: Props) {
 
             <Image src={ urlFor(post?.mainImage).url() } alt={post.author?.name !== undefined ? post.author?.name : ''} width={ 800 } height={ 800 } priority />
 
-            <div className="text-2xl mt-10">
+            <div className="text-2xl mt-10 smartphone:text-base">
                 {/* 
                 // @ts-ignore */}
                 <PortableText value={ post?.body } components={ RichTextComponents } />
@@ -91,7 +91,7 @@ export default async function Post({ params: { slug } }: Props) {
                 },
                 }}
             >
-                <div className="grid grid-cols-4 gap-[30px]">
+                <div className="grid grid-cols-4 gap-[30px] smartphone:grid-cols-2 smartphone:gap-3">
 
                     {post.gallery?.images.map((image,index) => (
                         <a key={index} href={urlFor(image).url()} data-fancybox="gallery">

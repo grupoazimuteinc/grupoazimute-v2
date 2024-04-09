@@ -310,10 +310,6 @@ a .box-icon:hover {
         margin-bottom: 30px !important;
     }
 
-    .bg-white {
-        padding: 0 !important;
-    }
-
     .content-form h1 {
         font-size: 48px !important;
         line-height: 54px !important;
@@ -330,5 +326,9 @@ a .box-icon:hover {
         justify-content: center !important;
         height: 100% !important;
         margin-top: 80px !important;
+    }
+
+    .bg-white {
+        padding-top:30px;
     }
 }

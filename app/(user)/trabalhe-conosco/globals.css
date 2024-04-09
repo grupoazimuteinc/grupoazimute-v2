@@ -303,7 +303,7 @@ a .box-icon:hover {
     }
 
     .bg-white {
-        padding: 0 !important;
+        padding-top: 30px;
     }
 
     .content-form h1 {

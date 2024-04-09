@@ -51,7 +51,7 @@ export default async function Home() {
 
             <div className="col-12 -mt-40 smartphone:mt-0 tablet:mt-0 monitor:mt-0">
               <div className="grid-logos gap-4 flex area-logo-empresas smartphone:flex-col tablet:flex-col">
-                <div className="smartphone:w-[55%] tablet:w-[55%]">
+                <div>
                   <Link href="https://www.azimuteengenharia.com.br/" target="_blank">
                     <div className="box-empresa">
                       <div>
@@ -64,7 +64,7 @@ export default async function Home() {
                   </Link>
                 </div>
 
-                <div className="flex flex-row gap-4">
+                <div className="flex flex-col gap-4">
                   <div className="smartphone:w-full tablet:w-full">
                     <Link href="https://www.azimuteimoveis.com.br/" target="_blank">
                       <div className="box-empresa">
@@ -92,7 +92,7 @@ export default async function Home() {
                   </div>
                 </div>
 
-                <div className="flex flex-row gap-4">
+                <div className="flex flex-col gap-4">
                   <div className="smartphone:w-full tablet:w-full">
                     <Link href="https://www.azimutesan.com.br/" target="_blank">
                       <div className="box-empresa">
@@ -130,7 +130,7 @@ export default async function Home() {
           <div className="row">
             <div className="col-12 col-md-8 offset-md-2 text-center">
               <h2>Fique por dentro</h2>
-              <p>Saiba as últimas informações relacionadas aos segmentos do grupo.</p>
+              <p className="smartphone:mb-0">Saiba as últimas informações relacionadas aos segmentos do grupo.</p>
             </div>
           </div>
         </div>
