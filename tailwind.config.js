@@ -17,6 +17,7 @@ module.exports = {
         'smartphone': {'min': '300px', 'max': '640px'},
         'small-tablet': {'min': '641px', 'max': '968px'},
         'tablet': {'min': '641px', 'max': '992px'},
+        'medium-screen': {'min': '969px', 'max': '1030px'},
         'monitor': {'min': '992px', 'max': '1480px'},
         'header-space': {'min': '992px', 'max': '1200px'},
         'showcase': {'min': '1481px', 'max': '1919px'},

@@ -35,11 +35,11 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className="box-menu-mobile">
+    <div className="box-menu-mobile medium-screen:hidden monitor:hidden showcase:hidden desktop:hidden">
         <button onClick={toggleMenu}>
             <svg width="26px" height="16px" viewBox="0 0 26 16" version="1.1">
                 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                    <g id="home" transform="translate(-408.000000, -56.000000)" fill="#111111">
+                    <g id="home" transform="translate(-408.000000, -56.000000)" fill="#ffffff">
                         <rect id="Rectangle1" x="408" y="56" width="26" height="2"></rect>
                         <rect id="Rectangle2" x="408" y="63" width="26" height="2"></rect>
                         <rect id="Rectangle3" x="408" y="70" width="26" height="2"></rect>

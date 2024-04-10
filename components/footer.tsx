@@ -11,22 +11,22 @@ export function Footer() {
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-4">
-                        <h6>Telefone</h6>
+                        <h6 className="text-[#797979]">Telefone</h6>
                         <a href="tel:4734736777" className="footer-sublink">+55 47 3473-6777</a>
 
                         <div className="divider"></div>
 
-                        <h6>E-mail</h6>
+                        <h6 className="text-[#797979]">E-mail</h6>
                         <a href="mailto:comercial@grupoazimute.com.br" className="footer-sublink">comercial@grupoazimute.com.br</a>
 
                         <div className="divider"></div>
 
-                        <h6>Políticas</h6>
+                        <h6 className="text-[#797979]">Políticas</h6>
                         <a href="https://grupoazimute.com.br/politicas-de-gestao-integrada" className="footer-sublink">Políticas de Gestão Integrada</a>
                     </div>
 
                     <div className="col-12 col-md-3">
-                        <h6>Endereço</h6>
+                        <h6 className="text-[#797979]">Endereço</h6>
                         <p>
                             Rua Clodoaldo Gomes, 415 <br />
                             Distrito Industrial <br />
