@@ -114,7 +114,7 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#03803A] text-sm text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Know-how e Experiência</span>
+                <span className="flex items-center bg-[#03803A] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Know-how e Experiência</span>
 
                 <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Referência em serviços de consultoria e projetos de engenharia.</p>
             </a>
@@ -148,7 +148,7 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#00528B] text-sm text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Imóveis em Joinville e região</span>
+                <span className="flex items-center bg-[#00528B] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Imóveis em Joinville e região</span>
 
                 <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Intermediações imobiliárias com ética e profissionalismo.</p>
             </a>
@@ -202,7 +202,7 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#E2243D] text-sm text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Tecnologia a seu alcance</span>
+                <span className="flex items-center bg-[#E2243D] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Tecnologia a seu alcance</span>
 
                 <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Inspeções visuais robotizadas em tubulações e redes.</p>
             </a>
@@ -254,14 +254,14 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#0184C7] text-sm text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Consultoria, projetos e serviços</span>
+                <span className="flex items-center bg-[#0184C7] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Consultoria, projetos e serviços</span>
 
                 <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Soluções sustentáveis para saneamento básico e meio ambiente.</p>
             </a>
         </SwiperSlide>
 
         <SwiperSlide>
-            <a href="/aria" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col items-start gap-[30px] h-[183px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto header-space:gap-[15px]">
+            <a href="/aria" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col items-start gap-[15px] h-[183px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto header-space:gap-[15px]">
                 <div className="flex flex-row justify-between items-center w-full">
                     <svg width="76" height="21" viewBox="0 0 76 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M24.1082 20.6889V18.3646H24.4027V20.6889H24.1082Z" fill="white"/>
@@ -294,7 +294,7 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#F05A09] text-sm text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Informações precisas</span>
+                <span className="flex items-center bg-[#F05A09] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Informações precisas</span>
 
                 <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Inteligência visual para os melhores insights de negócios.</p>
             </a>
