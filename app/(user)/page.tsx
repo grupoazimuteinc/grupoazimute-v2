@@ -47,11 +47,11 @@ export default async function Home() {
         <div className="container">
           <div className="row">
             {/* <div className="col-12 col-md-8 offset-md-2 text-center">
-              <h2>Conheça as empresas <br />que fazem parte do Grupo Azimute</h2>
+              <h2 className="text-3xl text-[#6A696A] font-bold">Conheça as empresas <br />que fazem parte do Grupo Azimute</h2>
               <p>Mais de três décadas de atuação, pautadas em uma relação de responsabilidade com nossos clientes. Marca de valor, resultado de trabalho sério e de experiências com inúmeros desafios.</p>
             </div> */}
 
-            <div className="col-12 -mt-40 smartphone:mt-0 tablet:mt-0 monitor:mt-0">
+            {/* <div className="col-12 -mt-40 smartphone:mt-0 tablet:mt-0 monitor:mt-0">
               <div className="grid-logos gap-4 flex area-logo-empresas smartphone:hidden small-tablet:hidden">
                 <div>
                   <Link href="https://www.azimuteengenharia.com.br/" target="_blank">
@@ -119,11 +119,11 @@ export default async function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="pl-[15px] w-full">
-              <div className="hidden smartphone:block tablet:block">
-                <h2>Conheça nossas empresas</h2>
+            <div className="w-full">
+              <div>
+                <h2 className="text-3xl text-[#6A696A] font-bold p-0 mb-[15px] smartphone:text-xl smartphone:!pl-[15px]">Conheça nossas empresas</h2>
 
                 <SwiperEmpresasGrupo />
               </div>
@@ -132,11 +132,11 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="content o-grupo pt-24 smartphone:pt-5 small-tablet:pt-[30px] monitor:pt-10">
+      <div className="content o-grupo pt-[30px] smartphone:pt-5 small-tablet:pt-[30px] monitor:pt-10">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-md-8 offset-md-2 text-left">
-              <h2>Fique por dentro</h2>
+            <div className="col-12 col-md-8 text-left">
+              <h2 className="text-3xl text-[#6A696A] font-bold p-0 mb-[15px] smartphone:text-xl">Fique por dentro</h2>
               <p className="smartphone:mb-0">Saiba as últimas informações relacionadas aos segmentos do grupo.</p>
             </div>
           </div>

@@ -803,6 +803,11 @@ header .container-fluid {
 		font-size: 25px;
 		line-height: 32px;
 	}
+
+	.swiper {
+		padding-left: 15px !important;
+		overflow: visible !important;
+	}
 }
 
 @media(min-width: 641px) and (max-width: 992px) {
