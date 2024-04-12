@@ -5,14 +5,22 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 
+import { Autoplay } from 'swiper/modules';
+
 
 export default function SwiperEmpresasGrupo() {
   return (
     <>
       <Swiper
         className="swiper-slides-empresa-grupo"
-        slidesPerView={5}
+        modules={[Autoplay]}
+        slidesPerView={3}
         spaceBetween={10}
+        loop={true}
+        autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
         breakpoints={{
           320: {
             slidesPerView: 'auto',
@@ -27,13 +35,13 @@ export default function SwiperEmpresasGrupo() {
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
         }}
       >
         <SwiperSlide>
-            <a href="/azimute-engenharia" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between h-[183px] items-start gap-[15px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
+            <a href="/azimute-engenharia" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between h-[140px] items-start gap-[15px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
                 <div className="flex flex-row justify-between items-center w-full">
                     <svg width="102" height="27" viewBox="0 0 102 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M31.2175 20.4684H34.6857V22.1218H31.2175V23.4766H35.1786V25.1644H29.2758V17.3571H35.1786V19.0449H31.2175V20.4684Z" fill="#008036"/>
@@ -114,14 +122,16 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#03803A] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Know-how e Experiência</span>
+                <div className="w-full">
+                    <span className="inline-block mb-[5px] bg-[#03803A] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Know-how e Experiência</span>
 
-                <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Referência em serviços de consultoria e projetos de engenharia.</p>
+                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Referência em serviços de consultoria e projetos de engenharia.</p>
+                </div>
             </a>
         </SwiperSlide>
 
         <SwiperSlide>
-            <a href="/azimute-imoveis" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col items-start gap-[15px] h-[183px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
+            <a href="/azimute-imoveis" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[140px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
                 <div className="flex flex-row justify-between items-center w-full">
                     <svg width="84" height="31" viewBox="0 0 84 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.98073 24.6992V21.7719H5.60575V24.3419C6.19352 24.2658 6.81356 24.2382 7.46588 24.282C8.31411 24.3396 9.29604 24.5194 10.354 24.766V17.6736H13.15V22.5348L11.3751 23.3485V25.0173C11.979 25.1717 12.6037 25.3423 13.2353 25.5175V24.5401L15.5241 23.4914L17.813 24.5401V26.7575C18.4468 26.9143 19.0715 27.0526 19.6731 27.1701V23.3508L17.8983 22.5371V20.919L20.7057 19.6351V27.3499C21.365 27.4467 21.9896 27.5044 22.5682 27.509V26.3242H22.5659V16.7216L16.0381 19.7365V21.6866L15.5241 21.4492L15.0101 21.6866V15.8181H8.4939V23.3415H7.46357V19.9163H2.12061V25.4967C2.67611 25.1948 3.29846 24.9182 3.98073 24.7038V24.6992Z" fill="#005187"/>
@@ -148,14 +158,16 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#00528B] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Imóveis em Joinville e região</span>
+                <div className="w-full">
+                    <span className="inline-block mb-[5px] bg-[#00528B] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Imóveis em Joinville e região</span>
 
-                <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Intermediações imobiliárias com ética e profissionalismo.</p>
+                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Intermediações imobiliárias com ética e profissionalismo.</p>
+                </div>
             </a>
         </SwiperSlide>
 
         <SwiperSlide>
-            <a href="/azimute-tech" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col items-start gap-[15px] h-[183px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
+            <a href="/azimute-tech" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[140px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
                 <div className="flex flex-row justify-between items-center w-full">
                     <svg width="78" height="29" viewBox="0 0 78 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.1299 11.0272H22.8325V13.8918H13.1711V12.2046L18.0453 6.41143H13.258V3.52628H22.8325V5.36437L18.1299 11.0272Z" fill="#636769"/>
@@ -202,14 +214,16 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#E2243D] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Tecnologia a seu alcance</span>
+                <div className="w-full">
+                    <span className="inline-block mb-[5px] bg-[#E2243D] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Tecnologia a seu alcance</span>
 
-                <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Inspeções visuais robotizadas em tubulações e redes.</p>
+                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Inspeções visuais robotizadas em tubulações e redes.</p>
+                </div>
             </a>
         </SwiperSlide>
 
         <SwiperSlide>
-            <a href="/azimute-san" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col items-start gap-[15px] h-[183px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
+            <a href="/azimute-san" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[140px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
                 <div className="flex flex-row justify-between items-center w-full">
                     <svg width="78" height="30" viewBox="0 0 78 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.6368 14.1105H8.11956V13.5251C7.33665 14.0246 6.40507 14.3266 5.23187 14.3266C2.38833 14.3266 0.00012207 11.9616 0.00012207 8.83465C0.00012207 5.70768 2.38833 3.3427 5.23187 3.3427C6.40274 3.3427 7.33665 3.64704 8.11956 4.14652V3.58431H11.6368V14.1129V14.1105ZM8.11956 10.4632V7.18521C7.44584 6.44644 6.70708 6.20716 5.94973 6.20716C4.51634 6.20716 3.45466 7.37803 3.45466 8.83465C3.45466 10.2913 4.51866 11.4389 5.94973 11.4389C6.7094 11.4389 7.44816 11.2229 8.11956 10.4632Z" fill="#636769"/>
@@ -254,14 +268,16 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#0184C7] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Consultoria, projetos e serviços</span>
+                <div className="w-full">
+                    <span className="inline-block mb-[5px] bg-[#0184C7] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Consultoria, projetos e serviços</span>
 
-                <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Soluções sustentáveis para saneamento básico e meio ambiente.</p>
+                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Soluções sustentáveis para saneamento básico e meio ambiente.</p>
+                </div>
             </a>
         </SwiperSlide>
 
         <SwiperSlide>
-            <a href="/aria" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col items-start gap-[15px] h-[183px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto header-space:gap-[15px]">
+            <a href="/aria" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[140px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto header-space:gap-[15px]">
                 <div className="flex flex-row justify-between items-center w-full">
                     <svg width="76" height="21" viewBox="0 0 76 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M24.1082 20.6889V18.3646H24.4027V20.6889H24.1082Z" fill="white"/>
@@ -294,9 +310,11 @@ export default function SwiperEmpresasGrupo() {
                     </svg>
                 </div>
 
-                <span className="flex items-center bg-[#F05A09] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Informações precisas</span>
+                <div className="w-full">
+                    <span className="inline-block mb-[5px] bg-[#F05A09] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Informações precisas</span>
 
-                <p className="text-[12px] leading-[18px] text-[#9B9B9B] font-normal mb-0">Inteligência visual para os melhores insights de negócios.</p>
+                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Inteligência visual para os melhores insights de negócios.</p>
+                </div>
             </a>
         </SwiperSlide>
       </Swiper>
