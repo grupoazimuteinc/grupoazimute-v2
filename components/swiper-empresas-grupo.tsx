@@ -14,6 +14,7 @@ export default function SwiperEmpresasGrupo() {
       <Swiper
         className="swiper-slides-empresa-grupo monitor:!pl-[15px] small-tablet:!px-[15px]"
         modules={[Autoplay]}
+        loop={true}
         slidesPerView={3}
         spaceBetween={10}
         autoplay={{
