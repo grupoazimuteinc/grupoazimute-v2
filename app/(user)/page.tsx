@@ -43,87 +43,12 @@ export default async function Home() {
         height={ 791 }
       />
 
-      <div className="content o-grupo smartphone:pt-5 smartphone:mb-0">
+      <div className="content o-grupo smartphone:pt-5 smartphone:mb-0 smartphone:overflow-hidden small-tablet:overflow-hidden overflow-hidden">
         <div className="container">
           <div className="row">
-            {/* <div className="col-12 col-md-8 offset-md-2 text-center">
-              <h2 className="text-3xl text-[#6A696A] font-bold">Conheça as empresas <br />que fazem parte do Grupo Azimute</h2>
-              <p>Mais de três décadas de atuação, pautadas em uma relação de responsabilidade com nossos clientes. Marca de valor, resultado de trabalho sério e de experiências com inúmeros desafios.</p>
-            </div> */}
-
-            {/* <div className="col-12 -mt-40 smartphone:mt-0 tablet:mt-0 monitor:mt-0">
-              <div className="grid-logos gap-4 flex area-logo-empresas smartphone:hidden small-tablet:hidden">
-                <div>
-                  <Link href="https://www.azimuteengenharia.com.br/" target="_blank">
-                    <div className="box-empresa">
-                      <div>
-                        <div className="ga-logo">
-                          <Image src={ azimuteEngenhariaOff } width={ 196 } height={ 51 } className="ga-logo-off" alt="" />
-                          <Image src={ azimuteEngenhariaWhite } width={ 196 } height={ 51 } className="ga-logo-white" alt="" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-
-                
-                <div>
-                  <Link href="https://www.azimuteimoveis.com.br/" target="_blank">
-                    <div className="box-empresa">
-                      <div>
-                        <div className="ga-logo">
-                          <Image src={ azimuteImoveisOff } width={ 149 } height={ 54 } className="ga-logo-off" alt="" />
-                          <Image src={ azimuteImoveisWhite } width={ 149 } height={ 54 } className="ga-logo-white" alt="" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-
-                <div>
-                  <Link href="https://www.azimutetech.com.br/" target="_blank">
-                    <div className="box-empresa">
-                      <div>
-                        <div className="ga-logo">
-                          <Image src={ azimuteTechOff } width={ 140 } height={ 52 } className="ga-logo-off" alt="" />
-                          <Image src={ azimuteTechWhite } width={ 140 } height={ 52 } className="ga-logo-white" alt="" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-                
-                <div>
-                  <Link href="https://www.azimutesan.com.br/" target="_blank">
-                    <div className="box-empresa">
-                      <div>
-                        <div className="ga-logo">
-                          <Image src={ azimuteSanOff } width={ 140 } height={ 53 } className="ga-logo-off" alt="" />
-                          <Image src={ azimuteSanWhite } width={ 140 } height={ 53 } className="ga-logo-white" alt="" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-
-                <div>
-                  <Link href="https://www.ariatecnologia.com.br/" target="_blank">
-                    <div className="box-empresa">
-                      <div>
-                        <div className="ga-logo">
-                          <Image src={ azimuteAriaOff } width={ 142 } height={ 40 } className="ga-logo-off" alt="" />
-                          <Image src={ azimuteAriaWhite } width={ 142 } height={ 40 } className="ga-logo-white" alt="" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </div> */}
-
             <div className="w-full">
               <div>
-                <h2 className="text-3xl text-[#6A696A] font-bold p-0 mb-[15px] smartphone:text-xl smartphone:!pl-[15px]">Conheça nossas empresas</h2>
+                <h2 className="text-3xl text-[#6A696A] font-bold p-0 mb-[15px] smartphone:text-xl smartphone:!pl-[15px] monitor:!pl-[15px] small-tablet:!pl-[15px]">Conheça nossas empresas</h2>
 
                 <SwiperEmpresasGrupo />
               </div>

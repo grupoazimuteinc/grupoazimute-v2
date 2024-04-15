@@ -12,11 +12,10 @@ export default function SwiperEmpresasGrupo() {
   return (
     <>
       <Swiper
-        className="swiper-slides-empresa-grupo"
-        modules={[Autoplay]}
+        className="swiper-slides-empresa-grupo monitor:!pl-[15px] small-tablet:!px-[15px]"
+        // modules={[Autoplay]}
         slidesPerView={3}
         spaceBetween={10}
-        loop={true}
         autoplay={{
             delay: 2500,
             disableOnInteraction: false,
@@ -26,12 +25,12 @@ export default function SwiperEmpresasGrupo() {
             slidesPerView: 'auto',
             spaceBetween: 20,
           },
-          820: {
-            slidesPerView: 3,
+          600: {
+            slidesPerView: 2,
             spaceBetween: 20,
           },
-          968: {
-            slidesPerView: 5,
+          821: {
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           1024: {
@@ -41,9 +40,9 @@ export default function SwiperEmpresasGrupo() {
         }}
       >
         <SwiperSlide>
-            <a href="/azimute-engenharia" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between h-[140px] items-start gap-[15px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
+            <a href="/azimute-engenharia" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col h-[180px] justify-between items-start gap-[35px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px] monitor:gap-[25px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg width="102" height="27" viewBox="0 0 102 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 102 27" fill="none" className="w-[180px] h-auto small-tablet:w-[145px]">
                         <path d="M31.2175 20.4684H34.6857V22.1218H31.2175V23.4766H35.1786V25.1644H29.2758V17.3571H35.1786V19.0449H31.2175V20.4684Z" fill="#008036"/>
                         <path d="M42.8846 25.1658H41.391L37.6479 20.882V25.1658H35.7077V17.3586H37.1894L40.9549 21.7558V17.3586H42.8846V25.1658Z" fill="#008036"/>
                         <path d="M51.658 25.1655H50.2107L50.13 24.2245C49.5684 24.913 48.7514 25.3268 47.6611 25.3268C45.216 25.3268 43.5043 23.5822 43.5043 21.3418C43.5043 18.9086 45.2951 17.1969 47.673 17.1969C49.5908 17.1969 51.2443 18.2753 51.5774 20.1364H49.5326C49.1995 19.2298 48.4183 18.9773 47.7193 18.9773C46.375 18.9773 45.4684 19.9183 45.4684 21.297C45.4684 22.5247 46.3526 23.5255 47.7313 23.5255C48.6379 23.5255 49.3265 23.0774 49.7178 22.3305L47.4788 22.3067V20.7802H51.658V25.167V25.1655Z" fill="#008036"/>
@@ -117,23 +116,23 @@ export default function SwiperEmpresasGrupo() {
                         </defs>
                     </svg>                              
 
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M9 18L15 12L9 6" stroke="#C9C9C9" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
 
-                <div className="w-full">
-                    <span className="inline-block mb-[5px] bg-[#03803A] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Know-how e Experiência</span>
+                <div className="w-full gap-[10px]">
+                    <span className="inline-block mb-[10px] bg-[#03803A] text-xs text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Know-how e Experiência</span>
 
-                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Referência em serviços de consultoria e projetos de engenharia.</p>
+                    <p className="text-lg block leading-[18px] text-[#9B9B9B] font-normal mb-0 monitor:text-[16px] monitor:leading-5 small-tablet:text-sm">Referência em serviços de consultoria e projetos de engenharia.</p>
                 </div>
             </a>
         </SwiperSlide>
 
         <SwiperSlide>
-            <a href="/azimute-imoveis" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[140px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
+            <a href="/azimute-imoveis" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[180px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg width="84" height="31" viewBox="0 0 84 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 84 31" fill="none" className="w-[145px] h-auto small-tablet:w-[110px]">
                         <path d="M3.98073 24.6992V21.7719H5.60575V24.3419C6.19352 24.2658 6.81356 24.2382 7.46588 24.282C8.31411 24.3396 9.29604 24.5194 10.354 24.766V17.6736H13.15V22.5348L11.3751 23.3485V25.0173C11.979 25.1717 12.6037 25.3423 13.2353 25.5175V24.5401L15.5241 23.4914L17.813 24.5401V26.7575C18.4468 26.9143 19.0715 27.0526 19.6731 27.1701V23.3508L17.8983 22.5371V20.919L20.7057 19.6351V27.3499C21.365 27.4467 21.9896 27.5044 22.5682 27.509V26.3242H22.5659V16.7216L16.0381 19.7365V21.6866L15.5241 21.4492L15.0101 21.6866V15.8181H8.4939V23.3415H7.46357V19.9163H2.12061V25.4967C2.67611 25.1948 3.29846 24.9182 3.98073 24.7038V24.6992Z" fill="#005187"/>
                         <path d="M25.4217 28.1237C23.2896 29.5966 18.705 28.1168 14.2587 26.6854C11.7485 25.8763 9.3767 25.111 7.5765 24.9197C4.07522 24.544 1.36916 26.2589 0 27.3838C1.24469 26.7338 2.62077 26.441 4.1582 26.441C7.15008 26.441 10.7528 27.5497 15.2129 29.2969C18.7557 30.6845 21.5517 30.892 23.5224 29.9146C24.5827 29.3891 25.1451 28.6262 25.4194 28.1237H25.4217Z" fill="#005187"/>
                         <path d="M14.5603 13.9991H11.0706V13.4183C10.2938 13.9139 9.36947 14.2135 8.20545 14.2135C5.38415 14.2135 3.01462 11.867 3.01462 8.76452C3.01462 5.662 5.38415 3.31552 8.20545 3.31552C9.36717 3.31552 10.2938 3.61747 11.0706 4.11305V3.55524H14.5603V14.0015V13.9991ZM11.0706 10.3803V7.12797C10.4021 6.39499 9.66912 6.15757 8.9177 6.15757C7.49552 6.15757 6.44214 7.31929 6.44214 8.76452C6.44214 10.2097 7.49782 11.3484 8.9177 11.3484C9.67143 11.3484 10.4044 11.134 11.0706 10.3803Z" fill="#636769"/>
@@ -153,23 +152,23 @@ export default function SwiperEmpresasGrupo() {
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M83.4913 13.1288C83.4913 12.9813 83.4613 12.896 83.406 12.8108L83.2654 12.9006C83.3069 12.9652 83.3276 13.0228 83.3276 13.1196C83.3276 13.3271 83.1985 13.3847 82.8989 13.3847C82.5992 13.3847 82.4748 13.3225 82.4748 13.1219C82.4748 13.0297 82.4978 12.9652 82.5255 12.9191L82.3734 12.8223C82.3249 12.8937 82.295 12.9928 82.295 13.1173C82.295 13.4907 82.5347 13.5714 82.8943 13.5714C83.2539 13.5714 83.4913 13.4838 83.4913 13.1311V13.1288ZM83.4774 12.1054V11.9141L83.0257 12.117C82.9773 11.9648 82.8482 11.9026 82.6638 11.9026C82.4287 11.9026 82.3065 12.0063 82.3065 12.2622V12.6725H83.4774V12.4927H83.0464V12.2967L83.4774 12.1054ZM82.8828 12.4927H82.4725V12.2668C82.4725 12.1377 82.5255 12.0824 82.6753 12.0824C82.8251 12.0824 82.8828 12.1377 82.8828 12.2668V12.4927ZM83.4774 11.732V11.0613H83.3138V11.5545H82.9588V11.0889H82.7906V11.5545H82.4748V11.0659H82.3065V11.7343H83.4774V11.732ZM83.4913 10.5173C83.4913 10.3698 83.4613 10.2845 83.406 10.1992L83.2654 10.2891C83.3069 10.3536 83.3276 10.4113 83.3276 10.5081C83.3276 10.7155 83.1985 10.7731 82.8989 10.7731C82.5992 10.7731 82.4748 10.7109 82.4748 10.5104C82.4748 10.4182 82.4978 10.3513 82.5255 10.3075L82.3734 10.2107C82.3249 10.2822 82.295 10.3813 82.295 10.5058C82.295 10.8792 82.5347 10.9598 82.8943 10.9598C83.2539 10.9598 83.4913 10.8723 83.4913 10.5196V10.5173ZM83.4774 10.0494V9.86728H82.3065V10.0494H83.4774ZM83.4913 8.82543C83.4913 8.57649 83.4037 8.46124 83.1363 8.46124C82.945 8.46124 82.8735 8.49351 82.839 8.60645C82.8067 8.52117 82.7306 8.4889 82.5762 8.4889C82.348 8.4889 82.295 8.60184 82.295 8.80699C82.295 8.94068 82.3273 9.05362 82.3734 9.1343L82.5163 9.06054C82.484 8.99369 82.4632 8.91763 82.4632 8.83465C82.4632 8.71709 82.4909 8.66408 82.62 8.66408C82.7168 8.66408 82.7767 8.69635 82.7767 8.83695V8.98908H82.9335V8.84156C82.9335 8.66177 83.0003 8.63411 83.1202 8.63411C83.2792 8.63411 83.3299 8.68252 83.3299 8.83234C83.3299 8.92915 83.3069 8.996 83.2677 9.06745L83.4129 9.14813C83.4636 9.05823 83.4913 8.97064 83.4913 8.82082V8.82543ZM83.4913 8.01868C83.4913 7.76974 83.4037 7.65449 83.1363 7.65449C82.945 7.65449 82.8735 7.68676 82.839 7.79971C82.8067 7.71442 82.7306 7.68215 82.5762 7.68215C82.348 7.68215 82.295 7.7951 82.295 8.00024C82.295 8.13393 82.3273 8.24687 82.3734 8.32755L82.5163 8.25379C82.484 8.18695 82.4632 8.11088 82.4632 8.0279C82.4632 7.91035 82.4909 7.85733 82.62 7.85733C82.7168 7.85733 82.7767 7.8896 82.7767 8.03021V8.18233H82.9335V8.03482C82.9335 7.85503 83.0003 7.82737 83.1202 7.82737C83.2792 7.82737 83.3299 7.87577 83.3299 8.0256C83.3299 8.12241 83.3069 8.18925 83.2677 8.2607L83.4129 8.34138C83.4636 8.25148 83.4913 8.1639 83.4913 8.01407V8.01868ZM83.4913 7.12434C83.4913 6.78782 83.3276 6.73941 83.1455 6.73941C83.0026 6.73941 82.8828 6.74863 82.8343 6.89846C82.7906 6.79012 82.6937 6.77399 82.5808 6.77399C82.431 6.77399 82.2973 6.83161 82.2973 7.12204C82.2973 7.41247 82.431 7.4724 82.5808 7.4724C82.6937 7.4724 82.7882 7.46087 82.8343 7.35023C82.8828 7.49314 83.0026 7.50697 83.1455 7.50697C83.3276 7.50697 83.4913 7.45857 83.4913 7.12204V7.12434ZM83.3368 7.12434C83.3368 7.29491 83.2516 7.32718 83.1248 7.32718C82.998 7.32718 82.9196 7.29491 82.9196 7.12434C82.9196 6.95378 83.0003 6.92151 83.1248 6.92151C83.2492 6.92151 83.3368 6.95608 83.3368 7.12434ZM82.7721 7.12434C82.7721 7.26264 82.7099 7.30183 82.6085 7.30183C82.507 7.30183 82.4494 7.26495 82.4494 7.12434C82.4494 6.98374 82.507 6.94917 82.6085 6.94917C82.7099 6.94917 82.7721 6.98605 82.7721 7.12434ZM83.4913 6.26689C83.4913 6.01795 83.4221 5.89117 83.0902 5.89117C82.7883 5.89117 82.703 5.98798 82.703 6.20004C82.703 6.30377 82.7237 6.37061 82.7514 6.41441L82.4702 6.40058V5.9488H82.3065V6.5504L82.8781 6.58037L82.9173 6.44207C82.8851 6.40058 82.862 6.34756 82.862 6.25997C82.862 6.1355 82.8966 6.06866 83.0902 6.06866C83.2838 6.06866 83.3276 6.1355 83.3276 6.27611C83.3276 6.39366 83.3023 6.46973 83.2654 6.53888L83.4106 6.61955C83.459 6.52966 83.489 6.41902 83.489 6.26458L83.4913 6.26689ZM83.0533 5.77362V5.33106H82.8897V5.77362H83.0533ZM83.4774 5.31262V5.17432C83.4774 4.9807 83.406 4.86776 83.1824 4.86776H82.3065V5.04985H83.1709C83.2677 5.04985 83.3138 5.08673 83.3138 5.20198V5.31262H83.4774Z" fill="#636769"/>
                     </svg>
 
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M9 18L15 12L9 6" stroke="#C9C9C9" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
 
                 <div className="w-full">
-                    <span className="inline-block mb-[5px] bg-[#00528B] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Imóveis em Joinville e região</span>
+                    <span className="inline-block mb-[10px] bg-[#00528B] text-xs text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Imóveis em Joinville e região</span>
 
-                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Intermediações imobiliárias com ética e profissionalismo.</p>
+                    <p className="text-lg block leading-[18px] text-[#9B9B9B] font-normal mb-0 monitor:text-[16px] monitor:leading-5 small-tablet:text-sm">Intermediações imobiliárias com ética e profissionalismo.</p>
                 </div>
             </a>
         </SwiperSlide>
 
         <SwiperSlide>
-            <a href="/azimute-tech" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[140px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
+            <a href="/azimute-tech" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[180px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg width="78" height="29" viewBox="0 0 78 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 78 29" fill="none" className="w-[145px] h-auto small-tablet:w-[110px]">
                         <path d="M18.1299 11.0272H22.8325V13.8918H13.1711V12.2046L18.0453 6.41143H13.258V3.52628H22.8325V5.36437L18.1299 11.0272Z" fill="#636769"/>
                         <path d="M27.1277 13.8918H23.6641V3.52628H27.1277V13.8918Z" fill="#636769"/>
                         <path d="M45.6803 7.97311V13.8943H42.219V8.53094C42.219 7.05636 41.492 6.34993 40.3603 6.34993C39.8254 6.34993 39.2927 6.5854 38.7783 7.20496C38.8012 7.46101 38.8217 7.71706 38.8217 7.9754V13.8966H35.3582V8.53322C35.3582 7.05864 34.6312 6.35221 33.4995 6.35221C32.9874 6.35221 32.4525 6.60827 31.9609 7.25068V13.8966H28.4768V3.52879H31.9609V4.12777C32.6445 3.52879 33.3715 3.20872 34.5054 3.20872C35.8086 3.20872 36.9196 3.70025 37.7107 4.61929C38.8012 3.63624 39.8482 3.20872 41.3868 3.20872C43.865 3.20872 45.6826 5.02623 45.6826 7.9754L45.6803 7.97311Z" fill="#636769"/>
@@ -209,23 +208,23 @@ export default function SwiperEmpresasGrupo() {
                         <path d="M70.9489 25.8853C70.2516 25.8853 69.6846 26.4523 69.6846 27.1496C69.6846 27.8469 70.2516 28.4138 70.9489 28.4138C71.6462 28.4138 72.2154 27.8469 72.2154 27.1496C72.2154 26.4523 71.6485 25.8853 70.9489 25.8853Z" fill="#E2373E"/>
                     </svg>
 
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M9 18L15 12L9 6" stroke="#C9C9C9" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
 
                 <div className="w-full">
-                    <span className="inline-block mb-[5px] bg-[#E2243D] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Tecnologia a seu alcance</span>
+                    <span className="inline-block mb-[10px] bg-[#E2243D] text-xs text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Tecnologia a seu alcance</span>
 
-                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Inspeções visuais robotizadas em tubulações e redes.</p>
+                    <p className="text-lg block leading-[18px] text-[#9B9B9B] font-normal mb-0 monitor:text-[16px] monitor:leading-5 small-tablet:text-sm">Inspeções visuais robotizadas em tubulações e redes.</p>
                 </div>
             </a>
         </SwiperSlide>
 
         <SwiperSlide>
-            <a href="/azimute-san" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[140px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto">
+            <a href="/azimute-san" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[180px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg width="78" height="30" viewBox="0 0 78 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 78 30" fill="none" className="w-[145px] h-auto small-tablet:w-[110px]">
                         <path d="M11.6368 14.1105H8.11956V13.5251C7.33665 14.0246 6.40507 14.3266 5.23187 14.3266C2.38833 14.3266 0.00012207 11.9616 0.00012207 8.83465C0.00012207 5.70768 2.38833 3.3427 5.23187 3.3427C6.40274 3.3427 7.33665 3.64704 8.11956 4.14652V3.58431H11.6368V14.1129V14.1105ZM8.11956 10.4632V7.18521C7.44584 6.44644 6.70708 6.20716 5.94973 6.20716C4.51634 6.20716 3.45466 7.37803 3.45466 8.83465C3.45466 10.2913 4.51866 11.4389 5.94973 11.4389C6.7094 11.4389 7.44816 11.2229 8.11956 10.4632Z" fill="#636769"/>
                         <path d="M17.433 11.2021H22.2094V14.1107H12.3964V12.3962L17.3447 6.51394H12.4823V3.58444H22.2071V5.45226L17.4306 11.2044L17.433 11.2021Z" fill="#636769"/>
                         <path d="M26.5724 14.1101H23.0552V3.58159H26.5724V14.1101Z" fill="#636769"/>
@@ -263,23 +262,23 @@ export default function SwiperEmpresasGrupo() {
                         <path d="M29.741 25.6918C29.367 26.549 28.7514 27.39 27.771 28.1078L28.1473 29.065H31.1605L29.741 25.6918Z" fill="#0087C8"/>
                     </svg>
 
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M9 18L15 12L9 6" stroke="#C9C9C9" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
 
                 <div className="w-full">
-                    <span className="inline-block mb-[5px] bg-[#0184C7] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Consultoria, projetos e serviços</span>
+                    <span className="inline-block mb-[10px] bg-[#0184C7] text-xs text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Consultoria, projetos e serviços</span>
 
-                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Soluções sustentáveis para saneamento básico e meio ambiente.</p>
+                    <p className="text-lg block leading-[18px] text-[#9B9B9B] font-normal mb-0 monitor:text-[16px] monitor:leading-5 small-tablet:text-sm">Soluções sustentáveis para saneamento básico e meio ambiente.</p>
                 </div>
             </a>
         </SwiperSlide>
 
         <SwiperSlide>
-            <a href="/aria" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[140px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto header-space:gap-[15px]">
+            <a href="/aria" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[180px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto header-space:gap-[15px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg width="76" height="21" viewBox="0 0 76 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 76 21" fill="none" className="w-[145px] h-auto small-tablet:w-[110px]">
                         <path d="M24.1082 20.6889V18.3646H24.4027V20.6889H24.1082Z" fill="white"/>
                         <path d="M27.6907 20.6889V18.7749L26.8857 20.6889H26.765L25.9628 18.7749V20.6889H25.6682V18.3646H26.0904L26.8253 20.1147L27.5631 18.3646H27.9853V20.6889H27.6907Z" fill="white"/>
                         <path d="M30.9389 20.6889L30.7299 20.1726H29.5517L29.3427 20.6889H29.0061L29.9571 18.3646H30.3231L31.2783 20.6889H30.9417H30.9389ZM30.1408 18.6634L29.6373 19.9151H30.6415L30.1408 18.6634Z" fill="white"/>
@@ -305,15 +304,15 @@ export default function SwiperEmpresasGrupo() {
                         <path d="M21.0503 12.4126C20.8161 12.0105 20.579 11.6098 20.3434 11.2077L19.9801 10.5909C19.7235 10.1502 19.4654 9.71098 19.2073 9.27173L18.8454 8.65484C17.6995 6.70092 16.5494 4.74837 15.3951 2.79445C14.2758 0.949309 12.214 0.00883755 10.0078 0.340688C9.87453 0.359965 9.74549 0.387505 9.61505 0.419175L9.52108 0.442584C9.27002 0.507301 9.02316 0.594051 8.78472 0.700077L8.69776 0.74001C8.46774 0.847413 8.24333 0.975472 8.02873 1.12005L7.95019 1.17376C7.7426 1.31971 7.54344 1.4822 7.35829 1.65707L7.28957 1.72317C7.1984 1.81267 7.10864 1.90355 7.02308 1.99856C6.77061 2.28084 6.54199 2.59204 6.34563 2.92526C6.08335 3.36865 5.82247 3.81341 5.56159 4.25817L1.50111 11.1637C1.41415 11.3124 1.32439 11.4597 1.23462 11.6084C1.01582 11.9692 0.788599 12.3438 0.595042 12.7293C-0.532634 14.9807 -0.0192886 17.6864 1.81389 19.1611C3.36374 20.4073 5.41852 20.7749 7.17736 20.1195C8.42987 19.6527 9.39905 18.8279 10.1382 17.5969L14.5914 10.1984L12.4497 6.55496L7.39616 14.9545C7.20541 15.2726 7.01466 15.5907 6.82251 15.9074C6.64017 16.2062 6.40594 16.4416 6.14366 16.5876C5.76216 16.7996 5.33577 16.79 5.04684 16.7459C4.77193 16.7032 4.47318 16.5738 4.267 16.4072C3.97527 16.1717 3.7775 15.8165 3.7242 15.4295C3.64987 14.8843 3.87989 14.4409 4.18706 13.9176C4.66534 13.1038 5.14081 12.2887 5.61488 11.4735L5.83088 11.1031C6.42137 10.0896 7.01186 9.0762 7.60515 8.0655L8.30925 6.86616C8.74966 6.12259 9.19287 5.37903 9.6417 4.64097C9.92362 4.17831 10.4005 3.90291 10.9166 3.90291C11.2224 3.90291 11.5268 4.00068 11.7736 4.17831C12.0205 4.35594 12.1706 4.62445 12.329 4.9081C12.3669 4.97557 12.4048 5.04305 12.4441 5.10914L12.8662 5.82792V5.83067L17.1694 13.163C17.2521 13.3049 17.3405 13.4453 17.4288 13.5872C17.8566 14.2701 18.2592 14.9159 18.0656 15.6623C17.8721 16.4099 17.1343 17.0117 16.3517 17.0626C15.9365 17.0902 15.5171 16.9539 15.1034 16.6592L14.0065 15.8716C13.6489 15.6141 13.158 15.5328 12.6615 15.6444C12.1173 15.7683 11.6544 16.096 11.4244 16.5229C10.9307 17.4413 11.2378 18.3776 12.2912 19.1598C13.3095 19.9157 14.5662 20.6923 16.1651 20.7281C16.2016 20.7281 16.2394 20.7281 16.2759 20.7281C18.3139 20.7281 20.3448 19.4902 21.2411 17.6878C22.084 15.9941 22.0139 14.0691 21.0475 12.4085L21.0503 12.4126Z" fill="#D4D3D4"/>
                     </svg>
 
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M9 18L15 12L9 6" stroke="#C9C9C9" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
 
                 <div className="w-full">
-                    <span className="inline-block mb-[5px] bg-[#F05A09] text-base text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Informações precisas</span>
+                    <span className="inline-block mb-[10px] bg-[#F05A09] text-xs text-white smartphone:text-[12px] font-semibold px-[10px] uppercase header-space:text-[12px] header-space:leading-5">Informações precisas</span>
 
-                    <p className="text-[12px] block leading-[18px] text-[#9B9B9B] font-normal mb-0">Inteligência visual para os melhores insights de negócios.</p>
+                    <p className="text-lg block leading-[18px] text-[#9B9B9B] font-normal mb-0 monitor:text-[16px] monitor:leading-5 small-tablet:text-sm">Inteligência visual para os melhores insights de negócios.</p>
                 </div>
             </a>
         </SwiperSlide>
