@@ -13,11 +13,11 @@ export default function SwiperEmpresasGrupo() {
     <>
       <Swiper
         className="swiper-slides-empresa-grupo monitor:!pl-[15px] small-tablet:!px-[15px]"
-        // modules={[Autoplay]}
+        modules={[Autoplay]}
         slidesPerView={3}
         spaceBetween={10}
         autoplay={{
-            delay: 2500,
+            delay: 3000,
             disableOnInteraction: false,
           }}
         breakpoints={{
@@ -42,7 +42,7 @@ export default function SwiperEmpresasGrupo() {
         <SwiperSlide>
             <a href="/azimute-engenharia" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col h-[180px] justify-between items-start gap-[35px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px] monitor:gap-[25px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg viewBox="0 0 102 27" fill="none" className="w-[180px] h-auto small-tablet:w-[145px]">
+                    <svg viewBox="0 0 102 27" fill="none" className="w-[180px] h-[50px] small-tablet:w-[145px]">
                         <path d="M31.2175 20.4684H34.6857V22.1218H31.2175V23.4766H35.1786V25.1644H29.2758V17.3571H35.1786V19.0449H31.2175V20.4684Z" fill="#008036"/>
                         <path d="M42.8846 25.1658H41.391L37.6479 20.882V25.1658H35.7077V17.3586H37.1894L40.9549 21.7558V17.3586H42.8846V25.1658Z" fill="#008036"/>
                         <path d="M51.658 25.1655H50.2107L50.13 24.2245C49.5684 24.913 48.7514 25.3268 47.6611 25.3268C45.216 25.3268 43.5043 23.5822 43.5043 21.3418C43.5043 18.9086 45.2951 17.1969 47.673 17.1969C49.5908 17.1969 51.2443 18.2753 51.5774 20.1364H49.5326C49.1995 19.2298 48.4183 18.9773 47.7193 18.9773C46.375 18.9773 45.4684 19.9183 45.4684 21.297C45.4684 22.5247 46.3526 23.5255 47.7313 23.5255C48.6379 23.5255 49.3265 23.0774 49.7178 22.3305L47.4788 22.3067V20.7802H51.658V25.167V25.1655Z" fill="#008036"/>
@@ -132,7 +132,7 @@ export default function SwiperEmpresasGrupo() {
         <SwiperSlide>
             <a href="/azimute-imoveis" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[180px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg viewBox="0 0 84 31" fill="none" className="w-[145px] h-auto small-tablet:w-[110px]">
+                    <svg viewBox="0 0 84 31" fill="none" className="w-[145px] h-[50px] small-tablet:w-[110px]">
                         <path d="M3.98073 24.6992V21.7719H5.60575V24.3419C6.19352 24.2658 6.81356 24.2382 7.46588 24.282C8.31411 24.3396 9.29604 24.5194 10.354 24.766V17.6736H13.15V22.5348L11.3751 23.3485V25.0173C11.979 25.1717 12.6037 25.3423 13.2353 25.5175V24.5401L15.5241 23.4914L17.813 24.5401V26.7575C18.4468 26.9143 19.0715 27.0526 19.6731 27.1701V23.3508L17.8983 22.5371V20.919L20.7057 19.6351V27.3499C21.365 27.4467 21.9896 27.5044 22.5682 27.509V26.3242H22.5659V16.7216L16.0381 19.7365V21.6866L15.5241 21.4492L15.0101 21.6866V15.8181H8.4939V23.3415H7.46357V19.9163H2.12061V25.4967C2.67611 25.1948 3.29846 24.9182 3.98073 24.7038V24.6992Z" fill="#005187"/>
                         <path d="M25.4217 28.1237C23.2896 29.5966 18.705 28.1168 14.2587 26.6854C11.7485 25.8763 9.3767 25.111 7.5765 24.9197C4.07522 24.544 1.36916 26.2589 0 27.3838C1.24469 26.7338 2.62077 26.441 4.1582 26.441C7.15008 26.441 10.7528 27.5497 15.2129 29.2969C18.7557 30.6845 21.5517 30.892 23.5224 29.9146C24.5827 29.3891 25.1451 28.6262 25.4194 28.1237H25.4217Z" fill="#005187"/>
                         <path d="M14.5603 13.9991H11.0706V13.4183C10.2938 13.9139 9.36947 14.2135 8.20545 14.2135C5.38415 14.2135 3.01462 11.867 3.01462 8.76452C3.01462 5.662 5.38415 3.31552 8.20545 3.31552C9.36717 3.31552 10.2938 3.61747 11.0706 4.11305V3.55524H14.5603V14.0015V13.9991ZM11.0706 10.3803V7.12797C10.4021 6.39499 9.66912 6.15757 8.9177 6.15757C7.49552 6.15757 6.44214 7.31929 6.44214 8.76452C6.44214 10.2097 7.49782 11.3484 8.9177 11.3484C9.67143 11.3484 10.4044 11.134 11.0706 10.3803Z" fill="#636769"/>
@@ -168,7 +168,7 @@ export default function SwiperEmpresasGrupo() {
         <SwiperSlide>
             <a href="/azimute-tech" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[180px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg viewBox="0 0 78 29" fill="none" className="w-[145px] h-auto small-tablet:w-[110px]">
+                    <svg viewBox="0 0 78 29" fill="none" className="w-[145px] h-[50px] small-tablet:w-[110px]">
                         <path d="M18.1299 11.0272H22.8325V13.8918H13.1711V12.2046L18.0453 6.41143H13.258V3.52628H22.8325V5.36437L18.1299 11.0272Z" fill="#636769"/>
                         <path d="M27.1277 13.8918H23.6641V3.52628H27.1277V13.8918Z" fill="#636769"/>
                         <path d="M45.6803 7.97311V13.8943H42.219V8.53094C42.219 7.05636 41.492 6.34993 40.3603 6.34993C39.8254 6.34993 39.2927 6.5854 38.7783 7.20496C38.8012 7.46101 38.8217 7.71706 38.8217 7.9754V13.8966H35.3582V8.53322C35.3582 7.05864 34.6312 6.35221 33.4995 6.35221C32.9874 6.35221 32.4525 6.60827 31.9609 7.25068V13.8966H28.4768V3.52879H31.9609V4.12777C32.6445 3.52879 33.3715 3.20872 34.5054 3.20872C35.8086 3.20872 36.9196 3.70025 37.7107 4.61929C38.8012 3.63624 39.8482 3.20872 41.3868 3.20872C43.865 3.20872 45.6826 5.02623 45.6826 7.9754L45.6803 7.97311Z" fill="#636769"/>
@@ -224,7 +224,7 @@ export default function SwiperEmpresasGrupo() {
         <SwiperSlide>
             <a href="/azimute-san" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[180px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg viewBox="0 0 78 30" fill="none" className="w-[145px] h-auto small-tablet:w-[110px]">
+                    <svg viewBox="0 0 78 30" fill="none" className="w-[145px] h-[50px] small-tablet:w-[110px]">
                         <path d="M11.6368 14.1105H8.11956V13.5251C7.33665 14.0246 6.40507 14.3266 5.23187 14.3266C2.38833 14.3266 0.00012207 11.9616 0.00012207 8.83465C0.00012207 5.70768 2.38833 3.3427 5.23187 3.3427C6.40274 3.3427 7.33665 3.64704 8.11956 4.14652V3.58431H11.6368V14.1129V14.1105ZM8.11956 10.4632V7.18521C7.44584 6.44644 6.70708 6.20716 5.94973 6.20716C4.51634 6.20716 3.45466 7.37803 3.45466 8.83465C3.45466 10.2913 4.51866 11.4389 5.94973 11.4389C6.7094 11.4389 7.44816 11.2229 8.11956 10.4632Z" fill="#636769"/>
                         <path d="M17.433 11.2021H22.2094V14.1107H12.3964V12.3962L17.3447 6.51394H12.4823V3.58444H22.2071V5.45226L17.4306 11.2044L17.433 11.2021Z" fill="#636769"/>
                         <path d="M26.5724 14.1101H23.0552V3.58159H26.5724V14.1101Z" fill="#636769"/>
@@ -278,7 +278,7 @@ export default function SwiperEmpresasGrupo() {
         <SwiperSlide>
             <a href="/aria" className="p-[15px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[15px] h-[180px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-auto header-space:gap-[15px]">
                 <div className="flex flex-row justify-between items-center w-full">
-                    <svg viewBox="0 0 76 21" fill="none" className="w-[145px] h-auto small-tablet:w-[110px]">
+                    <svg viewBox="0 0 76 21" fill="none" className="w-[145px] h-[50px] small-tablet:w-[110px]">
                         <path d="M24.1082 20.6889V18.3646H24.4027V20.6889H24.1082Z" fill="white"/>
                         <path d="M27.6907 20.6889V18.7749L26.8857 20.6889H26.765L25.9628 18.7749V20.6889H25.6682V18.3646H26.0904L26.8253 20.1147L27.5631 18.3646H27.9853V20.6889H27.6907Z" fill="white"/>
                         <path d="M30.9389 20.6889L30.7299 20.1726H29.5517L29.3427 20.6889H29.0061L29.9571 18.3646H30.3231L31.2783 20.6889H30.9417H30.9389ZM30.1408 18.6634L29.6373 19.9151H30.6415L30.1408 18.6634Z" fill="white"/>
