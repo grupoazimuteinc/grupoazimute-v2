@@ -14,7 +14,6 @@ export default function SwiperEmpresasGrupo() {
       <Swiper
         className="swiper-slides-empresa-grupo monitor:!pl-[15px] small-tablet:!px-[15px]"
         modules={[Autoplay]}
-        loop={true}
         slidesPerView={3}
         spaceBetween={10}
         autoplay={{
@@ -41,7 +40,7 @@ export default function SwiperEmpresasGrupo() {
         }}
       >
         <SwiperSlide>
-            <a href="/azimute-imoveis" className="p-[20px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[35px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px]">
+            <a href="/azimute-engenharia" className="p-[20px] border border-[#E3E3E3] rounded-[11px] flex flex-col justify-between gap-[35px] smartphone:max-w-[330px] smartphone:h-[175px] small-tablet:h-[180px]">
                 <div className="flex flex-row justify-between items-center w-full h-[35px]">
                     <svg width="118" height="31" viewBox="0 0 118 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M36.8872 24.2601H40.8851V26.1661H36.8872V27.7277H41.4533V29.6733H34.6489V20.6736H41.4533V22.6192H36.8872V24.2601Z" fill="#008036"/>
