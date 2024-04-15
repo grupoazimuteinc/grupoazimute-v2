@@ -57,7 +57,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="content o-grupo pt-[30px] smartphone:pt-5 small-tablet:pt-[30px] monitor:pt-10">
+      <div className="content o-grupo pt-[90px] smartphone:pt-5 small-tablet:pt-[30px] monitor:pt-10">
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-8 text-left">
