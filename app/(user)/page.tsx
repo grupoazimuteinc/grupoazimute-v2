@@ -23,8 +23,8 @@ import SwiperEmpresasGrupo from '@/components/swiper-empresas-grupo';
 const query = groq`
   *[_type=='post'] {
     ...,
-    categories[]->,
-  } | order(publishedAt desc)
+    categories[]->
+  } | order(publishedAt desc) [0..19]
 `
 
 export const revalidate = 60
@@ -68,9 +68,13 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="container pb-24 smartphone:pb-[20px] monitor:pb-10">
+      <div className="container pb-16 smartphone:pb-[20px] monitor:pb-10">
         <div className="row">
           <Posts posts={ posts } />
+
+          <div className="w-full flex justify-center">
+            <a href="/noticias" className="h-[40px] leading-[40px] rounded-[10px] bg-[#313131] text-white text-base px-[15px] transition-all border border-transparent hover:no-underline hover:border-[#313131] hover:bg-white hover:!text-[#313131]">Mais notícias</a>
+          </div>
         </div>
       </div> 
     </main>

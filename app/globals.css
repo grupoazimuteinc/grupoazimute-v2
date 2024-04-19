@@ -617,9 +617,9 @@ header .container-fluid {
 	right: 0;
 }
 
-.swiper {
+/* .swiper {
 	overflow: visible !important;
-}
+} */
 
 @media(max-width: 820px) {
 	.selo-header {

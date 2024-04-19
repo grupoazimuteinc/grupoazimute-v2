@@ -15,10 +15,11 @@ export default function SwiperEmpresasGrupo() {
         className="swiper-slides-empresa-grupo monitor:!pl-[15px] small-tablet:!px-[15px]"
         modules={[Autoplay]}
         slidesPerView={3}
+        slidesPerGroup={1}
+        loop={true}
         spaceBetween={10}
         autoplay={{
             delay: 3000,
-            disableOnInteraction: false,
           }}
         breakpoints={{
           320: {
