@@ -9,10 +9,15 @@ const perPage = 20;
 
 export const revalidate = 60
 
+function getMaxPagesToShow() {
+    return window.innerWidth <= 600 ? 5 : 10;
+}
+
 export default function Noticias() {
     const [posts, setPosts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [maxPagesToShow, setMaxPagesToShow] = useState(getMaxPagesToShow());
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -28,6 +33,7 @@ export default function Noticias() {
             `;
             const result = await client.fetch(query);
             setPosts(result);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
         const fetchTotalPages = async () => {
@@ -39,6 +45,16 @@ export default function Noticias() {
 
         fetchPosts();
         fetchTotalPages();
+
+        const handleResize = () => {
+            setMaxPagesToShow(getMaxPagesToShow());
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, [currentPage]);
 
     const goToPage = (pageNumber:any) => {
@@ -49,17 +65,50 @@ export default function Noticias() {
 
     const renderPaginationButtons = () => {
         const buttons = [];
-        for (let i = 1; i <= totalPages; i++) {
+        const startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+        const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+
+        for (let i = startPage; i <= endPage; i++) {
             buttons.push(
                 <button
                     key={i}
-                    onClick={() => goToPage(i)}
+                    onClick={() => {
+                        goToPage(i);
+                        window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll para o topo da página
+                    }}
                     className={i === currentPage ? 'active' : ''}
                 >
                     {i}
                 </button>
             );
         }
+
+        if (currentPage > maxPagesToShow && totalPages > maxPagesToShow) {
+            buttons.unshift(
+                <button key={1} onClick={() => goToPage(1)}>
+                    1
+                </button>
+            );
+            buttons.unshift(
+                <button key="prevEllipsis" disabled>
+                    ...
+                </button>
+            );
+        }
+
+        if (currentPage < totalPages - Math.floor(maxPagesToShow / 2) && totalPages > maxPagesToShow) {
+            buttons.push(
+                <button key="nextEllipsis" disabled>
+                    ...
+                </button>
+            );
+            buttons.push(
+                <button key={totalPages} onClick={() => goToPage(totalPages)}>
+                    {totalPages}
+                </button>
+            );
+        }
+
         return buttons;
     };
 
@@ -84,11 +133,16 @@ export default function Noticias() {
                 </div>
 
                 <div className="pagination">
-                    <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>Anterior</button>
+                    <button onClick={() => { goToPage(currentPage - 1); window.scrollTo({ top: 0, behavior: 'smooth' }); }} disabled={currentPage === 1}>Anterior</button>
                     {renderPaginationButtons()}
-                    <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages}>Próxima</button>
+                    <button onClick={() => { goToPage(currentPage + 1); window.scrollTo({ top: 0, behavior: 'smooth' }); }} disabled={currentPage === totalPages}>Próxima</button>
                 </div>
             </main>
         </>
     );
 }
+
+
+
+
+

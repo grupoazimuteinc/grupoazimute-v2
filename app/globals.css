@@ -882,6 +882,22 @@ header .container-fluid {
 		padding-left: 15px !important;
 		overflow: visible !important;
 	}
+
+	.pagination button {
+		font-size: 14px;
+		line-height: 18px;
+	}
+
+	.pagination {
+		gap: 10px;
+		margin-bottom: 30px;
+		padding: 0 15px;
+	}
+
+	.pagination button.active::after {
+		width: 20px;
+		height: 23px;
+	}
 }
 
 @media(min-width: 641px) and (max-width: 992px) {
