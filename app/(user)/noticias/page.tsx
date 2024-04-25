@@ -1,23 +1,29 @@
 'use client'
 
-import { groq } from 'next-sanity'
+import { groq } from 'next-sanity';
 import { useState, useEffect } from 'react';
-import { client } from '@/lib/sanity.client'
-import { Posts } from '@/components/posts'
+import { client } from '@/lib/sanity.client';
+import { Posts } from '@/components/posts';
 
-const perPage = 20; 
+export const revalidate = 60;
 
-export const revalidate = 60
-
-function getMaxPagesToShow() {
-    return window.innerWidth <= 600 ? 5 : 10;
+function getPerPage() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 640) {
+        return 5;
+    } else if (screenWidth <= 1024) {
+        return 10;
+    } else {
+        return 20;
+    }
 }
 
 export default function Noticias() {
     const [posts, setPosts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [maxPagesToShow, setMaxPagesToShow] = useState(getMaxPagesToShow());
+
+    const perPage = getPerPage(); // Definindo perPage com base na largura da tela
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -47,7 +53,14 @@ export default function Noticias() {
         fetchTotalPages();
 
         const handleResize = () => {
-            setMaxPagesToShow(getMaxPagesToShow());
+            // Atualiza perPage com base na nova largura da tela
+            const newPerPage = getPerPage();
+            if (perPage !== newPerPage) {
+                setCurrentPage(1); // Redefine a página atual para 1 ao alterar perPage
+                // Atualiza perPage e refetch posts
+                fetchPosts();
+                fetchTotalPages();
+            }
         };
 
         window.addEventListener('resize', handleResize);
@@ -55,7 +68,7 @@ export default function Noticias() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [currentPage]);
+    }, [currentPage, perPage]);
 
     const goToPage = (pageNumber:any) => {
         if (pageNumber >= 1 && pageNumber <= totalPages) {
@@ -65,6 +78,7 @@ export default function Noticias() {
 
     const renderPaginationButtons = () => {
         const buttons = [];
+        const maxPagesToShow = window.innerWidth <= 600 ? 5 : 10;
         const startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
         const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
@@ -141,6 +155,7 @@ export default function Noticias() {
         </>
     );
 }
+
 
 
 
