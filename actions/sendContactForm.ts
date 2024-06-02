@@ -2,14 +2,14 @@
 
 import nodemailer from 'nodemailer'
 
-export async function handleSendForm(form: FormData) {
+export async function sendContactForm(form: FormData) {
     const name = form.get('name')
     const email = form.get('email')
-    const organization = form.get('organization')
+    const company = form.get('company')
     const phone = form.get('phone')
     const message = form.get('message')
 
-    if(!name || !email || !organization) return
+    if(!name || !email) return
 
     const transporter = nodemailer.createTransport({
         // @ts-ignore
@@ -26,7 +26,7 @@ export async function handleSendForm(form: FormData) {
         await transporter.sendMail({
             from: process.env.EMAIL_USER, 
             to: 'mfs.murillo@gmail.com',
-            subject: 'Cadastro IFAT Brasil 2024',
+            subject: 'Contato',
             html: `
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; background-color: #ffffff;">
                     <tr>
@@ -39,13 +39,13 @@ export async function handleSendForm(form: FormData) {
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
                                     <td style="color: #153643; font-family: Arial, sans-serif; font-size: 24px;">
-                                        <b>Confirmação de Cadastro</b>
+                                        <b>Informações</b>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                         Olá, <br>
-                                        Aqui estão os detalhes do cadastro:
+                                        Aqui estão os detalhes do contato:
                                     </td>
                                 </tr>
                                 <tr>
@@ -60,7 +60,7 @@ export async function handleSendForm(form: FormData) {
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                        <strong>Empresa:</strong> ${ organization }
+                                        <strong>Empresa:</strong> ${ company }
                                     </td>
                                 </tr>
                                 <tr>
@@ -86,7 +86,7 @@ export async function handleSendForm(form: FormData) {
                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;" align="center">
-                                        &copy; 2024 Grupo Azimute. Todos os direitos reservados.
+                                        &copy; ${ new Date().getFullYear() } Grupo Azimute. Todos os direitos reservados.
                                     </td>
                                 </tr>
                             </table>
@@ -96,8 +96,8 @@ export async function handleSendForm(form: FormData) {
             `
         })
         
-        return { message: 'Mensagem enviada com sucesso' }   
+        return { status: 200, message: 'Mensagem enviada com sucesso' }   
     } catch (error) {
-        console.error("Erro ao enviar email:", error)
+        return { status: 503, message: 'Aconteceu algum erro' }   
     }
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { groq } from 'next-sanity'
@@ -19,6 +21,7 @@ import azimuteAriaWhite from '@/src/images/aria-white.png'
 import bannerGrupo from '@/src/images/banner-grupo.jpg'
 
 import SwiperEmpresasGrupo from '@/components/swiper-empresas-grupo';
+import { Button } from '@grupoazimute/web.button'
 
 const query = groq`
   *[_type=='post'] {
