@@ -36,7 +36,7 @@ export default async function Home() {
     <main>
       <Image
         src={ bannerGrupo } 
-        className="w-full smartphone:mt-[78px] tablet:mt-[78px]"
+        className="w-full smartphone:mt-[79px] tablet:mt-[78px]"
         alt="Assista agora"
         aria-hidden="true"
         width={ 1496 }
