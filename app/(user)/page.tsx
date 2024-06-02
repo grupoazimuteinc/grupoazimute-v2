@@ -9,7 +9,7 @@ import { Posts } from '@/components/posts'
 
 import bannerGrupo from '@/src/images/banner-grupo.jpg'
 
-import SwiperEmpresasGrupo from '@/components/swiper-empresas-grupo';
+import SwiperEmpresasGrupo from '@/components/swiper-empresas-grupo'
 
 const query = groq`
   *[_type=='post'] {
@@ -18,7 +18,7 @@ const query = groq`
   } | order(publishedAt desc) [0..19]
 `
 
-export const revalidate = 60
+export const revalidate = 1
 
 export default async function Home() {
   const posts = await client.fetch(query)
