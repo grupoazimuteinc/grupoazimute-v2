@@ -8,16 +8,6 @@ import { client } from '@/lib/sanity.client'
 
 import { Posts } from '@/components/posts'
 
-import azimuteEngenhariaOff from '@/src/images/azimute-engenharia-off.png'
-import azimuteEngenhariaWhite from '@/src/images/azimute-engenharia-white.png'
-import azimuteImoveisOff from '@/src/images/azimute-imoveis-off.png'
-import azimuteImoveisWhite from '@/src/images/azimute-imoveis-white.png'
-import azimuteTechOff from '@/src/images/azimute-tech-off.png'
-import azimuteTechWhite from '@/src/images/azimute-tech-white.png'
-import azimuteSanOff from '@/src/images/azimute-san-off.png'
-import azimuteSanWhite from '@/src/images/azimute-san-white.png'
-import azimuteAriaOff from '@/src/images/aria-off.png'
-import azimuteAriaWhite from '@/src/images/aria-white.png'
 import bannerGrupo from '@/src/images/banner-grupo.jpg'
 
 import SwiperEmpresasGrupo from '@/components/swiper-empresas-grupo';
