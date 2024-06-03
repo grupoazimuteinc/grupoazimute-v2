@@ -129,7 +129,7 @@ export default function Noticias() {
     return (
         <>
             <main>
-                <div className="content o-grupo pt-[80px] smartphone:pt-[40px]">
+                <div className="content o-grupo pt-[175px] smartphone:pt-[120px]">
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-md-8 text-left">

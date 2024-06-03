@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { groq } from 'next-sanity'
 
@@ -8,19 +10,27 @@ import { Posts } from '@/components/posts'
 import bannerGrupo from '@/src/images/banner-grupo.jpg'
 
 import SwiperEmpresasGrupo from '@/components/swiper-empresas-grupo'
-import Noticias from './noticias/page'
+import { useEffect, useState } from 'react'
 
-// const query = groq`
-//   *[_type=='post'] {
-//     ...,
-//     categories[]->
-//   } | order(publishedAt desc) [0..19]
-// `
-
-// export const revalidate = 1
+export const revalidate = 1
 
 export default function Home() {
-  // const posts = await client.fetch(query)
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+        const query = groq`
+          *[_type=='post'] {
+            ...,
+            categories[]->
+          } | order(publishedAt desc)[0..15]
+        `;
+        const result = await client.fetch(query);
+        setPosts(result);
+    };
+
+    fetchPosts();
+  }, []);
 
   return (
     <main>
@@ -47,7 +57,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <div className="content o-grupo pt-[90px] smartphone:pt-5 small-tablet:pt-[30px] monitor:pt-10">
+      <div className="content o-grupo pt-[90px] smartphone:pt-5 small-tablet:pt-[30px] monitor:pt-10">
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-8 text-left">
@@ -56,15 +66,15 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
       <div className="container pb-16 smartphone:pb-[20px] monitor:pb-10">
         <div className="row">
-          <Noticias />
+          <Posts posts={posts} />
 
-          {/* <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center">
             <a href="/noticias" className="h-[40px] leading-[40px] rounded-[10px] bg-[#313131] text-white text-base px-[15px] transition-all border border-transparent hover:no-underline hover:border-[#313131] hover:bg-white hover:!text-[#313131]">Mais notícias</a>
-          </div> */}
+          </div>
         </div>
       </div> 
     </main>
