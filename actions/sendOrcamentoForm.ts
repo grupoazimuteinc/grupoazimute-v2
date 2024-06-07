@@ -2,14 +2,13 @@
 
 import nodemailer from 'nodemailer'
 
-export async function sendContactForm(form: FormData) {
+export async function sendOrcamentoForm(form: FormData) {
     const name = form.get('name')
     const email = form.get('email')
-    const company = form.get('company')
     const phone = form.get('phone')
     const message = form.get('message')
 
-    if(!name || !email) return
+    if(!name || !email || !phone) return
 
     const transporter = nodemailer.createTransport({
         // @ts-ignore
@@ -26,7 +25,7 @@ export async function sendContactForm(form: FormData) {
         await transporter.sendMail({
             from: process.env.EMAIL_USER, 
             to: 'comercial@grupoazimute.com.br',
-            subject: 'Contato',
+            subject: 'Orçamento',
             html: `
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; background-color: #ffffff;">
                     <tr>
@@ -44,7 +43,7 @@ export async function sendContactForm(form: FormData) {
                                 </tr>
                                 <tr>
                                     <td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                        Formulário de "Entre em Contato" recebido. <br/>
+                                        Formulário de "Solicite um Orçamento" recebido. <br/>
                                         Aqui estão os detalhes:
                                     </td>
                                 </tr>
@@ -56,11 +55,6 @@ export async function sendContactForm(form: FormData) {
                                 <tr>
                                     <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                         <strong>Email:</strong> ${ email }
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                        <strong>Empresa:</strong> ${ company }
                                     </td>
                                 </tr>
                                 <tr>

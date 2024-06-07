@@ -277,9 +277,9 @@ a .box-icon:hover {
     padding: 0 50px;
 }
 
-.bg-white {
+/* .bg-white {
     padding: 60px 0;
-}
+} */
 
 .form-default select {
     width: 100%;
@@ -328,7 +328,7 @@ a .box-icon:hover {
         margin-top: 80px !important;
     }
 
-    .bg-white {
+    /* .bg-white {
         padding-top:30px;
-    }
+    } */
 }

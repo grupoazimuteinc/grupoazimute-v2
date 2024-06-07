@@ -1,62 +1,66 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
-import { toast } from 'react-hot-toast'
+import { useState } from 'react'
+import { toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 
+import { Form } from '@grupoazimute/web.form'
+
+import { sendPesquisaForm } from '@/actions/sendPesquisaForm'
+import { pesquisaFormInputs } from '@/utils/pesquisa-form-inputs'
+
+import 'react-toastify/dist/ReactToastify.css'
 import './globals.css'
 
 export default function PesquisaDeSatisfacao() {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [cargo, setCargo] = useState('')
-    const [grupo, setGrupo] = useState('')
-    const [comoChegou, setComoChegou] = useState('')
-    const [atendimento, setAtendimento] = useState('')
-    const [qualidade, setQualidade] = useState('')
-    const [expectativa, setExpectativa] = useState('')
-    const [indicacao, setIndicacao] = useState('')
-    const [message, setMessage] = useState('')
+    const [pending, setPending] = useState(false)
 
-    async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
-        e.preventDefault()
+    function handleChange(form: FormData) {
+        setPending(true)
 
-        if (!name || !cargo || !email || !grupo || !comoChegou || !atendimento || !qualidade || !expectativa || !indicacao || !message) {
-            alert('Por favor, preencha todos os campos antes de enviar o formulário.');
-        }
+        setTimeout(async () => {
+            const response: any = await sendPesquisaForm(form)
 
-        const response = await fetch('/api/pesquisaSend', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                cargo: cargo,
-                grupo: grupo,
-                comoChegou: comoChegou,
-                atendimento: atendimento,
-                qualidade: qualidade,
-                expectativa: expectativa,
-                indicacao: indicacao,
-                message: message
-            })
-        })
-
-        if(response.status === 200) {
-            setName('')
-            setEmail('')
-            setCargo('')
-            setGrupo('')
-            setComoChegou('')
-            setAtendimento('')
-            setQualidade('')
-            setExpectativa('')
-            setIndicacao('')
-            setMessage('')
-            toast.success(`Hey, mensagem enviada com sucesso!`)
-        }
+            if(response.status == 200) {
+                toast.success(response.message, {
+                    position: 'bottom-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'dark'
+                })
+    
+                const formInputs: any = document.querySelector('.event-form')
+            
+                for (let i = 0; i < formInputs.elements.length; i++) {
+                    formInputs.elements[i].value = ''
+                }
+    
+                setPending(false)
+            } else {
+                toast.error(response.message, {
+                    position: 'bottom-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'dark'
+                })
+    
+                const formInputs: any = document.querySelector('.event-form')
+            
+                for (let i = 0; i < formInputs.elements.length; i++) {
+                    formInputs.elements[i].value = ''
+                }
+    
+                setPending(false)
+            }
+        }, 3000)
     }
+
     return (
         <>
             <div className="content-form">
@@ -101,115 +105,21 @@ export default function PesquisaDeSatisfacao() {
                 </div>
             </div>
 
-            <div className="bg-white wow fadeInUp" data-wow-delay="2s">
+            <div className="py-10 lg:py-20">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-12 col-md-8">
-                            <h2 className="borded">
-                                Como foi a sua experiência com os nossos serviços?
-                            </h2>
+                    <div className="row flex-col-reverse lg:flex-row">
+                        <div className="col-12 col-lg-6">
+                            <h2 className="hidden lg:block font-semibold text-2xl mb-6 text-[#343434] xl:text-4xl xl:mb-12">Como foi a sua experiência com os nossos serviços?</h2>
                         </div>
-
-                        <div className="col-12 col-md-8">
-                            <form onSubmit={ (e) => handleFormSubmit(e) } className="form-default" method="post" style={{ margin: 0 }}>
-                                <input type="hidden" name="token_generate" id="token_generate" />
-
-                                <div className="row">
-                                    <div className="col-12 col-md-9">
-                                        <label>Nome da sua empresa</label>
-                                        <input type="text" name="nome" id="nome" onChange={ e => setName(e.target.value) } required />
-                                    </div>
-
-                                    <div className="col-12 col-md-9">
-                                        <label>E-mail</label>
-                                        <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required />
-                                    </div>
-
-                                    <div className="col-12 col-md-9">
-                                        <label>Cargo</label>
-                                        <input type="text" name="cargo" id="cargo" onChange={ e => setCargo(e.target.value) } required />
-                                    </div>
-
-                                    <div className="col-12 col-md-12">
-                                        <label>Qual empresa você gostaria de avaliar?</label>
-                                        <div className="options-holder options-big">
-                                            <div onClick={ () => setGrupo('Engenharia') } className={ `option option-engenharia ${ grupo == 'Engenharia' && 'active' }` }>Engenharia</div>
-                                            <div onClick={ () => setGrupo('Tech') } className={ `option option-tech ${ grupo == 'Tech' && 'active' }` }>Tech</div>
-                                            <div onClick={ () => setGrupo('Imóveis') } className={ `option option-imoveis ${ grupo == 'Imóveis' && 'active' }` }>Imóveis</div>
-                                            <div onClick={ () => setGrupo('San') } className={ `option option-san ${ grupo == 'San' && 'active' }` }>San</div>
-                                            <div onClick={ () => setGrupo('Aria') } className={ `option option-aria ${ grupo == 'Aria' && 'active' }` }>Aria</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="col-12 col-md-12">
-                                        <label>Como você chegou até nós?</label>
-                                        <div className="options-holder options-big">
-                                            <div onClick={ () => setComoChegou('Já sou cliente') } className={ `option ${ comoChegou == 'Já sou cliente' && 'active' }` }>Já sou cliente</div>
-                                            <div onClick={ () => setComoChegou('Indicação') } className={ `option ${ comoChegou == 'Indicação' && 'active' }` }>Indicação</div>
-                                            <div onClick={ () => setComoChegou('Google') } className={ `option ${ comoChegou == 'Google' && 'active' }` }>Google</div>
-                                            <div onClick={ () => setComoChegou('Redes Sociais') } className={ `option ${ comoChegou == 'Redes Sociais' && 'active' }` }>Redes Sociais</div>
-                                            <div onClick={ () => setComoChegou('Outros') } className={ `option ${ comoChegou == 'Outros' && 'active' }` }>Outros</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="col-12 col-md-8">
-                                        <label>Como foi nosso atendimento?</label>
-                                        <div className="options-holder">
-                                            <div onClick={ () => setAtendimento('1') } className={ `option ${ atendimento == '1' && 'active' }` }>1</div>
-                                            <div onClick={ () => setAtendimento('2') } className={ `option ${ atendimento == '2' && 'active' }` }>2</div>
-                                            <div onClick={ () => setAtendimento('3') } className={ `option ${ atendimento == '3' && 'active' }` }>3</div>
-                                            <div onClick={ () => setAtendimento('4') } className={ `option ${ atendimento == '4' && 'active' }` }>4</div>
-                                            <div onClick={ () => setAtendimento('5') } className={ `option ${ atendimento == '5' && 'active' }` }>5</div>
-
-                                            <span className="option-low">Insatisfeito</span>
-                                            <span className="option-high">Excelente</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="col-12 col-md-8">
-                                        <label>Avalie a qualidade dos serviços entregues</label>
-                                        <div className="options-holder">
-                                            <div onClick={ () => setQualidade('1') } className={ `option ${ qualidade == '1' && 'active' }` }>1</div>
-                                            <div onClick={ () => setQualidade('2') } className={ `option ${ qualidade == '2' && 'active' }` }>2</div>
-                                            <div onClick={ () => setQualidade('3') } className={ `option ${ qualidade == '3' && 'active' }` }>3</div>
-                                            <div onClick={ () => setQualidade('4') } className={ `option ${ qualidade == '4' && 'active' }` }>4</div>
-                                            <div onClick={ () => setQualidade('5') } className={ `option ${ qualidade == '5' && 'active' }` }>5</div>
-
-                                            <span className="option-low">Insatisfeito</span>
-                                            <span className="option-high">Excelente</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="col-12 col-md-7">
-                                        <label>Atendemos suas expectativas?</label>
-                                        <div className="options-holder">
-                                            <div onClick={ () => setExpectativa('Sim') } className={ `option ${ expectativa == 'Sim' && 'active' }` }>Sim</div>
-                                            <div onClick={ () => setExpectativa('Não') } className={ `option ${ expectativa == 'Não' && 'active' }` }>Não</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="col-12 col-md-7">
-                                        <label>Você nos indicaria para outra empresa?</label>
-                                        <div className="options-holder">
-                                            <div onClick={ () => setIndicacao('Sim') } className={ `option ${ indicacao == 'Sim' && 'active' }` }>Sim</div>
-                                            <div onClick={ () => setIndicacao('Não') } className={ `option ${ indicacao == 'Não' && 'active' }` }>Não</div>
-                                        </div>
-                                    </div>
-
-                                    <div className="col-12 col-md-11">
-                                        <label>Deixe aqui seu elogio e/ou crítica</label>
-                                        <textarea name="mensagem" id="mensagem" cols={30} rows={10} required onChange={ e => setMessage(e.target.value) }></textarea>
-                                    </div>
-
-                                    <div className="col-12 col-md-12">
-                                        <button type="submit" className="button-default" style={{position: 'relative'}}>Enviar pesquisa</button>
-                                    </div>
-                                </div>
-                            </form>
+                        
+                        <div className="col-12 col-lg-6">
+                            <Form handleChange={ handleChange } button="Enviar Formulario" fields={ pesquisaFormInputs } pending={ pending } />
                         </div>
                     </div>
                 </div>
             </div>
+
+            <ToastContainer />
         </>
     )
 }

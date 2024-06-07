@@ -12,8 +12,8 @@
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
     "@fancyapps/ui": "^5.0.35",
-    "@grupoazimute/web.button": "^2.0.13",
-    "@grupoazimute/web.form": "^0.0.1",
+    "@grupoazimute/web.button": "^2.0.14",
+    "@grupoazimute/web.form": "^0.0.6",
     "@portabletext/react": "^3.0.9",
     "@sanity/client": "^6.15.9",
     "@sanity/image-url": "^1.0.2",

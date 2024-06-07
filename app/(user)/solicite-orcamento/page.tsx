@@ -1,47 +1,66 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
-import { toast } from 'react-hot-toast'
+import { useState } from 'react'
+import { toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 
+import { Form } from '@grupoazimute/web.form'
+
+import { sendOrcamentoForm } from '@/actions/sendOrcamentoForm'
+import { orcamentoFormInputs } from '@/utils/orcamento-form-inputs'
+
+import 'react-toastify/dist/ReactToastify.css'
 import './globals.css'
 
 export default function SoliciteOrcamento() {
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    const [grupo, setGrupo] = useState('')
-    const [message, setMessage] = useState('')
+    const [pending, setPending] = useState(false)
 
-    async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
-        e.preventDefault()
+    function handleChange(form: FormData) {
+        setPending(true)
 
-        if (!name || !phone || !email || !grupo || !message) {
-            alert('Por favor, preencha todos os campos antes de enviar o formulário.');
-        }
+        setTimeout(async () => {
+            const response: any = await sendOrcamentoForm(form)
 
-        const response = await fetch('/api/orcamentoSend', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                phone: phone,
-                email: email,
-                grupo: grupo,
-                message: message
-            })
-        })
-
-        if(response.status === 200) {
-            setName('')
-            setPhone('')
-            setEmail('')
-            setGrupo('')
-            setMessage('')
-            toast.success(`Hey, mensagem enviada com sucesso!`)
-        }
+            if(response.status == 200) {
+                toast.success(response.message, {
+                    position: 'bottom-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'dark'
+                })
+    
+                const formInputs: any = document.querySelector('.event-form')
+            
+                for (let i = 0; i < formInputs.elements.length; i++) {
+                    formInputs.elements[i].value = ''
+                }
+    
+                setPending(false)
+            } else {
+                toast.error(response.message, {
+                    position: 'bottom-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'dark'
+                })
+    
+                const formInputs: any = document.querySelector('.event-form')
+            
+                for (let i = 0; i < formInputs.elements.length; i++) {
+                    formInputs.elements[i].value = ''
+                }
+    
+                setPending(false)
+            }
+        }, 3000)
     }
+
     return (
         <>
             <div className="content-form">
@@ -87,75 +106,21 @@ export default function SoliciteOrcamento() {
                 </div>
             </div>
 
-            <div className="bg-white wow fadeInUp" data-wow-delay="2s">
+            <div className="py-10 lg:py-20 bg-white">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-12 col-md-8">
-                            <h2 className="borded">
-                                Precisa da nossa ajuda? <br/>Descreva abaixo sua necessidade que retornaremos o mais breve possível.
-                            </h2>
+                    <div className="row flex-col-reverse lg:flex-row">
+                        <div className="col-12 col-lg-6">
+                            <h2 className="hidden lg:block font-semibold text-2xl mb-6 text-[#343434] xl:text-4xl xl:mb-12">Precisa falar conosco? Deixe sua mensagem que retornaremos o mais breve possível.</h2>
                         </div>
-
-                        <div className="col-12 col-md-8">
-                            
-                            <form onSubmit={ (e) => handleFormSubmit(e) } className="form-default" method="post" style={{ margin: 0 }} >
-                                <input type="hidden" name="token_generate" id="token_generate"  />
-
-                                <div className="row">
-                                    <div className="col-12 col-md-9">
-                                        <label>Nome</label>
-                                        <input type="text" name="nome" id="nome" onChange={ e => setName(e.target.value) } required />
-                                    </div>
-
-                                    <div className="col-12 col-md-9">
-                                        <label>Telefone</label>
-                                        <input type="text" name="telefone" id="telefone" onChange={ e => setPhone(e.target.value) } required />
-                                    </div>
-
-                                    <div className="col-12 col-md-9">
-                                        <label>E-mail</label>
-                                        <input type="email" name="email" id="email" onChange={ e => setEmail(e.target.value) } required />
-                                    </div>
-
-                                    <div className="col-12 col-md-9">
-                                        <label>Empresa do Grupo</label>
-                                        <select name="empresas" id="empresas" onChange={ e => setGrupo(e.target.value) }>
-                                            <option value="Selecione">Selecione</option>
-                                            <option value="Aria Imagem e Tecnologia">Aria Imagem e Tecnologia</option>
-                                            <option value="Azimute Engenharia">Azimute Engenharia</option>
-                                            <option value="Azimute Tech">Azimute Tech</option>
-                                            <option value="Azimute San">Azimute San</option>
-                                            <option value="Azimute Imóveis">Azimute Imóveis</option>
-                                        </select>
-                                    </div>
-
-                                    {/* <div className="col-12 col-md-12">
-                                        <label>Qual dos nossos serviços você precisa?</label>
-                                        <div className="options-holder options-big">
-                                        <input type="hidden" name="empresa" value="<?php if(isset($slug)) { echo $slug; } else { echo 'Grupo'; } ?>" required />
-                                            <div className="option option-engenharia" data-value="Engenharia">Engenharia</div>
-                                            <div className="option option-tech" data-value="Tech">Tech</div>
-                                            <div className="option option-imoveis>" data-value="Imóveis">Imóveis</div>
-                                            <div className="option option-san " data-value="San">San</div>
-                                            <div className="option option-aria" data-value="Aria">Aria</div>
-                                        
-                                        </div>
-                                    </div> */}
-
-                                    <div className="col-12 col-md-11">
-                                        <label>Nos conte um pouco sobre sua necessidade?</label>
-                                        <textarea name="mensagem" id="mensagem" cols={30} rows={10} required onChange={ e => setMessage(e.target.value) }></textarea>
-                                    </div>
-
-                                    <div className="col-12 col-md-12">
-                                        <button type="submit" className="button-default" style={{position: 'relative'}}>Enviar mensagem</button>
-                                    </div>
-                                </div>
-                            </form>
+                        
+                        <div className="col-12 col-lg-6">
+                            <Form handleChange={ handleChange } fields={ orcamentoFormInputs } pending={ pending } />
                         </div>
                     </div>
                 </div>
             </div>
+
+            <ToastContainer />
         </>
     )
 }

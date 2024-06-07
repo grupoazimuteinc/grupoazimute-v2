@@ -1,17 +1,18 @@
 'use client'
 
 import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 
 import { Form } from '@grupoazimute/web.form'
 
 import { sendContactForm } from '@/actions/sendContactForm'
-import { contactFomInputs } from '@/utils/contact-form-inputs'
+import { contactFormInputs } from '@/utils/contact-form-inputs'
 
 import 'react-toastify/dist/ReactToastify.css'
 import './globals.css'
 
-export default function Home() {
+export default function Contato() {
     const [pending, setPending] = useState(false)
 
     function handleChange(form: FormData) {
@@ -112,7 +113,7 @@ export default function Home() {
                         </div>
                         
                         <div className="col-12 col-lg-6">
-                            <Form handleChange={ handleChange } fields={ contactFomInputs } pending={ pending } />
+                            <Form handleChange={ handleChange } fields={ contactFormInputs } pending={ pending } />
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-export const contactFomInputs = [
+export const contactFormInputs = [
     {
         name: 'name',
         label: 'Nome *',
@@ -29,5 +29,10 @@ export const contactFomInputs = [
         label: 'Observação',
         type: 'textarea',
         required: false
+    },
+    {
+        name: 'button',
+        label: 'Enviar mensagem',
+        type: 'button'
     }
 ]

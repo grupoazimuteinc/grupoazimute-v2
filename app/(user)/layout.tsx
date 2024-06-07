@@ -35,6 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <WhatsappButton />
 
         <Footer />
+
+        
       </body>
     </html>
   )

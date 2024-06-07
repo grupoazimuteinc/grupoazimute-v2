@@ -2,14 +2,18 @@
 
 import nodemailer from 'nodemailer'
 
-export async function sendContactForm(form: FormData) {
+export async function sendPesquisaForm(form: FormData) {
     const name = form.get('name')
     const email = form.get('email')
-    const company = form.get('company')
-    const phone = form.get('phone')
+    const cargo = form.get('cargo')
+    const comoChegou = form.get('comoChegou')
+    const atendimento = form.get('atendimento')
+    const qualidade = form.get('qualidade')
+    const expectativa = form.get('expectativa')
+    const indicacao = form.get('indicacao')
     const message = form.get('message')
 
-    if(!name || !email) return
+    if(!name || !email || !cargo || !comoChegou || !atendimento || !qualidade || !expectativa || !indicacao ) return
 
     const transporter = nodemailer.createTransport({
         // @ts-ignore
@@ -25,8 +29,8 @@ export async function sendContactForm(form: FormData) {
     try {
         await transporter.sendMail({
             from: process.env.EMAIL_USER, 
-            to: 'comercial@grupoazimute.com.br',
-            subject: 'Contato',
+            to: 'thiago@grupoazimute.com.br',
+            subject: 'Pesquisa de Satisfação',
             html: `
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; background-color: #ffffff;">
                     <tr>
@@ -44,7 +48,7 @@ export async function sendContactForm(form: FormData) {
                                 </tr>
                                 <tr>
                                     <td style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                        Formulário de "Entre em Contato" recebido. <br/>
+                                        Formulário de "Pesquisa de Satisfação" recebido. <br/>
                                         Aqui estão os detalhes:
                                     </td>
                                 </tr>
@@ -60,17 +64,37 @@ export async function sendContactForm(form: FormData) {
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                        <strong>Empresa:</strong> ${ company }
+                                        <strong>Cargo:</strong> ${ cargo }
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                        <strong>Telefone:</strong> ${ phone }
+                                        <strong>Como você chegou até nós:</strong> ${ comoChegou }
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                        <strong>Observação:</strong> ${ message }
+                                        <strong>Como foi nosso atendimento:</strong> ${ atendimento }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        <strong>Avalie a qualidade dos serviços entregues:</strong> ${ qualidade }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        <strong>Atendemos suas expectativas:</strong> ${ expectativa }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        <strong>Você nos indicaria para outra empresa?</strong> ${ indicacao }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        <strong>Mensagem:</strong> ${ message }
                                     </td>
                                 </tr>
                             </table>
@@ -91,7 +115,7 @@ export async function sendContactForm(form: FormData) {
             `
         })
         
-        return { status: 200, message: 'Mensagem enviada com sucesso' }   
+        return { status: 200, message: 'Pesquisa enviada com sucesso' }   
     } catch (error) {
         return { status: 503, message: 'Aconteceu algum erro' }   
     }

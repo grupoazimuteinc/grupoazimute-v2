@@ -291,9 +291,9 @@ a .box-icon:hover {
     padding: 0 50px;
 }
 
-.bg-white {
+/* .bg-white {
     padding: 60px 0;
-}
+} */
 
 @media(max-width: 821px) {
     .content-form h2 {
@@ -302,9 +302,9 @@ a .box-icon:hover {
         margin-bottom: 30px !important;
     }
 
-    .bg-white {
+    /* .bg-white {
         padding-top: 30px;
-    }
+    } */
 
     .content-form h1 {
         font-size: 48px !important;
