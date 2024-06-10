@@ -113,7 +113,7 @@ export default function PesquisaDeSatisfacao() {
                         </div>
                         
                         <div className="col-12 col-lg-6">
-                            <Form handleChange={ handleChange } button="Enviar Formulario" fields={ pesquisaFormInputs } pending={ pending } />
+                            <Form handleChange={ handleChange } fields={ pesquisaFormInputs } pending={ pending } />
                         </div>
                     </div>
                 </div>

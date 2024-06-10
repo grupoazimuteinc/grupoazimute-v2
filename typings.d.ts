@@ -68,4 +68,10 @@ interface EventFormInput {
     type: string
     mask?: string
     required: boolean
+    options?: EventFormInputOptions[];
+}
+
+interface EventFormInputOptions { 
+    value?: string; 
+    label?: string; 
 }

@@ -82,7 +82,7 @@ export default function Home() {
                         <div className="col-12 col-lg-6">
                             <h2 className="text-2xl mb-6 text-[#343434] xl:text-4xl xl:mb-12 lg:hidden">Cadastre-se para saber como as soluções integradas do Grupo Azimute podem atuar de forma sinérgica no setor de saneamento</h2>
 
-                            <form action={ handleChange } method="POST" encType="multipart/form-data" className="event-form mb-6 small-screen:p-3 md:p-10 bg-[#F2F2F2] border border-[#DDDEE2] rounded-2xl flex flex-col md:gap-6 lg:p-10">
+                            {/* <form action={ handleChange } method="POST" encType="multipart/form-data" className="event-form mb-6 small-screen:p-3 md:p-10 bg-[#F2F2F2] border border-[#DDDEE2] rounded-2xl flex flex-col md:gap-6 lg:p-10">
                                 { eventFomInputs.map((input: EventFormInput) => {
                                     return(
                                         <div key={ input.name }>
@@ -106,7 +106,7 @@ export default function Home() {
                                 <div className="self-end">
                                     <FormButton />
                                 </div>
-                            </form>
+                            </form> */}
 
                             <div className="text-right hidden lg:block">
                                 <Image src="/images/selos-azimute.png" width={ 447 } height={ 133 } alt="" className="mt-10 max-w-full inline-block" />
