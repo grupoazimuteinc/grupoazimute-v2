@@ -50,6 +50,38 @@ export const pesquisaFormInputs = [
         required: true
     },
     {
+        name: 'empresaAzimute',
+        label: 'Qual empresa você quer avaliar?*',
+        type: 'select',
+        options: [
+            {
+                value: '',
+                label: 'Selecione'
+            },
+            {
+                value: 'Azimute Engenharia',
+                label: 'Azimute Engenharia'
+            },
+            {
+                value: 'Azimute Imóveis',
+                label: 'Azimute Imóveis'
+            },
+            {
+                value: 'Azimute Tech',
+                label: 'Azimute Tech'
+            },
+            {
+                value: 'Azimute San',
+                label: 'Azimute San'
+            },
+            {
+                value: 'Aria - Imagem e Tecnologia',
+                label: 'Aria - Imagem e Tecnologia'
+            },
+        ],
+        required: true
+    },
+    {
         name: 'atendimento',
         label: 'Como foi nosso atendimento? *',
         type: 'select',

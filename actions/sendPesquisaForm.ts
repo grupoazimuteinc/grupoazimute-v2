@@ -7,13 +7,14 @@ export async function sendPesquisaForm(form: FormData) {
     const email = form.get('email')
     const cargo = form.get('cargo')
     const comoChegou = form.get('comoChegou')
+    const empresaAzimute = form.get('empresaAzimute')
     const atendimento = form.get('atendimento')
     const qualidade = form.get('qualidade')
     const expectativa = form.get('expectativa')
     const indicacao = form.get('indicacao')
     const message = form.get('message')
 
-    if(!name || !email || !cargo || !comoChegou || !atendimento || !qualidade || !expectativa || !indicacao ) return
+    if(!name || !email || !empresaAzimute || !cargo || !comoChegou || !atendimento || !qualidade || !expectativa || !indicacao ) return
 
     const transporter = nodemailer.createTransport({
         // @ts-ignore
@@ -70,6 +71,11 @@ export async function sendPesquisaForm(form: FormData) {
                                 <tr>
                                     <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                         <strong>Como você chegou até nós:</strong> ${ comoChegou }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        <strong>Qual empresa você quer avaliar:</strong> ${ empresaAzimute }
                                     </td>
                                 </tr>
                                 <tr>
