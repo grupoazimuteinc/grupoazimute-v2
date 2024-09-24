@@ -1,27 +1,9 @@
 import Image from "next/image";
 import './global.css'
 
-import { groq } from 'next-sanity'
-
-import { client } from '@/lib/sanity.client'
-import { Posts } from '@/components/posts'
-
 import ariaInterna from '@/src/images/aria-interna.png'
 
-const query = groq`
-*[
-    count((categories[]->title)[@ in ["aria"]]) > 0 &&
-    _type == 'post'
-  ] {
-    ...,
-    categories[]->
-  } | order(publishedAt desc)
-`
-
-export const revalidate = 60
-
 export default async function Aria() {
-    const posts = await client.fetch(query)
 
     return (
         <>
@@ -318,17 +300,6 @@ export default async function Aria() {
                             <li>Planos de perfuração, explosão e topografia.</li>
                         </ul>
                     </div>
-                </div>
-            </div>
-            <div className="clear40 smartphone:hidden"></div>
-
-            <div className="col-12 col-md-8 offset-md-2 text-center">
-                <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Aria Imagem e Tecnologia.</p>
-            </div>
-
-            <div className="container pb-24">
-                <div className="row">
-                    <Posts posts={ posts } />
                 </div>
             </div>
         </>

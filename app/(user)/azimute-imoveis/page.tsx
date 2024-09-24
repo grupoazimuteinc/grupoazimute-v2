@@ -1,27 +1,9 @@
 import Image from "next/image";
 import './global.css'
 
-import { groq } from 'next-sanity'
-
-import { client } from '@/lib/sanity.client'
-import { Posts } from '@/components/posts'
-
 import azimuteImoveisInterna from '@/src/images/azimute-imoveis-interna.png'
 
-const query = groq`
-*[
-    count((categories[]->title)[@ in ["imoveis"]]) > 0 &&
-    _type == 'post'
-  ] {
-    ...,
-    categories[]->
-  } | order(publishedAt desc)
-`
-
-export const revalidate = 60
-
 export default async function AzimuteImoveis() {
-    const posts = await client.fetch(query)
     
     return (
         <>
@@ -381,17 +363,6 @@ export default async function AzimuteImoveis() {
                             - Lançamentos imobiliários.
                         </p>
                     </div>
-                </div>
-            </div>
-            <div className="clear40 smartphone:hidden"></div>
-
-            <div className="col-12 col-md-8 offset-md-2 text-center">
-                <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Azimute Imóveis.</p>
-            </div>
-
-            <div className="container pb-24">
-                <div className="row">
-                    <Posts posts={ posts } />
                 </div>
             </div>
         </>

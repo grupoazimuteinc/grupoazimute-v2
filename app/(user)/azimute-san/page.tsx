@@ -1,26 +1,9 @@
 import Image from "next/image";
 import './global.css'
-import { groq } from 'next-sanity'
-
-import { client } from '@/lib/sanity.client'
-import { Posts } from '@/components/posts'
-
-const query = groq`
-*[
-    count((categories[]->title)[@ in ["san"]]) > 0 &&
-    _type == 'post'
-  ] {
-    ...,
-    categories[]->
-  } | order(publishedAt desc)
-`
-
-export const revalidate = 60
 
 import azimuteSanInterna from '@/src/images/azimute-san-interna.png'
 
 export default async function AzimuteSan() {
-    const posts = await client.fetch(query)
 
     return (
         <>
@@ -354,17 +337,6 @@ export default async function AzimuteSan() {
                             <li>Sistemas de gestão ambiental</li>
                         </ul>
                     </div>
-                </div>
-            </div>
-            <div className="clear40 smartphone:hidden"></div>
-
-            <div className="col-12 col-md-8 offset-md-2 text-center">
-                <h2>Fique por dentro</h2><p>Saiba as últimas informações relacionadas à Azimute San.</p>
-            </div>
-
-            <div className="container pb-24">
-                <div className="row">
-                    <Posts posts={ posts } />
                 </div>
             </div>
         </>
