@@ -22,7 +22,7 @@ export function Footer() {
                         <div className="divider"></div>
 
                         <h6 className="text-[#797979]">Políticas</h6>
-                        <a href="https://grupoazimute.com.br/politicas-de-gestao-integrada" className="footer-sublink">Políticas de Gestão Integrada</a>
+                        <a href="/politica-de-gestao-integrada.pdf" target="_blank" className="footer-sublink">Políticas de Gestão Integrada</a>
                     </div>
 
                     <div className="col-12 col-md-3">
