@@ -30,7 +30,7 @@ export async function sendPesquisaForm(form: FormData) {
     try {
         await transporter.sendMail({
             from: process.env.EMAIL_USER, 
-            to: 'mfs.murillo@gmail.com, thiago@grupoazimute.com.br',
+            to: 'lab334mkt@gmail.com, comercial@grupoazimute.com.br',
             subject: 'Pesquisa de Satisfação',
             html: `
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; background-color: #ffffff;">
