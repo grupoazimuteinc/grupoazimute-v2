@@ -25,7 +25,7 @@ export async function sendContactForm(form: FormData) {
     try {
         await transporter.sendMail({
             from: process.env.EMAIL_USER, 
-            to: 'comercial@grupoazimute.com.br, mfs.murillo@gmail.com',
+            to: 'comercial@grupoazimute.com.br, lab334mkt@gmail.com',
             subject: 'Contato',
             html: `
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; background-color: #ffffff;">
