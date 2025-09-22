@@ -6,6 +6,11 @@ const nextConfig = {
     experimental: {
         serverActions: true,
     },
+    // Otimizar preload de recursos
+    onDemandEntries: {
+        maxInactiveAge: 25 * 1000,
+        pagesBufferLength: 2,
+    },
 }
 
 module.exports = nextConfig

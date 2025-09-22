@@ -8,9 +8,12 @@ import { Form } from '@grupoazimute/web.form'
 
 import { sendContactForm } from '@/actions/sendContactForm'
 import { contactFormInputs } from '@/utils/contact-form-inputs'
+import { getPageMetadata } from '@/lib/metadata'
 
 import 'react-toastify/dist/ReactToastify.css'
 import './globals.css'
+
+export const metadata = getPageMetadata('contato')
 
 export default function Contato() {
     const [pending, setPending] = useState(false)

@@ -8,9 +8,12 @@ import { Form } from '@grupoazimute/web.form'
 
 import { sendTrabalheConoscoForm } from '@/actions/sendTrabalheConosco'
 import { trabalheConoscoFormInputs } from '@/utils/trabalhe-conosco-form-input'
+import { getPageMetadata } from '@/lib/metadata'
 
 import 'react-toastify/dist/ReactToastify.css'
 import './globals.css'
+
+export const metadata = getPageMetadata('trabalheConosco')
 
 export default function PesquisaDeSatisfacao() {
     const [pending, setPending] = useState(false)
