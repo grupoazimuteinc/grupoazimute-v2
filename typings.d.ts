@@ -75,3 +75,10 @@ interface EventFormInputOptions {
     value?: string; 
     label?: string; 
 }
+
+// Bitrix24 type definitions
+declare global {
+    interface Window {
+        BX24?: any;
+    }
+}

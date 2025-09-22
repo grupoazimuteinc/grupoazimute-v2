@@ -3,7 +3,6 @@ import '../globals.css'
 
 import { Toaster } from 'react-hot-toast'
 import { Roboto } from 'next/font/google'
-import Script from 'next/script'
 
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
@@ -19,8 +18,6 @@ const roboto = Roboto({
 })
 
 import { siteConfig } from '@/lib/metadata'
-import BitrixWidget from '@/components/bitrix-form/BitrixWidget'
-import BitrixTest from '@/components/bitrix-form/BitrixTest'
 
 export const metadata = {
   title: {
@@ -70,8 +67,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <GoogleAnalytics GA_MEASUREMENT_ID="G-P76DHV77NQ" />
       <body className={ roboto.className }>
         <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
-
-        <BitrixWidget />
 
         <Header />
 

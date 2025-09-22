@@ -7,7 +7,7 @@ export default function BitrixButton() {
     // Função para carregar o script do Bitrix24
     const loadBitrix24 = () => {
       // Verifica se já foi carregado
-      if (window.BX24) {
+      if ((window as any).BX24) {
         return
       }
 
