@@ -1,7 +1,11 @@
 import Image from "next/image";
 import './global.css'
+import { getPageMetadata } from '@/lib/metadata'
+import { LatestPostsCompany } from '@/components/latest-posts-company'
 
 import ariaInterna from '@/src/images/aria-interna.png'
+
+export const metadata = getPageMetadata('aria')
 
 export default async function Aria() {
 
@@ -302,6 +306,13 @@ export default async function Aria() {
                     </div>
                 </div>
             </div>
+
+            {/* Últimas Publicações da Aria */}
+            <LatestPostsCompany 
+                companyCategory="aria"
+                companyName="Aria Imagem e Tecnologia"
+                companyColor="bg-orange-600"
+            />
         </>
     )
 }

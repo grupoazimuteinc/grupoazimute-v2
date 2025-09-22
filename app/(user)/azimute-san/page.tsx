@@ -1,7 +1,11 @@
 import Image from "next/image";
 import './global.css'
+import { getPageMetadata } from '@/lib/metadata'
+import { LatestPostsCompany } from '@/components/latest-posts-company'
 
 import azimuteSanInterna from '@/src/images/azimute-san-interna.png'
+
+export const metadata = getPageMetadata('azimuteSan')
 
 export default async function AzimuteSan() {
 
@@ -339,6 +343,13 @@ export default async function AzimuteSan() {
                     </div>
                 </div>
             </div>
+
+            {/* Últimas Publicações da Azimute San */}
+            <LatestPostsCompany 
+                companyCategory="san"
+                companyName="Azimute San"
+                companyColor="bg-sky-500"
+            />
         </>
     )
 }

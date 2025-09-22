@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 
 import logo from '@/src/images/logo.png'
 import selo from '@/src/images/selo.png'
@@ -26,6 +29,18 @@ const variant = {
 }
 
 export function Header() {
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY
+            setIsScrolled(scrollTop > 50)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     return (
         <>
             {/* <header className="header">
@@ -77,15 +92,28 @@ export function Header() {
                 </div>
             </header> */}
 
-            <header className="fixed top-0 left-0 p-[15px] bg-[#313131] z-[90] w-full smartphone:px-[20px] smartphone:py-[15px]">
-                <div className="w-full max-w-[1410px] mx-auto">
-                    <div className="smartphone:block small-tablet:block medium-screen:hidden monitor:hidden showcase:hidden desktop:hidden">
-                        <div className="mb-[15px] flex flex-row justify-between items-center w-full">
-                            <a href="tel:554734736777" className="header-sublink smartphone:ml-0 tablet:ml-0 smartphone:text-[12px]"><span className="smartphone:text-[10px] opacity-50">Fone:</span> +55 47 3473-6777</a>
-                            <a href="#" className="header-sublink smartphone:hidden tablet:hidden">•</a>
-                            <a href="https://api.whatsapp.com/send?phone=5547999110824" className="header-sublink smartphone:ml-0 tablet:ml-0 smartphone:text-[12px]"><span className="smartphone:text-[10px] opacity-50">Whatsapp:</span> +55 47 99911-0824</a>
+            {/* Barra superior com informações de contato */}
+            <div className={`fixed top-0 left-0 bg-[#2a2a2a] w-full z-[100] smartphone:hidden transition-shadow duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
+                <div className="w-full max-w-[1410px] mx-auto py-[8px]">
+                    <div className="flex flex-row justify-between items-center w-full">
+                        <div className="text-white text-[14px] font-medium">
+                            Soluções integradas de engenharia em um único grupo de empresas
+                        </div>
+                        <div className="flex flex-row items-center gap-[15px]">
+                            <a href="tel:554734736777" className="text-white text-[14px] hover:text-[#ccc] transition-colors">
+                                <span className="opacity-70">Fone:</span> +55 47 3473-6777
+                            </a>
+                            <span className="text-white opacity-50">•</span>
+                            <a href="https://api.whatsapp.com/send?phone=5547999110824" className="text-white text-[14px] hover:text-[#ccc] transition-colors">
+                                <span className="opacity-70">Whatsapp:</span> +55 47 99911-0824
+                            </a>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <header className={`fixed top-[40px] left-0 p-[15px] bg-[#313131] z-[99] w-full smartphone:px-[20px] smartphone:py-[15px] smartphone:top-0 transition-shadow duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
+                <div className="w-full max-w-[1410px] mx-auto">
 
                     <div className="flex flex-row justify-between items-center w-full gap-[50px] medium-screen:gap-[15px]">
                         <Link href="/"><Image src={ logo } width={ 280 } height={ 39 } alt="Grupo Azimute" className="logo" /></Link>
@@ -94,12 +122,6 @@ export function Header() {
 
                         <div className="flex flex-row justify-between items-center w-full gap-[15px] smartphone:hidden small-tablet:hidden">
                             <div className="flex flex-col justify-center items-end w-full">
-                                <div className="extra-links">
-                                    <a href="tel:554734736777" className="header-sublink"><span>Fone:</span> +55 47 3473-6777</a>
-                                    <a href="#" className="header-sublink">•</a>
-                                    <a href="https://api.whatsapp.com/send?phone=5547999110824" className="header-sublink"><span>Whatsapp:</span> +55 47 99911-0824</a>
-                                </div>
-
                                 <div className="links">
                                     <span>
                                         <span className="header-sublink medium-screen:text-[14px] ml-[10px] anchor" data-anchor="o-grupo">O Grupo</span>
@@ -119,9 +141,9 @@ export function Header() {
                                 </div>
                             </div>
 
-                            <div className="w-[90px] h-[90px] smartphone:hidden tablet:hidden">
+                            {/* <div className="w-[90px] h-[90px] smartphone:hidden tablet:hidden">
                                 <Image src={ selo } width={ 90 } height={ 90 } alt="" />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

@@ -6,10 +6,13 @@ import { ToastContainer, toast } from 'react-toastify'
 
 import { handleSendForm } from '@/actions/handleSendForm'
 import { eventFomInputs } from '@/utils/event-form-inputs'
+import { getPageMetadata } from '@/lib/metadata'
 
 import { FormButton } from '@/components/form-button'
 
 import 'react-toastify/dist/ReactToastify.css'
+
+export const metadata = getPageMetadata('ifatBrasil2024')
 
 export default function Home() {
     async function handleChange(form: FormData) {

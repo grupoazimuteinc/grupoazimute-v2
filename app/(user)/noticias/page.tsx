@@ -4,8 +4,10 @@ import { groq } from 'next-sanity';
 import { useState, useEffect } from 'react';
 import { client } from '@/lib/sanity.client';
 import { Posts } from '@/components/posts';
+import { getPageMetadata } from '@/lib/metadata';
 
 export const revalidate = 60;
+export const metadata = getPageMetadata('noticias');
 
 function getPerPage() {
     const screenWidth = window.innerWidth;
@@ -27,6 +29,11 @@ export default function Noticias() {
 
     useEffect(() => {
         const fetchPosts = async () => {
+            if (!client) {
+                console.error('Sanity client not available');
+                return;
+            }
+            
             const query = groq`
               *[_type=='post'] {
                 ...,
@@ -43,6 +50,11 @@ export default function Noticias() {
         };
 
         const fetchTotalPages = async () => {
+            if (!client) {
+                console.error('Sanity client not available');
+                return;
+            }
+            
             const countQuery = groq`count(*[_type == 'post'])`;
             const totalCount = await client.fetch(countQuery);
             const totalPagesCount = Math.ceil(totalCount / perPage);

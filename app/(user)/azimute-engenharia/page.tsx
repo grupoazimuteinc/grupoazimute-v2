@@ -1,7 +1,11 @@
 import Image from 'next/image'
 import './global.css'
+import { getPageMetadata } from '@/lib/metadata'
+import { LatestPostsCompany } from '@/components/latest-posts-company'
 
 import azimuteEngenhariaInterna from '@/src/images/azimute-engenharia-interna.png'
+
+export const metadata = getPageMetadata('azimuteEngenharia')
 
 export default async function AzimuteEngenharia() {
     
@@ -388,6 +392,13 @@ export default async function AzimuteEngenharia() {
 
                 </div>
             </div>
+
+            {/* Últimas Publicações da Azimute Engenharia */}
+            <LatestPostsCompany 
+                companyCategory="engenharia"
+                companyName="Azimute Engenharia"
+                companyColor="bg-green-600"
+            />
         </>
     )
 }

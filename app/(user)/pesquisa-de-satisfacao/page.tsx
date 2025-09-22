@@ -8,9 +8,12 @@ import { Form } from '@grupoazimute/web.form'
 
 import { sendPesquisaForm } from '@/actions/sendPesquisaForm'
 import { pesquisaFormInputs } from '@/utils/pesquisa-form-inputs'
+import { getPageMetadata } from '@/lib/metadata'
 
 import 'react-toastify/dist/ReactToastify.css'
 import './globals.css'
+
+export const metadata = getPageMetadata('pesquisaSatisfacao')
 
 export default function PesquisaDeSatisfacao() {
     const [pending, setPending] = useState(false)
