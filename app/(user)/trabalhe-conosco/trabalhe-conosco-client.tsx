@@ -86,7 +86,7 @@ export default function TrabalheConoscoClient() {
                             <span>+55 47 3473-6777</span>
                         </a>
 
-                        <a href="mailto:comercial@grupoazimute.com.br">
+                        <a href="mailto:recrutamento@azimute.eng.br">
                             <svg width="28px" height="22px" viewBox="0 0 28 22" version="1.1">
                                 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                     <g id="Home-Copy" transform="translate(-1279.000000, -546.000000)">
@@ -99,7 +99,7 @@ export default function TrabalheConoscoClient() {
                                 </g>
                             </svg>
 
-                            <span>comercial@grupoazimute.com.br</span>
+                            <span>recrutamento@azimute.eng.br</span>
                         </a>
                     </div>
                 </div>
