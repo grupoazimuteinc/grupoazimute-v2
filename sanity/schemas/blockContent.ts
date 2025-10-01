@@ -17,11 +17,16 @@ export default defineType({
         { title: 'H4', value: 'h4' },
         { title: 'Quote', value: 'blockquote' },
       ],
-      lists: [{ title: 'Bullet', value: 'bullet' }],
+      lists: [
+        { title: 'Bullet', value: 'bullet' },
+        { title: 'Numbered', value: 'number' }
+      ],
       marks: {
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
+          { title: 'Underline', value: 'underline' },
+          { title: 'Strike', value: 'strike-through' },
         ],
         annotations: [
           {
@@ -33,7 +38,17 @@ export default defineType({
                 title: 'URL',
                 name: 'href',
                 type: 'url',
+                validation: (Rule) => Rule.uri({
+                  allowRelative: true,
+                  scheme: ['http', 'https', 'mailto', 'tel']
+                })
               },
+              {
+                title: 'Open in new tab',
+                name: 'blank',
+                type: 'boolean',
+                initialValue: false
+              }
             ],
           },
         ],
@@ -47,6 +62,11 @@ export default defineType({
           name: 'alt',
           type: 'string',
           title: 'Alternative Text',
+        },
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
         },
       ],
     }),
