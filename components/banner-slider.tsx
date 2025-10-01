@@ -83,7 +83,7 @@ const slidesData: SlideData[] = [
 export default function BannerSlider() {
   return (
     <div 
-      className="relative mt-[104px] smartphone:mt-[79px] mb-[50px]"
+      className="relative mt-[104px] smartphone:mt-[54px] tablet:mt-[80px] mb-[50px] overflow-hidden"
       style={{
         width: '100vw',
         left: '50%',
@@ -97,6 +97,10 @@ export default function BannerSlider() {
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
+        allowTouchMove={true}
+        watchSlidesProgress={true}
+        centeredSlides={false}
+        loop={false}
         navigation={{
           nextEl: '.swiper-button-next-banner',
           prevEl: '.swiper-button-prev-banner',
@@ -109,24 +113,24 @@ export default function BannerSlider() {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        loop={true}
-        className="banner-swiper"
+        className="banner-swiper !pl-0 !overflow-hidden"
         style={{
           width: '100vw',
           maxWidth: '100vw',
-          height: '650px'
+          height: '650px',
+          overflow: 'hidden',
+          paddingLeft: '0 !important'
         }}
       >
         {slidesData.map((slide) => (
-          <SwiperSlide key={slide.id} style={{ width: '100vw' }}>
+          <SwiperSlide key={slide.id} className="!w-full">
             <div 
-              className="relative min-h-[650px] smartphone:min-h-[500px] flex items-center"
+              className="relative min-h-[650px] smartphone:min-h-[500px] flex items-center w-full"
               style={{
                 backgroundImage: `url(${slide.backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                width: '100vw'
+                backgroundRepeat: 'no-repeat'
               }}
             >
               {/* Overlay para melhorar legibilidade */}
@@ -182,6 +186,16 @@ export default function BannerSlider() {
 
       {/* Paginação customizada */}
       <div className="swiper-pagination-banner absolute bottom-8 left-1/2 transform -translate-x-1/2 z-[110] flex space-x-3"></div>
+      
+      {/* CSS customizado para sobrescrever regras globais */}
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .banner-swiper {
+            padding-left: 0 !important;
+            overflow: hidden !important;
+          }
+        }
+      `}</style>
     </div>
   )
 }

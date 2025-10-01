@@ -103,7 +103,7 @@ export default async function Aria() {
                 </div>
             </div>
 
-            <div className="container py-[60px] smartphone:py-[30px]">
+            <div className="container py-[60px] smartphone:py-[30px] smartphone:px-4">
                 <div className="row">
                     <div className="col-12 text-center">
                         <h2 className="mb-[5px] smartphone:mb-[30px]">Inteligência visual para os <br />melhores insights de negócios.</h2>
@@ -269,7 +269,7 @@ export default async function Aria() {
                 </div>
             </div>
 
-            <div className="container py-[60px] smartphone:py-[30px]">
+            <div className="container py-[60px] smartphone:py-[30px] smartphone:px-4">
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <h2>Gestão de aterro sanitário com imagens de alta resolução e informações atualizadas</h2>

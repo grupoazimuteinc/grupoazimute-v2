@@ -106,7 +106,7 @@ export default function ContatoClient() {
             </div>
 
             <div className="py-10 lg:py-20 bg-white">
-                <div className="container">
+                <div className="container smartphone:px-4">
                     <div className="row flex-col-reverse lg:flex-row">
                         <div className="col-12 col-lg-6">
                             <h2 className="hidden lg:block font-semibold text-2xl mb-6 text-[#343434] xl:text-4xl xl:mb-12">Precisa falar conosco? Deixe sua mensagem que retornaremos o mais breve possível.</h2>

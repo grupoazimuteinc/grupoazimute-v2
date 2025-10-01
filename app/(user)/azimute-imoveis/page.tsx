@@ -105,7 +105,7 @@ export default async function AzimuteImoveis() {
                 </div>
             </div>
 
-            <div className="container py-[60px] smartphone:py-[30px]">
+            <div className="container py-[60px] smartphone:py-[30px] smartphone:px-4">
                 <div className="row">
                     <div className="col-12 text-center">
                         <h2 className="mb-[5px] smartphone:mb-[30px]">Nosso objetivo é transmitir aos clientes todo o suporte<br/> necessário em suas intermediações imobiliárias.</h2>
@@ -344,7 +344,7 @@ export default async function AzimuteImoveis() {
                 </div>
             </div>
 
-            <div className="container py-[60px] smartphone:py-[30px]">
+            <div className="container py-[60px] smartphone:py-[30px] smartphone:px-4">
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <h2>Serviço especializado <br/>e completo</h2>

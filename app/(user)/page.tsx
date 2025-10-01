@@ -14,7 +14,7 @@ export default function Home() {
       <BannerSlider />
 
       {/* Seção Sobre o Grupo Azimute */}
-      <section id="sobre" className="pb-10 bg-white">
+      <section id="sobre" className="pb-10 bg-white smartphone:px-4">
         <div className="container">
           <div className="row">
             <div className="w-full">
@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* Seção Atuação Nacional */}
-      <section id="atuacao" className="relative py-28 overflow-hidden">
+      <section id="atuacao" className="relative py-28 smartphone:py-16 smartphone:px-4 overflow-hidden">
         {/* Vídeo de Background */}
         <div className="absolute inset-0 z-0">
           <video
@@ -167,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* Call to Action Full-Width */}
-      <section className="bg-gray-900 py-16 mb-[50px]">
+      <section className="bg-gray-900 py-16 smartphone:py-12 smartphone:px-4 mb-[50px]">
         <div className="container">
           <div className="row">
             <div className="w-full">
@@ -267,7 +267,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div id="empresas" className="content o-grupo pb-20 smartphone:pt-5 smartphone:overflow-hidden small-tablet:overflow-hidden overflow-hidden">
+      <div id="empresas" className="content o-grupo pb-20 smartphone:pt-5 smartphone:px-4 smartphone:overflow-hidden small-tablet:overflow-hidden overflow-hidden">
         <div className="container">
           <div className="row">
             <div className="w-full">

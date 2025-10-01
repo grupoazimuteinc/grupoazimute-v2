@@ -107,7 +107,7 @@ export default async function AzimuteTech() {
                 </div>
             </div>
 
-            <div className="container py-[60px] smartphone:py-[30px]">
+            <div className="container py-[60px] smartphone:py-[30px] smartphone:px-4">
                 <div className="row">
                     <div className="col-12 text-center">
                         <h2 className="mb-[5px] smartphone:mb-[30px]">Inspeções robotizadas e mapeamento <br/>de redes subterrâneas</h2>
@@ -204,7 +204,7 @@ export default async function AzimuteTech() {
                 </div>
             </div>
 
-            <div className="container py-[60px] smartphone:py-[30px]">
+            <div className="container py-[60px] smartphone:py-[30px] smartphone:px-4">
                 <div className="row">
 
                     <div className="col-12">
