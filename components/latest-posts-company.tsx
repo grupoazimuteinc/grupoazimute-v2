@@ -103,7 +103,7 @@ export function LatestPostsCompany({ companyCategory, companyName, companyColor 
             <ClientRoute key={post._id} route={`/blog/${post.slug.current}`}>
               <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
                 {/* Imagem do post */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-96 overflow-hidden">
                   {post.mainImage && (
                     <Image
                       src={urlFor(post.mainImage).url()}

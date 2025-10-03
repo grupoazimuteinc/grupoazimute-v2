@@ -31,10 +31,10 @@ export const RichTextComponents = {
     },
     list: {
         bullet: ({ children }: any) => {
-            return <ul className="list-disc list-inside mb-4">{ children }</ul>
+            return <ul className="list-disc list-inside mb-4 text-lg smartphone:text-base">{ children }</ul>
         },
         number: ({ children }: any) => {
-            return <ol className="list-decimal list-inside mb-4">{ children }</ol>
+            return <ol className="list-decimal list-inside mb-4 text-lg smartphone:text-base">{ children }</ol>
         }
     },
     block: {
@@ -51,10 +51,10 @@ export const RichTextComponents = {
             return <h4 className="text-xl font-semibold mb-2 mt-3">{ children }</h4>
         },
         blockquote: ({ children }: any) => {
-            return <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4">{ children }</blockquote>
+            return <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-lg smartphone:text-base">{ children }</blockquote>
         },
         normal: ({ children }: any) => {
-            return <p className="mb-4">{ children }</p>
+            return <p className="mb-4 text-lg smartphone:text-base">{ children }</p>
         }
     },
     marks: {

@@ -10,6 +10,8 @@ import { Metadata } from 'next';
 import { client } from '@/lib/sanity.client'
 import { urlFor } from '@/lib/urlFor'
 import { RichTextComponents } from '@/components/rich-text-components'
+import { ShareButtons } from '@/components/share-buttons'
+import { RelatedPosts } from '@/components/related-posts'
 import { useEffect } from 'react';
 import Fancybox from '@/components/images-gallery';
 
@@ -24,6 +26,7 @@ type Props = {
 
 
 type Post = {
+    _id: string;
     title: string;
     _createdAt: string;
     mainImage: { url: string }; 
@@ -34,6 +37,8 @@ type Post = {
     };
     urlVideo: string;
     alt: string;
+    categories?: Array<{ _id: string; title: string }>;
+    description?: string;
 };
 
 
@@ -101,7 +106,10 @@ export default async function Post({ params: { slug } }: Props) {
     const query = groq`
         *[_type=='post' && slug.current == $slug][0] {
             ...,
-            categories[]->
+            categories[]->{
+                _id,
+                title
+            }
         }
     `
 
@@ -165,6 +173,22 @@ export default async function Post({ params: { slug } }: Props) {
                     ))}
                 </div>
             </Fancybox>
+
+            {/* Botões de compartilhamento */}
+            <ShareButtons 
+                title={post.title}
+                url={`${process.env.NEXT_PUBLIC_BASE_URL || 'https://grupoazimute.com.br'}/blog/${slug}`}
+                description={post.description}
+            />
+
+            {/* Posts relacionados */}
+            {post.categories && post.categories.length > 0 && (
+                <RelatedPosts 
+                    currentPostId={post._id}
+                    categories={post.categories}
+                    limit={3}
+                />
+            )}
 
             <div className="mb-20">
                 <Link href="/" className="bg-[#ccc] text-lg mt-10 text-gray inline-block py-3 px-14 rounded-lg hover:text-white">Voltar</Link>
