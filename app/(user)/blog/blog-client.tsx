@@ -44,7 +44,11 @@ export default function BlogClient() {
             const query = groq`
               ${filterQuery} {
                 ...,
-                categories[]->
+                categories[]->{
+                  _id,
+                  title,
+                  slug
+                }
               } | order(publishedAt desc)[${
                 (currentPage - 1) * perPage
               }..${

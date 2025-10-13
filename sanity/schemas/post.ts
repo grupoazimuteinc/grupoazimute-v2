@@ -46,6 +46,14 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'viewCount',
+      title: 'Contador de Visualizações',
+      type: 'number',
+      initialValue: 0,
+      readOnly: true,
+      description: 'Número de visualizações do post (atualizado automaticamente)',
+    }),
+    defineField({
       name: 'body',
       title: 'Texto',
       type: 'blockContent',

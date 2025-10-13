@@ -6,10 +6,20 @@ const nextConfig = {
     experimental: {
         serverActions: true,
     },
-    // Otimizar preload de recursos
-    onDemandEntries: {
-        maxInactiveAge: 25 * 1000,
-        pagesBufferLength: 2,
+    // Configuração para evitar conflitos de porta
+    webpack: (config, { dev }) => {
+        if (dev) {
+            config.watchOptions = {
+                poll: 1000,
+                aggregateTimeout: 300,
+            }
+        }
+        return config
+    },
+    // Configuração de porta para desenvolvimento
+    devIndicators: {
+        buildActivity: true,
+        buildActivityPosition: 'bottom-right',
     },
 }
 

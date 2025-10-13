@@ -15,6 +15,7 @@ interface Post extends Base {
     title: string
     description: string
     publishedAt: string
+    viewCount?: number
 }
 
 interface Image {
@@ -50,6 +51,7 @@ interface Span {
 interface Category extends Base {
     description: string
     title: string
+    slug: Slug
 }
 
 interface MainImage {

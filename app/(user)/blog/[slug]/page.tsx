@@ -12,6 +12,7 @@ import { urlFor } from '@/lib/urlFor'
 import { RichTextComponents } from '@/components/rich-text-components'
 import { ShareButtons } from '@/components/share-buttons'
 import { RelatedPosts } from '@/components/related-posts'
+import { ViewTracker } from '@/components/view-tracker'
 import { useEffect } from 'react';
 import Fancybox from '@/components/images-gallery';
 
@@ -39,6 +40,7 @@ type Post = {
     alt: string;
     categories?: Array<{ _id: string; title: string }>;
     description?: string;
+    viewCount?: number;
 };
 
 
@@ -108,8 +110,10 @@ export default async function Post({ params: { slug } }: Props) {
             ...,
             categories[]->{
                 _id,
-                title
-            }
+                title,
+                slug
+            },
+            viewCount
         }
     `
 
@@ -139,8 +143,11 @@ export default async function Post({ params: { slug } }: Props) {
 
     return (
         <div className="max-w-[800px] w-full mx-auto pt-40 smartphone:px-[15px] smartphone:max-w-full smartphone:pt-32">
+            {/* Rastreador de visualizações (invisível) */}
+            <ViewTracker postId={post._id} />
+            
             <h1 className="text-5xl font-bold text-black mb-4 smartphone:text-xl">{ post?.title }</h1>
-            <p className="font-bold smartphone:text-base">{ new Date(post?._createdAt).toLocaleDateString('pt-BR', {
+            <p className="font-bold smartphone:text-base mb-6">{ new Date(post?._createdAt).toLocaleDateString('pt-BR', {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric'

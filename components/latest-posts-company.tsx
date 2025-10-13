@@ -35,9 +35,11 @@ export function LatestPostsCompany({ companyCategory, companyName, companyColor 
             slug,
             mainImage,
             publishedAt,
+            viewCount,
             categories[]->{
               _id,
-              title
+              title,
+              slug
             }
           } | order(publishedAt desc)[0...8]
         `

@@ -36,7 +36,11 @@ export default function NoticiasClient() {
             const query = groq`
               *[_type=='post'] {
                 ...,
-                categories[]->
+                categories[]->{
+                  _id,
+                  title,
+                  slug
+                }
               } | order(publishedAt desc)[${
                 (currentPage - 1) * perPage
               }..${

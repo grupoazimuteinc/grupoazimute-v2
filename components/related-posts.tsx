@@ -37,9 +37,11 @@ export function RelatedPosts({ currentPostId, categories, limit = 3 }: RelatedPo
             slug,
             mainImage,
             publishedAt,
+            viewCount,
             categories[]->{
               _id,
-              title
+              title,
+              slug
             }
           } | order(publishedAt desc)[0...$limit]
         `

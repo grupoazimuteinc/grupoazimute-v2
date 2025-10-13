@@ -33,9 +33,11 @@ export function LatestPosts() {
             slug,
             mainImage,
             publishedAt,
+            viewCount,
             categories[]->{
               _id,
-              title
+              title,
+              slug
             }
           } | order(publishedAt desc)[0...8]
         `
