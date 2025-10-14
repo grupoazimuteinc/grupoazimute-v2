@@ -656,8 +656,8 @@ h6 {
 .box-empresa:hover .ga-cta line, .box-empresa:hover .ga-cta polyline { stroke: #fff; }
 
 .b24-widget-button-position-bottom-right {
-    right: 105px !important;
-    bottom: 30px !important;
+    right: 15px !important;
+    bottom: 15px !important;
 }
 
 .icon-whats {

@@ -7,8 +7,8 @@ import { Roboto } from 'next/font/google'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { GoogleAnalytics } from '@/components/ga'
-import WhatsappButton from '@/components/whats-button'
 import IsoBadges from '@/components/iso-badges'
+import BitrixWidget from '@/components/bitrix-form/BitrixWidget'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -66,13 +66,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR">
       <GoogleAnalytics GA_MEASUREMENT_ID="G-P76DHV77NQ" />
       <body className={ roboto.className }>
+        <BitrixWidget />
+        
         <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
 
         <Header />
 
         { children }
 
-        <WhatsappButton />
         
         <IsoBadges />
 

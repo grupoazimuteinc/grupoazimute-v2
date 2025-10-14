@@ -1,65 +1,67 @@
 'use client'
 
-import { useState } from 'react'
-import { toast } from 'react-toastify'
-import { ToastContainer } from 'react-toastify'
+import BitrixForm from '@/components/bitrix-form/BitrixForm'
 
-import { Form } from '@grupoazimute/web.form'
+// import { useState } from 'react'
+// import { toast } from 'react-toastify'
+// import { ToastContainer } from 'react-toastify'
 
-import { sendOrcamentoForm } from '@/actions/sendOrcamentoForm'
-import { orcamentoFormInputs } from '@/utils/orcamento-form-inputs'
+// import { Form } from '@grupoazimute/web.form'
 
-import 'react-toastify/dist/ReactToastify.css'
-import './globals.css'
+// import { sendOrcamentoForm } from '@/actions/sendOrcamentoForm'
+// import { orcamentoFormInputs } from '@/utils/orcamento-form-inputs'
+
+// import 'react-toastify/dist/ReactToastify.css'
+// import './globals.css'
 
 export default function SoliciteOrcamentoClient() {
-    const [pending, setPending] = useState(false)
+    // const [pending, setPending] = useState(false)
 
-    function handleChange(form: FormData) {
-        setPending(true)
+    // function handleChange(form: FormData) {
+    //     setPending(true)
 
-        setTimeout(async () => {
-            const response: any = await sendOrcamentoForm(form)
+    //     setTimeout(async () => {
+    //         const response: any = await sendOrcamentoForm(form)
 
-            if(response.status == 200) {
-                toast.success(response.message, {
-                    position: 'bottom-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'dark'
-                })
+    //         if(response.status == 200) {
+    //             toast.success(response.message, {
+    //                 position: 'bottom-right',
+    //                 autoClose: 5000,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: 'dark'
+    //             })
     
-                const formInputs: any = document.querySelector('.event-form')
+    //             const formInputs: any = document.querySelector('.event-form')
             
-                for (let i = 0; i < formInputs.elements.length; i++) {
-                    formInputs.elements[i].value = ''
-                }
+    //             for (let i = 0; i < formInputs.elements.length; i++) {
+    //                 formInputs.elements[i].value = ''
+    //             }
     
-                setPending(false)
-            } else {
-                toast.error(response.message, {
-                    position: 'bottom-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'dark'
-                })
+    //             setPending(false)
+    //         } else {
+    //             toast.error(response.message, {
+    //                 position: 'bottom-right',
+    //                 autoClose: 5000,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: 'dark'
+    //             })
     
-                const formInputs: any = document.querySelector('.event-form')
+    //             const formInputs: any = document.querySelector('.event-form')
             
-                for (let i = 0; i < formInputs.elements.length; i++) {
-                    formInputs.elements[i].value = ''
-                }
+    //             for (let i = 0; i < formInputs.elements.length; i++) {
+    //                 formInputs.elements[i].value = ''
+    //             }
     
-                setPending(false)
-            }
-        }, 3000)
-    }
+    //             setPending(false)
+    //         }
+    //     }, 3000)
+    // }
 
     return (
         <>
@@ -114,13 +116,13 @@ export default function SoliciteOrcamentoClient() {
                         </div>
                         
                         <div className="col-12 col-lg-6">
-                            <Form handleChange={ handleChange } fields={ orcamentoFormInputs } pending={ pending } />
+                            {/* <Form handleChange={ handleChange } fields={ orcamentoFormInputs } pending={ pending } /> */}
+                            <BitrixForm />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <ToastContainer />
         </>
     )
 }

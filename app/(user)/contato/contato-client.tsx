@@ -1,65 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { toast } from 'react-toastify'
-import { ToastContainer } from 'react-toastify'
-
-import { Form } from '@grupoazimute/web.form'
-
-import { sendContactForm } from '@/actions/sendContactForm'
-import { contactFormInputs } from '@/utils/contact-form-inputs'
-
-import 'react-toastify/dist/ReactToastify.css'
-import './globals.css'
+import BitrixForm from '@/components/bitrix-form/BitrixForm'
 
 export default function ContatoClient() {
-    const [pending, setPending] = useState(false)
-
-    function handleChange(form: FormData) {
-        setPending(true)
-
-        setTimeout(async () => {
-            const response: any = await sendContactForm(form)
-
-            if(response.status == 200) {
-                toast.success(response.message, {
-                    position: 'bottom-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'dark'
-                })
-    
-                const formInputs: any = document.querySelector('.event-form')
-            
-                for (let i = 0; i < formInputs.elements.length; i++) {
-                    formInputs.elements[i].value = ''
-                }
-    
-                setPending(false)
-            } else {
-                toast.error(response.message, {
-                    position: 'bottom-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'dark'
-                })
-    
-                const formInputs: any = document.querySelector('.event-form')
-            
-                for (let i = 0; i < formInputs.elements.length; i++) {
-                    formInputs.elements[i].value = ''
-                }
-    
-                setPending(false)
-            }
-        }, 3000)
-    }
 
     return (
         <div id="contato">
@@ -113,13 +56,12 @@ export default function ContatoClient() {
                         </div>
                         
                         <div className="col-12 col-lg-6">
-                            <Form handleChange={ handleChange } fields={ contactFormInputs } pending={ pending } />
+                            <BitrixForm />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <ToastContainer />
         </div>
     )
 }
