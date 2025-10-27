@@ -4,8 +4,6 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { ToastContainer } from 'react-toastify'
 
-import { Form } from '@grupoazimute/web.form'
-
 import { pesquisaFormInputs } from '@/utils/pesquisa-form-inputs'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -153,7 +151,80 @@ export default function PesquisaDeSatisfacaoClient() {
                         </div>
                         
                         <div className="col-12 col-lg-6">
-                            <Form handleChange={ handleChange } fields={ pesquisaFormInputs } pending={ pending } />
+                            <form 
+                                className="event-form"
+                                onSubmit={(e) => {
+                                    e.preventDefault()
+                                    const formData = new FormData(e.currentTarget)
+                                    handleChange(formData)
+                                }}
+                            >
+                                {pesquisaFormInputs.map((field, index) => {
+                                    if (field.type === 'button') {
+                                        return (
+                                            <button
+                                                key={index}
+                                                type="submit"
+                                                disabled={pending}
+                                                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                                            >
+                                                {pending ? 'Enviando...' : field.label}
+                                            </button>
+                                        )
+                                    }
+                                    
+                                    if (field.type === 'select') {
+                                        return (
+                                            <div key={index} className="mb-4">
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    {field.label}
+                                                </label>
+                                                <select
+                                                    name={field.name}
+                                                    required={field.required}
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                                >
+                                                    {field.options?.map((option, optIndex) => (
+                                                        <option key={optIndex} value={option.value}>
+                                                            {option.label}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </div>
+                                        )
+                                    }
+                                    
+                                    if (field.type === 'textarea') {
+                                        return (
+                                            <div key={index} className="mb-4">
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    {field.label}
+                                                </label>
+                                                <textarea
+                                                    name={field.name}
+                                                    required={field.required}
+                                                    rows={4}
+                                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                    
+                                    return (
+                                        <div key={index} className="mb-4">
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                {field.label}
+                                            </label>
+                                            <input
+                                                type={field.type}
+                                                name={field.name}
+                                                required={field.required}
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            />
+                                        </div>
+                                    )
+                                })}
+                            </form>
                         </div>
                     </div>
                 </div>
