@@ -1089,3 +1089,975 @@ header .header-sublink span,
 .extra-links span {
 	margin-bottom: 0 !important;
 }
+
+/* Page-specific styles - moved from individual CSS files to avoid preload issues */
+
+/* Aria page styles */
+.aria-page body { background: none; }
+.aria-page .content-interna {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url(../src/images/bg-aria.jpg) center center no-repeat;
+	background-size: cover;
+	margin-top: 0;
+}
+
+.aria-page .logo-holder {
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 230px;
+	text-align: center;
+}
+
+.aria-page .infos-holder {
+	padding: 10px 10px;
+	background: rgba(0,0,0,.4);
+	border-radius: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
+.aria-page .infos-holder a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	margin: 0 15px;
+}
+
+.aria-page a { transition: all .3s ease-in-out; }
+.aria-page .infos-holder svg { margin-right: 10px; }
+
+.aria-page .box-icon { 
+	margin-bottom: 60px; 
+	text-align: center;
+	padding: 0 3px;
+}
+
+.aria-page .icon-holder {
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.aria-page .box-icon span {
+	display: block;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.aria-page .img-aria {
+	padding: 80px 0;
+	background: url(../src/images/img-aria.jpg) right top no-repeat;
+	background-size: cover;
+}
+
+.aria-page .img-aria h2 { color: #fff; margin-top: 0; }
+.aria-page .img-aria ul, .aria-page .img-aria p { color: #fff; }
+.aria-page .list-default { margin-bottom: 60px; padding: 0; padding-left: 17px; list-style-type: disc; }
+.aria-page .list-default li { margin-bottom: 10px; }
+.aria-page .list-default { list-style: disc !important; }
+
+.aria-page .social-media {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	padding: 40px 0;
+}
+
+.aria-page .social-media strong {
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	font-weight: 600;
+}
+
+.aria-page .email {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0 30px;
+	position: relative;
+}
+
+.aria-page .email i {
+	margin: 2px 10px 0 0;
+}
+
+.aria-page .email a {
+	margin-bottom: 0;
+	color: #fff;
+}
+
+.aria-page .social-media span {
+	margin-left: 30px;
+}
+
+.aria-page .social-media span:after {
+	position: absolute;
+	content: '';
+	width: 1px;
+	height: 35px;
+	top: -7px;
+	right: 0;
+	background: #fff;
+}
+
+.aria-page .social-media a:hover {
+	text-decoration: none;
+}
+
+.aria-page .redes-sociais a {
+	margin: 0 10px;
+}
+
+.aria-page .redes-sociais a:first-child { margin-left: 0;}
+
+.aria-page .social-media i {
+	color: #e65c15;
+	font-size: 20px;
+}
+
+.aria-page .redes-sociais {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@media(max-width: 992px) {
+	.aria-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+	.aria-page .content-interna {
+		height: 70vh;
+		margin-top: 137px;
+	}
+}
+
+@media (max-width: 968px) {
+	.aria-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (max-width: 768px) {
+	.aria-page .social-media { flex-direction: column;}
+	.aria-page .social-media span:after { display: none;}
+	.aria-page .email { margin-bottom: 20px;}
+	.aria-page .content-interna {
+		height: 60vh;
+		margin-top: 70px;
+	}
+	.aria-page .content-interna img {
+		width: 70%;
+	}
+	.aria-page br {
+		display: none;
+	}
+	.aria-page .box-icon {
+		margin-bottom: 20px;
+	}
+	.aria-page .box-icon span {
+		font-size: 13px;
+		line-height: 17px;
+	}
+}
+
+/* Azimute Engenharia page styles */
+.azimute-engenharia-page body { background: none; }
+.azimute-engenharia-page .content-interna {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url(../src/images/bg-azimute-engenharia.jpg) center center no-repeat;
+	background-size: cover;
+	margin-top: 0;
+}
+
+.azimute-engenharia-page .logo-holder {
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 230px;
+	text-align: center;
+}
+
+.azimute-engenharia-page .infos-holder {
+	padding: 10px 10px;
+	background: rgba(0,0,0,.4);
+	border-radius: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
+.azimute-engenharia-page .infos-holder a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	margin: 0 15px;
+}
+
+.azimute-engenharia-page a { transition: all .3s ease-in-out; }
+.azimute-engenharia-page .infos-holder svg { margin-right: 10px; }
+
+.azimute-engenharia-page .box-icon { 
+	margin-bottom: 60px; 
+	text-align: center;
+	padding: 0 3px;
+}
+
+.azimute-engenharia-page .icon-holder {
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.azimute-engenharia-page .box-icon span {
+	display: block;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.azimute-engenharia-page .img-azimute-engenharia {
+	padding: 80px 0;
+	background: url(../src/images/img-azimute-engenharia.jpg) right top no-repeat;
+	background-size: cover;
+}
+
+.azimute-engenharia-page .img-azimute-engenharia h2 { color: #fff; margin-top: 0; }
+.azimute-engenharia-page .img-azimute-engenharia ul, .azimute-engenharia-page .img-azimute-engenharia p { color: #fff; }
+.azimute-engenharia-page .list-default { margin-bottom: 60px; padding: 0; padding-left: 17px; list-style-type: disc; }
+.azimute-engenharia-page .list-default li { margin-bottom: 10px; }
+.azimute-engenharia-page .list-default { list-style: disc !important; }
+
+.azimute-engenharia-page .social-media {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	padding: 40px 0;
+}
+
+.azimute-engenharia-page .social-media strong {
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	font-weight: 600;
+}
+
+.azimute-engenharia-page .email {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0 30px;
+	position: relative;
+}
+
+.azimute-engenharia-page .email i {
+	margin: 2px 10px 0 0;
+}
+
+.azimute-engenharia-page .email a {
+	margin-bottom: 0;
+	color: #fff;
+}
+
+.azimute-engenharia-page .social-media span {
+	margin-left: 30px;
+}
+
+.azimute-engenharia-page .social-media span:after {
+	position: absolute;
+	content: '';
+	width: 1px;
+	height: 35px;
+	top: -7px;
+	right: 0;
+	background: #fff;
+}
+
+.azimute-engenharia-page .social-media a:hover {
+	text-decoration: none;
+}
+
+.azimute-engenharia-page .redes-sociais a {
+	margin: 0 10px;
+}
+
+.azimute-engenharia-page .redes-sociais a:first-child { margin-left: 0;}
+
+.azimute-engenharia-page .social-media i {
+	color: #e65c15;
+	font-size: 20px;
+}
+
+.azimute-engenharia-page .redes-sociais {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@media(max-width: 992px) {
+	.azimute-engenharia-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+	.azimute-engenharia-page .content-interna {
+		height: 70vh;
+		margin-top: 137px;
+	}
+}
+
+@media (max-width: 968px) {
+	.azimute-engenharia-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (max-width: 768px) {
+	.azimute-engenharia-page .social-media { flex-direction: column;}
+	.azimute-engenharia-page .social-media span:after { display: none;}
+	.azimute-engenharia-page .email { margin-bottom: 20px;}
+	.azimute-engenharia-page .content-interna {
+		height: 60vh;
+		margin-top: 70px;
+	}
+	.azimute-engenharia-page .content-interna img {
+		width: 70%;
+	}
+	.azimute-engenharia-page br {
+		display: none;
+	}
+	.azimute-engenharia-page .box-icon {
+		margin-bottom: 20px;
+	}
+	.azimute-engenharia-page .box-icon span {
+		font-size: 13px;
+		line-height: 17px;
+	}
+}
+
+/* Azimute Imóveis page styles */
+.azimute-imoveis-page body { background: none; }
+.azimute-imoveis-page .content-interna {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url(../src/images/bg-azimute-imoveis.jpg) center center no-repeat;
+	background-size: cover;
+	margin-top: 0;
+}
+
+.azimute-imoveis-page .logo-holder {
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 230px;
+	text-align: center;
+}
+
+.azimute-imoveis-page .infos-holder {
+	padding: 10px 10px;
+	background: rgba(0,0,0,.4);
+	border-radius: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
+.azimute-imoveis-page .infos-holder a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	margin: 0 15px;
+}
+
+.azimute-imoveis-page a { transition: all .3s ease-in-out; }
+.azimute-imoveis-page .infos-holder svg { margin-right: 10px; }
+
+.azimute-imoveis-page .box-icon { 
+	margin-bottom: 60px; 
+	text-align: center;
+	padding: 0 3px;
+}
+
+.azimute-imoveis-page .icon-holder {
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.azimute-imoveis-page .box-icon span {
+	display: block;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.azimute-imoveis-page .img-azimute-imoveis {
+	padding: 80px 0;
+	background: url(../src/images/img-azimute-imoveis.jpg) right top no-repeat;
+	background-size: cover;
+}
+
+.azimute-imoveis-page .img-azimute-imoveis h2 { color: #fff; margin-top: 0; }
+.azimute-imoveis-page .img-azimute-imoveis ul, .azimute-imoveis-page .img-azimute-imoveis p { color: #fff; }
+.azimute-imoveis-page .list-default { margin-bottom: 60px; padding: 0; padding-left: 17px; list-style-type: disc; }
+.azimute-imoveis-page .list-default li { margin-bottom: 10px; }
+.azimute-imoveis-page .list-default { list-style: disc !important; }
+
+.azimute-imoveis-page .social-media {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	padding: 40px 0;
+}
+
+.azimute-imoveis-page .social-media strong {
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	font-weight: 600;
+}
+
+.azimute-imoveis-page .email {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0 30px;
+	position: relative;
+}
+
+.azimute-imoveis-page .email i {
+	margin: 2px 10px 0 0;
+}
+
+.azimute-imoveis-page .email a {
+	margin-bottom: 0;
+	color: #fff;
+}
+
+.azimute-imoveis-page .social-media span {
+	margin-left: 30px;
+}
+
+.azimute-imoveis-page .social-media span:after {
+	position: absolute;
+	content: '';
+	width: 1px;
+	height: 35px;
+	top: -7px;
+	right: 0;
+	background: #fff;
+}
+
+.azimute-imoveis-page .social-media a:hover {
+	text-decoration: none;
+}
+
+.azimute-imoveis-page .redes-sociais a {
+	margin: 0 10px;
+}
+
+.azimute-imoveis-page .redes-sociais a:first-child { margin-left: 0;}
+
+.azimute-imoveis-page .social-media i {
+	color: #e65c15;
+	font-size: 20px;
+}
+
+.azimute-imoveis-page .redes-sociais {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@media(max-width: 992px) {
+	.azimute-imoveis-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+	.azimute-imoveis-page .content-interna {
+		height: 70vh;
+		margin-top: 137px;
+	}
+}
+
+@media (max-width: 968px) {
+	.azimute-imoveis-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (max-width: 768px) {
+	.azimute-imoveis-page .social-media { flex-direction: column;}
+	.azimute-imoveis-page .social-media span:after { display: none;}
+	.azimute-imoveis-page .email { margin-bottom: 20px;}
+	.azimute-imoveis-page .content-interna {
+		height: 60vh;
+		margin-top: 70px;
+	}
+	.azimute-imoveis-page .content-interna img {
+		width: 70%;
+	}
+	.azimute-imoveis-page br {
+		display: none;
+	}
+	.azimute-imoveis-page .box-icon {
+		margin-bottom: 20px;
+	}
+	.azimute-imoveis-page .box-icon span {
+		font-size: 13px;
+		line-height: 17px;
+	}
+}
+
+/* Azimute Tech page styles */
+.azimute-tech-page body { background: none; }
+.azimute-tech-page .content-interna {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url(../src/images/bg-azimute-tech.jpg) center center no-repeat;
+	background-size: cover;
+	margin-top: 0;
+}
+
+.azimute-tech-page .logo-holder {
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 230px;
+	text-align: center;
+}
+
+.azimute-tech-page .infos-holder {
+	padding: 10px 10px;
+	background: rgba(0,0,0,.4);
+	border-radius: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
+.azimute-tech-page .infos-holder a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	margin: 0 15px;
+}
+
+.azimute-tech-page a { transition: all .3s ease-in-out; }
+.azimute-tech-page .infos-holder svg { margin-right: 10px; }
+
+.azimute-tech-page .box-icon { 
+	margin-bottom: 60px; 
+	text-align: center;
+	padding: 0 3px;
+}
+
+.azimute-tech-page .icon-holder {
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.azimute-tech-page .box-icon span {
+	display: block;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.azimute-tech-page .img-azimute-tech {
+	padding: 80px 0;
+	background: url(../src/images/img-azimute-tech.jpg) right top no-repeat;
+	background-size: cover;
+}
+
+.azimute-tech-page .img-azimute-tech h2 { color: #fff; margin-top: 0; }
+.azimute-tech-page .img-azimute-tech ul, .azimute-tech-page .img-azimute-tech p { color: #fff; }
+.azimute-tech-page .list-default { margin-bottom: 60px; padding: 0; padding-left: 17px; list-style-type: disc; }
+.azimute-tech-page .list-default li { margin-bottom: 10px; }
+.azimute-tech-page .list-default { list-style: disc !important; }
+
+.azimute-tech-page .social-media {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	padding: 40px 0;
+}
+
+.azimute-tech-page .social-media strong {
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	font-weight: 600;
+}
+
+.azimute-tech-page .email {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0 30px;
+	position: relative;
+}
+
+.azimute-tech-page .email i {
+	margin: 2px 10px 0 0;
+}
+
+.azimute-tech-page .email a {
+	margin-bottom: 0;
+	color: #fff;
+}
+
+.azimute-tech-page .social-media span {
+	margin-left: 30px;
+}
+
+.azimute-tech-page .social-media span:after {
+	position: absolute;
+	content: '';
+	width: 1px;
+	height: 35px;
+	top: -7px;
+	right: 0;
+	background: #fff;
+}
+
+.azimute-tech-page .social-media a:hover {
+	text-decoration: none;
+}
+
+.azimute-tech-page .redes-sociais a {
+	margin: 0 10px;
+}
+
+.azimute-tech-page .redes-sociais a:first-child { margin-left: 0;}
+
+.azimute-tech-page .social-media i {
+	color: #e65c15;
+	font-size: 20px;
+}
+
+.azimute-tech-page .redes-sociais {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@media(max-width: 992px) {
+	.azimute-tech-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+	.azimute-tech-page .content-interna {
+		height: 70vh;
+		margin-top: 137px;
+	}
+}
+
+@media (max-width: 968px) {
+	.azimute-tech-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (max-width: 768px) {
+	.azimute-tech-page .social-media { flex-direction: column;}
+	.azimute-tech-page .social-media span:after { display: none;}
+	.azimute-tech-page .email { margin-bottom: 20px;}
+	.azimute-tech-page .content-interna {
+		height: 60vh;
+		margin-top: 70px;
+	}
+	.azimute-tech-page .content-interna img {
+		width: 70%;
+	}
+	.azimute-tech-page br {
+		display: none;
+	}
+	.azimute-tech-page .box-icon {
+		margin-bottom: 20px;
+	}
+	.azimute-tech-page .box-icon span {
+		font-size: 13px;
+		line-height: 17px;
+	}
+}
+
+/* Azimute San page styles */
+.azimute-san-page body { background: none; }
+.azimute-san-page .content-interna {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url(../src/images/bg-azimute-san.jpg) center center no-repeat;
+	background-size: cover;
+	margin-top: 0;
+}
+
+.azimute-san-page .logo-holder {
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 230px;
+	text-align: center;
+}
+
+.azimute-san-page .infos-holder {
+	padding: 10px 10px;
+	background: rgba(0,0,0,.4);
+	border-radius: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
+.azimute-san-page .infos-holder a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	margin: 0 15px;
+}
+
+.azimute-san-page a { transition: all .3s ease-in-out; }
+.azimute-san-page .infos-holder svg { margin-right: 10px; }
+
+.azimute-san-page .box-icon { 
+	margin-bottom: 60px; 
+	text-align: center;
+	padding: 0 3px;
+}
+
+.azimute-san-page .icon-holder {
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.azimute-san-page .box-icon span {
+	display: block;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.azimute-san-page .img-azimute-san {
+	padding: 80px 0;
+	background: url(../src/images/img-azimute-san.jpg) right top no-repeat;
+	background-size: cover;
+}
+
+.azimute-san-page .img-azimute-san h2 { color: #fff; margin-top: 0; }
+.azimute-san-page .img-azimute-san ul, .azimute-san-page .img-azimute-san p { color: #fff; }
+.azimute-san-page .list-default { margin-bottom: 60px; padding: 0; padding-left: 17px; list-style-type: disc; }
+.azimute-san-page .list-default li { margin-bottom: 10px; }
+.azimute-san-page .list-default { list-style: disc !important; }
+
+.azimute-san-page .social-media {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	padding: 40px 0;
+}
+
+.azimute-san-page .social-media strong {
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	font-weight: 600;
+}
+
+.azimute-san-page .email {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0 30px;
+	position: relative;
+}
+
+.azimute-san-page .email i {
+	margin: 2px 10px 0 0;
+}
+
+.azimute-san-page .email a {
+	margin-bottom: 0;
+	color: #fff;
+}
+
+.azimute-san-page .social-media span {
+	margin-left: 30px;
+}
+
+.azimute-san-page .social-media span:after {
+	position: absolute;
+	content: '';
+	width: 1px;
+	height: 35px;
+	top: -7px;
+	right: 0;
+	background: #fff;
+}
+
+.azimute-san-page .social-media a:hover {
+	text-decoration: none;
+}
+
+.azimute-san-page .redes-sociais a {
+	margin: 0 10px;
+}
+
+.azimute-san-page .redes-sociais a:first-child { margin-left: 0;}
+
+.azimute-san-page .social-media i {
+	color: #e65c15;
+	font-size: 20px;
+}
+
+.azimute-san-page .redes-sociais {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@media(max-width: 992px) {
+	.azimute-san-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+	.azimute-san-page .content-interna {
+		height: 70vh;
+		margin-top: 137px;
+	}
+}
+
+@media (max-width: 968px) {
+	.azimute-san-page .infos-holder a span { 
+		display: none; 
+	}
+}
+
+@media (max-width: 768px) {
+	.azimute-san-page .social-media { flex-direction: column;}
+	.azimute-san-page .social-media span:after { display: none;}
+	.azimute-san-page .email { margin-bottom: 20px;}
+	.azimute-san-page .content-interna {
+		height: 60vh;
+		margin-top: 70px;
+	}
+	.azimute-san-page .content-interna img {
+		width: 70%;
+	}
+	.azimute-san-page br {
+		display: none;
+	}
+	.azimute-san-page .box-icon {
+		margin-bottom: 20px;
+	}
+	.azimute-san-page .box-icon span {
+		font-size: 13px;
+		line-height: 17px;
+	}
+}

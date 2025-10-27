@@ -1,5 +1,4 @@
 import Image from "next/image";
-import './global.css'
 import { getPageMetadata } from '@/lib/metadata'
 import { LatestPostsCompany } from '@/components/latest-posts-company'
 
@@ -10,7 +9,7 @@ export const metadata = getPageMetadata('azimuteTech')
 export default async function AzimuteTech() {
 
     return (
-        <>
+        <div className="azimute-tech-page">
             <div className="content-interna">
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                     <Image src={azimuteTechInterna} width={ 424 } height={ 110 } alt="" />
@@ -257,6 +256,6 @@ export default async function AzimuteTech() {
                 companyName="Azimute Tech"
                 companyColor="bg-red-600"
             />
-        </>
+                </div>
     )
 }
