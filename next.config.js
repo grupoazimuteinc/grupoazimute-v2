@@ -3,9 +3,6 @@ const nextConfig = {
     images: {
         domains: ['grupoazimute.com.br', 'cdn.sanity.io']
     },
-    experimental: {
-        serverActions: true,
-    },
     // Configuração para evitar conflitos de porta
     webpack: (config, { dev }) => {
         if (dev) {

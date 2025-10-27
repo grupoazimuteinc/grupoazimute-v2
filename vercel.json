@@ -1,0 +1,20 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_SANITY_PROJECT_ID": "@next_public_sanity_project_id",
+    "NEXT_PUBLIC_SANITY_DATASET": "@next_public_sanity_dataset",
+    "RESEND_API_KEY": "@resend_api_key",
+    "RESEND_EMAIL": "@resend_email",
+    "EMAIL_HOST": "@email_host",
+    "EMAIL_PORT": "@email_port",
+    "EMAIL_USER": "@email_user",
+    "EMAIL_PASSWORD": "@email_password"
+  }
+}

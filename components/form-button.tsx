@@ -1,13 +1,23 @@
 'use client'
 
-import { experimental_useFormStatus } from 'react-dom'
+import { useState } from 'react'
 
 export function FormButton() {
-    const { pending } = experimental_useFormStatus()
+    const [pending, setPending] = useState(false)
+
+    const handleSubmit = () => {
+        setPending(true)
+        // O estado será resetado quando o formulário for submetido
+    }
 
     return(
         <>
-            <button type="submit" disabled={ pending } className="bg-black text-white flex items-center font-semibold h-[50px] xl:h-[60px] rounded-full px-10 hover:opacity-80 transition-opacity">
+            <button 
+                type="submit" 
+                disabled={pending} 
+                onClick={handleSubmit}
+                className="bg-black text-white flex items-center font-semibold h-[50px] xl:h-[60px] rounded-full px-10 hover:opacity-80 transition-opacity"
+            >
                 { pending ? (
                     <>
                         <svg 
