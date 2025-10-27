@@ -1,4 +1,4 @@
-# Grupo Azimute v3.0.9
+# Grupo Azimute v3.1.0
 
 ## Novas Funcionalidades
 
