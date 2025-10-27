@@ -181,16 +181,14 @@ export default function Home() {
                 
                 {/* Formulário de Contato */}
                 <form 
-                  action="mailto:comercial@grupoazimute.com.br"
-                  method="post"
-                  encType="text/plain"
+                  id="contact-form"
                   className="max-w-2xl mx-auto"
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <input
                         type="text"
-                        name="nome"
+                        name="name"
                         placeholder="Seu nome completo"
                         required
                         className="w-full px-6 py-4 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 placeholder-gray-500"
@@ -211,14 +209,14 @@ export default function Home() {
                     <div>
                       <input
                         type="tel"
-                        name="telefone"
+                        name="phone"
                         placeholder="Seu telefone"
                         className="w-full px-6 py-4 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 placeholder-gray-500"
                       />
                     </div>
                     <div>
                       <select
-                        name="empresa"
+                        name="grupo"
                         className="w-full px-6 py-4 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800"
                       >
                         <option value="">Selecione sua empresa</option>
@@ -234,7 +232,7 @@ export default function Home() {
                   
                   <div className="mb-6">
                     <textarea
-                      name="mensagem"
+                      name="message"
                       placeholder="Conte-nos sobre seu projeto ou necessidade"
                       rows={4}
                       required
@@ -249,6 +247,42 @@ export default function Home() {
                     Enviar Mensagem
                   </button>
                 </form>
+                
+                <script dangerouslySetInnerHTML={{
+                  __html: `
+                    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+                      e.preventDefault();
+                      
+                      const formData = new FormData(this);
+                      const data = {
+                        name: formData.get('name'),
+                        email: formData.get('email'),
+                        phone: formData.get('phone'),
+                        message: formData.get('message'),
+                        grupo: formData.get('grupo')
+                      };
+                      
+                      try {
+                        const response = await fetch('/api/contatoSend', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify(data)
+                        });
+                        
+                        if (response.ok) {
+                          alert('Mensagem enviada com sucesso!');
+                          this.reset();
+                        } else {
+                          alert('Erro ao enviar mensagem. Tente novamente.');
+                        }
+                      } catch (error) {
+                        alert('Erro ao enviar mensagem. Tente novamente.');
+                      }
+                    });
+                  `
+                }} />
                 
                 <div className="mt-8 text-center">
                   <p className="text-gray-400 text-sm">

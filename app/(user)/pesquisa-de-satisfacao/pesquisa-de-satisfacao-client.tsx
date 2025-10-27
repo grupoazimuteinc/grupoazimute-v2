@@ -6,7 +6,6 @@ import { ToastContainer } from 'react-toastify'
 
 import { Form } from '@grupoazimute/web.form'
 
-import { sendPesquisaForm } from '@/actions/sendPesquisaForm'
 import { pesquisaFormInputs } from '@/utils/pesquisa-form-inputs'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -19,10 +18,69 @@ export default function PesquisaDeSatisfacaoClient() {
         setPending(true)
 
         setTimeout(async () => {
-            const response: any = await sendPesquisaForm(form)
+            try {
+                const formData = {
+                    name: form.get('name'),
+                    email: form.get('email'),
+                    cargo: form.get('cargo'),
+                    empresaAzimute: form.get('empresaAzimute'),
+                    comoChegou: form.get('comoChegou'),
+                    atendimento: form.get('atendimento'),
+                    qualidade: form.get('qualidade'),
+                    expectativa: form.get('expectativa'),
+                    indicacao: form.get('indicacao'),
+                    message: form.get('message')
+                }
 
-            if(response.status == 200) {
-                toast.success(response.message, {
+                const response = await fetch('/api/pesquisaSend', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                })
+
+                const result = await response.json()
+
+                if(response.ok) {
+                    toast.success('Pesquisa enviada com sucesso', {
+                        position: 'bottom-right',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark'
+                    })
+        
+                    const formInputs: any = document.querySelector('.event-form')
+                
+                    for (let i = 0; i < formInputs.elements.length; i++) {
+                        formInputs.elements[i].value = ''
+                    }
+        
+                    setPending(false)
+                } else {
+                    toast.error('Aconteceu algum erro ao enviar a pesquisa', {
+                        position: 'bottom-right',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark'
+                    })
+        
+                    const formInputs: any = document.querySelector('.event-form')
+                
+                    for (let i = 0; i < formInputs.elements.length; i++) {
+                        formInputs.elements[i].value = ''
+                    }
+        
+                    setPending(false)
+                }
+            } catch (error) {
+                toast.error('Aconteceu algum erro ao enviar a pesquisa', {
                     position: 'bottom-right',
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -31,31 +89,13 @@ export default function PesquisaDeSatisfacaoClient() {
                     progress: undefined,
                     theme: 'dark'
                 })
-    
+
                 const formInputs: any = document.querySelector('.event-form')
             
                 for (let i = 0; i < formInputs.elements.length; i++) {
                     formInputs.elements[i].value = ''
                 }
-    
-                setPending(false)
-            } else {
-                toast.error(response.message, {
-                    position: 'bottom-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'dark'
-                })
-    
-                const formInputs: any = document.querySelector('.event-form')
-            
-                for (let i = 0; i < formInputs.elements.length; i++) {
-                    formInputs.elements[i].value = ''
-                }
-    
+
                 setPending(false)
             }
         }, 3000)

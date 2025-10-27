@@ -6,7 +6,6 @@ import { ToastContainer } from 'react-toastify'
 
 import { Form } from '@grupoazimute/web.form'
 
-import { sendTrabalheConoscoForm } from '@/actions/sendTrabalheConosco'
 import { trabalheConoscoFormInputs } from '@/utils/trabalhe-conosco-form-input'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -19,10 +18,66 @@ export default function TrabalheConoscoClient() {
         setPending(true)
 
         setTimeout(async () => {
-            const response: any = await sendTrabalheConoscoForm(form)
+            try {
+                const formData = {
+                    name: form.get('name'),
+                    email: form.get('email'),
+                    phone: form.get('phone'),
+                    linkedin: form.get('linkedin'),
+                    arquivo: form.get('arquivo'),
+                    message: form.get('message'),
+                    grupo: form.get('grupo') || 'Não especificado'
+                }
 
-            if(response.status == 200) {
-                toast.success(response.message, {
+                const response = await fetch('/api/trabalheConoscoSend', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                })
+
+                const result = await response.json()
+
+                if(response.ok) {
+                    toast.success('Informações enviadas com sucesso', {
+                        position: 'bottom-right',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark'
+                    })
+        
+                    const formInputs: any = document.querySelector('.event-form')
+                
+                    for (let i = 0; i < formInputs.elements.length; i++) {
+                        formInputs.elements[i].value = ''
+                    }
+        
+                    setPending(false)
+                } else {
+                    toast.error('Aconteceu algum erro ao enviar as informações', {
+                        position: 'bottom-right',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'dark'
+                    })
+        
+                    const formInputs: any = document.querySelector('.event-form')
+                
+                    for (let i = 0; i < formInputs.elements.length; i++) {
+                        formInputs.elements[i].value = ''
+                    }
+        
+                    setPending(false)
+                }
+            } catch (error) {
+                toast.error('Aconteceu algum erro ao enviar as informações', {
                     position: 'bottom-right',
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -31,31 +86,13 @@ export default function TrabalheConoscoClient() {
                     progress: undefined,
                     theme: 'dark'
                 })
-    
+
                 const formInputs: any = document.querySelector('.event-form')
             
                 for (let i = 0; i < formInputs.elements.length; i++) {
                     formInputs.elements[i].value = ''
                 }
-    
-                setPending(false)
-            } else {
-                toast.error(response.message, {
-                    position: 'bottom-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'dark'
-                })
-    
-                const formInputs: any = document.querySelector('.event-form')
-            
-                for (let i = 0; i < formInputs.elements.length; i++) {
-                    formInputs.elements[i].value = ''
-                }
-    
+
                 setPending(false)
             }
         }, 3000)

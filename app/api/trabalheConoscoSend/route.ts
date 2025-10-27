@@ -11,14 +11,14 @@ export async function POST(request: any) {
     }
 
     const body = await request.json()
-    const { name, email, linkedin, arquivo, message, grupo } = body
+    const { name, email, phone, linkedin, arquivo, message, grupo } = body
 
     try {
       const data = await resend.emails.send({
         from: 'Grupo Azimute <onboarding@resend.dev>',
         to: [`${process.env.RESEND_EMAIL}`],
         subject: "Trabalhe Conosco",
-        react: ContactTemplate({ name, email, linkedin, arquivo, message, grupo }) as React.ReactElement,
+        react: ContactTemplate({ name, email, phone, linkedin, arquivo, message, grupo }) as React.ReactElement,
       });
   
       return NextResponse.json(data);
