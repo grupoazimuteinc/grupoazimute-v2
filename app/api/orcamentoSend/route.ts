@@ -15,7 +15,7 @@ export async function POST(request: any) {
 
     try {
       const data = await resend.emails.send({
-        from: 'Grupo Azimute <onboarding@resend.dev>',
+        from: 'Grupo Azimute <noreply@resend.dev>',
         to: [`${process.env.RESEND_EMAIL}`],
         subject: "Orçamento",
         react: ContactTemplate({ name, email, phone, message, grupo }) as React.ReactElement,
