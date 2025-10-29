@@ -12,14 +12,22 @@ export async function sendTrabalheConoscoForm(form: FormData) {
 
     if(!name || !email || !linkedin || !arquivo || !phone) return
 
+    // Verificar se as variáveis de ambiente estão configuradas
+    if (!process.env.EMAIL_HOST || !process.env.EMAIL_PORT || !process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+        console.error('Email configuration not complete');
+        return { status: 500, message: 'Configuração de e-mail incompleta' };
+    }
+
     const transporter = nodemailer.createTransport({
-        // @ts-ignore
         host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        secure: true,
+        port: parseInt(process.env.EMAIL_PORT),
+        secure: process.env.EMAIL_PORT === '465', // true para 465, false para outras portas
         auth: {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASSWORD,
+        },
+        tls: {
+            rejectUnauthorized: false // Para evitar problemas de certificado em produção
         }
     })
   
@@ -99,6 +107,10 @@ export async function sendTrabalheConoscoForm(form: FormData) {
         
         return { status: 200, message: 'Informações enviada com sucesso' }   
     } catch (error) {
-        return { status: 503, message: 'Aconteceu algum erro' }   
+        console.error('Error sending email:', error);
+        return { 
+            status: 503, 
+            message: `Erro ao enviar e-mail: ${error instanceof Error ? error.message : 'Erro desconhecido'}` 
+        }   
     }
 }
