@@ -27,55 +27,33 @@ export default function TrabalheConoscoClient() {
                     grupo: form.get('grupo') || 'Não especificado'
                 }
 
+                // Verificar se os dados obrigatórios estão presentes
+                if (!formData.name || !formData.email || !formData.linkedin || !formData.arquivo) {
+                    throw new Error('Por favor, preencha todos os campos obrigatórios')
+                }
+
+                const controller = new AbortController()
+                const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 segundos de timeout
+
                 const response = await fetch('/api/trabalheConoscoSend', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify(formData),
+                    signal: controller.signal
                 })
+
+                clearTimeout(timeoutId)
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ error: 'Erro desconhecido' }))
+                    throw new Error(errorData.error || `Erro HTTP: ${response.status}`)
+                }
 
                 const result = await response.json()
 
-                if(response.ok) {
-                    toast.success('Informações enviadas com sucesso', {
-                        position: 'bottom-right',
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: 'dark'
-                    })
-        
-                    const formInputs: any = document.querySelector('.event-form')
-                
-                    for (let i = 0; i < formInputs.elements.length; i++) {
-                        formInputs.elements[i].value = ''
-                    }
-        
-                    setPending(false)
-                } else {
-                    toast.error('Aconteceu algum erro ao enviar as informações', {
-                        position: 'bottom-right',
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: 'dark'
-                    })
-        
-                    const formInputs: any = document.querySelector('.event-form')
-                
-                    for (let i = 0; i < formInputs.elements.length; i++) {
-                        formInputs.elements[i].value = ''
-                    }
-        
-                    setPending(false)
-                }
-            } catch (error) {
-                toast.error('Aconteceu algum erro ao enviar as informações', {
+                toast.success('Informações enviadas com sucesso!', {
                     position: 'bottom-right',
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -85,15 +63,44 @@ export default function TrabalheConoscoClient() {
                     theme: 'dark'
                 })
 
+                // Limpar formulário
                 const formInputs: any = document.querySelector('.event-form')
-            
-                for (let i = 0; i < formInputs.elements.length; i++) {
-                    formInputs.elements[i].value = ''
+                if (formInputs) {
+                    for (let i = 0; i < formInputs.elements.length; i++) {
+                        formInputs.elements[i].value = ''
+                    }
                 }
 
+            } catch (error) {
+                console.error('Erro ao enviar informações:', error)
+                
+                let errorMessage = 'Aconteceu algum erro ao enviar as informações'
+                
+                if (error instanceof Error) {
+                    if (error.name === 'AbortError') {
+                        errorMessage = 'Tempo limite excedido. Tente novamente.'
+                    } else if (error.message.includes('Failed to fetch')) {
+                        errorMessage = 'Erro de conexão. Verifique sua internet e tente novamente.'
+                    } else if (error.message.includes('listener indicated an asynchronous response')) {
+                        errorMessage = 'Erro de extensão do navegador. Tente desabilitar extensões ou usar modo incógnito.'
+                    } else {
+                        errorMessage = error.message
+                    }
+                }
+
+                toast.error(errorMessage, {
+                    position: 'bottom-right',
+                    autoClose: 7000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'dark'
+                })
+            } finally {
                 setPending(false)
             }
-        }, 3000)
+        }, 1000) // Reduzido de 3s para 1s
     }
 
     return (
