@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Ano from "./ano";
 
-import logos from '@/src/images/logos.png'
+import grupoBranco from '@/src/images/grupo-branco.png'
 
 export function Footer() {
     return (
@@ -170,9 +170,9 @@ export function Footer() {
                             <span className="text-gray-500 text-sm border border-gray-600 px-4 py-3 rounded font-medium">
                                 ISO 9001:2015
                             </span>
-                            <span className="text-gray-500 text-sm border border-gray-600 px-4 py-3 rounded font-medium">
+                            {/* <span className="text-gray-500 text-sm border border-gray-600 px-4 py-3 rounded font-medium">
                                 ISO 45001:2015
-                            </span>
+                            </span> */}
                         </div>
                     </div>
                     
@@ -229,7 +229,9 @@ export function Footer() {
                 {/* Rodapé inferior com logos e copyright */}
                 <div className="row d-flex align-items-center">
                     <div className="col-12 col-md-9 mb-4 mb-md-0">
-                        <Image src={ logos } width={ 781 } height={ 45 } alt="Grupo Azimute" style={{ maxWidth: '100%' }} />
+                        <a href="https://www.grupoazimute.com.br" target="_blank" rel="noopener noreferrer">
+                            <Image src={ grupoBranco } width={ 781 } height={ 45 } alt="Grupo Azimute" style={{ maxWidth: '100%' }} />
+                        </a>
                     </div>
 
                     <div className="col-12 col-md-3 text-md-right">
