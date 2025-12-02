@@ -9,6 +9,8 @@ import { Footer } from '@/components/footer'
 import { GoogleAnalytics } from '@/components/ga'
 import IsoBadges from '@/components/iso-badges'
 import BitrixWidget from '@/components/bitrix-form/BitrixWidget'
+import { HolidayNotice } from '@/components/holiday-notice'
+import { holidayNoticeConfig } from '@/config/holiday-notice.config'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -69,6 +71,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <BitrixWidget />
         
         <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
+
+        <HolidayNotice config={holidayNoticeConfig} />
 
         <Header />
 
