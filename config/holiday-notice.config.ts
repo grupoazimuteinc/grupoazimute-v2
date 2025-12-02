@@ -9,7 +9,7 @@ import { HolidayNoticeConfig } from '@/components/holiday-notice'
 
 export const holidayNoticeConfig: HolidayNoticeConfig = {
   // Mensagem principal
-  title: 'Grupo Azimute informa',
+  title: 'Grupo Azimute informa:',
   message: 'Estaremos em férias coletivas a partir do dia 22/12/2025, com retorno às atividades no dia 12/01/2026. Entre em contato conosco para mais informações através dos canais abaixo.',
 
   // WhatsApp
