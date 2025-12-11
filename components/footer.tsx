@@ -230,7 +230,7 @@ export function Footer() {
                 <div className="row d-flex align-items-center">
                     <div className="col-12 col-md-9 mb-4 mb-md-0">
                         <a href="https://www.grupoazimute.com.br" target="_blank" rel="noopener noreferrer">
-                            <Image src={ grupoBranco } width={ 781 } height={ 45 } alt="Grupo Azimute" style={{ maxWidth: '100%' }} />
+                            <Image src={ grupoBranco } width={ 781 } height={ 45 } alt="Grupo Azimute" style={{ maxWidth: '100%', height: 'auto' }} />
                         </a>
                     </div>
 

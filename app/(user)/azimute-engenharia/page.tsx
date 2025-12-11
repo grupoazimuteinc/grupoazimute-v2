@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { getPageMetadata } from '@/lib/metadata'
 import { LatestPostsCompany } from '@/components/latest-posts-company'
+import { StoriesVideoPlayer } from '@/components/stories-video-player'
 
 import azimuteEngenhariaInterna from '@/src/images/azimute-engenharia-interna.png'
 
@@ -10,9 +11,10 @@ export default async function AzimuteEngenharia() {
     
     return (
         <div className="azimute-engenharia-page">
+            <StoriesVideoPlayer videos={['/videos/stories-site-grupo-azimute-engenharia.webm']} />
             <div className="content-interna">
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
-                    <Image src={azimuteEngenhariaInterna} width={ 424 } height={ 110 } alt="" />
+                    <Image src={azimuteEngenhariaInterna} width={ 424 } height={ 110 } alt="" style={{ height: "auto" }} />
 
                     <div className="infos-holder">
                         <a href="tel:554734736777" target="_blank">
