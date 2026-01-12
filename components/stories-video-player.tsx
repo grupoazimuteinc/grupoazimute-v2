@@ -12,7 +12,7 @@ export function StoriesVideoPlayer({ videos, className = '' }: StoriesVideoPlaye
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
     const [isPlaying, setIsPlaying] = useState(false)
     const [progress, setProgress] = useState(0)
-    const [thumbnailPosition, setThumbnailPosition] = useState<{ left: number; bottom: number } | null>(null)
+    const [thumbnailPosition, setThumbnailPosition] = useState<{ left: number; top: number } | null>(null)
     const [isDragging, setIsDragging] = useState(false)
     const hasMovedRef = useRef(false)
     const dragOffsetRef = useRef({ x: 0, y: 0 })
@@ -141,14 +141,16 @@ export function StoriesVideoPlayer({ videos, className = '' }: StoriesVideoPlaye
         e.stopPropagation()
         
         const rect = thumbnailRef.current.getBoundingClientRect()
-        const currentLeft = thumbnailPosition?.left ?? window.innerWidth / 2 - rect.width / 2
-        const currentBottom = thumbnailPosition?.bottom ?? 40
+        const headerHeight = window.innerWidth <= 820 ? 60 : 80
+        const defaultTop = headerHeight + 45
+        const currentLeft = thumbnailPosition?.left ?? 20
+        const currentTop = thumbnailPosition?.top ?? defaultTop
         
         dragStartPositionRef.current = { x: e.clientX, y: e.clientY }
         hasMovedRef.current = false
         dragOffsetRef.current = {
             x: e.clientX - currentLeft,
-            y: window.innerHeight - e.clientY - currentBottom
+            y: e.clientY - currentTop
         }
         setIsDragging(true)
     }
@@ -168,16 +170,16 @@ export function StoriesVideoPlayer({ videos, className = '' }: StoriesVideoPlaye
             
             const rect = thumbnailRef.current.getBoundingClientRect()
             const maxLeft = window.innerWidth - rect.width
-            const maxBottom = window.innerHeight - rect.height
+            const maxTop = window.innerHeight - rect.height
             
             let newLeft = e.clientX - dragOffsetRef.current.x
-            let newBottom = window.innerHeight - e.clientY - dragOffsetRef.current.y
+            let newTop = e.clientY - dragOffsetRef.current.y
             
             // Limitar dentro da viewport
             newLeft = Math.max(0, Math.min(newLeft, maxLeft))
-            newBottom = Math.max(0, Math.min(newBottom, maxBottom))
+            newTop = Math.max(0, Math.min(newTop, maxTop))
             
-            setThumbnailPosition({ left: newLeft, bottom: newBottom })
+            setThumbnailPosition({ left: newLeft, top: newTop })
         }
 
         const handleMouseUp = () => {
@@ -205,14 +207,16 @@ export function StoriesVideoPlayer({ videos, className = '' }: StoriesVideoPlaye
         
         const touch = e.touches[0]
         const rect = thumbnailRef.current.getBoundingClientRect()
-        const currentLeft = thumbnailPosition?.left ?? window.innerWidth / 2 - rect.width / 2
-        const currentBottom = thumbnailPosition?.bottom ?? 40
+        const headerHeight = window.innerWidth <= 820 ? 60 : 80
+        const defaultTop = headerHeight + 45
+        const currentLeft = thumbnailPosition?.left ?? 20
+        const currentTop = thumbnailPosition?.top ?? defaultTop
         
         dragStartPositionRef.current = { x: touch.clientX, y: touch.clientY }
         hasMovedRef.current = false
         dragOffsetRef.current = {
             x: touch.clientX - currentLeft,
-            y: window.innerHeight - touch.clientY - currentBottom
+            y: touch.clientY - currentTop
         }
         setIsDragging(true)
     }
@@ -240,16 +244,16 @@ export function StoriesVideoPlayer({ videos, className = '' }: StoriesVideoPlaye
             
             const rect = thumbnailRef.current.getBoundingClientRect()
             const maxLeft = window.innerWidth - rect.width
-            const maxBottom = window.innerHeight - rect.height
+            const maxTop = window.innerHeight - rect.height
             
             let newLeft = touch.clientX - dragOffsetRef.current.x
-            let newBottom = window.innerHeight - touch.clientY - dragOffsetRef.current.y
+            let newTop = touch.clientY - dragOffsetRef.current.y
             
             // Limitar dentro da viewport
             newLeft = Math.max(0, Math.min(newLeft, maxLeft))
-            newBottom = Math.max(0, Math.min(newBottom, maxBottom))
+            newTop = Math.max(0, Math.min(newTop, maxTop))
             
-            setThumbnailPosition({ left: newLeft, bottom: newBottom })
+            setThumbnailPosition({ left: newLeft, top: newTop })
         }
 
         const handleTouchEnd = () => {
@@ -337,9 +341,9 @@ export function StoriesVideoPlayer({ videos, className = '' }: StoriesVideoPlaye
                     tabIndex={0}
                     style={thumbnailPosition ? {
                         left: `${thumbnailPosition.left}px`,
-                        bottom: `${thumbnailPosition.bottom}px`,
+                        top: `${thumbnailPosition.top}px`,
                         transform: 'none',
-                        right: 'auto'
+                        bottom: 'auto'
                     } : {}}
                     onKeyDown={(e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
@@ -464,9 +468,8 @@ export function StoriesVideoPlayer({ videos, className = '' }: StoriesVideoPlaye
             <style jsx>{`
                 .stories-video-thumbnail {
                     position: fixed;
-                    bottom: 40px;
-                    left: 50%;
-                    transform: translateX(-50%);
+                    top: calc(80px + 45px);
+                    left: 20px;
                     width: 135px;
                     height: 240px;
                     border-radius: 16px;
@@ -478,6 +481,12 @@ export function StoriesVideoPlayer({ videos, className = '' }: StoriesVideoPlaye
                     user-select: none;
                     -webkit-user-select: none;
                 }
+                
+                @media (max-width: 820px) {
+                    .stories-video-thumbnail {
+                        top: calc(60px + 45px);
+                    }
+                }
 
                 .stories-video-thumbnail:not([style*="left"]) {
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -488,7 +497,7 @@ export function StoriesVideoPlayer({ videos, className = '' }: StoriesVideoPlaye
                 }
 
                 .stories-video-thumbnail:not([style*="left"]):hover:not(.dragging) {
-                    transform: translateX(-50%) scale(1.05);
+                    transform: scale(1.05);
                 }
 
                 .stories-video-thumbnail.dragging {
