@@ -53,6 +53,21 @@ body { background: none; }
 		text-align: center;
 		padding: 0 3px;
 	}
+
+	.box-icon span {
+		color: #212529;
+		text-decoration: none;
+		cursor: default;
+	}
+
+	.box-icon a {
+		text-decoration: none;
+	}
+
+	.box-icon a:hover {
+		opacity: 0.8;
+	}
+
 	.icon-holder {
 		height: 60px;
 		display: flex;
@@ -181,6 +196,11 @@ body { background: none; }
 
 	.content-interna img {
 		width: 70%;
+		height: auto;
+	}
+	}
+
+	.content-interna img {
 		height: auto;
 	}
 

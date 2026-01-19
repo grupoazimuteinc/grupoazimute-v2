@@ -75,6 +75,19 @@ body { background: none; }
 		font-weight: 600;
 		/* text-transform: uppercase; */
 		margin-bottom: 15px;
+		color: #212529;
+		text-decoration: none;
+		cursor: default;
+	}
+	
+	a .box-icon span {
+		color: #212529;
+		text-decoration: none;
+	}
+	
+	a:hover .box-icon span {
+		color: #212529;
+		text-decoration: none;
 	}
 
 	.img-azimute-engenharia {
