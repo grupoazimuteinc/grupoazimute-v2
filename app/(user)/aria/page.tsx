@@ -36,7 +36,7 @@ export default async function Aria() {
                             <span>(47) 3473-6777</span>
                         </a>
 
-                        <a href="https://api.whatsapp.com/send?phone=5547999945165">
+                        <a href="https://api.whatsapp.com/send?phone=5547997890915">
                             <svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1">
                                 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                     <g id="Home-Copy" transform="translate(-1075.000000, -543.000000)">
@@ -50,7 +50,7 @@ export default async function Aria() {
                                 </g>
                             </svg>
 
-                            <span>(47) 99994-5165</span>
+                            <span>(47) 99789-0915</span>
                         </a>
 
                         <a href="mailto:comercial@ariatecnologia.com.br">
