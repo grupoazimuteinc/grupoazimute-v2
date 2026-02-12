@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         
         <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
 
-        {/* <HolidayNotice config={holidayNoticeConfig} /> */}
+        <HolidayNotice config={holidayNoticeConfig} />
 
         <Header />
 

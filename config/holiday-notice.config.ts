@@ -10,18 +10,18 @@ import { HolidayNoticeConfig } from '@/components/holiday-notice'
 export const holidayNoticeConfig: HolidayNoticeConfig = {
   // Mensagem principal
   title: 'Grupo Azimute informa:',
-  message: 'Estaremos em férias coletivas a partir do dia 22/12/2025, com retorno às atividades no dia 12/01/2026. Entre em contato conosco para mais informações através dos canais abaixo.',
+  message: 'Em função do feriado de carnaval, não teremos expediente nos dias 16 e 17 de fevereiro. Retornaremos às atividades normalmente no dia 18.',
 
   // WhatsApp
   whatsappNumber: '5547999110824', // Número com código do país (55 = Brasil) e DDD, sem caracteres especiais
-  whatsappMessage: 'Olá! Gostaria de mais informações sobre o recesso de fim de ano do Grupo Azimute.',
+  whatsappMessage: 'Olá! Entrando em contato durante o feriado de carnaval do Grupo Azimute.',
 
   // E-mail
   email: 'comercial@grupoazimute.com.br',
-  emailSubject: 'Dúvida sobre recesso de fim de ano do Grupo Azimute',
+  emailSubject: 'Contato durante o feriado de carnaval do Grupo Azimute.',
 
   // Configurações de exibição
-  storageKey: 'grupo-azimute-holiday-notice', // Chave única para localStorage (mude para cada site)
+  storageKey: 'grupo-azimute-carnival-notice', // Chave única para localStorage (mude para cada site)
   showCloseButton: true, // Permitir fechar o aviso
   autoShow: true, // Mostrar automaticamente ao carregar a página
 
