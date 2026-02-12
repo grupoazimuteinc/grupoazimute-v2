@@ -10,15 +10,15 @@ import { HolidayNoticeConfig } from '@/components/holiday-notice'
 export const holidayNoticeConfig: HolidayNoticeConfig = {
   // Mensagem principal
   title: 'Grupo Azimute informa:',
-  message: 'Em função do feriado de carnaval, não teremos expediente nos dias 16 e 17 de fevereiro. Retornaremos às atividades normalmente no dia 18.',
+  message: 'Em função do recesso de carnaval, não teremos expediente nos dias 16 e 17 de fevereiro. Retornaremos às atividades normalmente no dia 18.',
 
   // WhatsApp
   whatsappNumber: '5547999110824', // Número com código do país (55 = Brasil) e DDD, sem caracteres especiais
-  whatsappMessage: 'Olá! Entrando em contato durante o feriado de carnaval do Grupo Azimute.',
+  whatsappMessage: 'Olá! Entrando em contato durante o recesso de carnaval do Grupo Azimute.',
 
   // E-mail
   email: 'comercial@grupoazimute.com.br',
-  emailSubject: 'Contato durante o feriado de carnaval do Grupo Azimute.',
+  emailSubject: 'Contato durante o recesso de carnaval do Grupo Azimute.',
 
   // Configurações de exibição
   storageKey: 'grupo-azimute-carnival-notice', // Chave única para localStorage (mude para cada site)
