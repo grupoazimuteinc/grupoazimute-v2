@@ -13,11 +13,12 @@ export default function BitrixForm() {
     if (containerRef.current.dataset.bxMounted === 'true') return;
     containerRef.current.dataset.bxMounted = 'true';
 
-    // cria <script data-b24-form="..."> exatamente como o Bitrix espera
+    // Cria <script data-b24-form="..."> exatamente como o Bitrix espera
     const script = document.createElement('script');
     script.setAttribute('data-b24-form', 'inline/38/k7tcqn');
     script.setAttribute('data-skip-moving', 'true');
-    script.src = 'https://cdn.bitrix24.com.br/b12867499/crm/form/loader_38.js?' + ((Date.now()/180000)|0);
+    script.async = true;
+    script.src = 'https://cdn.bitrix24.com.br/b12867499/crm/form/loader_38.js?' + ((Date.now() / 180000) | 0);
 
     script.onload = () => {
       setIsLoading(false);
@@ -31,8 +32,10 @@ export default function BitrixForm() {
     containerRef.current.appendChild(script);
 
     return () => {
-      containerRef.current && (containerRef.current.innerHTML = '');
-      if (containerRef.current) delete containerRef.current.dataset.bxMounted;
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
+        delete containerRef.current.dataset.bxMounted;
+      }
     };
   }, []);
 
