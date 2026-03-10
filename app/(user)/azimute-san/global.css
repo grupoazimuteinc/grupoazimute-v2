@@ -55,9 +55,12 @@ body { background: none; }
 	}
 
 	.box-icon span {
-		color: #212529;
+		color: #fff;
 		text-decoration: none;
 		cursor: default;
+		display: block;
+		font-weight: 600;
+		margin-bottom: 15px;
 	}
 
 	.box-icon a {
