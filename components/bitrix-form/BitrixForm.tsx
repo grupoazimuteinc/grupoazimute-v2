@@ -13,6 +13,19 @@ export default function BitrixForm() {
     if (containerRef.current.dataset.bxMounted === 'true') return;
     containerRef.current.dataset.bxMounted = 'true';
 
+    // Listener para detectar quando o formulário do Bitrix for enviado com sucesso
+    const handleFormSuccess = (event: any) => {
+      console.log('Bitrix form submitted successfully', event);
+      // Abre o WhatsApp em uma nova aba após o envio do formulário
+      setTimeout(() => {
+        window.open('https://api.whatsapp.com/send?phone=5547997260011', '_blank');
+      }, 1000);
+    };
+
+    // Adiciona listeners para eventos do Bitrix
+    window.addEventListener('b24:form:submit:success', handleFormSuccess);
+    window.addEventListener('onCrmFormSubmit', handleFormSuccess);
+
     // Cria <script data-b24-form="..."> exatamente como o Bitrix espera
     const script = document.createElement('script');
     script.setAttribute('data-b24-form', 'inline/38/k7tcqn');
@@ -32,6 +45,8 @@ export default function BitrixForm() {
     containerRef.current.appendChild(script);
 
     return () => {
+      window.removeEventListener('b24:form:submit:success', handleFormSuccess);
+      window.removeEventListener('onCrmFormSubmit', handleFormSuccess);
       if (containerRef.current) {
         containerRef.current.innerHTML = '';
         delete containerRef.current.dataset.bxMounted;

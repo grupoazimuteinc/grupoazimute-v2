@@ -11,6 +11,8 @@ import IsoBadges from '@/components/iso-badges'
 import BitrixWidget from '@/components/bitrix-form/BitrixWidget'
 import { HolidayNotice } from '@/components/holiday-notice'
 import { holidayNoticeConfig } from '@/config/holiday-notice.config'
+import { BitrixModalProvider } from '@/components/bitrix-form/BitrixModalContext'
+import BitrixFormModal from '@/components/bitrix-form/BitrixFormModal'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -68,20 +70,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR">
       <GoogleAnalytics GA_MEASUREMENT_ID="G-P76DHV77NQ" />
       <body className={ roboto.className }>
-        <BitrixWidget />
-        
-        <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
+        <BitrixModalProvider>
+          <BitrixWidget />
+          
+          <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
 
-        {/* <HolidayNotice config={holidayNoticeConfig} /> */}
+          {/* <HolidayNotice config={holidayNoticeConfig} /> */}
 
-        <Header />
+          <Header />
 
-        { children }
+          { children }
 
-        
-        <IsoBadges />
+          
+          <IsoBadges />
 
-        <Footer />
+          <Footer />
+
+          <BitrixFormModal />
+        </BitrixModalProvider>
       </body>
     </html>
   )

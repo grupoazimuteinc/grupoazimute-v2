@@ -1,13 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import BitrixForm from "./BitrixForm";
+import { useBitrixModal } from "./BitrixModalContext";
 
 export default function BitrixFormModal() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  const { isOpen, openModal, closeModal } = useBitrixModal();
 
   return (
     <>
@@ -23,7 +20,7 @@ export default function BitrixFormModal() {
 
       {isOpen && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[9999]"
           onClick={closeModal}
         >
           <div

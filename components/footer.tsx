@@ -5,8 +5,16 @@ import Link from 'next/link'
 import Ano from "./ano";
 
 import grupoBranco from '@/src/images/grupo-branco.png'
+import { useBitrixModal } from './bitrix-form/BitrixModalContext'
 
 export function Footer() {
+    const { openModal } = useBitrixModal()
+
+    const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault()
+        openModal()
+    }
+
     return (
         <footer className="footer">
             <div className="container">
@@ -114,8 +122,12 @@ export function Footer() {
                             <a href="tel:4734736777" className="text-gray-300 hover:text-white transition-colors text-sm block mb-2">
                                 +55 47 3473-6777
                             </a>
-                            <a href="https://api.whatsapp.com/send?phone=5547999110824" className="text-gray-300 hover:text-white transition-colors text-sm block">
-                                WhatsApp: +55 47 99911-0824
+                            <a 
+                                href="https://api.whatsapp.com/send?phone=5547997260011" 
+                                onClick={handleWhatsAppClick}
+                                className="text-gray-300 hover:text-white transition-colors text-sm block cursor-pointer"
+                            >
+                                WhatsApp: +55 47 99726-0011
                             </a>
                         </div>
 
