@@ -1,6 +1,19 @@
 import nodemailer from 'nodemailer'
 import { NextResponse } from 'next/server'
 
+const parseEmailList = (value: string | undefined, fallback: string[]) =>
+    value
+        ? value.split(',').map((email) => email.trim()).filter(Boolean)
+        : fallback
+
+const pesquisaRecipientsByCompany: Record<string, string | undefined> = {
+    'Azimute Engenharia': process.env.RESEND_EMAIL_PESQUISA_ENGENHARIA,
+    'Azimute Imóveis': process.env.RESEND_EMAIL_PESQUISA_IMOVEIS,
+    'Azimute Tech': process.env.RESEND_EMAIL_PESQUISA_TECH,
+    'Azimute San': process.env.RESEND_EMAIL_PESQUISA_SAN,
+    'Aria - Imagem e Tecnologia': process.env.RESEND_EMAIL_PESQUISA_ARIA,
+}
+
 export async function POST(request: any) {
     // Verificar se as variáveis de ambiente estão configuradas
     if (!process.env.EMAIL_HOST || !process.env.EMAIL_PORT || !process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
@@ -13,12 +26,16 @@ export async function POST(request: any) {
 
     console.log('Pesquisa form data:', { name, email, cargo, empresaAzimute, comoChegou, atendimento, qualidade, expectativa, indicacao, message });
     
-    // Suporte a múltiplos e-mails separados por vírgula
-    const emailList = process.env.RESEND_EMAIL_PESQUISA 
-      ? process.env.RESEND_EMAIL_PESQUISA.split(',').map(email => email.trim())
-      : [process.env.RESEND_EMAIL || 'comercial@grupoazimute.com.br'];
+    const defaultEmailList = parseEmailList(
+        process.env.RESEND_EMAIL_PESQUISA ?? process.env.RESEND_EMAIL,
+        ['comercial@grupoazimute.com.br']
+    )
+    const emailList = parseEmailList(
+        pesquisaRecipientsByCompany[empresaAzimute],
+        defaultEmailList
+    )
     
-    console.log('Sending to emails:', emailList);
+    console.log('Sending to emails:', { empresaAzimute, emailList });
 
     // Configurar o transporter do Nodemailer
     const transporter = nodemailer.createTransport({
@@ -66,7 +83,7 @@ export async function POST(request: any) {
         const data = await transporter.sendMail({
             from: `"Grupo Azimute" <${process.env.EMAIL_USER}>`,
             to: emailList,
-            subject: "Pesquisa de Satisfação",
+            subject: `Pesquisa de Satisfação - ${empresaAzimute}`,
             html: htmlContent,
         });
   
