@@ -1,6 +1,19 @@
 import nodemailer from 'nodemailer'
 import { NextResponse } from 'next/server'
 
+const parseEmailList = (value: string | undefined, fallback: string[]) =>
+    value
+        ? value.split(',').map((email) => email.trim()).filter(Boolean)
+        : fallback
+
+const contatoRecipientsByGroup: Record<string, string | undefined> = {
+    'azimute-engenharia': process.env.RESEND_EMAIL_CONTATO_ENGENHARIA,
+    'azimute-imoveis': process.env.RESEND_EMAIL_CONTATO_IMOVEIS,
+    'azimute-tech': process.env.RESEND_EMAIL_CONTATO_TECH,
+    'azimute-san': process.env.RESEND_EMAIL_CONTATO_SAN,
+    'aria': process.env.RESEND_EMAIL_CONTATO_ARIA,
+}
+
 export async function POST(request: any) {
     // Verificar se as variáveis de ambiente estão configuradas
     if (!process.env.EMAIL_HOST || !process.env.EMAIL_PORT || !process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
@@ -13,12 +26,16 @@ export async function POST(request: any) {
 
     console.log('Contato form data:', { name, email, phone, message, grupo });
     
-    // Suporte a múltiplos e-mails separados por vírgula
-    const emailList = process.env.RESEND_EMAIL_CONTATO 
-      ? process.env.RESEND_EMAIL_CONTATO.split(',').map(email => email.trim())
-      : [process.env.RESEND_EMAIL || 'comercial@grupoazimute.com.br'];
+    const defaultEmailList = parseEmailList(
+        process.env.RESEND_EMAIL_CONTATO ?? process.env.RESEND_EMAIL,
+        ['comercial@grupoazimute.com.br']
+    )
+    const emailList = parseEmailList(
+        contatoRecipientsByGroup[grupo],
+        defaultEmailList
+    )
     
-    console.log('Sending to emails:', emailList);
+    console.log('Sending to emails:', { grupo, emailList });
 
     // Configurar o transporter do Nodemailer
     const transporter = nodemailer.createTransport({
@@ -57,7 +74,7 @@ export async function POST(request: any) {
         const data = await transporter.sendMail({
             from: `"Grupo Azimute" <${process.env.EMAIL_USER}>`,
             to: emailList,
-            subject: "Contato",
+            subject: `Contato${grupo ? ` - ${grupo}` : ''}`,
             html: htmlContent,
         });
   
