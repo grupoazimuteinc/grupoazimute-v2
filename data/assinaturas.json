@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "defaults": {
+    "company": "Grupo Azimute",
+    "website": "www.grupoazimute.com.br",
+    "address": {
+      "street": "Rua Clodoaldo Gomes, 415",
+      "district": "Distrito Industrial",
+      "city": "Joinville",
+      "state": "SC",
+      "country": "Brasil",
+      "zip": "89219-550"
+    },
+    "assets": {
+      "baseUrl": "https://grupoazimute.com.br",
+      "logos": {
+        "footerBar": "/images/assinaturas/grupo-azimute-assinatura-de-email.png",
+        "iso": "/images/assinaturas/iso-assinatura-de-email.png"
+      },
+      "icons": {
+        "phone": "/images/assinaturas/icons/phone.svg",
+        "email": "/images/assinaturas/icons/email.svg",
+        "website": "/images/assinaturas/icons/website.svg",
+        "location": "/images/assinaturas/icons/location.svg"
+      }
+    }
+  },
+  "collaborators": [
+    {
+      "slug": "tayse-rachadel",
+      "template": "grupo_azimute",
+      "active": true,
+      "name": "Tayse Rachadel Hüttl",
+      "role": "Coordenadora de Vendas",
+      "credential": "Engª Civil CREA-SC 168272-6",
+      "department": "Setor Comercial",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777",
+        "+55 47 9 9789-0856"
+      ],
+      "email": "tayse@grupoazimute.com.br"
+    },
+    {
+      "slug": "ricardo-navarro",
+      "template": "grupo_azimute",
+      "active": true,
+      "name": "Ricardo Navarro",
+      "role": "Executivo de Vendas",
+      "credential": "Eng.º de Produção CREA SC 219.874-6",
+      "department": "Setor Comercial",
+      "company": "Grupo Azimute",
+      "phones": [
+        "+55 47 3473-6777",
+        "+55 47 9 9789-0915"
+      ],
+      "email": "ricardo.navarro@grupoazimute.com.br"
+    },
+    {
+      "slug": "rodrigo-battisti",
+      "template": "grupo_azimute",
+      "active": true,
+      "name": "Rodrigo Battisti",
+      "role": "SDR Pleno",
+      "department": "Setor Comercial",
+      "company": "Grupo Azimute",
+      "phones": [
+        "+55 (47) 3473-6777",
+        "+55 (47) 99911-0824"
+      ],
+      "email": "rodrigo.battisti@grupoazimute.com.br"
+    },
+    {
+      "slug": "vander-piske",
+      "template": "grupo_azimute",
+      "active": true,
+      "name": "Vander Piske",
+      "role": "Gerente Comercial",
+      "credential": "Eng. Civil CREA-SC 061487-1",
+      "department": "Setor Comercial",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777",
+        "+55 47 99171-4951"
+      ],
+      "email": "vander@azimute.eng.br"
+    },
+    {
+      "slug": "caroline-thais-felippi",
+      "template": "grupo_azimute",
+      "active": true,
+      "name": "Caroline Thais Felippi",
+      "role": "Assistente Comercial",
+      "department": "Setor Comercial",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "47 3473-6777"
+      ],
+      "email": "caroline@grupoazimute.com.br"
+    },
+    {
+      "slug": "leticia-ramos-stolfi",
+      "template": "grupo_azimute",
+      "active": true,
+      "name": "Leticia Ramos Stolfi",
+      "role": "Executiva de Vendas Jr.",
+      "department": "Setor Comercial",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777",
+        "+55 47 99911-0824"
+      ],
+      "email": "leticia.stolfi@grupoazimute.com.br"
+    }
+  ]
+}

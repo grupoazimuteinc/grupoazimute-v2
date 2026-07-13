@@ -1,9 +1,41 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['grupoazimute.com.br', 'cdn.sanity.io']
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'grupoazimute.com.br',
+            },
+            {
+                protocol: 'https',
+                hostname: 'cdn.sanity.io',
+            },
+        ],
     },
-    // Configuração para evitar conflitos de porta
+    async redirects() {
+        return [
+            {
+                source: '/tools',
+                destination: '/dashboard/tools',
+                permanent: true,
+            },
+            {
+                source: '/tools/assinaturas',
+                destination: '/dashboard/tools/assinaturas',
+                permanent: true,
+            },
+            {
+                source: '/tools/assinaturas/:slug',
+                destination: '/dashboard/tools/assinaturas/:slug',
+                permanent: true,
+            },
+            {
+                source: '/tools/assinaturas/:slug/html',
+                destination: '/dashboard/tools/assinaturas/:slug/html',
+                permanent: true,
+            },
+        ]
+    },
     webpack: (config, { dev }) => {
         if (dev) {
             config.watchOptions = {
@@ -12,11 +44,6 @@ const nextConfig = {
             }
         }
         return config
-    },
-    // Configuração de porta para desenvolvimento
-    devIndicators: {
-        buildActivity: true,
-        buildActivityPosition: 'bottom-right',
     },
 }
 

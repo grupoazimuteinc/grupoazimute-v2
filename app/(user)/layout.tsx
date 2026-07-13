@@ -1,6 +1,7 @@
 import '../bootstrap.css'
 import '../globals.css'
 
+import { Suspense } from 'react'
 import { Toaster } from 'react-hot-toast'
 import { Roboto } from 'next/font/google'
 
@@ -68,7 +69,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <GoogleAnalytics GA_MEASUREMENT_ID="G-P76DHV77NQ" />
+      <Suspense fallback={null}>
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-P76DHV77NQ" />
+      </Suspense>
       <body className={ roboto.className }>
         <BitrixModalProvider>
           <BitrixWidget />

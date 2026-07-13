@@ -10,6 +10,7 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.7.5",
     "@fancyapps/fancybox": "^3.5.7",
     "@fancyapps/ui": "^5.0.35",
     "@grupoazimute/web.button": "^2.0.14",
@@ -24,12 +25,12 @@
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
     "eslint": "8.41.0",
-    "eslint-config-next": "13.4.3",
+    "eslint-config-next": "^14.2.35",
     "framer-motion": "^11.0.25",
     "get-youtube-id": "^1.0.1",
     "gsap": "^3.13.0",
     "jquery": "^3.7.1",
-    "next": "13.4.3",
+    "next": "^14.2.35",
     "next-sanity": "^4.3.3",
     "nodemailer": "^6.9.13",
     "postcss": "8.4.23",
