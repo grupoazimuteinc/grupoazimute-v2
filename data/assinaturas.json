@@ -61,12 +61,12 @@
       "template": "grupo_azimute",
       "active": true,
       "name": "Rodrigo Battisti",
-      "role": "SDR Pleno",
+      "role": "Sales Development Representative",
       "department": "Setor Comercial",
       "company": "Grupo Azimute",
       "phones": [
-        "+55 (47) 3473-6777",
-        "+55 (47) 99911-0824"
+        "+55 47 3473-6777",
+        "+55 47 9 9911-0824"
       ],
       "email": "rodrigo.battisti@grupoazimute.com.br"
     },
@@ -81,7 +81,7 @@
       "company": "Azimute Engenharia",
       "phones": [
         "+55 47 3473-6777",
-        "+55 47 99171-4951"
+        "+55 47 9 9171-4951"
       ],
       "email": "vander@azimute.eng.br"
     },
@@ -94,7 +94,8 @@
       "department": "Setor Comercial",
       "company": "Azimute Engenharia",
       "phones": [
-        "47 3473-6777"
+        "47 3473-6777",
+        "+55 47 9 9726-0011"
       ],
       "email": "caroline@grupoazimute.com.br"
     },
@@ -103,12 +104,12 @@
       "template": "grupo_azimute",
       "active": true,
       "name": "Leticia Ramos Stolfi",
-      "role": "Executiva de Vendas Jr.",
+      "role": "Executiva de Vendas",
       "department": "Setor Comercial",
       "company": "Azimute Engenharia",
       "phones": [
         "+55 47 3473-6777",
-        "+55 47 99911-0824"
+        "+55 47 9 9789-0909"
       ],
       "email": "leticia.stolfi@grupoazimute.com.br"
     }
