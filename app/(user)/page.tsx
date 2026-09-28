@@ -33,7 +33,7 @@ export default function Home() {
                   {/* Texto principal */}
                   <div className="text-center space-y-6">
                     <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                      O Grupo Azimute é uma holding empresarial que reúne empresas especializadas em diferentes segmentos, 
+                      O Grupo Azimute é um grupo empresarial que reúne empresas especializadas em diferentes segmentos, 
                       unidas por um compromisso comum: entregar soluções de alta qualidade e impulsionar o crescimento sustentável.
                     </p>
                     <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
