@@ -3,7 +3,7 @@ import {
   formatAddressLine3,
   formatDepartmentLine,
   formatPhones,
-  SIGNATURE_HEIGHT,
+  getSignatureHeight,
   SIGNATURE_WIDTH,
 } from '@/lib/assinaturas/format'
 import {
@@ -17,7 +17,8 @@ import {
 } from '@/lib/assinaturas/theme'
 import type { ResolvedSignature } from '@/lib/assinaturas/types'
 
-const FOOTER_BAR_HEIGHT = 26
+import { CampaignBar } from './campaign-bar'
+
 const FOOTER_ISO_SIZE = 50
 
 interface ContactRowProps {
@@ -65,6 +66,7 @@ interface GrupoAzimuteSignatureProps {
 
 export function GrupoAzimuteSignature({ signature }: GrupoAzimuteSignatureProps) {
   const { assets, address } = signature
+  const footerBar = assets.logos.footerBars[signature.template]
 
   const textStyle = {
     fontSize: 11,
@@ -80,7 +82,7 @@ export function GrupoAzimuteSignature({ signature }: GrupoAzimuteSignatureProps)
       <div
         style={{
           width: SIGNATURE_WIDTH,
-          height: SIGNATURE_HEIGHT,
+          height: getSignatureHeight(signature),
           backgroundColor: '#FFFFFF',
           fontFamily: SIGNATURE_FONT_FAMILY,
           boxSizing: 'border-box',
@@ -156,13 +158,13 @@ export function GrupoAzimuteSignature({ signature }: GrupoAzimuteSignatureProps)
           }}
         >
           <img
-            src={assets.logos.footerBar}
-            alt="Grupo Azimute"
-            width={499}
-            height={FOOTER_BAR_HEIGHT}
+            src={footerBar.src}
+            alt={footerBar.alt}
+            width={footerBar.width}
+            height={footerBar.height}
             style={{
-              width: 499,
-              height: FOOTER_BAR_HEIGHT,
+              width: footerBar.width,
+              height: footerBar.height,
               display: 'block',
               border: 0,
               flexShrink: 0,
@@ -183,6 +185,8 @@ export function GrupoAzimuteSignature({ signature }: GrupoAzimuteSignatureProps)
             }}
           />
         </div>
+
+        {signature.campaign ? <CampaignBar campaign={signature.campaign} /> : null}
       </div>
     </>
   )

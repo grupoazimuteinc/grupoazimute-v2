@@ -4,10 +4,13 @@ import {
   formatAddressLine3,
   formatDepartmentLine,
   formatPhones,
-  SIGNATURE_HEIGHT,
+  getSignatureHeight,
+  SIGNATURE_CAMPAIGN_HEIGHT,
   SIGNATURE_WIDTH,
 } from './format'
 import {
+  SIGNATURE_CAMPAIGN_ACCENT_COLOR,
+  SIGNATURE_CAMPAIGN_BACKGROUND,
   SIGNATURE_DIVIDER_COLOR,
   SIGNATURE_DIVIDER_WIDTH,
   SIGNATURE_FONT_FAMILY,
@@ -16,9 +19,8 @@ import {
   SIGNATURE_FONT_WEIGHT_MEDIUM,
   SIGNATURE_TEXT_COLOR,
 } from './theme'
-import type { ResolvedSignature } from './types'
+import type { ResolvedSignature, SignatureFooterBar } from './types'
 
-const FOOTER_BAR_HEIGHT = 26
 const FOOTER_ISO_SIZE = 50
 
 function escapeHtml(value: string): string {
@@ -58,8 +60,39 @@ function footerImage(src: string, alt: string, width: number, height: number): s
   return `<img src="${src}" alt="${escapeHtml(alt)}" width="${width}" height="${height}" style="display:block; border:0; width:${width}px; height:${height}px;" />`
 }
 
-export function renderGrupoAzimuteHtml(signature: ResolvedSignature): string {
+function campaignRow(signature: ResolvedSignature): string {
+  const { campaign } = signature
+
+  if (!campaign) {
+    return ''
+  }
+
+  const text = campaign.icon ? `${campaign.icon} ${campaign.text}` : campaign.text
+  const cellStyle = `font-family:${SIGNATURE_FONT_FAMILY}; font-size:11px; line-height:14px; vertical-align:middle;`
+
+  return `
+      <tr>
+        <td style="padding:0; height:${SIGNATURE_CAMPAIGN_HEIGHT}px; vertical-align:middle;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="${SIGNATURE_CAMPAIGN_BACKGROUND}" style="border-collapse:collapse; background:${SIGNATURE_CAMPAIGN_BACKGROUND}; height:${SIGNATURE_CAMPAIGN_HEIGHT}px;">
+            <tr>
+              <td align="left" style="${cellStyle} padding:0 12px; font-weight:${SIGNATURE_FONT_WEIGHT_MEDIUM}; color:${SIGNATURE_TEXT_COLOR};">
+                ${escapeHtml(text)}
+              </td>
+              <td align="right" style="${cellStyle} padding:0 12px; white-space:nowrap;">
+                <a href="${escapeHtml(campaign.ctaUrl)}" target="_blank" style="font-family:${SIGNATURE_FONT_FAMILY}; font-size:11px; font-weight:${SIGNATURE_FONT_WEIGHT_BOLD}; color:${SIGNATURE_CAMPAIGN_ACCENT_COLOR}; text-decoration:none;">${escapeHtml(campaign.ctaLabel)}&nbsp;&rsaquo;</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>`
+}
+
+function renderStandardSignatureHtml(
+  signature: ResolvedSignature,
+  footerBar: SignatureFooterBar
+): string {
   const { assets, address } = signature
+  const height = getSignatureHeight(signature)
   const logos = assets.logos
   const icons = assets.icons
 
@@ -79,7 +112,7 @@ export function renderGrupoAzimuteHtml(signature: ResolvedSignature): string {
     <link href="${SIGNATURE_FONT_URL}" rel="stylesheet" />
   </head>
   <body style="margin:0; padding:0;">
-    <table cellpadding="0" cellspacing="0" border="0" width="${SIGNATURE_WIDTH}" height="${SIGNATURE_HEIGHT}" style="width:${SIGNATURE_WIDTH}px; height:${SIGNATURE_HEIGHT}px; border-collapse:collapse; font-family:${SIGNATURE_FONT_FAMILY}; background:#FFFFFF;">
+    <table cellpadding="0" cellspacing="0" border="0" width="${SIGNATURE_WIDTH}" height="${height}" style="width:${SIGNATURE_WIDTH}px; height:${height}px; border-collapse:collapse; font-family:${SIGNATURE_FONT_FAMILY}; background:#FFFFFF;">
       <tr>
         <td style="padding:14px 0 10px 0; vertical-align:top; height:118px;">
           <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;">
@@ -131,7 +164,7 @@ export function renderGrupoAzimuteHtml(signature: ResolvedSignature): string {
           <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;">
             <tr>
               <td align="left" style="padding:0; vertical-align:middle;">
-                ${footerImage(assetUrl(signature, logos.footerBar), 'Grupo Azimute', 499, FOOTER_BAR_HEIGHT)}
+                ${footerImage(assetUrl(signature, footerBar.src), footerBar.alt, footerBar.width, footerBar.height)}
               </td>
               <td align="right" style="padding:0; vertical-align:middle;">
                 ${footerImage(assetUrl(signature, logos.iso), 'ISO 9001', FOOTER_ISO_SIZE, FOOTER_ISO_SIZE)}
@@ -139,17 +172,18 @@ export function renderGrupoAzimuteHtml(signature: ResolvedSignature): string {
             </tr>
           </table>
         </td>
-      </tr>
+      </tr>${campaignRow(signature)}
     </table>
   </body>
 </html>`
 }
 
 export function renderSignatureHtml(signature: ResolvedSignature): string {
-  switch (signature.template) {
-    case 'grupo_azimute':
-      return renderGrupoAzimuteHtml(signature)
-    default:
-      throw new Error(`Template "${signature.template}" não suportado`)
+  const footerBar = signature.assets.logos.footerBars[signature.template]
+
+  if (!footerBar) {
+    throw new Error(`Template "${signature.template}" não suportado`)
   }
+
+  return renderStandardSignatureHtml(signature, footerBar)
 }

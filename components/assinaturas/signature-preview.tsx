@@ -7,10 +7,10 @@ interface SignaturePreviewProps {
 }
 
 export function SignaturePreview({ signature }: SignaturePreviewProps) {
-  switch (signature.template) {
-    case 'grupo_azimute':
-      return <GrupoAzimuteSignature signature={signature} />
-    default:
-      return <p>Template não suportado.</p>
+  if (!signature.assets.logos.footerBars[signature.template]) {
+    return <p>Template não suportado.</p>
   }
+
+  return <GrupoAzimuteSignature signature={signature} />
+
 }

@@ -4,9 +4,13 @@ import { notFound } from 'next/navigation'
 import { CopyHtmlButton } from '@/components/assinaturas/copy-html-button'
 import { CopyUrlButton } from '@/components/assinaturas/copy-url-button'
 import { SignaturePreview } from '@/components/assinaturas/signature-preview'
-import { getSignatureBySlug } from '@/lib/assinaturas/get-signature'
+import { SIGNATURE_WIDTH, getSignatureHeight } from '@/lib/assinaturas/format'
+import { getCollaboratorBySlug, getSignatureBySlug } from '@/lib/assinaturas/get-signature'
 import { renderSignatureHtml } from '@/lib/assinaturas/render-signature'
 import { getSignatureHtmlUrl } from '@/lib/assinaturas/signature-url'
+
+// Reflete na hora a campanha escolhida no dashboard
+export const dynamic = 'force-dynamic'
 
 interface AssinaturaDetailPageProps {
   params: {
@@ -15,15 +19,15 @@ interface AssinaturaDetailPageProps {
 }
 
 export function generateMetadata({ params }: AssinaturaDetailPageProps) {
-  const signature = getSignatureBySlug(params.slug)
+  const collaborator = getCollaboratorBySlug(params.slug)
 
   return {
-    title: signature ? `Assinatura | ${signature.name}` : 'Assinatura não encontrada',
+    title: collaborator ? `Assinatura | ${collaborator.name}` : 'Assinatura não encontrada',
   }
 }
 
-export default function AssinaturaDetailPage({ params }: AssinaturaDetailPageProps) {
-  const signature = getSignatureBySlug(params.slug)
+export default async function AssinaturaDetailPage({ params }: AssinaturaDetailPageProps) {
+  const signature = await getSignatureBySlug(params.slug)
 
   if (!signature) {
     notFound()
@@ -45,7 +49,15 @@ export default function AssinaturaDetailPage({ params }: AssinaturaDetailPagePro
             {signature.name}
           </h1>
           <p className="dashboard-page__description">
-            Template: <strong>{signature.template}</strong> · 720×200px
+            Template: <strong>{signature.template}</strong> · {SIGNATURE_WIDTH}×
+            {getSignatureHeight(signature)}px
+            {signature.campaign ? (
+              <>
+                {' '}
+                · Mensagem: <strong>{signature.campaign.title}</strong>{' '}
+                (<Link href="/dashboard/tools/assinaturas">alterar</Link>)
+              </>
+            ) : null}
           </p>
         </div>
 

@@ -14,7 +14,14 @@
     "assets": {
       "baseUrl": "https://grupoazimute.com.br",
       "logos": {
-        "footerBar": "/images/assinaturas/grupo-azimute-assinatura-de-email.png",
+        "footerBars": {
+          "grupo_azimute": { "src": "/images/assinaturas/grupo-azimute-assinatura-de-email.png", "width": 499, "height": 26, "alt": "Grupo Azimute" },
+          "azimute_engenharia": { "src": "/images/assinaturas/azimute-engenharia-assinatura-de-email.png", "width": 215, "height": 26, "alt": "Azimute Engenharia | Grupo Azimute" },
+          "azimute_imoveis": { "src": "/images/assinaturas/azimute-imoveis-assinatura-de-email.png", "width": 193, "height": 26, "alt": "Azimute Imóveis | Grupo Azimute" },
+          "azimute_tech": { "src": "/images/assinaturas/azimute-tech-assinatura-de-email.png", "width": 190, "height": 26, "alt": "Azimute Tech | Grupo Azimute" },
+          "azimute_san": { "src": "/images/assinaturas/azimute-san-assinatura-de-email.png", "width": 189, "height": 26, "alt": "Azimute SAN | Grupo Azimute" },
+          "aria": { "src": "/images/assinaturas/aria-assinatura-de-email.png", "width": 181, "height": 26, "alt": "Aria | Grupo Azimute" }
+        },
         "iso": "/images/assinaturas/iso-assinatura-de-email.png"
       },
       "icons": {
@@ -25,10 +32,33 @@
       }
     }
   },
+  "categories": [
+    {
+      "id": "administrativo",
+      "title": "Administrativo"
+    },
+    {
+      "id": "comercial",
+      "title": "Comercial"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "fim-de-ano-2026",
+      "title": "Fim de ano 2026",
+      "startsAt": "2026-11-01",
+      "endsAt": "2027-01-10",
+      "icon": "🎄",
+      "text": "Atenção aos prazos de fim de ano do Grupo Azimute: emissão de notas fiscais e pagamentos",
+      "ctaLabel": "Clique aqui",
+      "ctaUrl": "https://grupoazimute.com.br/documents/comunicado_final-ano-2026_fornecedores.pdf"
+    }
+  ],
   "collaborators": [
     {
       "slug": "tayse-rachadel",
       "template": "grupo_azimute",
+      "category": "comercial",
       "active": true,
       "name": "Tayse Rachadel Hüttl",
       "role": "Coordenadora de Vendas",
@@ -44,6 +74,7 @@
     {
       "slug": "ricardo-navarro",
       "template": "grupo_azimute",
+      "category": "comercial",
       "active": true,
       "name": "Ricardo Navarro",
       "role": "Executivo de Vendas",
@@ -59,6 +90,7 @@
     {
       "slug": "rodrigo-battisti",
       "template": "grupo_azimute",
+      "category": "comercial",
       "active": true,
       "name": "Rodrigo Battisti",
       "role": "SDR - Sales Development Representative",
@@ -73,6 +105,7 @@
     {
       "slug": "vander-piske",
       "template": "grupo_azimute",
+      "category": "comercial",
       "active": true,
       "name": "Vander Piske",
       "role": "Gerente Comercial",
@@ -88,6 +121,7 @@
     {
       "slug": "caroline-thais-felippi",
       "template": "grupo_azimute",
+      "category": "comercial",
       "active": true,
       "name": "Caroline Thais Felippi",
       "role": "Assistente Comercial",
@@ -102,6 +136,7 @@
     {
       "slug": "leticia-ramos-stolfi",
       "template": "grupo_azimute",
+      "category": "comercial",
       "active": true,
       "name": "Leticia Ramos Stolfi",
       "role": "Executiva de Vendas",
@@ -112,6 +147,149 @@
         "+55 47 9 9789-0909"
       ],
       "email": "leticia.stolfi@grupoazimute.com.br"
+    },
+    {
+      "slug": "giovana-albrecht",
+      "template": "grupo_azimute",
+      "category": "comercial",
+      "active": true,
+      "name": "Giovana Albrecht",
+      "role": "Aprendiz - Assistente Administrativo",
+      "department": "Setor Comercial",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777"
+      ],
+      "email": "giovana.albreht@azimute.eng.br"
+    },
+    {
+      "slug": "rafael-valdez",
+      "template": "azimute_engenharia",
+      "category": "administrativo",
+      "active": true,
+      "name": "Rafael Valdez",
+      "role": "Gerente Administrativo Financeiro",
+      "department": "Administrativo",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777"
+      ],
+      "email": "rafael.valdez@azimute.eng.br"
+    },
+    {
+      "slug": "renan-morone",
+      "template": "azimute_engenharia",
+      "category": "administrativo",
+      "active": true,
+      "name": "Renan Morone",
+      "role": "Gerente Administrativo",
+      "department": "Administrativo",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777",
+        "+55 47 99652-8124"
+      ],
+      "email": "renan@azimute.eng.br"
+    },
+    {
+      "slug": "thiago-farias",
+      "template": "azimute_engenharia",
+      "category": "administrativo",
+      "active": true,
+      "name": "Thiago Farias",
+      "role": "Controller Júnior",
+      "department": "Administrativo",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777",
+        "+55 47 99937-7498"
+      ],
+      "email": "thiago@azimute.eng.br"
+    },
+    {
+      "slug": "jenifer-schroder-stepic-pacheco",
+      "template": "azimute_engenharia",
+      "category": "administrativo",
+      "active": true,
+      "name": "Jenifer Schröder Stepic Pacheco",
+      "role": "Assistente Financeiro",
+      "department": "Administrativo",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777",
+        "+55 47 99652-8124"
+      ],
+      "email": "jenifer.pacheco@grupoazimute.com.br"
+    },
+    {
+      "slug": "mirian-wolfgramm-piske",
+      "template": "azimute_engenharia",
+      "category": "administrativo",
+      "active": true,
+      "name": "Mirian Wolfgramm Piske",
+      "role": "Assistente Administrativo e Financeiro",
+      "department": "Administrativo",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777"
+      ],
+      "email": "mirian@grupoazimute.com.br"
+    },
+    {
+      "slug": "jessica-rodrigues-alflen-selonke",
+      "template": "azimute_engenharia",
+      "category": "administrativo",
+      "active": true,
+      "name": "Jéssica Rodrigues Alflen Selonke",
+      "role": "Assistente Administrativo",
+      "department": "Administrativo",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777"
+      ],
+      "email": "jessica.rodrigues@azimute.eng.br"
+    },
+    {
+      "slug": "gustavo-dos-santos-moreira",
+      "template": "azimute_engenharia",
+      "category": "administrativo",
+      "active": true,
+      "name": "Gustavo dos Santos Moreira",
+      "role": "Auxiliar Administrativo",
+      "department": "Administrativo",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777"
+      ],
+      "email": "compras@grupoazimute.com.br"
+    },
+    {
+      "slug": "nathaly-vitoria",
+      "template": "azimute_engenharia",
+      "category": "administrativo",
+      "active": true,
+      "name": "Nathaly Vitoria",
+      "role": "Menor Aprendiz",
+      "department": "Administrativo",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777"
+      ],
+      "email": "nathaly.barbosa@azimute.eng.br"
+    },
+    {
+      "slug": "kauane-rafaella",
+      "template": "azimute_engenharia",
+      "category": "administrativo",
+      "active": true,
+      "name": "Kauane Rafaella",
+      "role": "Assistente Administrativo - Recepção",
+      "department": "Administrativo",
+      "company": "Azimute Engenharia",
+      "phones": [
+        "+55 47 3473-6777"
+      ],
+      "email": "recepcao@azimute.eng.br"
     }
   ]
 }

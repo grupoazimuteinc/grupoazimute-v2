@@ -2,6 +2,11 @@ import type { ResolvedSignature, SignatureAddress } from './types'
 
 export const SIGNATURE_WIDTH = 720
 export const SIGNATURE_HEIGHT = 200
+export const SIGNATURE_CAMPAIGN_HEIGHT = 30
+
+export function getSignatureHeight(signature: ResolvedSignature): number {
+  return signature.campaign ? SIGNATURE_HEIGHT + SIGNATURE_CAMPAIGN_HEIGHT : SIGNATURE_HEIGHT
+}
 
 export function formatPhones(phones: string[]): string {
   return phones.join(' | ')
