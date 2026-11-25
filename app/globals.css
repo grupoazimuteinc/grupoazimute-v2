@@ -382,7 +382,6 @@ footer a:hover { color: #404040; text-decoration: underline !important; }
 
 
 .links span { position: relative; display: inline-block; margin-bottom: 0 !important; }
-.links span:hover .list-dropdown { display: block; }
 .links .list-dropdown {
 	position: absolute;
 	top: 100%;
@@ -392,7 +391,31 @@ footer a:hover { color: #404040; text-decoration: underline !important; }
 	background: #EFEFEF;
 	box-shadow: 0 5px 30px rgba(0,0,0,.1);
 	margin: 0;
-	display: none;
+	display: block;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY(8px);
+	pointer-events: none;
+	/* Ao sair: espera um pouco antes de esconder, para o mouse alcançar a lista */
+	transition: opacity .2s ease, transform .2s ease, visibility 0s linear .45s;
+	transition-delay: .25s, .25s, .45s;
+}
+/* Ponte invisível entre o item do menu e a lista, evitando perder o hover no trajeto */
+.links .list-dropdown::before {
+	content: '';
+	position: absolute;
+	left: -30px;
+	right: 0;
+	top: -20px;
+	height: 20px;
+}
+.links span:hover .list-dropdown,
+.links span:focus-within .list-dropdown {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0);
+	pointer-events: auto;
+	transition-delay: 0s, 0s, 0s;
 }
 .links .list-dropdown li {
 	list-style: none;
