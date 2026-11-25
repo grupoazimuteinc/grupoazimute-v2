@@ -5,12 +5,13 @@ import {
   formatDepartmentLine,
   formatPhones,
   getSignatureHeight,
+  hasBlockGap,
+  SIGNATURE_BLOCK_GAP,
   SIGNATURE_CAMPAIGN_HEIGHT,
   SIGNATURE_WIDTH,
 } from './format'
 import {
-  SIGNATURE_CAMPAIGN_ACCENT_COLOR,
-  SIGNATURE_CAMPAIGN_BACKGROUND,
+  SIGNATURE_CAMPAIGN_BORDER_COLOR,
   SIGNATURE_DIVIDER_COLOR,
   SIGNATURE_DIVIDER_WIDTH,
   SIGNATURE_FONT_FAMILY,
@@ -72,17 +73,52 @@ function campaignRow(signature: ResolvedSignature): string {
 
   return `
       <tr>
-        <td style="padding:0; height:${SIGNATURE_CAMPAIGN_HEIGHT}px; vertical-align:middle;">
-          <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="${SIGNATURE_CAMPAIGN_BACKGROUND}" style="border-collapse:collapse; background:${SIGNATURE_CAMPAIGN_BACKGROUND}; height:${SIGNATURE_CAMPAIGN_HEIGHT}px;">
+        <td style="padding:0; height:${SIGNATURE_CAMPAIGN_HEIGHT - 2}px; vertical-align:middle; border:1px solid ${SIGNATURE_CAMPAIGN_BORDER_COLOR}; background:#FFFFFF;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse; height:${SIGNATURE_CAMPAIGN_HEIGHT - 2}px;">
             <tr>
               <td align="left" style="${cellStyle} padding:0 12px; font-weight:${SIGNATURE_FONT_WEIGHT_MEDIUM}; color:${SIGNATURE_TEXT_COLOR};">
                 ${escapeHtml(text)}
               </td>
               <td align="right" style="${cellStyle} padding:0 12px; white-space:nowrap;">
-                <a href="${escapeHtml(campaign.ctaUrl)}" target="_blank" style="font-family:${SIGNATURE_FONT_FAMILY}; font-size:11px; font-weight:${SIGNATURE_FONT_WEIGHT_BOLD}; color:${SIGNATURE_CAMPAIGN_ACCENT_COLOR}; text-decoration:none;">${escapeHtml(campaign.ctaLabel)}&nbsp;&rsaquo;</a>
+                <a href="${escapeHtml(campaign.ctaUrl)}" target="_blank" style="font-family:${SIGNATURE_FONT_FAMILY}; font-size:11px; line-height:14px; font-weight:${SIGNATURE_FONT_WEIGHT_BOLD}; color:${SIGNATURE_TEXT_COLOR}; text-decoration:none;">${escapeHtml(campaign.ctaLabel)}&nbsp;&rsaquo;</a>
               </td>
             </tr>
           </table>
+        </td>
+      </tr>`
+}
+
+function gapRow(signature: ResolvedSignature): string {
+  if (!hasBlockGap(signature)) {
+    return ''
+  }
+
+  return `
+      <tr>
+        <td style="padding:0; height:${SIGNATURE_BLOCK_GAP}px; font-size:0; line-height:0;">&nbsp;</td>
+      </tr>`
+}
+
+function complementRow(signature: ResolvedSignature): string {
+  const { complement } = signature
+
+  if (!complement) {
+    return ''
+  }
+
+  const image = `<img src="${assetUrl(signature, complement.image)}" alt="${escapeHtml(complement.alt)}" width="${complement.width}" height="${complement.height}" style="display:block; margin:0 auto; border:0; width:${complement.width}px; height:${complement.height}px; font-family:${SIGNATURE_FONT_FAMILY}; font-size:11px; color:${SIGNATURE_TEXT_COLOR};" />`
+  const content = complement.href
+    ? `<a href="${escapeHtml(complement.href)}" target="_blank" style="display:inline-block; text-decoration:none;">${image}</a>`
+    : image
+
+  const background = complement.background
+    ? ` bgcolor="${complement.background}" style="padding:0; height:${complement.height}px; line-height:0; font-size:0; background:${complement.background};"`
+    : ` style="padding:0; height:${complement.height}px; line-height:0; font-size:0;"`
+
+  return `
+      <tr>
+        <td align="center" valign="top" width="${SIGNATURE_WIDTH}"${background}>
+          ${content}
         </td>
       </tr>`
 }
@@ -172,7 +208,7 @@ function renderStandardSignatureHtml(
             </tr>
           </table>
         </td>
-      </tr>${campaignRow(signature)}
+      </tr>${complementRow(signature)}${gapRow(signature)}${campaignRow(signature)}
     </table>
   </body>
 </html>`

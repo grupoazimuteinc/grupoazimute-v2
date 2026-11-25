@@ -4,6 +4,8 @@ import {
   formatDepartmentLine,
   formatPhones,
   getSignatureHeight,
+  hasBlockGap,
+  SIGNATURE_BLOCK_GAP,
   SIGNATURE_WIDTH,
 } from '@/lib/assinaturas/format'
 import {
@@ -18,6 +20,7 @@ import {
 import type { ResolvedSignature } from '@/lib/assinaturas/types'
 
 import { CampaignBar } from './campaign-bar'
+import { ComplementImage } from './complement-image'
 
 const FOOTER_ISO_SIZE = 50
 
@@ -186,6 +189,8 @@ export function GrupoAzimuteSignature({ signature }: GrupoAzimuteSignatureProps)
           />
         </div>
 
+        {signature.complement ? <ComplementImage complement={signature.complement} /> : null}
+        {hasBlockGap(signature) ? <div style={{ height: SIGNATURE_BLOCK_GAP }} /> : null}
         {signature.campaign ? <CampaignBar campaign={signature.campaign} /> : null}
       </div>
     </>

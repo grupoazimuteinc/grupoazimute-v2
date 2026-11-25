@@ -58,6 +58,12 @@ export default async function AssinaturaDetailPage({ params }: AssinaturaDetailP
                 (<Link href="/dashboard/tools/assinaturas">alterar</Link>)
               </>
             ) : null}
+            {signature.complement ? (
+              <>
+                {' '}
+                · Complemento: <strong>{signature.complement.title}</strong>
+              </>
+            ) : null}
           </p>
         </div>
 

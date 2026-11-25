@@ -3,8 +3,12 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { revalidatePath, revalidateTag } from 'next/cache'
 
-import { CAMPAIGN_SETTINGS_TAG, saveCampaignSettings } from '@/lib/assinaturas/campaign-settings'
-import { getCampaigns, getCategoryById } from '@/lib/assinaturas/get-signature'
+import {
+  CAMPAIGN_SETTINGS_TAG,
+  saveCampaignSettings,
+  saveComplementSettings,
+} from '@/lib/assinaturas/campaign-settings'
+import { getCampaigns, getCategoryById, getComplements } from '@/lib/assinaturas/get-signature'
 import type { CampaignSettings } from '@/lib/assinaturas/types'
 
 export interface SaveCampaignSettingsResult {
@@ -55,6 +59,58 @@ export async function saveCampaignAssignmentsAction(input: {
     await saveCampaignSettings(userId, entries, updatedBy)
   } catch (error) {
     console.error('[assinaturas] Falha ao salvar configuração de campanha', error)
+    return { ok: false, error: 'Não foi possível salvar. Tente novamente.' }
+  }
+
+  revalidateTag(CAMPAIGN_SETTINGS_TAG)
+  revalidatePath('/dashboard/tools/assinaturas', 'layout')
+
+  return { ok: true }
+}
+
+/**
+ * Complemento (imagem) por departamento: `{ [categoryId]: complementId | null }`.
+ * Recebe só as categorias alteradas; `null` remove o complemento.
+ */
+export async function saveComplementAssignmentsAction(input: {
+  assignments: Record<string, string | null>
+}): Promise<SaveCampaignSettingsResult> {
+  const { userId } = auth()
+
+  if (!userId) {
+    return { ok: false, error: 'Não autorizado.' }
+  }
+
+  const complementIds = new Set(getComplements().map((complement) => complement.id))
+  const entries: Record<string, string | null> = {}
+
+  for (const [categoryId, rawComplementId] of Object.entries(input.assignments)) {
+    if (!getCategoryById(categoryId)) {
+      return { ok: false, error: `Departamento "${categoryId}" não encontrado no assinaturas.json.` }
+    }
+
+    const complementId = rawComplementId || null
+
+    if (complementId && !complementIds.has(complementId)) {
+      return { ok: false, error: 'Complemento não encontrado no assinaturas.json.' }
+    }
+
+    entries[categoryId] = complementId
+  }
+
+  if (Object.keys(entries).length === 0) {
+    return { ok: true }
+  }
+
+  try {
+    const user = await currentUser()
+    const updatedBy =
+      [user?.firstName, user?.lastName].filter(Boolean).join(' ') ||
+      user?.primaryEmailAddress?.emailAddress
+
+    await saveComplementSettings(userId, entries, updatedBy)
+  } catch (error) {
+    console.error('[assinaturas] Falha ao salvar complemento', error)
     return { ok: false, error: 'Não foi possível salvar. Tente novamente.' }
   }
 

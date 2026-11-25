@@ -4,6 +4,7 @@ import type {
   SignatureAddress,
   SignatureCampaign,
   SignatureCampaignStatus,
+  SignatureComplement,
   SignatureDefaults,
 } from './types'
 
@@ -28,7 +29,7 @@ function todayInSaoPaulo(now: Date): string {
 }
 
 export function getCampaignStatus(
-  campaign: SignatureCampaign,
+  campaign: Pick<SignatureCampaign, 'startsAt' | 'endsAt'>,
   now: Date = new Date()
 ): SignatureCampaignStatus {
   const today = todayInSaoPaulo(now)
@@ -44,14 +45,17 @@ export function getCampaignStatus(
   return 'active'
 }
 
-export function isCampaignActive(campaign: SignatureCampaign, now: Date = new Date()): boolean {
+export function isCampaignActive(
+  campaign: Pick<SignatureCampaign, 'startsAt' | 'endsAt'>,
+  now: Date = new Date()): boolean {
   return getCampaignStatus(campaign, now) === 'active'
 }
 
 export function resolveSignature(
   collaborator: CollaboratorSignature,
   defaults: SignatureDefaults,
-  campaign: SignatureCampaign | null
+  campaign: SignatureCampaign | null,
+  complement: SignatureComplement | null = null
 ): ResolvedSignature {
   return {
     slug: collaborator.slug,
@@ -69,5 +73,6 @@ export function resolveSignature(
     address: mergeAddress(defaults.address, collaborator.address),
     assets: defaults.assets,
     campaign,
+    complement,
   }
 }

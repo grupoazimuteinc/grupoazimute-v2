@@ -1,11 +1,21 @@
 import signaturesData from '@/data/assinaturas.json'
 
-import { getCampaignSettings, getCategorySettings } from './campaign-settings'
+import {
+  getCampaignSettings,
+  getCategoryComplementSettings,
+  getCategorySettings,
+  getComplementSettings,
+} from './campaign-settings'
 import { isCampaignActive, resolveSignature } from './resolve-signature'
 import type {
   CampaignSettings,
+  CampaignSettingsByCategory,
+  CollaboratorSignature,
+  ComplementSettingsByCategory,
+  ComplementSettings,
   ResolvedSignature,
   SignatureCampaign,
+  SignatureComplement,
   SignatureCategory,
   SignaturesData,
 } from './types'
@@ -44,6 +54,39 @@ export function getLiveCampaign(settings: CampaignSettings): SignatureCampaign |
   return campaign && isCampaignActive(campaign) ? campaign : null
 }
 
+export function getComplements(): SignatureComplement[] {
+  return data.complements ?? []
+}
+
+/** Complemento no ar para uma categoria: escolhido no dashboard + existente + dentro do período. */
+export function getLiveComplement(settings: ComplementSettings): SignatureComplement | null {
+  if (!settings.complementId) {
+    return null
+  }
+
+  const complement = getComplements().find((item) => item.id === settings.complementId)
+
+  return complement && isCampaignActive(complement) ? complement : null
+}
+
+function resolveWithSettings(
+  collaborator: CollaboratorSignature,
+  campaignSettings: CampaignSettingsByCategory,
+  complementSettings: ComplementSettingsByCategory
+): ResolvedSignature {
+  const eligible = !collaborator.hideCampaigns && Boolean(getCategoryById(collaborator.category))
+
+  const campaign = eligible
+    ? getLiveCampaign(getCategorySettings(campaignSettings, collaborator.category))
+    : null
+
+  const complement = eligible
+    ? getLiveComplement(getCategoryComplementSettings(complementSettings, collaborator.category))
+    : null
+
+  return resolveSignature(collaborator, data.defaults, campaign, complement)
+}
+
 export async function getSignatureBySlug(slug: string): Promise<ResolvedSignature | null> {
   const collaborator = getCollaboratorBySlug(slug)
 
@@ -51,12 +94,34 @@ export async function getSignatureBySlug(slug: string): Promise<ResolvedSignatur
     return null
   }
 
-  const campaign =
-    collaborator.hideCampaigns || !getCategoryById(collaborator.category)
-      ? null
-      : getLiveCampaign(getCategorySettings(await getCampaignSettings(), collaborator.category))
+  return resolveWithSettings(collaborator, await getCampaignSettings(), await getComplementSettings())
+}
 
-  return resolveSignature(collaborator, data.defaults, campaign)
+/** Todas as assinaturas ativas, agrupadas por categoria (na ordem do JSON). */
+export async function getAllSignaturesByCategory(): Promise<
+  { category: SignatureCategory | null; signatures: ResolvedSignature[] }[]
+> {
+  const [campaignSettings, complementSettings] = await Promise.all([
+    getCampaignSettings(),
+    getComplementSettings(),
+  ])
+  const collaborators = getAllCollaborators()
+  const resolve = (items: CollaboratorSignature[]) =>
+    items.map((item) => resolveWithSettings(item, campaignSettings, complementSettings))
+
+  const groups: { category: SignatureCategory | null; signatures: ResolvedSignature[] }[] =
+    getCategories().map((category) => ({
+      category,
+      signatures: resolve(collaborators.filter((item) => item.category === category.id)),
+    }))
+
+  const uncategorized = collaborators.filter((item) => !getCategoryById(item.category))
+
+  if (uncategorized.length > 0) {
+    groups.push({ category: null, signatures: resolve(uncategorized) })
+  }
+
+  return groups
 }
 
 export function getSignaturesData(): SignaturesData {

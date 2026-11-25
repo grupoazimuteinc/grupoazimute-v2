@@ -54,6 +54,19 @@
       "ctaUrl": "https://grupoazimute.com.br/documents/comunicado_final-ano-2026_fornecedores.pdf"
     }
   ],
+  "complements": [
+    {
+      "id": "ferias-coletivas-natal-2026",
+      "title": "Férias coletivas + Natal 2026",
+      "image": "/images/assinaturas/complementos/ferias-coletivas-natal-2026-710x65.png",
+      "width": 710,
+      "height": 65,
+      "background": "#F7F5F1",
+      "alt": "Grupo Azimute informa: estaremos em férias coletivas a partir do dia 21/12/2026, com retorno às atividades no dia 11/01/2027. Desejamos um Natal cheio de luz e um Ano Novo repleto de prosperidade, saúde e novas conquistas a todos.",
+      "startsAt": "2026-11-01",
+      "endsAt": "2027-01-11"
+    }
+  ],
   "collaborators": [
     {
       "slug": "tayse-rachadel",

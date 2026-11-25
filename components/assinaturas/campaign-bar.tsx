@@ -1,7 +1,6 @@
 import { SIGNATURE_CAMPAIGN_HEIGHT } from '@/lib/assinaturas/format'
 import {
-  SIGNATURE_CAMPAIGN_ACCENT_COLOR,
-  SIGNATURE_CAMPAIGN_BACKGROUND,
+  SIGNATURE_CAMPAIGN_BORDER_COLOR,
   SIGNATURE_FONT_FAMILY,
   SIGNATURE_FONT_WEIGHT_BOLD,
   SIGNATURE_FONT_WEIGHT_MEDIUM,
@@ -18,7 +17,8 @@ export function CampaignBar({ campaign }: CampaignBarProps) {
     <div
       style={{
         height: SIGNATURE_CAMPAIGN_HEIGHT,
-        backgroundColor: SIGNATURE_CAMPAIGN_BACKGROUND,
+        backgroundColor: '#FFFFFF',
+        border: `1px solid ${SIGNATURE_CAMPAIGN_BORDER_COLOR}`,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -39,8 +39,10 @@ export function CampaignBar({ campaign }: CampaignBarProps) {
         target="_blank"
         rel="noreferrer"
         style={{
+          fontSize: 11,
+          lineHeight: '14px',
           fontWeight: SIGNATURE_FONT_WEIGHT_BOLD,
-          color: SIGNATURE_CAMPAIGN_ACCENT_COLOR,
+          color: SIGNATURE_TEXT_COLOR,
           textDecoration: 'none',
           whiteSpace: 'nowrap',
           flexShrink: 0,

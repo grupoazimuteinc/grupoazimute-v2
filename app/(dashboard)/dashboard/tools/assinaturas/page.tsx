@@ -1,15 +1,23 @@
 import Link from 'next/link'
 
 import { CampaignSettingsPanel } from '@/components/assinaturas/campaign-settings-panel'
-import { getCampaignSettings, getCategorySettings } from '@/lib/assinaturas/campaign-settings'
+import { ComplementSettingsPanel } from '@/components/assinaturas/complement-settings-panel'
+import {
+  getCampaignSettings,
+  getCategoryComplementSettings,
+  getCategorySettings,
+  getComplementSettings,
+} from '@/lib/assinaturas/campaign-settings'
 import {
   getAllCollaborators,
   getCampaigns,
   getCategories,
+  getComplements,
   getLiveCampaign,
+  getLiveComplement,
 } from '@/lib/assinaturas/get-signature'
 import { getCampaignStatus } from '@/lib/assinaturas/resolve-signature'
-import type { SignatureCampaign } from '@/lib/assinaturas/types'
+import type { SignatureCampaign, SignatureComplement } from '@/lib/assinaturas/types'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,7 +26,7 @@ function formatDate(value: string) {
   return `${day}/${month}/${year}`
 }
 
-function statusLabel(campaign: SignatureCampaign) {
+function statusLabel(campaign: Pick<SignatureCampaign | SignatureComplement, 'startsAt' | 'endsAt'>) {
   switch (getCampaignStatus(campaign)) {
     case 'scheduled':
       return `começa em ${formatDate(campaign.startsAt!)}`
@@ -36,6 +44,7 @@ export const metadata = {
 export default async function AssinaturasPage() {
   const collaborators = getAllCollaborators()
   const settingsByCategory = await getCampaignSettings()
+  const complementSettingsByCategory = await getComplementSettings()
   const categories = getCategories()
   const knownCategoryIds = new Set(categories.map((category) => category.id))
   const uncategorized = collaborators.filter(
@@ -47,9 +56,16 @@ export default async function AssinaturasPage() {
     statusLabel: statusLabel(campaign),
   }))
 
+  const complementOptions = getComplements().map((complement) => ({
+    ...complement,
+    status: getCampaignStatus(complement),
+    statusLabel: statusLabel(complement),
+  }))
+
   const categorySettings = categories.map((category) => ({
     category,
     settings: getCategorySettings(settingsByCategory, category.id),
+    complementSettings: getCategoryComplementSettings(complementSettingsByCategory, category.id),
     members: collaborators.filter((collaborator) => collaborator.category === category.id),
   }))
   const assignments = Object.fromEntries(
@@ -58,6 +74,21 @@ export default async function AssinaturasPage() {
       settings.enabled ? settings.campaignId : null,
     ])
   )
+  const complementAssignments = Object.fromEntries(
+    categorySettings.map(({ category, complementSettings }) => [
+      category.id,
+      complementSettings.complementId,
+    ])
+  )
+  const lastComplementUpdate = categorySettings
+    .map(({ complementSettings }) => complementSettings)
+    .filter((settings) => settings.updatedAt)
+    .sort((a, b) => (a.updatedAt! < b.updatedAt! ? 1 : -1))[0]
+  const panelCategories = categorySettings.map(({ category, members }) => ({
+    id: category.id,
+    title: category.title,
+    collaboratorCount: members.length,
+  }))
   const lastUpdate = categorySettings
     .map(({ settings }) => settings)
     .filter((settings) => settings.updatedAt)
@@ -65,28 +96,59 @@ export default async function AssinaturasPage() {
 
   return (
     <div className="dashboard-page">
-      <header className="dashboard-page__header">
-        <p className="dashboard-page__eyebrow">Tools</p>
-        <h1 className="dashboard-page__title">Assinaturas de E-mail</h1>
-        <p className="dashboard-page__description">
-          Selecione um colaborador para visualizar e copiar a assinatura.
-        </p>
+      <header className="dashboard-page-header">
+        <div>
+          <p className="dashboard-page__eyebrow">Tools</p>
+          <h1 className="dashboard-page__title">Assinaturas de E-mail</h1>
+          <p className="dashboard-page__description">
+            Selecione um colaborador para visualizar e copiar a assinatura.
+          </p>
+        </div>
+
+        <div style={{ display: 'grid', justifyItems: 'end', gap: 6 }}>
+          <a
+            href="/dashboard/tools/assinaturas/exportar"
+            download
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '10px 16px',
+              borderRadius: 8,
+              border: '1px solid #E65C15',
+              background: '#E65C15',
+              color: '#FFFFFF',
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: 'none',
+            }}
+          >
+            Exportar todas (HTML)
+          </a>
+          <span style={{ fontSize: 12, color: '#888888', textAlign: 'right' }}>
+            Um arquivo com todas as assinaturas e os avisos já salvos.
+          </span>
+        </div>
       </header>
 
       <CampaignSettingsPanel
         campaigns={campaignOptions}
-        categories={categorySettings.map(({ category, members }) => ({
-          id: category.id,
-          title: category.title,
-          collaboratorCount: members.length,
-        }))}
+        categories={panelCategories}
         assignments={assignments}
         updatedAt={lastUpdate?.updatedAt}
         updatedBy={lastUpdate?.updatedBy}
       />
 
-      {categorySettings.map(({ category, settings, members }) => {
+      <ComplementSettingsPanel
+        complements={complementOptions}
+        categories={panelCategories}
+        assignments={complementAssignments}
+        updatedAt={lastComplementUpdate?.updatedAt}
+        updatedBy={lastComplementUpdate?.updatedBy}
+      />
+
+      {categorySettings.map(({ category, settings, complementSettings, members }) => {
         const liveCampaign = getLiveCampaign(settings)
+        const liveComplement = getLiveComplement(complementSettings)
 
         return (
           <section key={category.id} style={{ marginBottom: 40 }}>
@@ -95,7 +157,8 @@ export default async function AssinaturasPage() {
             </h2>
             <p style={{ fontSize: 13, color: '#666666', margin: '0 0 12px' }}>
               {members.length} assinaturas · Mensagem no ar:{' '}
-              <strong>{liveCampaign?.title ?? 'nenhuma'}</strong>
+              <strong>{liveCampaign?.title ?? 'nenhuma'}</strong> · Complemento:{' '}
+              <strong>{liveComplement?.title ?? 'nenhum'}</strong>
             </p>
 
             <CollaboratorGrid collaborators={members} />

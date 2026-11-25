@@ -9,5 +9,5 @@ export const SIGNATURE_DIVIDER_WIDTH = '0.75px'
 export const SIGNATURE_FONT_WEIGHT_BOLD = 700
 export const SIGNATURE_FONT_WEIGHT_MEDIUM = 500
 
-export const SIGNATURE_CAMPAIGN_BACKGROUND = '#F5F4F4'
-export const SIGNATURE_CAMPAIGN_ACCENT_COLOR = '#E65C15'
+/** Contorno da faixa de aviso (fundo branco). */
+export const SIGNATURE_CAMPAIGN_BORDER_COLOR = '#F5F4F4'

@@ -75,7 +75,7 @@ export interface CollaboratorSignature {
   website?: string
   company?: string
   address?: Partial<SignatureAddress>
-  /** Quando `true`, este colaborador não exibe campanhas sazonais. */
+  /** Quando `true`, este colaborador não exibe mensagens sazonais nem complementos. */
   hideCampaigns?: boolean
 }
 
@@ -98,6 +98,41 @@ export interface SignatureCampaign {
 
 export type SignatureCampaignStatus = 'active' | 'scheduled' | 'ended'
 
+/**
+ * Complemento visual (imagem, ex.: aviso de férias coletivas/Natal) exibido
+ * abaixo da assinatura. Independente das mensagens sazonais: um departamento
+ * pode exibir as duas coisas. Cadastrado em `complements` no
+ * data/assinaturas.json e ativado por departamento no dashboard.
+ */
+export interface SignatureComplement {
+  id: string
+  title: string
+  /** Caminho relativo a `assets.baseUrl` (ex.: /images/assinaturas/complementos/x.png). */
+  image: string
+  width: number
+  height: number
+  /** Texto alternativo: aparece quando o cliente de e-mail bloqueia imagens. */
+  alt: string
+  /** Link opcional ao clicar na imagem. */
+  href?: string
+  /**
+   * Cor de fundo da célula de 720px que envolve a imagem. Permite usar uma
+   * imagem mais estreita que a assinatura sem deixar o fundo desalinhado.
+   */
+  background?: string
+  startsAt?: string
+  endsAt?: string
+}
+
+/** Complemento escolhido no dashboard para uma categoria (gravado no Clerk). */
+export interface ComplementSettings {
+  complementId: string | null
+  updatedAt?: string
+  updatedBy?: string
+}
+
+export type ComplementSettingsByCategory = Record<string, ComplementSettings>
+
 /** Escolha feita no dashboard para uma categoria (gravada no Clerk). */
 export interface CampaignSettings {
   enabled: boolean
@@ -114,6 +149,7 @@ export interface SignaturesData {
   defaults: SignatureDefaults
   categories: SignatureCategory[]
   campaigns?: SignatureCampaign[]
+  complements?: SignatureComplement[]
   collaborators: CollaboratorSignature[]
 }
 
@@ -133,4 +169,5 @@ export interface ResolvedSignature {
   address: SignatureAddress
   assets: SignatureAssets
   campaign: SignatureCampaign | null
+  complement: SignatureComplement | null
 }
