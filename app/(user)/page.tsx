@@ -1,5 +1,6 @@
 import BannerSlider from '@/components/banner-slider'
 import SwiperEmpresasGrupo from '@/components/swiper-empresas-grupo'
+import EmpresasGrupoSection from '@/components/empresas-grupo-section'
 import { LatestPosts } from '@/components/latest-posts'
 import { GSAPAnimations } from '@/components/gsap-animations'
 import { getPageMetadata } from '@/lib/metadata'
@@ -12,84 +13,7 @@ export default function Home() {
     <main>
       <GSAPAnimations />
       <BannerSlider />
-
-      {/* Seção Sobre o Grupo Azimute */}
-      <section id="sobre" className="pb-10 bg-white smartphone:px-4">
-        <div className="container">
-          <div className="row">
-            <div className="w-full">
-              {/* Cabeçalho da seção */}
-              <div className="text-center mb-16">
-                <span className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4 block">Sobre Nós</span>
-                <h2 className="text-4xl font-bold text-gray-800 mb-6 leading-tight">
-                  Soluções integradas de engenharia
-                </h2>
-                <div className="w-16 h-0.5 bg-gray-300 mx-auto"></div>
-              </div>
-
-              {/* Conteúdo centralizado */}
-              <div className="max-w-4xl mx-auto my-10">
-                <div className="space-y-12">
-                  {/* Texto principal */}
-                  <div className="text-center space-y-6">
-                    <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                      O Grupo Azimute é um grupo empresarial que reúne empresas especializadas em diferentes segmentos, 
-                      unidas por um compromisso comum: entregar soluções de alta qualidade e impulsionar o crescimento sustentável.
-                    </p>
-                    <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                      Com uma visão estratégica e foco na excelência operacional, desenvolvemos projetos que transformam 
-                      ideias em realidade, sempre priorizando a satisfação dos nossos clientes e o desenvolvimento das comunidades onde atuamos.
-                    </p>
-                  </div>
-
-                  {/* Cards de valores */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div className="bg-gray-50 p-6 border border-gray-200 hover:bg-gray-100 transition-colors duration-300 text-center">
-                      <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                      </div>
-                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Inovação</h4>
-                      <p className="text-gray-600 text-sm">Sempre à frente com tecnologias e metodologias modernas</p>
-                    </div>
-
-                    <div className="bg-gray-50 p-6 border border-gray-200 hover:bg-gray-100 transition-colors duration-300 text-center">
-                      <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                      </div>
-                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Qualidade</h4>
-                      <p className="text-gray-600 text-sm">Padrões elevados em todos os nossos projetos e serviços</p>
-                    </div>
-
-                    <div className="bg-gray-50 p-6 border border-gray-200 hover:bg-gray-100 transition-colors duration-300 text-center">
-                      <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                      </div>
-                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Colaboração</h4>
-                      <p className="text-gray-600 text-sm">Trabalho em equipe e parcerias estratégicas</p>
-                    </div>
-
-                    <div className="bg-gray-50 p-6 border border-gray-200 hover:bg-gray-100 transition-colors duration-300 text-center">
-                      <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
-                      </div>
-                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Sustentabilidade</h4>
-                      <p className="text-gray-600 text-sm">Compromisso com o meio ambiente e responsabilidade social</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EmpresasGrupoSection />
 
       {/* Seção Atuação Nacional */}
       <section id="atuacao" className="relative py-28 smartphone:py-16 smartphone:px-4 overflow-hidden">

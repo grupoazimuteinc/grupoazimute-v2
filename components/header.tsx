@@ -89,6 +89,7 @@ export function Header() {
                                         <span className="header-sublink medium-screen:text-[14px] ml-[10px] anchor" data-anchor="o-grupo">O Grupo</span>
 
                                         <ul className="list-dropdown">
+                                            <li><Link href="/sobre-o-grupo-azimute">Sobre o Grupo Azimute</Link></li>
                                             <li><Link href="/azimute-engenharia">Azimute Engenharia</Link></li>
                                             <li><Link href="/azimute-imoveis">Azimute Imóveis</Link></li>
                                             <li><Link href="/azimute-tech">Azimute Tech</Link></li>

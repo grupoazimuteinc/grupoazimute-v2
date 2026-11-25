@@ -14,7 +14,9 @@ export default async function AzimuteEngenharia() {
             <StoriesVideoPlayer videos={['/videos/stories-site-grupo-azimute-engenharia.webm']} />
             <div className="content-interna">
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
-                    <Image src={azimuteEngenhariaInterna} width={ 424 } height={ 110 } alt="" style={{ height: "auto" }} />
+                    <a href="https://www.azimuteengenharia.com.br" target="_blank" rel="noopener noreferrer">
+                        <Image src={azimuteEngenhariaInterna} width={ 424 } height={ 110 } alt="azimuteengenharia.com.br" style={{ height: "auto" }} />
+                    </a>
 
                     <div className="infos-holder">
                         <a href="tel:554734736777" target="_blank">
@@ -75,9 +77,8 @@ export default async function AzimuteEngenharia() {
                         <div className="email">
                             <i className="fas fa-laptop"></i>
 
-                            {/* <a href="https://www.azimuteengenharia.com.br" target="_blank"><strong>azimuteengenharia.com.br</strong></a> */}
 
-                            <strong>azimuteengenharia.com.br</strong>
+                            <a href="https://www.azimuteengenharia.com.br" target="_blank" rel="noopener noreferrer"><strong>azimuteengenharia.com.br</strong></a>
 
                             <span></span>
                         </div>

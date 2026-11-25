@@ -14,7 +14,9 @@ export default async function AzimuteSan() {
             <StoriesVideoPlayer videos={['/videos/stories-site-grupo-azimute-san.webm']} />
             <div className="content-interna">
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                <Image src={azimuteSanInterna} width={ 424 } height={ 110 } alt="" style={{ height: "auto" }} />
+                <a href="https://www.azimutesan.com.br" target="_blank" rel="noopener noreferrer">
+                    <Image src={azimuteSanInterna} width={ 424 } height={ 110 } alt="azimutesan.com.br" style={{ height: "auto" }} />
+                </a>
 
                     <div className="infos-holder">
                         <a href="tel:554734736777" target="_blank">
@@ -75,9 +77,8 @@ export default async function AzimuteSan() {
                         <div className="email">
                             <i className="fas fa-laptop"></i>
 
-                            {/* <a href="https://www.azimutesan.com.br/" target="_blank"><strong>azimutesan.com.br</strong></a> */}
 
-                            <strong>azimutesan.com.br</strong>
+                            <a href="https://www.azimutesan.com.br" target="_blank" rel="noopener noreferrer"><strong>azimutesan.com.br</strong></a>
 
                             <span></span>
                         </div>

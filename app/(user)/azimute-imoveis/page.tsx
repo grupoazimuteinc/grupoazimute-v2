@@ -14,7 +14,9 @@ export default async function AzimuteImoveis() {
             <StoriesVideoPlayer videos={['/videos/stories-site-grupo-azimute-imoveis.webm']} />
             <div className="content-interna">
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                    <Image src={azimuteImoveisInterna} width={ 424 } height={ 110 } alt="" style={{ height: "auto" }} />
+                    <a href="https://www.azimuteimoveis.com.br" target="_blank" rel="noopener noreferrer">
+                        <Image src={azimuteImoveisInterna} width={ 424 } height={ 110 } alt="azimuteimoveis.com.br" style={{ height: "auto" }} />
+                    </a>
 
                     <div className="infos-holder">
                         <a href="tel:554730276777" target="_blank">
@@ -75,9 +77,8 @@ export default async function AzimuteImoveis() {
                         <div className="email">
                             <i className="fas fa-laptop"></i>
 
-                            {/* <a href="https://www.azimuteimoveis.com.br/" target="_blank"><strong>azimuteimoveis.com.br</strong></a> */}
 
-                            <strong>azimuteimoveis.com.br</strong>
+                            <a href="https://www.azimuteimoveis.com.br" target="_blank" rel="noopener noreferrer"><strong>azimuteimoveis.com.br</strong></a>
 
                             <span></span>
                         </div>

@@ -161,6 +161,12 @@ export const pageMetadata = {
     keywords: ['engenharia civil', 'construção', 'imóveis', 'saneamento', 'tecnologia'],
     url: '/',
   },
+  sobre: {
+    title: 'Sobre o Grupo Azimute',
+    description: 'Conheça o Grupo Azimute: um grupo empresarial que reúne empresas especializadas em engenharia, imóveis, tecnologia, saneamento e imagem, unidas pelo compromisso com soluções de alta qualidade.',
+    keywords: ['grupo azimute', 'sobre', 'engenharia', 'empresas do grupo'],
+    url: '/sobre-o-grupo-azimute',
+  },
   azimuteEngenharia: {
     title: 'Azimute Engenharia - Projetos e Construções',
     description: 'Especializada em projetos de engenharia civil, construção e gestão de obras. Soluções completas para o desenvolvimento de empreendimentos residenciais e comerciais.',

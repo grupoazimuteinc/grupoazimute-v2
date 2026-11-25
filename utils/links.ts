@@ -8,6 +8,10 @@ export const links = [
         href: '#',
         children: [
             {
+                title: 'Sobre o Grupo Azimute',
+                href: '/sobre-o-grupo-azimute',
+            },
+            {
                 title: 'Azimute Engenharia',
                 href: '/azimute-engenharia',
             },

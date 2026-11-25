@@ -14,7 +14,9 @@ export default async function Aria() {
             <StoriesVideoPlayer videos={['/videos/stories-site-grupo-azimute-aria.webm']} />
             <div className="content-interna">
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                    <Image src={ariaInterna} width={ 424 } height={ 110 } alt="" style={{ height: "auto" }} />
+                    <a href="https://www.ariatecnologia.com.br" target="_blank" rel="noopener noreferrer">
+                        <Image src={ariaInterna} width={ 424 } height={ 110 } alt="ariatecnologia.com.br" style={{ height: "auto" }} />
+                    </a>
 
                     <div className="infos-holder">
                         <a href="tel:554734736777" target="_blank">
@@ -75,9 +77,8 @@ export default async function Aria() {
                         <div className="email">
                             <i className="fas fa-laptop"></i>
 
-                            {/* <a href="https://www.ariatecnologia.com.br/" target="_blank"><strong>ariatecnologia.com.br</strong></a> */}
 
-                            <strong>ariatecnologia.com.br</strong>
+                            <a href="https://www.ariatecnologia.com.br" target="_blank" rel="noopener noreferrer"><strong>ariatecnologia.com.br</strong></a>
 
                             <span></span>
                         </div>
