@@ -177,7 +177,7 @@
     },
     {
       "slug": "rafael-valdez",
-      "template": "azimute_engenharia",
+      "template": "grupo_azimute",
       "category": "administrativo",
       "active": true,
       "name": "Rafael Valdez",
@@ -191,7 +191,7 @@
     },
     {
       "slug": "renan-morone",
-      "template": "azimute_engenharia",
+      "template": "grupo_azimute",
       "category": "administrativo",
       "active": true,
       "name": "Renan Morone",
@@ -206,7 +206,7 @@
     },
     {
       "slug": "thiago-farias",
-      "template": "azimute_engenharia",
+      "template": "grupo_azimute",
       "category": "administrativo",
       "active": true,
       "name": "Thiago Farias",
@@ -221,7 +221,7 @@
     },
     {
       "slug": "jenifer-schroder-stepic-pacheco",
-      "template": "azimute_engenharia",
+      "template": "grupo_azimute",
       "category": "administrativo",
       "active": true,
       "name": "Jenifer Schröder Stepic Pacheco",
@@ -236,7 +236,7 @@
     },
     {
       "slug": "mirian-wolfgramm-piske",
-      "template": "azimute_engenharia",
+      "template": "grupo_azimute",
       "category": "administrativo",
       "active": true,
       "name": "Mirian Wolfgramm Piske",
@@ -250,7 +250,7 @@
     },
     {
       "slug": "jessica-rodrigues-alflen-selonke",
-      "template": "azimute_engenharia",
+      "template": "grupo_azimute",
       "category": "administrativo",
       "active": true,
       "name": "Jéssica Rodrigues Alflen Selonke",
@@ -264,7 +264,7 @@
     },
     {
       "slug": "gustavo-dos-santos-moreira",
-      "template": "azimute_engenharia",
+      "template": "grupo_azimute",
       "category": "administrativo",
       "active": true,
       "name": "Gustavo dos Santos Moreira",
@@ -278,7 +278,7 @@
     },
     {
       "slug": "nathaly-vitoria",
-      "template": "azimute_engenharia",
+      "template": "grupo_azimute",
       "category": "administrativo",
       "active": true,
       "name": "Nathaly Vitoria",
@@ -292,7 +292,7 @@
     },
     {
       "slug": "kauane-rafaella",
-      "template": "azimute_engenharia",
+      "template": "grupo_azimute",
       "category": "administrativo",
       "active": true,
       "name": "Kauane Rafaella",
