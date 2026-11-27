@@ -395,10 +395,12 @@ footer a:hover { color: #404040; text-decoration: underline !important; }
 	visibility: hidden;
 	opacity: 0;
 	transform: translateY(8px);
-	pointer-events: none;
-	/* Ao sair: espera um pouco antes de esconder, para o mouse alcançar a lista */
-	transition: opacity .2s ease, transform .2s ease, visibility 0s linear .45s;
-	transition-delay: .25s, .25s, .45s;
+	z-index: 50;
+	/* Ao sair: espera antes de esconder, para o mouse alcançar a lista.
+	   Não usar pointer-events aqui: ele não transiciona e bloquearia a lista
+	   na hora, mesmo ainda visível. visibility já impede interação quando oculta. */
+	transition: opacity .2s ease, transform .2s ease, visibility 0s linear;
+	transition-delay: .35s, .35s, .55s;
 }
 /* Ponte invisível entre o item do menu e a lista, evitando perder o hover no trajeto */
 .links .list-dropdown::before {
@@ -406,15 +408,14 @@ footer a:hover { color: #404040; text-decoration: underline !important; }
 	position: absolute;
 	left: -30px;
 	right: 0;
-	top: -20px;
-	height: 20px;
+	top: -25px;
+	height: 25px;
 }
 .links span:hover .list-dropdown,
 .links span:focus-within .list-dropdown {
 	visibility: visible;
 	opacity: 1;
 	transform: translateY(0);
-	pointer-events: auto;
 	transition-delay: 0s, 0s, 0s;
 }
 .links .list-dropdown li {
