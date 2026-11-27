@@ -65,7 +65,7 @@ export function RelatedPosts({ currentPostId, categories, limit = 3 }: RelatedPo
 
   if (loading) {
     return (
-      <section className="py-16 bg-gray-50 mt-12">
+      <section className="py-16 bg-white mt-12">
         <div className="container">
           <div className="row">
             <div className="w-full">
@@ -102,7 +102,7 @@ export function RelatedPosts({ currentPostId, categories, limit = 3 }: RelatedPo
   }
 
   return (
-    <section className="py-16 bg-gray-50 mt-12">
+    <section className="py-16 bg-white mt-12">
       <div className="container">
         <div className="row">
           <div className="w-full">
